@@ -1,0 +1,84 @@
+{
+  "trace_type": "real_agent_single_node_trace",
+  "node_id": "brief_parser",
+  "trace_id": null,
+  "trace_id_status": "not_provided_by_runtime",
+  "artifact_trace_key": "8e3aac1f91f8fd5297e257449f9f07c01d1c5d69dec920a06e8150eaa0136a00",
+  "run_id": "8785b62a-3858-434f-b65c-d810a98dc922",
+  "session_id": "5a865079-8095-4bc0-8225-22cfd08ee8b1",
+  "source_session_file": "private_session_log_not_published",
+  "provider": "openai",
+  "model": "gpt-5.5",
+  "started_at": "2026-07-21T06:03:31.944Z",
+  "ended_at": "2026-07-21T06:03:38.302Z",
+  "duration_ms": 6544,
+  "status": "ok",
+  "event_count": 4,
+  "events": [
+    {
+      "sequence": 1,
+      "event_type": "model_call_start",
+      "timestamp": "2026-07-21T06:03:31.944Z",
+      "input_ref": null,
+      "output_ref": "ec2402f9",
+      "usage": "not_available",
+      "stop_reason": "not_available",
+      "error": null,
+      "retry_count": 0
+    },
+    {
+      "sequence": 2,
+      "event_type": "user_input",
+      "timestamp": "2026-07-21T06:03:31.981Z",
+      "input_ref": "97c2219d",
+      "output_ref": null,
+      "usage": "not_available",
+      "stop_reason": "not_available",
+      "error": null,
+      "retry_count": 0
+    },
+    {
+      "sequence": 3,
+      "event_type": "model_call_end",
+      "timestamp": "2026-07-21T06:03:38.302Z",
+      "input_ref": "97c2219d",
+      "output_ref": "6df5533e",
+      "usage": {
+        "input": 18300,
+        "output": 119,
+        "reasoningTokens": 61,
+        "total": null
+      },
+      "stop_reason": "stop",
+      "error": null,
+      "retry_count": 0
+    },
+    {
+      "sequence": 4,
+      "event_type": "assistant_output",
+      "timestamp": "2026-07-21T06:03:38.302Z",
+      "input_ref": "97c2219d",
+      "output_ref": "6df5533e",
+      "usage": {
+        "input": 18300,
+        "output": 119,
+        "reasoningTokens": 61,
+        "total": null
+      },
+      "stop_reason": "stop",
+      "error": null,
+      "retry_count": 0
+    }
+  ],
+  "tool_call_count": 0,
+  "error_count": 0,
+  "retry_count": 0,
+  "cost_status": "not_available",
+  "release_gates": {
+    "final_marketing_copy": "blocked",
+    "final_image_prompt": "blocked",
+    "image_generation": "blocked",
+    "frontend_page": "blocked",
+    "public_release": "blocked"
+  }
+}

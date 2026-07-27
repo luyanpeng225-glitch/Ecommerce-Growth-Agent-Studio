@@ -1,0 +1,561 @@
+{
+  "meta": {
+    "artifact_name": "growth_evaluation_report",
+    "artifact_version": "0.1.0",
+    "producer": "Growth Evaluation Agent",
+    "workflow_step": 14,
+    "workflow_version": "V2",
+    "brief_id": "brief_demo_action_camera_001",
+    "project_name": "E-commerce Growth Agent Studio",
+    "project_name_cn": "电商增长 Agent 工作台",
+    "product_name": "运动相机",
+    "status": "needs_review",
+    "created_at": "2026-07-15T20:54:00+08:00",
+    "summary": "Step 14 evaluated workflow capability, data quality, gate correctness, risk propagation, and issue attribution. Because there is only one completed demo case and several metrics are mock, estimated, or not available, the overall evaluation status is needs_review rather than pass."
+  },
+  "evaluation_scope": {
+    "evaluates": [
+      "Agent workflow completion and artifact structure",
+      "Planner routing and downstream handoff quality",
+      "Brand Compliance risk detection and blocked gate propagation",
+      "Human Approval inheritance and release gate correctness",
+      "Metric data availability and source classification",
+      "Failure taxonomy, issue attribution, and iteration recommendations"
+    ],
+    "does_not_evaluate_as_real_business_results": [
+      "CTR uplift",
+      "CVR uplift",
+      "GMV growth",
+      "traffic growth",
+      "conversion uplift"
+    ],
+    "not_responsible_for": [
+      "final marketing copy",
+      "final image prompt",
+      "image generation",
+      "frontend page",
+      "public release",
+      "V2 Final Report Generator"
+    ],
+    "source_files_read": [
+      "PROJECT_MEMORY_FOR_OPENCLAW.md",
+      "README.md",
+      "FILE_INDEX.md",
+      "workflow/agent_workflow.md",
+      "workflow/agent_io_contracts.md",
+      "outputs/planner_execution_plan.json",
+      "outputs/brand_compliance_report.json",
+      "outputs/human_approval_record.json",
+      "outputs/growth_metrics_plan.json",
+      "outputs/final_creative_package_report.json",
+      "docs/evaluation_metrics_test_plan.md",
+      "data/evaluation_metrics_sample.csv",
+      "data/audit_log_sample.json"
+    ],
+    "step_boundary_confirmation": {
+      "steps_1_to_13_completed": true,
+      "step_13_status": "needs_revision",
+      "structured_planning_can_enter_evaluation": true,
+      "final_generation_allowed": false,
+      "public_release_allowed": false,
+      "demo_product_name_rule": "Use only 运动相机 as the demo product name."
+    }
+  },
+  "data_quality_summary": {
+    "overall_data_quality": "partial",
+    "completed_demo_cases": 1,
+    "pending_demo_cases": 2,
+    "measured_sources_available": [
+      "Current workspace artifact existence and JSON parse validation",
+      "Human Approval release gate fields",
+      "Brand Compliance risk item list",
+      "Mock audit log event count"
+    ],
+    "mock_or_estimated_sources_available": [
+      "data/evaluation_metrics_sample.csv",
+      "docs/evaluation_metrics_test_plan.md"
+    ],
+    "not_available_sources": [
+      "real campaign delivery logs",
+      "real customer CTR/CVR/GMV/traffic/conversion results",
+      "manual field-level review annotations",
+      "unsupported-claim audit sample with counted denominator",
+      "real per-node runtime logs for Steps 1-13"
+    ],
+    "data_source_type_rules": {
+      "measured": "Supported by current artifact presence, JSON validation, explicit release gate values, or counted records in current files.",
+      "derived_from_mock": "Calculated from demo CSV or mock audit log, not production data.",
+      "estimated": "Taken from demo baseline assumptions; must not be called real efficiency improvement.",
+      "not_available": "No reliable denominator or real annotation exists yet."
+    }
+  },
+  "benchmark_cases": [
+    {
+      "case_id": "case_001",
+      "product_name": "运动相机",
+      "category": "智能影像设备",
+      "status": "completed_demo",
+      "mvp_nodes_completed": "11/11",
+      "v2_governance_coverage": {
+        "planner_agent": "completed",
+        "human_approval_node": "completed_needs_revision",
+        "growth_evaluation_agent": "completed_in_this_step"
+      },
+      "data_source_type": "derived_from_mock",
+      "notes": "唯一已执行完整 Demo；11/11 仅代表原 MVP 核心节点完成率。"
+    },
+    {
+      "case_id": "case_002",
+      "product_name": "便携投影仪",
+      "category": "消费电子",
+      "status": "pending",
+      "mvp_nodes_completed": "0/11",
+      "v2_governance_coverage": {
+        "planner_agent": "not_run",
+        "human_approval_node": "not_run",
+        "growth_evaluation_agent": "not_run"
+      },
+      "data_source_type": "not_available",
+      "notes": "未提供 Brief，不能伪造结果。"
+    },
+    {
+      "case_id": "case_003",
+      "product_name": "美妆精华",
+      "category": "美妆个护",
+      "status": "pending",
+      "mvp_nodes_completed": "0/11",
+      "v2_governance_coverage": {
+        "planner_agent": "not_run",
+        "human_approval_node": "not_run",
+        "growth_evaluation_agent": "not_run"
+      },
+      "data_source_type": "not_available",
+      "notes": "未提供 Brief，不能伪造功效宣称风险测评结果。"
+    }
+  ],
+  "metric_results": [
+    {
+      "metric_id": "metric_001",
+      "metric_name": "任务完成率",
+      "value": "11/11 for original MVP core nodes; V2 governance nodes 3/3 covered for the 运动相机 demo after Step 14",
+      "data_source_type": "derived_from_mock",
+      "calculation_basis": "CSV case_001 has completed_nodes=11 and expected_nodes=11; Planner/Human Approval/Growth Evaluation are counted separately as V2 governance coverage.",
+      "interpretation": "原 MVP 单案例跑通；不能外推为跨品类稳定。"
+    },
+    {
+      "metric_id": "metric_002",
+      "metric_name": "平均耗时",
+      "value": "90-150 minutes Agent workflow estimate vs 360-600 minutes manual baseline estimate",
+      "data_source_type": "estimated",
+      "calculation_basis": "CSV demo estimates only; no real timestamped execution logs for all nodes.",
+      "interpretation": "只能作为作品集假设，不能写成真实效率提升。"
+    },
+    {
+      "metric_id": "metric_003",
+      "metric_name": "人工修改率",
+      "value": null,
+      "data_source_type": "not_available",
+      "calculation_basis": "human_edit_rate_mock is TBD and no field-level manual annotation exists.",
+      "interpretation": "需要人工抽检字段后计算。"
+    },
+    {
+      "metric_id": "metric_004",
+      "metric_name": "幻觉率",
+      "value": null,
+      "data_source_type": "not_available",
+      "calculation_basis": "hallucination_rate_mock is TBD; unsupported_claim numerator and claim denominator not yet annotated.",
+      "interpretation": "当前只能说明 blocked gate 控制了无证据声明风险，不能量化幻觉率。"
+    },
+    {
+      "metric_id": "metric_005",
+      "metric_name": "合规阻断率",
+      "value": "6 high-risk blocked/mock CSV items; 2/7 Human Approval items blocked; 8 Brand Compliance risk items identified",
+      "data_source_type": "derived_from_mock",
+      "calculation_basis": "CSV compliance_blocked_items=6; Human Approval blocked items=2/7; Brand Compliance risk items=8.",
+      "interpretation": "可证明阻断机制存在，但跨案例阻断率仍需更多样本。"
+    },
+    {
+      "metric_id": "metric_006",
+      "metric_name": "结构化输出率",
+      "value": "Step 14 produced JSON and Markdown; prior completed nodes have structured artifacts recorded in FILE_INDEX",
+      "data_source_type": "measured",
+      "calculation_basis": "Current workspace artifact creation and index inspection.",
+      "interpretation": "结构化输出习惯良好；仍需后续 schema 自动化测试覆盖。"
+    },
+    {
+      "metric_id": "metric_007",
+      "metric_name": "可追踪率",
+      "value": "audit log sample has 3 trace events; current reports preserve source_files/input artifacts",
+      "data_source_type": "derived_from_mock",
+      "calculation_basis": "data/audit_log_sample.json contains 3 mock audit events and current artifacts include inputs_used/source_files.",
+      "interpretation": "具备可追踪设计；不是生产级审计证明。"
+    },
+    {
+      "metric_id": "metric_008",
+      "metric_name": "审批闸口正确率",
+      "value": "Release gates correctly inherited: structured planning approved; final copy/prompt/image/public release blocked",
+      "data_source_type": "measured",
+      "calculation_basis": "outputs/human_approval_record.json release_gates and this report release_gates match required states.",
+      "interpretation": "审批继承正确。"
+    },
+    {
+      "metric_id": "metric_009",
+      "metric_name": "风险传递完整率",
+      "value": "Critical risk classes from Brand Compliance and Human Approval are present in issue_list and release gates",
+      "data_source_type": "measured",
+      "calculation_basis": "Brand risks cover technical/performance claims, AI effect, business result claims, asset authorization, competitor comparison, visual exaggeration, and positioning.",
+      "interpretation": "核心风险已传递；仍需字段级 trace matrix 自动化。"
+    },
+    {
+      "metric_id": "metric_010",
+      "metric_name": "失败原因可解释性",
+      "value": "9 failure categories defined; issue list includes evidence, root cause, actions, owner and verification method",
+      "data_source_type": "measured",
+      "calculation_basis": "failure_taxonomy and issue_list in this artifact.",
+      "interpretation": "具备解释框架；需要更多失败样本验证稳定性。"
+    }
+  ],
+  "rubric_results": [
+    {
+      "rubric_id": "rubric_001",
+      "dimension": "输入完整性",
+      "score": 0.78,
+      "score_scale": "0-1",
+      "data_source_type": "measured",
+      "evidence": "Required Step 14 inputs are present; proof materials and asset authorization are missing.",
+      "status": "needs_review"
+    },
+    {
+      "rubric_id": "rubric_002",
+      "dimension": "Planner 路由正确性",
+      "score": 0.86,
+      "score_scale": "0-1",
+      "data_source_type": "measured",
+      "evidence": "Planner routes Brand Compliance before Human Approval and Growth Evaluation after compliance and approval.",
+      "status": "pass_with_caution"
+    },
+    {
+      "rubric_id": "rubric_003",
+      "dimension": "上下游字段交接完整性",
+      "score": 0.8,
+      "score_scale": "0-1",
+      "data_source_type": "measured",
+      "evidence": "Planner, Human Approval, and Brand Compliance expose handoff fields; some future_outputs labels remain historical placeholders.",
+      "status": "needs_review"
+    },
+    {
+      "rubric_id": "rubric_004",
+      "dimension": "声明来源可追踪性",
+      "score": 0.72,
+      "score_scale": "0-1",
+      "data_source_type": "measured",
+      "evidence": "Claim source maps and risk source fields exist, but no field-level automated trace matrix yet.",
+      "status": "needs_review"
+    },
+    {
+      "rubric_id": "rubric_005",
+      "dimension": "合规风险识别与传递",
+      "score": 0.9,
+      "score_scale": "0-1",
+      "data_source_type": "measured",
+      "evidence": "Brand Compliance identified 8 risk items and Human Approval inherited critical blocked gates.",
+      "status": "pass_with_caution"
+    },
+    {
+      "rubric_id": "rubric_006",
+      "dimension": "Human Approval 闸口正确性",
+      "score": 0.92,
+      "score_scale": "0-1",
+      "data_source_type": "measured",
+      "evidence": "Step 13 status is needs_revision, final_generation_allowed=false, public_release_allowed=false.",
+      "status": "pass_with_caution"
+    },
+    {
+      "rubric_id": "rubric_007",
+      "dimension": "JSON / Markdown 产物完整性",
+      "score": 0.86,
+      "score_scale": "0-1",
+      "data_source_type": "measured",
+      "evidence": "Step 14 JSON/Markdown are generated; JSON validation is required after write.",
+      "status": "pass_with_caution"
+    },
+    {
+      "rubric_id": "rubric_008",
+      "dimension": "blocked 内容是否被正确阻止",
+      "score": 0.95,
+      "score_scale": "0-1",
+      "data_source_type": "measured",
+      "evidence": "Final marketing copy, final image prompt, image generation and public release remain blocked.",
+      "status": "pass_with_caution"
+    },
+    {
+      "rubric_id": "rubric_009",
+      "dimension": "失败归因是否清晰",
+      "score": 0.82,
+      "score_scale": "0-1",
+      "data_source_type": "measured",
+      "evidence": "Failure taxonomy and issue list contain root causes and verification methods.",
+      "status": "needs_review"
+    },
+    {
+      "rubric_id": "rubric_010",
+      "dimension": "工作流是否可复现",
+      "score": 0.7,
+      "score_scale": "0-1",
+      "data_source_type": "derived_from_mock",
+      "evidence": "Runbook, CSV and audit log exist; only one completed case is available.",
+      "status": "needs_review"
+    }
+  ],
+  "workflow_gate_checks": [
+    {
+      "gate_id": "gate_001",
+      "gate_name": "Step 13 inheritance",
+      "expected": "needs_revision inherited",
+      "actual": "needs_revision",
+      "status": "pass",
+      "evidence": "outputs/human_approval_record.json"
+    },
+    {
+      "gate_id": "gate_002",
+      "gate_name": "Structured planning can enter evaluation",
+      "expected": true,
+      "actual": true,
+      "status": "pass",
+      "evidence": "Human Approval approval_summary"
+    },
+    {
+      "gate_id": "gate_003",
+      "gate_name": "Final generation remains blocked",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "evidence": "Human Approval approval_summary"
+    },
+    {
+      "gate_id": "gate_004",
+      "gate_name": "Public release remains blocked",
+      "expected": false,
+      "actual": false,
+      "status": "pass",
+      "evidence": "Human Approval approval_summary"
+    },
+    {
+      "gate_id": "gate_005",
+      "gate_name": "No final creative generation in Step 14",
+      "expected": "no final copy/prompt/image/frontend",
+      "actual": "only evaluation artifacts generated",
+      "status": "pass",
+      "evidence": "Step 14 output file list"
+    }
+  ],
+  "failure_taxonomy": [
+    {
+      "failure_type": "input_missing",
+      "definition": "Required proof, authorization, Brief field, or sample data is missing.",
+      "current_observation": "Proof and asset authorization remain missing."
+    },
+    {
+      "failure_type": "routing_error",
+      "definition": "Planner routes nodes in an unsafe or dependency-violating order.",
+      "current_observation": "No current routing error found; keep monitoring Image Prompt placement after approval."
+    },
+    {
+      "failure_type": "unsupported_claim",
+      "definition": "A claim lacks Brief, proof, or upstream evidence.",
+      "current_observation": "Technical/performance and AI editing claims require evidence before final generation."
+    },
+    {
+      "failure_type": "risk_propagation_failure",
+      "definition": "Risk identified upstream is not inherited by downstream gates.",
+      "current_observation": "No critical propagation failure found; release gates are inherited."
+    },
+    {
+      "failure_type": "compliance_gate_failure",
+      "definition": "Blocked compliance item is incorrectly allowed into final generation or public release.",
+      "current_observation": "No current gate failure found; gates remain blocked."
+    },
+    {
+      "failure_type": "human_approval_failure",
+      "definition": "Human approval is missing, fabricated, or ignored.",
+      "current_observation": "No fabricated reviewer details; real approval remains pending."
+    },
+    {
+      "failure_type": "artifact_schema_failure",
+      "definition": "Required JSON or Markdown artifact is missing or invalid.",
+      "current_observation": "Step 14 JSON must be validated after generation."
+    },
+    {
+      "failure_type": "traceability_failure",
+      "definition": "Claim, risk, or decision cannot be traced to upstream artifacts.",
+      "current_observation": "Traceability exists at artifact level; field-level trace matrix is incomplete."
+    },
+    {
+      "failure_type": "insufficient_test_data",
+      "definition": "Too few benchmark cases or annotations to support stable conclusions.",
+      "current_observation": "Only 运动相机 is completed; two benchmark cases are pending."
+    }
+  ],
+  "issue_list": [
+    {
+      "issue_id": "issue_001",
+      "severity": "high",
+      "affected_node": "Benchmark dataset",
+      "evidence": "Only case_001 运动相机 is completed; 便携投影仪 and 美妆精华 are pending.",
+      "root_cause": "Insufficient cross-category test data.",
+      "product_or_workflow_action": "Prepare two additional Briefs and run the same node sequence before claiming stability.",
+      "model_or_prompt_action": "Add benchmark-case status checks to Growth Evaluation prompt.",
+      "owner_role": "电商运营",
+      "verification_method": "Confirm new case artifacts and compare metric_results across cases."
+    },
+    {
+      "issue_id": "issue_002",
+      "severity": "high",
+      "affected_node": "Human Approval Node / Brand Compliance Agent",
+      "evidence": "final_generation_allowed=false; public_release_allowed=false; proof and asset authorization missing.",
+      "root_cause": "Evidence and authorization are not provided.",
+      "product_or_workflow_action": "Collect product proof, usage constraints, asset licenses and real approval records.",
+      "model_or_prompt_action": "Keep blocked gates explicit in all downstream prompts.",
+      "owner_role": "法务/合规 + 设计负责人",
+      "verification_method": "Check human_approval_record release_gates and authorization attachments."
+    },
+    {
+      "issue_id": "issue_003",
+      "severity": "medium",
+      "affected_node": "Growth Evaluation Agent",
+      "evidence": "human_edit_rate_mock and hallucination_rate_mock are TBD in CSV.",
+      "root_cause": "No manual field annotation dataset exists.",
+      "product_or_workflow_action": "Create a field-level review sheet with pass/minor_edit/major_edit/blocked and claim-source labels.",
+      "model_or_prompt_action": "Require denominator and numerator before computing rates.",
+      "owner_role": "内容负责人",
+      "verification_method": "Recalculate human_edit_rate and hallucination_rate from annotated samples."
+    },
+    {
+      "issue_id": "issue_004",
+      "severity": "medium",
+      "affected_node": "Traceability layer",
+      "evidence": "Audit log has 3 mock events; reports include source files, but no automated field-level trace matrix.",
+      "root_cause": "Traceability is documented manually at artifact level.",
+      "product_or_workflow_action": "Add trace_id and source_field to every claim/risk/recommendation row.",
+      "model_or_prompt_action": "Update prompts to emit claim_trace_matrix.",
+      "owner_role": "产品经理 / Workflow Owner",
+      "verification_method": "Sample 20 claims and verify source_field links."
+    },
+    {
+      "issue_id": "issue_005",
+      "severity": "medium",
+      "affected_node": "Metrics reporting",
+      "evidence": "Average time is estimated; no real per-node timestamps for Steps 1-13.",
+      "root_cause": "Demo lacks runtime instrumentation.",
+      "product_or_workflow_action": "Add start/end timestamps and operator time notes to audit log for every node.",
+      "model_or_prompt_action": "Mark all time metrics as estimated until timestamp logs exist.",
+      "owner_role": "电商运营",
+      "verification_method": "Compare audit timestamps with report metric source types."
+    }
+  ],
+  "human_approval_inheritance": {
+    "source_artifact": "outputs/human_approval_record.json",
+    "overall_decision": "needs_revision",
+    "planning_artifacts_can_enter_evaluation": true,
+    "final_generation_allowed": false,
+    "public_release_allowed": false,
+    "reviewer_name": null,
+    "human_signature": "pending",
+    "reviewed_at": null,
+    "approval_item_counts": {
+      "approved": 3,
+      "needs_revision": 2,
+      "blocked": 2
+    },
+    "inherited_blocked_items": [
+      "missing proof for image quality, waterproof, stabilization, durability, and AI editing claims",
+      "missing product image, App screenshot, scene asset, Logo, and likeness authorization",
+      "risk of turning CTR, CVR, GMV, traffic, or conversion into outcome promises",
+      "final copy, final image prompt, image generation, and public release remain blocked"
+    ]
+  },
+  "release_gates": {
+    "structured_planning_package": "approved",
+    "final_marketing_copy": "blocked",
+    "final_image_prompt": "blocked",
+    "image_generation": "blocked",
+    "public_release": "blocked"
+  },
+  "iteration_recommendations": [
+    {
+      "recommendation_id": "rec_001",
+      "priority": "high",
+      "target": "Benchmark data",
+      "recommendation": "Run 便携投影仪 and 美妆精华 through the same workflow before claiming cross-category stability."
+    },
+    {
+      "recommendation_id": "rec_002",
+      "priority": "high",
+      "target": "Approval and compliance",
+      "recommendation": "Collect proof materials, usage-condition boundaries, and asset authorization before any final generation."
+    },
+    {
+      "recommendation_id": "rec_003",
+      "priority": "medium",
+      "target": "Metric instrumentation",
+      "recommendation": "Add per-node start/end timestamps and human review annotations to calculate average time, human edit rate, and hallucination rate."
+    },
+    {
+      "recommendation_id": "rec_004",
+      "priority": "medium",
+      "target": "Prompt design",
+      "recommendation": "Require every claim, risk, and recommendation to include source artifact and source field."
+    },
+    {
+      "recommendation_id": "rec_005",
+      "priority": "medium",
+      "target": "Workflow documentation",
+      "recommendation": "Update V2 docs so Growth Evaluation outputs are distinct from Step 10 Growth Metrics outputs."
+    }
+  ],
+  "reproducibility_record": {
+    "reproducible_now": "partial",
+    "workspace": "/Users/mabook/.openclaw/workspace",
+    "required_inputs": [
+      "data/sample_brief.json",
+      "outputs/planner_execution_plan.json",
+      "outputs/brand_compliance_report.json",
+      "outputs/human_approval_record.json",
+      "data/evaluation_metrics_sample.csv",
+      "data/audit_log_sample.json"
+    ],
+    "commands_or_checks": [
+      "python3 -m json.tool outputs/growth_evaluation_report.json"
+    ],
+    "limitations": [
+      "Only one completed demo case.",
+      "Mock audit log is not production evidence.",
+      "No real campaign performance data.",
+      "No field-level manual review annotation yet."
+    ]
+  },
+  "downstream_handoff": {
+    "next_step": "V2 Final Report Generator",
+    "handoff_allowed": true,
+    "handoff_boundary": "Final Report Generator may summarize Step 14 evaluation results, but must not generate final marketing copy, final image prompt, images, frontend page, or public release assets.",
+    "fields_to_pass": [
+      "meta.status",
+      "benchmark_cases",
+      "metric_results",
+      "rubric_results",
+      "workflow_gate_checks",
+      "failure_taxonomy",
+      "issue_list",
+      "human_approval_inheritance",
+      "release_gates",
+      "iteration_recommendations",
+      "reproducibility_record"
+    ],
+    "blocked_fields_to_preserve": [
+      "final_marketing_copy",
+      "final_image_prompt",
+      "image_generation",
+      "public_release"
+    ]
+  }
+}

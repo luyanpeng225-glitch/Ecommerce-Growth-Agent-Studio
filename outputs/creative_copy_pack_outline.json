@@ -1,0 +1,586 @@
+{
+  "artifact_name": "creative_copy_pack_outline",
+  "artifact_version": "0.1.0",
+  "brief_id": "brief_demo_action_camera_001",
+  "producer": "Creative Copy Agent",
+  "status": "needs_review",
+  "confidence": 0.86,
+  "inputs_used": [
+    "sample_brief.json",
+    "outputs/standardized_brief_summary.json",
+    "outputs/audience_insight.json",
+    "outputs/selling_point_matrix.json",
+    "outputs/platform_strategy_plan.json",
+    "workflow/agent_io_contracts.md",
+    "workflow/agent_workflow.md"
+  ],
+  "summary": "Creative Copy Agent generated a structured creative copy package outline for downstream agents. It defines module specifications, field sources, claim boundaries, proof waitlist, compliance review gates, and downstream handoff fields without generating final copy, platform scripts, live talking points, image prompts, or frontend assets.",
+  "data": {
+    "agent_contract": {
+      "responsibility_boundary": [
+        "Translate upstream Agent artifacts into copy module specifications.",
+        "Define required modules for platform-specific content formats without writing final copy.",
+        "Map each module to source fields, selling points, proof requirements, risk boundaries, and review status.",
+        "Prepare structured handoff fields for Brand Compliance, Image Prompt, Growth Metrics, and Creative Package Reporter."
+      ],
+      "not_responsible_for": [
+        "final marketing copy",
+        "xiaohongshu body text",
+        "douyin script body",
+        "live selling talk track",
+        "image prompt",
+        "frontend page",
+        "public-facing creative approval"
+      ],
+      "upstream_artifacts_received": [
+        "outputs/standardized_brief_summary.json",
+        "outputs/audience_insight.json",
+        "outputs/selling_point_matrix.json",
+        "outputs/platform_strategy_plan.json"
+      ],
+      "downstream_consumers": [
+        "Brand Compliance Agent",
+        "Image Prompt Skill",
+        "Growth Metrics Agent",
+        "Creative Package Reporter"
+      ]
+    },
+    "upstream_inheritance": {
+      "brief_parser_risk_fields": [
+        "brand_name",
+        "core_features[].proof",
+        "specs.waterproof",
+        "specs.stabilization",
+        "core_features[4].feature",
+        "positioning_statement",
+        "availability.launch_date"
+      ],
+      "audience_assumptions_to_validate": [
+        "户外运动爱好者可能优先被防抖、防水和固定方式证明打动。",
+        "旅行内容创作者会重视一人出行、多平台复用和轻量剪辑流程。",
+        "数码发烧友会通过样片、参数解释和真实评测建立购买信心。",
+        "认知到转化的主路径可以从内容平台种草过渡到天猫、京东等承接渠道。"
+      ],
+      "selling_point_claim_risks": [
+        "高清运动视频不得表达为行业第一、画质最好或全面超越手机。",
+        "运动防抖不得表达为百分百稳定、任何运动都不抖或不会产生废片。",
+        "裸机防水与耐用机身必须补充等级、深度、时长和使用条件。",
+        "AI 自动剪辑不得表达为自动生成爆款或保证内容表现。",
+        "竞品比较必须保持类目级，不攻击具体品牌。"
+      ],
+      "platform_strategy_constraints": [
+        "抖音不生成脚本正文，防抖和 AI 剪辑表达需保留证明材料。",
+        "小红书不生成笔记正文，不得承诺普通用户必然获得专业大片效果。",
+        "天猫不生成商品页文案，参数和防水耐用表达必须有证据。",
+        "京东不生成问答或导购正文，类目对比不得攻击具体品牌。"
+      ],
+      "compliance_constraints": {
+        "do_not_claim": [
+          "不要声称行业第一，除非有权威证明",
+          "不要使用绝对化表述，如最好、唯一、百分百稳定",
+          "不要攻击具体竞品品牌",
+          "不要承诺任何场景下都不会损坏",
+          "不要暗示普通用户无需学习即可达到专业摄影师水平"
+        ],
+        "compliance_rules": [
+          "避免绝对化广告语",
+          "涉及防水、防摔、续航等能力时需要保留条件描述",
+          "不得攻击具体竞品品牌",
+          "不得暗示使用产品即可保证获得商业收益",
+          "图片 Prompt 不生成真实品牌 Logo 或未经授权的名人形象"
+        ],
+        "negative_constraints": [
+          "不要把项目包装成单一品牌专属工具",
+          "不要只强调参数，必须转化为用户利益点",
+          "不要生成夸张失真的户外极限画面",
+          "不要过度承诺 AI 自动剪辑效果",
+          "不要忽略企业电商团队的协作和审核需求"
+        ]
+      }
+    },
+    "creative_copy_pack_outline": [
+      {
+        "content_type": "抖音短视频脚本结构",
+        "platform": "抖音",
+        "modules": [
+          "开场场景钩子模块",
+          "用户痛点呈现模块",
+          "主卖点解释模块",
+          "证明材料占位模块",
+          "场景结果说明模块",
+          "转化动作占位模块",
+          "合规备注模块"
+        ],
+        "do_not_generate": [
+          "脚本正文",
+          "标题正文",
+          "口播台词",
+          "直播话术"
+        ],
+        "primary_upstream_fields": [
+          "platform_strategy_plan.channel_role_map[抖音]",
+          "selling_point_matrix.core_selling_point_priority",
+          "audience_insight.audience_segments",
+          "selling_point_matrix.proof_requirements",
+          "platform_strategy_plan.metrics_framework"
+        ],
+        "selling_point_boundaries": [
+          "防抖必须带测试条件或样片证明",
+          "AI 剪辑只能作为效率辅助",
+          "不得承诺直播间成交或内容表现"
+        ],
+        "handoff_status": "requires_brand_compliance_review"
+      },
+      {
+        "content_type": "小红书种草笔记结构",
+        "platform": "小红书",
+        "modules": [
+          "场景身份引入模块",
+          "使用困扰说明模块",
+          "内容创作流程模块",
+          "卖点与场景对应模块",
+          "素材证明占位模块",
+          "收藏/搜索意图占位模块",
+          "合规备注模块"
+        ],
+        "do_not_generate": [
+          "笔记正文",
+          "标题正文",
+          "标签正文",
+          "达人口吻正文"
+        ],
+        "primary_upstream_fields": [
+          "platform_strategy_plan.channel_role_map[小红书]",
+          "audience_insight.usage_scenario_interest_map",
+          "selling_point_matrix.audience_selling_point_fit",
+          "selling_point_matrix.claim_risk_notes"
+        ],
+        "selling_point_boundaries": [
+          "不得承诺普通用户必然获得专业大片效果",
+          "多平台复用不得等同于流量或商业结果",
+          "旅行内容创作洞察仍是待验证假设"
+        ],
+        "handoff_status": "requires_brand_compliance_review"
+      },
+      {
+        "content_type": "天猫详情页文案结构",
+        "platform": "天猫",
+        "modules": [
+          "商品定位模块",
+          "核心卖点排序模块",
+          "规格与证明模块",
+          "场景化利益点模块",
+          "套装与权益占位模块",
+          "购买疑虑回应模块",
+          "合规条件说明模块"
+        ],
+        "do_not_generate": [
+          "商品标题正文",
+          "详情页正文",
+          "主图文案",
+          "促销权益文案"
+        ],
+        "primary_upstream_fields": [
+          "sample_brief.bundles",
+          "sample_brief.availability",
+          "selling_point_matrix.feature_benefit_mapping",
+          "platform_strategy_plan.channel_role_map[天猫]",
+          "platform_strategy_plan.human_in_the_loop_review"
+        ],
+        "selling_point_boundaries": [
+          "防水、耐用、高清 参数必须有证明材料",
+          "首发权益和库存信息必须等待品牌确认",
+          "不得使用绝对化广告语"
+        ],
+        "handoff_status": "requires_brand_compliance_review"
+      },
+      {
+        "content_type": "京东参数/问答内容结构",
+        "platform": "京东",
+        "modules": [
+          "参数解释模块",
+          "类目级对比模块",
+          "真实场景评测模块",
+          "购买疑问拆解模块",
+          "证明材料引用模块",
+          "售前问答占位模块",
+          "合规备注模块"
+        ],
+        "do_not_generate": [
+          "问答正文",
+          "导购正文",
+          "参数卖点正文",
+          "竞品对比正文"
+        ],
+        "primary_upstream_fields": [
+          "sample_brief.specs",
+          "sample_brief.competitors",
+          "selling_point_matrix.proof_requirements",
+          "selling_point_matrix.claim_risk_notes",
+          "platform_strategy_plan.channel_role_map[京东]"
+        ],
+        "selling_point_boundaries": [
+          "只做类目级比较，不攻击具体品牌",
+          "参数解释必须来自已给规格或证明材料",
+          "不得无依据排名"
+        ],
+        "handoff_status": "requires_brand_compliance_review"
+      },
+      {
+        "content_type": "直播间话术结构",
+        "platform": "抖音",
+        "modules": [
+          "开场商品定位模块",
+          "人群识别模块",
+          "场景痛点提问模块",
+          "卖点讲解顺序模块",
+          "证明材料展示提示模块",
+          "购买疑虑回应模块",
+          "商品点击引导占位模块",
+          "合规提醒模块"
+        ],
+        "do_not_generate": [
+          "直播话术正文",
+          "主播口播",
+          "促单话术",
+          "价格权益表达"
+        ],
+        "primary_upstream_fields": [
+          "platform_strategy_plan.channel_role_map[抖音]",
+          "audience_insight.need_pain_trigger_map",
+          "selling_point_matrix.core_selling_point_priority",
+          "platform_strategy_plan.metrics_framework",
+          "platform_strategy_plan.human_in_the_loop_review"
+        ],
+        "selling_point_boundaries": [
+          "不得承诺直播间成交或 GMV",
+          "价格权益必须等待品牌确认",
+          "性能类卖点必须搭配证明材料"
+        ],
+        "handoff_status": "requires_brand_compliance_review"
+      },
+      {
+        "content_type": "达人 Brief 结构",
+        "platform": "小红书 / 抖音",
+        "modules": [
+          "合作目标模块",
+          "目标人群模块",
+          "内容场景模块",
+          "可用卖点模块",
+          "必须避免表达模块",
+          "素材与证明材料模块",
+          "交付格式模块",
+          "审核流程模块"
+        ],
+        "do_not_generate": [
+          "达人 Brief 正文",
+          "达人口吻正文",
+          "平台发布文案",
+          "素材 Prompt"
+        ],
+        "primary_upstream_fields": [
+          "audience_insight.audience_segments",
+          "audience_insight.usage_scenario_interest_map",
+          "selling_point_matrix.platform_selling_point_fit",
+          "platform_strategy_plan.channel_role_map",
+          "platform_strategy_plan.human_in_the_loop_review"
+        ],
+        "selling_point_boundaries": [
+          "达人不得自行扩展未经证明的技术能力",
+          "不得使用未授权 Logo 或人物形象",
+          "不得把 Demo 商品包装成单一品牌专属工具"
+        ],
+        "handoff_status": "requires_brand_compliance_review"
+      }
+    ],
+    "content_module_specs": [
+      {
+        "module_group": "attention_and_context",
+        "purpose": "定义开场、场景、用户身份和痛点引入的结构。",
+        "source_fields": [
+          "audience_segments",
+          "usage_scenario_interest_map",
+          "purchase_journey_notes.awareness",
+          "platform_strategy_plan.funnel_mapping.awareness"
+        ],
+        "audit_requirement": "不得制造夸张场景，不得使用绝对化钩子。"
+      },
+      {
+        "module_group": "selling_point_explanation",
+        "purpose": "定义卖点解释顺序和功能到利益点的引用方式。",
+        "source_fields": [
+          "core_selling_point_priority",
+          "feature_benefit_mapping",
+          "audience_selling_point_fit",
+          "platform_selling_point_fit"
+        ],
+        "audit_requirement": "所有性能类卖点必须携带 proof_required 和 risk_boundary。"
+      },
+      {
+        "module_group": "proof_and_evidence",
+        "purpose": "定义哪些内容位置必须引用样片、参数、测试条件、App 流程或素材证明。",
+        "source_fields": [
+          "proof_requirements",
+          "claim_risk_notes",
+          "human_in_the_loop_review"
+        ],
+        "audit_requirement": "证明材料未到位时不得进入正文生成。"
+      },
+      {
+        "module_group": "conversion_and_action",
+        "purpose": "定义商品点击、收藏加购、咨询、直播间商品点击等动作的结构占位。",
+        "source_fields": [
+          "platform_strategy_plan.metrics_framework",
+          "funnel_mapping.conversion",
+          "sample_brief.availability",
+          "sample_brief.bundles"
+        ],
+        "audit_requirement": "不得承诺转化结果、GMV、商业收益或平台流量。"
+      }
+    ],
+    "claim_source_map": [
+      {
+        "claim_area": "高清影像质量",
+        "allowed_source_fields": [
+          "sample_brief.core_features[0]",
+          "sample_brief.specs.video_resolution",
+          "selling_point_matrix.proof_requirements"
+        ],
+        "blocked_expression_types": [
+          "行业第一",
+          "画质最好",
+          "全面超越手机"
+        ],
+        "brand_compliance_required": true
+      },
+      {
+        "claim_area": "运动防抖",
+        "allowed_source_fields": [
+          "sample_brief.core_features[2]",
+          "sample_brief.specs.stabilization",
+          "selling_point_matrix.proof_requirements"
+        ],
+        "blocked_expression_types": [
+          "百分百稳定",
+          "任何运动都不抖",
+          "不会产生废片"
+        ],
+        "brand_compliance_required": true
+      },
+      {
+        "claim_area": "裸机防水与耐用",
+        "allowed_source_fields": [
+          "sample_brief.core_features[3]",
+          "sample_brief.specs.waterproof",
+          "selling_point_matrix.proof_requirements"
+        ],
+        "blocked_expression_types": [
+          "任何场景都不会损坏",
+          "随便潜水",
+          "无需任何保护"
+        ],
+        "brand_compliance_required": true
+      },
+      {
+        "claim_area": "AI 自动剪辑",
+        "allowed_source_fields": [
+          "sample_brief.core_features[4]",
+          "sample_brief.specs.companion_app",
+          "selling_point_matrix.proof_requirements"
+        ],
+        "blocked_expression_types": [
+          "自动生成爆款",
+          "保证内容表现",
+          "无需学习即可成为专业摄影师"
+        ],
+        "brand_compliance_required": true
+      },
+      {
+        "claim_area": "平台转化与商业结果",
+        "allowed_source_fields": [
+          "platform_strategy_plan.metrics_framework",
+          "platform_strategy_plan.funnel_mapping"
+        ],
+        "blocked_expression_types": [
+          "保证转化",
+          "保证 GMV",
+          "保证流量",
+          "保证商业收益"
+        ],
+        "brand_compliance_required": true
+      }
+    ],
+    "proof_waitlist": [
+      {
+        "waiting_for": "高清样片与规格说明",
+        "blocks_modules": [
+          "天猫详情页文案结构.规格与证明模块",
+          "京东参数/问答内容结构.参数解释模块",
+          "小红书种草笔记结构.素材证明占位模块"
+        ]
+      },
+      {
+        "waiting_for": "运动防抖真实样片和测试条件",
+        "blocks_modules": [
+          "抖音短视频脚本结构.证明材料占位模块",
+          "直播间话术结构.证明材料展示提示模块"
+        ]
+      },
+      {
+        "waiting_for": "防水等级、深度、时长和使用条件",
+        "blocks_modules": [
+          "天猫详情页文案结构.合规条件说明模块",
+          "京东参数/问答内容结构.售前问答占位模块",
+          "达人 Brief 结构.必须避免表达模块"
+        ]
+      },
+      {
+        "waiting_for": "AI 自动剪辑流程演示和可编辑步骤说明",
+        "blocks_modules": [
+          "抖音短视频脚本结构.主卖点解释模块",
+          "小红书种草笔记结构.内容创作流程模块",
+          "直播间话术结构.卖点讲解顺序模块"
+        ]
+      },
+      {
+        "waiting_for": "首发权益、套装和库存确认",
+        "blocks_modules": [
+          "天猫详情页文案结构.套装与权益占位模块",
+          "直播间话术结构.商品点击引导占位模块"
+        ]
+      }
+    ],
+    "human_in_the_loop_review": [
+      {
+        "review_item": "所有进入正文生成前的内容模块",
+        "reason": "本节点只生成结构，正文生成前必须确认模块、字段来源和合规边界。",
+        "owner": "Brand Compliance Agent"
+      },
+      {
+        "review_item": "高清影像、防抖、防水、AI 剪辑相关表达",
+        "reason": "上游 Selling Point Analyst 标记为高风险或需证明材料。",
+        "owner": "Brand Compliance Agent"
+      },
+      {
+        "review_item": "直播间商品点击、CVR、GMV 等转化相关表达",
+        "reason": "指标只能作为观测目标，不能作为承诺。",
+        "owner": "Brand Compliance Agent + Growth Metrics Agent"
+      },
+      {
+        "review_item": "达人 Brief 可用卖点和禁止表达",
+        "reason": "达人协作容易扩展未经证明的说法，需要可审计边界。",
+        "owner": "Brand Compliance Agent"
+      }
+    ],
+    "reusability_notes": {
+      "agent_reuse_scope": [
+        "智能硬件新品上市",
+        "美妆种草到转化",
+        "服饰大促内容包",
+        "食品饮料节点营销",
+        "B2B SaaS 线索转化内容"
+      ],
+      "reusable_structure": [
+        "content_type",
+        "modules",
+        "do_not_generate",
+        "primary_upstream_fields",
+        "selling_point_boundaries",
+        "handoff_status",
+        "claim_source_map",
+        "proof_waitlist"
+      ],
+      "customizable_dimensions": [
+        "platforms",
+        "content formats",
+        "brand voice",
+        "compliance rules",
+        "proof requirements",
+        "metric targets"
+      ],
+      "agent_product_value": "This Agent turns copy generation into a governed workflow stage: it plans content structures, preserves evidence boundaries, and hands auditable fields to compliance and reporting before any final copy is generated."
+    },
+    "downstream_field_handoff": {
+      "Brand Compliance Agent": {
+        "fields": [
+          "creative_copy_pack_outline",
+          "content_module_specs",
+          "claim_source_map",
+          "proof_waitlist",
+          "human_in_the_loop_review",
+          "upstream_inheritance.compliance_constraints",
+          "upstream_inheritance.selling_point_claim_risks",
+          "upstream_inheritance.platform_strategy_constraints"
+        ],
+        "handoff_note": "Review content structures, blocked expressions, proof dependencies, and compliance boundaries before any final copy is generated."
+      },
+      "Image Prompt Skill": {
+        "fields": [
+          "creative_copy_pack_outline.content_type",
+          "creative_copy_pack_outline.modules",
+          "content_module_specs",
+          "proof_waitlist",
+          "upstream_inheritance.platform_strategy_constraints"
+        ],
+        "handoff_note": "Use module-level scene and proof requirements as visual planning context only; do not generate image prompts from this node."
+      },
+      "Growth Metrics Agent": {
+        "fields": [
+          "creative_copy_pack_outline",
+          "content_module_specs",
+          "platform_strategy_plan.metrics_framework",
+          "platform_strategy_plan.ab_test_directions",
+          "claim_source_map",
+          "human_in_the_loop_review"
+        ],
+        "handoff_note": "Use content module structures to connect future creative variants with KPI and A/B testing plans."
+      },
+      "Creative Package Reporter": {
+        "fields": [
+          "agent_contract",
+          "upstream_inheritance",
+          "creative_copy_pack_outline",
+          "content_module_specs",
+          "claim_source_map",
+          "proof_waitlist",
+          "human_in_the_loop_review",
+          "reusability_notes"
+        ],
+        "handoff_note": "Use these fields to show copy planning traceability, governance, reusable Agent design, and audit state in the final package report."
+      }
+    },
+    "audit_trace": {
+      "workflow_node": "Creative Copy Agent",
+      "workflow_sequence": 5,
+      "previous_artifacts": [
+        "outputs/standardized_brief_summary.json",
+        "outputs/audience_insight.json",
+        "outputs/selling_point_matrix.json",
+        "outputs/platform_strategy_plan.json"
+      ],
+      "generated_artifacts": [
+        "outputs/creative_copy_pack_outline.json",
+        "outputs/creative_copy_pack_outline.md"
+      ],
+      "not_generated": [
+        "final marketing copy",
+        "xiaohongshu body text",
+        "douyin script body",
+        "live selling talk track",
+        "image prompt",
+        "frontend page"
+      ]
+    }
+  },
+  "risks": [
+    "This outline is not approved copy and must not be used as public-facing content.",
+    "Proof materials are still missing for several high-risk claims.",
+    "Downstream final copy generation must wait for Brand Compliance Agent review."
+  ],
+  "next_actions": [
+    "Pass module structures, claim source map, proof waitlist, and review gates to Brand Compliance Agent.",
+    "Pass module scene requirements and proof dependencies to Image Prompt Skill as planning context only.",
+    "Pass content module structures and A/B-relevant dimensions to Growth Metrics Agent.",
+    "Pass the full outline and audit trace to Creative Package Reporter."
+  ]
+}

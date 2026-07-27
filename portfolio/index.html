@@ -1,0 +1,1179 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="电商增长 Agent 工作台作品集案例：多 Agent 编排、双阶段合规、人工审批与测评证据。" />
+    <title>电商增长 Agent 工作台 | Portfolio Case</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到正文</a>
+
+    <header class="site-header" aria-label="页面导航">
+      <a class="brand" href="#top"><span>电商增长 Agent 工作台</span><small>Agent Studio</small></a>
+      <nav>
+        <a href="#overview">项目概览</a>
+        <a href="#why">为什么做</a>
+        <a href="#how">如何实现</a>
+        <a href="#contribution">我的工作</a>
+        <a href="#governance">企业治理</a>
+        <a href="#proof">证据与测评</a>
+        <a href="#boundary">边界与总结</a>
+      </nav>
+      <span class="header-status status-review" id="header-status"><span>待审核</span><small>NEEDS REVIEW</small></span>
+    </header>
+
+    <main id="main-content">
+      <section class="ia-region overview-region" id="overview" aria-labelledby="overview-title">
+        <h2 class="visually-hidden" id="overview-title">项目概览 / Overview</h2>
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <img src="./assets/hero-action-camera.png" alt="无品牌运动相机与内容工作台" />
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="overview-mini-label" aria-hidden="true"><span>项目概览</span><small>Overview</small></p>
+          <p class="eyebrow">TO B · AI AGENT WORKFLOW</p>
+          <h1 id="hero-title">电商增长 Agent 工作台</h1>
+          <p class="hero-copy">
+            面向电商运营团队，把商品 Brief、用户洞察、创意规划、品牌合规、人工审批与增长测评编排为一条可追踪工作流。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#execution-graph" data-play-workflow>播放完整 Workflow</a>
+            <a class="secondary-action" href="#evidence">查看证据与报告</a>
+          </div>
+          <p class="hero-demo-note">10 阶段自动演示 · 无模型实时调用 · 展示历史产物与治理链路</p>
+          <p class="hero-boundary">作品集 Demo · 非生产系统 · 未经真实客户验证</p>
+        </div>
+      </section>
+
+      <section class="metrics-band" aria-label="项目验证摘要">
+        <div class="metric">
+          <span class="metric-value" id="metric-evidence">加载中</span>
+          <span class="metric-title">可追溯证据条目</span>
+          <span class="metric-description">可回到来源文件或字段路径</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value" id="metric-json">49/49</span>
+          <span class="metric-title">JSON 文件解析通过</span>
+          <span class="metric-description" id="metric-json-description">49/49 个公开仓库 JSON 文件解析通过</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value" id="metric-schema">18/18</span>
+          <span class="metric-title">关键产物 Schema 验证通过</span>
+          <span class="metric-description" id="metric-schema-description">18/18 个关键产物通过 Schema 验证</span>
+        </div>
+        <div class="metric">
+          <span class="metric-value">10 + 1</span>
+          <span class="metric-title">10 项继承风险，1 项新发现</span>
+          <span class="metric-description">风险继续待审核，未进入发布放行</span>
+        </div>
+        <p class="metrics-note">以上数字反映结构完整性、可追溯性与治理状态，不代表 CTR、CVR、GMV 或真实业务增长效果。</p>
+      </section>
+
+      <div class="highlights-band" aria-labelledby="highlights-title">
+        <div class="highlights-heading">
+          <h2 id="highlights-title">项目亮点 <small>HIGHLIGHTS</small></h2>
+        </div>
+        <nav class="highlights-list" aria-label="项目亮点链接">
+          <a class="highlight-card highlight-coral" href="#execution-graph">
+            <span class="highlight-label">多智能体编排 <small>Multi-Agent Workflow</small></span>
+            <strong class="highlight-number">10 / 13 / 3</strong>
+            <span class="highlight-copy">10 个演示阶段，13 个执行节点，3 个洞察 Skill 并行</span>
+          </a>
+          <a class="highlight-card highlight-orange" href="#governance">
+            <span class="highlight-label">企业治理机制 <small>Enterprise Governance</small></span>
+            <strong class="highlight-number">双阶段合规</strong>
+            <span class="highlight-copy">合规前后检查、人工审批节点与发布闸口</span>
+            <span class="highlight-status">真实人工签核仍待完成</span>
+          </a>
+          <a class="highlight-card highlight-green" href="#metrics">
+            <span class="highlight-label">确定性验证 <small>Deterministic Validation</small></span>
+            <strong class="highlight-number" id="highlight-validation-counts">49/49 · 18/18</strong>
+            <span class="highlight-copy">JSON 解析与关键产物 Schema 验证全部通过</span>
+          </a>
+          <a class="highlight-card highlight-blue" href="#evidence">
+            <span class="highlight-label">证据与失败恢复 <small>Evidence &amp; Failure Recovery</small></span>
+            <strong class="highlight-number" id="highlight-evidence-count">加载中 · 15/3</strong>
+            <span class="highlight-copy" id="highlight-evidence-copy">证据加载中，Historical / Failure WorkTrace 可追踪</span>
+            <span class="highlight-status">58 ms 仅为本地确定性测试耗时</span>
+          </a>
+        </nav>
+      </div>
+      </section>
+
+      <section class="ia-region" id="why" aria-labelledby="why-title">
+      <div class="ia-region-heading why-region-heading">
+        <h2 id="why-title">为什么做 <small>Why</small></h2>
+      </div>
+      <section class="section case-study-section why-content" id="case-study" aria-labelledby="why-title">
+        <div class="why-grid" aria-label="为什么做：业务背景、业务痛点、产品方案">
+          <article class="why-card">
+            <p class="case-label"><span>业务背景</span><small>BUSINESS CONTEXT</small></p>
+            <h3>从分散协作到可审计工作流</h3>
+            <p>电商运营团队需要把商品 Brief、用户洞察、卖点、平台策略、创意结构、视觉规划、合规审核、人工审批和评估口径串成一条可交接链路。当前案例商品为运动相机，项目类型为 ToB Agent Workflow Demo。</p>
+          </article>
+          <article class="why-card">
+            <span class="compat-anchor" id="problem" aria-hidden="true"></span>
+            <p class="case-label"><span>业务痛点</span><small>BUSINESS PROBLEM</small></p>
+            <h3>信息、风险和复盘链路容易断开</h3>
+            <ul class="case-list compact">
+              <li>运营人员需要从商品资料、平台要求和素材清单中反复整理字段，Brief 必填字段缺失时必须阻断下游 Planner。</li>
+              <li>性能声明、授权素材与结果承诺常在内容完成后才被发现，能力声明缺证据时不能进入最终公开表达。</li>
+              <li>缺少统一输入输出、risk_id、claim_id、审批记录和测评口径时，很难解释 Agent 为什么得出结论。</li>
+              <li>结构化输出不能被误读为已批准营销内容。</li>
+            </ul>
+          </article>
+          <article class="why-card">
+            <p class="case-label"><span>产品方案</span><small>PRODUCT SOLUTION</small></p>
+            <h3>用受控工作流连接规划、治理和证据</h3>
+            <p>页面展示一个受控的 Agent 工作台：把商品 Brief、合规检查、Planner 编排、并行 Skill、人工审批、增长测评、WorkTrace 和证据包放在同一条可追踪链路中。本项目不假设真实客户，且 <code>production_ready = false</code>、<code>customer_validated = false</code>；五个发布闸口继续 blocked。</p>
+          </article>
+        </div>
+
+        <div class="case-study-meta compact-meta" aria-label="Case Study 摘要">
+          <div><span>项目类型</span><strong>ToB Agent Workflow Demo</strong></div>
+          <div><span>案例商品</span><strong>运动相机</strong></div>
+          <div><span>生产状态</span><strong>production_ready = false</strong></div>
+          <div><span>客户验证</span><strong>customer_validated = false</strong></div>
+        </div>
+
+      </section>
+      </section>
+
+      <section class="ia-region" id="how" aria-labelledby="how-title">
+      <div class="ia-region-heading">
+        <p>How</p>
+        <h2 id="how-title">如何实现</h2>
+      </div>
+        <div class="section architecture-section">
+          <div class="section-heading architecture-heading">
+          <p class="eyebrow">ARCHITECTURE DECISIONS</p>
+          <h2>架构设计决策</h2>
+        </div>
+          <div class="decision-list" aria-label="架构决策列表">
+            <div class="decision-item">
+              <h3>Planner 只负责编排</h3>
+              <p><strong>设计选择：</strong>Planner 负责路由、风险预算、回退和交接结构，不直接生成创意。</p>
+              <p><strong>理由：</strong>把编排质量和创意质量分开，便于定位失败与评估。</p>
+            </div>
+            <div class="decision-item">
+              <h3>职责单一的 Agent/Skill</h3>
+              <p><strong>设计选择：</strong>用户洞察、卖点、平台、创意、视觉、合规、审批、评估和报告分工明确。</p>
+              <p><strong>理由：</strong>每个节点有清晰 I/O、状态和证据来源，减少黑盒交接。</p>
+            </div>
+            <div class="decision-item">
+              <h3>Two-stage Compliance</h3>
+              <p><strong>设计选择：</strong>同一个 Brand Compliance Agent 执行 pre-check 与 post-generation check。</p>
+              <p><strong>理由：</strong>前置拦截缺证据和授权问题，后置检查新增声明、视觉风险与追踪缺口。</p>
+            </div>
+            <div class="decision-item">
+              <h3>Human Approval</h3>
+              <p><strong>设计选择：</strong>Human Approval 位于结构化生成结果和发布之间。</p>
+              <p><strong>理由：</strong>事实证明、素材授权、品牌责任和发布准备度必须保留人工判断。</p>
+            </div>
+            <div class="decision-item">
+              <h3>单一 Image Prompt Skill</h3>
+              <p><strong>设计选择：</strong>只保留一个视觉结构 Skill，不生成最终图片 Prompt 或图片。</p>
+              <p><strong>理由：</strong>当前范围只需要管理视觉结构、素材依赖和受控生成前置条件。</p>
+            </div>
+            <div class="decision-item">
+              <h3>不采用单一 LLM 或 Multi-Agent Debate</h3>
+              <p><strong>设计选择：</strong>不用一个模型一次性完成全部任务，也不用辩论作为核心机制。</p>
+              <p><strong>理由：</strong>本项目优先证明职责边界、审计、审批、WorkTrace 和评估，而不是生成一段难追责的综合回答。</p>
+            </div>
+          </div>
+        </div>
+
+        <section class="section system-layers-section" aria-labelledby="system-layers-title">
+          <div class="section-heading system-layers-heading">
+            <p class="eyebrow">SYSTEM LAYERS</p>
+            <h2 id="system-layers-title">系统分层视图 <small>System Layers</small></h2>
+            <p>用紧凑分层说明 Demo 的页面、编排、智能体、治理、测评证据与本地产物库如何相互依赖。</p>
+          </div>
+
+          <div class="system-layers" aria-label="系统分层视图：从展示层到本地产物层">
+            <article class="system-layer layer-frontend">
+              <div class="layer-label"><strong>展示层</strong><small>Frontend</small></div>
+              <ul>
+                <li>作品集交互页面</li>
+                <li>真实输入输出示例</li>
+                <li>工作流播放与节点详情</li>
+                <li>状态、证据和执行追踪展示</li>
+              </ul>
+            </article>
+            <div class="layer-arrow" aria-hidden="true">↓</div>
+            <article class="system-layer layer-orchestration">
+              <div class="layer-label"><strong>编排层</strong><small>Workflow Orchestration</small></div>
+              <ul>
+                <li>Planner 任务编排</li>
+                <li>10 阶段自动演示</li>
+                <li>节点顺序与并行任务控制</li>
+                <li>输入输出交接与流程状态管理</li>
+              </ul>
+            </article>
+            <div class="layer-arrow" aria-hidden="true">↓</div>
+            <article class="system-layer layer-agent-skill">
+              <div class="layer-label"><strong>智能体与技能层</strong><small>Agent &amp; Skill</small></div>
+              <ul>
+                <li>Brief Parser</li>
+                <li><span class="parallel-skill-marker">并行技能组：</span>Audience Insight、Selling Point Analyst、Platform Strategy</li>
+                <li>Creative Agent</li>
+                <li>Image Prompt Skill</li>
+              </ul>
+            </article>
+            <div class="layer-arrow" aria-hidden="true">↓</div>
+            <article class="system-layer layer-governance">
+              <div class="layer-label"><strong>企业治理层</strong><small>Governance</small></div>
+              <ul>
+                <li>双阶段合规检查：同一个 Brand Compliance Agent 以 pre-check 与 post-generation check 两种 mode 运行</li>
+                <li>Human Approval 人工审批</li>
+                <li>Revision Queue 修订队列</li>
+                <li>Release Gates 发布闸口</li>
+              </ul>
+            </article>
+            <div class="layer-arrow" aria-hidden="true">↓</div>
+            <article class="system-layer layer-evidence">
+              <div class="layer-label"><strong>测评与证据层</strong><small>Evaluation &amp; Evidence</small></div>
+              <ul>
+                <li>Growth Evaluation 增长测评</li>
+                <li>JSON Schema 结构验证</li>
+                <li>Claim Trace 声明追踪</li>
+                <li>WorkTrace 执行追踪</li>
+                <li>Failure Scenario Test 失败场景测试</li>
+              </ul>
+            </article>
+            <div class="layer-arrow" aria-hidden="true">↓</div>
+            <article class="system-layer layer-artifact">
+              <div class="layer-label"><strong>本地产物层</strong><small>Artifact Store</small></div>
+              <ul>
+                <li>JSON 结构化产物</li>
+                <li>Markdown 报告</li>
+                <li>Prompt 文件</li>
+                <li>Schema 和验证报告</li>
+                <li>Portfolio Evidence Pack 作品集证据包</li>
+              </ul>
+            </article>
+          </div>
+
+          <p class="system-layers-local-note">当前使用本地 JSON / Markdown 产物库，不是企业级数据库或云端存储。</p>
+          <p class="system-layers-boundary">该视图展示 Demo 的系统组成；Execution Graph 展示节点执行与数据流；Architecture Decisions 解释关键设计选择。当前版本不是生产系统，也未完成真实客户验证。</p>
+        </section>
+
+        <div class="section execution-graph-section" id="execution-graph" aria-labelledby="execution-graph-title">
+          <div class="section-heading execution-graph-heading">
+            <p class="eyebrow">EXECUTION GRAPH</p>
+            <h2 id="execution-graph-title">工作流执行图</h2>
+            <p>展示串行节点、并行技能、治理闸口与人工审批关系。</p>
+            <p class="playback-boundary"><strong>历史产物回放 / Historical Artifact Playback</strong><span>无模型实时调用，不代表真实 Agent 运行耗时。</span></p>
+          </div>
+
+          <div class="artifact-handoff-intro" aria-label="结构化产物交接说明">
+            <div>
+              <h3>结构化产物交接 <small>Structured Artifact Handoff</small></h3>
+              <p>每个节点读取上游 JSON/Markdown 产物，输出可验证的结构化产物供下游使用；这不是实时共享状态，也不是模型运行时内存。</p>
+            </div>
+            <p class="governance-flow-strip">Governance Flow：<code>risk_id</code>、<code>claim_id</code>、证据来源和 <code>release_gates</code> 随结构化产物向下游传递，用于审计、人工审批和问题追踪。</p>
+          </div>
+
+          <div class="execution-graph" aria-label="工作流执行图：Control Flow、Data Flow 与 Governance Flow">
+            <div class="execution-lane serial-lane">
+              <div class="execution-node node-agent" data-playback-stage="0">
+                <strong>Brief 解析器</strong><small>Brief Parser</small>
+              </div>
+              <div class="execution-connector"><span class="execution-arrow" aria-hidden="true"></span><span data-handoff-stage="0" class="handoff-label">标准化 Brief + 缺失字段</span></div>
+              <div class="execution-node node-governance" data-playback-stage="1">
+                <strong>合规预检</strong><small>Compliance Pre</small>
+              </div>
+              <div class="execution-connector"><span class="execution-arrow" aria-hidden="true"></span><span data-handoff-stage="1" class="handoff-label">风险清单 + 证据状态</span></div>
+              <div class="execution-node node-agent" data-playback-stage="2">
+                <strong>任务编排</strong><small>Planner</small>
+              </div>
+              <div class="execution-connector"><span class="execution-arrow" aria-hidden="true"></span><span data-handoff-stage="2" class="handoff-label">执行计划 + 节点任务</span></div>
+            </div>
+
+            <div class="execution-parallel" aria-label="Planner 调度的并行洞察技能组">
+              <div class="execution-node node-skill parallel-parent" data-playback-stage="3">
+                <strong>洞察技能组</strong><small>Insight Skills</small>
+              </div>
+              <div class="parallel-label">并行执行 <small>Parallel Execution</small></div>
+              <div class="parallel-branches" role="list" aria-label="三个并行 Skill">
+                <div class="execution-node node-skill" role="listitem" data-playback-stage="3">
+                  <strong>用户洞察</strong><small>Audience Insight</small>
+                </div>
+                <div class="execution-node node-skill" role="listitem" data-playback-stage="3">
+                  <strong>卖点分析</strong><small>Selling Point Analyst</small>
+                </div>
+                <div class="execution-node node-skill" role="listitem" data-playback-stage="3">
+                  <strong>平台策略</strong><small>Platform Strategy</small>
+                </div>
+              </div>
+              <div class="merge-label">三路结果汇合</div>
+              <span data-handoff-stage="3" class="handoff-label parallel-handoff">用户洞察 + 卖点矩阵 + 平台策略</span>
+            </div>
+
+            <div class="execution-lane serial-lane">
+              <div class="execution-connector"><span class="execution-arrow" aria-hidden="true"></span></div>
+              <div class="execution-node node-agent" data-playback-stage="4">
+                <strong>创意智能体</strong><small>Creative Agent</small>
+              </div>
+              <div class="execution-connector"><span class="execution-arrow" aria-hidden="true"></span><span data-handoff-stage="4" class="handoff-label">创意结构 + Claim 来源映射</span></div>
+              <div class="execution-node node-skill" data-playback-stage="5">
+                <strong>视觉提示词技能</strong><small>Image Prompt Skill</small>
+              </div>
+              <div class="execution-connector"><span class="execution-arrow" aria-hidden="true"></span><span data-handoff-stage="5" class="handoff-label">视觉结构 + 素材依赖 + 禁止元素</span></div>
+              <div class="execution-node node-governance" data-playback-stage="6">
+                <strong>生成后合规</strong><small>Compliance Post</small>
+              </div>
+              <div class="execution-connector"><span class="execution-arrow" aria-hidden="true"></span><span data-handoff-stage="6" class="handoff-label">继承风险 + 新风险 + 阻断项</span></div>
+              <div class="execution-node node-human" data-playback-stage="7">
+                <strong>人工审批</strong><small>Human Approval</small>
+              </div>
+              <div class="execution-connector"><span class="execution-arrow" aria-hidden="true"></span><span data-handoff-stage="7" class="handoff-label">审批状态 + Revision Queue</span></div>
+              <div class="execution-node node-evaluation" data-playback-stage="8">
+                <strong>增长测评</strong><small>Growth Evaluation</small>
+              </div>
+              <div class="execution-connector"><span class="execution-arrow" aria-hidden="true"></span><span data-handoff-stage="8" class="handoff-label">测评指标 + 问题分类</span></div>
+              <div class="execution-node node-report terminal-node" data-playback-stage="9">
+                <strong>最终报告</strong><small>Final Report</small>
+              </div>
+              <span data-handoff-stage="9" class="handoff-label terminal-handoff">结构化报告 + Artifact Index</span>
+            </div>
+          </div>
+
+          <ul class="execution-graph-notes" aria-label="执行图边界说明">
+            <li>Compliance Pre 和 Compliance Post 是同一个 Brand Compliance Agent 的两种运行模式，不是两个独立 Agent。</li>
+            <li>Audience Insight、Selling Point Analyst、Platform Strategy 由 Planner 调度并行执行；三个 Skill 完成后汇合，再进入 Creative Agent。</li>
+            <li>Insight Skills 在 10 阶段自动演示中只计为一个业务阶段，三个子 Skill 不额外增加阶段数。</li>
+            <li>Human Approval 是企业发布前的人工治理节点；Growth Evaluation 读取合规、审批和执行产物，不表示已经取得真实业务增长结果。</li>
+          </ul>
+        </div>
+
+      <section class="section workflow-section" id="workflow">
+        <div class="section-heading workflow-heading">
+          <div>
+            <p class="eyebrow">INTERACTIVE WORKFLOW</p>
+            <h2>交互式工作流</h2>
+            <p>点击节点查看输入、输出与治理边界，或自动播放完整链路。</p>
+          </div>
+          <div class="demo-controls" aria-label="演示控制">
+            <button id="play-demo" class="control-button" type="button" aria-pressed="false">▶ 播放演示</button>
+            <button id="reset-demo" class="control-button subtle" type="button">↺ 重置</button>
+          </div>
+        </div>
+
+        <p class="workflow-boundary-note">页面将完整业务链路压缩为 10 个可视化阶段；Historical WorkTrace 保留 15 个历史产物节点。前者用于 Demo 展示，后者用于审计追踪，两者不是一一对应关系。</p>
+
+        <div class="workflow-legend" aria-label="节点视觉语义图例">
+          <span class="legend-item legend-agent">智能体 <small>Agent</small></span>
+          <span class="legend-item legend-skill">技能 <small>Skill</small></span>
+          <span class="legend-item legend-governance">治理 <small>Governance</small></span>
+          <span class="legend-item legend-human">人工 <small>Human</small></span>
+          <span class="legend-item legend-evaluation">测评 <small>Evaluation</small></span>
+          <span class="legend-item legend-report">报告 <small>Report</small></span>
+        </div>
+
+        <div class="workflow-progress" aria-hidden="true">
+          <span id="workflow-progress-bar"></span>
+        </div>
+
+        <div class="workflow-track" id="workflow-track" role="list" aria-label="Agent 工作流节点"></div>
+
+        <div class="node-detail" aria-live="polite">
+          <div class="detail-index" id="detail-index">01</div>
+          <div class="detail-main">
+            <p class="detail-type" id="detail-type">INPUT</p>
+            <h3 id="detail-title">Brief Parser</h3>
+            <p id="detail-description">标准化商品 Brief，标记缺失字段、风险字段和下游可用性。</p>
+          </div>
+          <dl class="detail-contract">
+            <div>
+              <dt>输入</dt>
+              <dd id="detail-input">商品 Brief、JSON Schema</dd>
+            </div>
+            <div>
+              <dt>输出</dt>
+              <dd id="detail-output">标准化 Brief、字段完整度</dd>
+            </div>
+            <div>
+              <dt>闸口</dt>
+              <dd id="detail-gate">结构不完整则停止</dd>
+            </div>
+          </dl>
+          <div class="parallel-skills-detail" id="parallel-skills-detail" hidden aria-label="Insight Skills 并行子 Skill">
+            <p class="parallel-kicker">PARALLEL · Planner routed</p>
+            <div>
+              <strong>Parallel execution group</strong>
+              <span>Planner 路由后，三个子 Skill 同时执行，不计入 10 个自动播放阶段。</span>
+            </div>
+            <ul class="parallel-skill-list" aria-label="并行 Skill 列表">
+              <li><span>用户洞察</span><small>Audience Insight</small></li>
+              <li><span>卖点分析</span><small>Selling Point Analyst</small></li>
+              <li><span>平台策略</span><small>Platform Strategy</small></li>
+            </ul>
+          </div>
+          <div class="sample-io-detail" id="sample-io-detail" hidden aria-label="Brief Parser 历史样例输入与已验证产物">
+            <div class="sample-io-heading">
+              <p class="detail-type">SAMPLE I/O</p>
+              <h4>真实输入输出示例</h4>
+              <p>展示项目历史样例输入与已验证产物，不进行模型实时调用。</p>
+            </div>
+            <p class="sample-io-error" id="sample-io-error" role="status" hidden>历史样例数据加载失败</p>
+            <div class="sample-io-grid">
+              <dl class="sample-io-list" aria-label="真实样例输入字段">
+                <div><dt>product_name</dt><dd id="sample-input-product-name">加载中</dd></div>
+                <div><dt>product_category</dt><dd id="sample-input-product-category">加载中</dd></div>
+                <div><dt>scenario_type</dt><dd id="sample-input-scenario-type">加载中</dd></div>
+                <div><dt>launch_stage</dt><dd id="sample-input-launch-stage">加载中</dd></div>
+                <div><dt>review_mode</dt><dd id="sample-input-review-mode">加载中</dd></div>
+              </dl>
+              <dl class="sample-io-list" aria-label="已验证历史输出字段">
+                <div><dt>status</dt><dd id="sample-output-status">加载中</dd></div>
+                <div><dt>confidence</dt><dd id="sample-output-confidence">加载中</dd></div>
+                <div><dt>required_fields_present / required_fields_total</dt><dd id="sample-output-required-fields">加载中</dd></div>
+                <div><dt>schema_fields_present / schema_fields_total</dt><dd id="sample-output-schema-fields">加载中</dd></div>
+                <div><dt>required_fields_missing</dt><dd id="sample-output-missing-fields">加载中</dd></div>
+                <div><dt>risk_fields 数量</dt><dd id="sample-output-risk-fields">加载中</dd></div>
+              </dl>
+            </div>
+            <div class="sample-io-links" aria-label="历史样例文件链接">
+              <a href="../data/sample_brief.json">查看完整输入 JSON</a>
+              <a href="../outputs/standardized_brief_summary.json">查看完整输出 JSON</a>
+              <a href="../schemas/product_brief.schema.json">查看输入 Schema</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      </section>
+
+      <section class="ia-region contribution-region" id="contribution" aria-labelledby="contribution-title">
+      <div class="ia-region-heading contribution-page-heading">
+        <p>My Contribution</p>
+        <h2 id="contribution-title">我的工作 <small>My Contribution</small></h2>
+      </div>
+      <section class="section contribution-section" aria-labelledby="contribution-title">
+        <p class="contribution-intro">本项目的定位、流程、规则和验收由本人主导；页面与配套脚本的实现使用 Codex 和 OpenClaw 辅助落地。以下区分已完成的产品设计、AI 辅助实现，以及尚未具备的生产能力。</p>
+
+        <div class="contribution-grid" aria-label="我的工作分区">
+          <article class="contribution-panel contribution-design">
+            <div class="contribution-panel-heading">
+              <span class="contribution-status status-pass">我主导完成</span>
+              <h3>产品与工作流设计 <small>Product &amp; Workflow Design</small></h3>
+            </div>
+            <ul>
+              <li>业务问题分析与 ToB 产品定位</li>
+              <li>电商运营场景与运动相机 Demo 案例定义</li>
+              <li>Agent / Skill 职责拆分与 10 阶段工作流编排</li>
+              <li>节点输入输出协议、状态枚举与数据交接设计</li>
+              <li>双阶段合规、人工审批、发布闸口和失败恢复机制设计</li>
+              <li>Growth Evaluation 指标、Claim Trace 和证据口径设计</li>
+              <li>Portfolio 信息架构、交互需求和验收标准设计</li>
+            </ul>
+          </article>
+
+          <article class="contribution-panel contribution-ai">
+            <div class="contribution-panel-heading">
+              <span class="contribution-status status-review">AI 辅助落地</span>
+              <h3>辅助生成、实现和检查 <small>AI-assisted Implementation</small></h3>
+            </div>
+            <ul>
+              <li>使用 OpenClaw 生成和整理 Prompt、结构化产物及项目文档</li>
+              <li>使用 Codex 和 OpenClaw 辅助完成 HTML、CSS、JavaScript 页面实现</li>
+              <li>辅助完成 JSON Schema、验证脚本和构建脚本实现</li>
+              <li>完成 Sample I/O、Execution Graph、状态颜色和播放交互验收</li>
+              <li>完成 Historical / Failure WorkTrace 展示与边界核验</li>
+              <li>持续检查 JSON 解析、Schema 映射、文件链接和移动端布局</li>
+            </ul>
+            <p class="contribution-note">AI 工具负责辅助生成、实现和检查；本人负责需求定义、架构选择、规则设计、结果判断、修改决策和最终验收。</p>
+          </article>
+
+          <article class="contribution-panel contribution-missing">
+            <div class="contribution-panel-heading">
+              <span class="contribution-status status-neutral">当前未完成</span>
+              <h3>尚未具备生产能力 <small>Not Yet Implemented</small></h3>
+            </div>
+            <ul>
+              <li>企业账号、角色和权限系统</li>
+              <li>企业数据库及云端 Artifact Store</li>
+              <li>真实模型在线调用和生产级 Agent Runtime</li>
+              <li>真实节点 telemetry、trace_id 和运行时间戳</li>
+              <li>真实审核人签核与审批操作后台</li>
+              <li>真实客户试用及 CTR、CVR、GMV、效率提升验证</li>
+              <li>生产部署、监控、告警和公开发布</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="worktrace-capability-note" aria-label="WorkTrace 能力边界">
+          <div>
+            <strong class="status-pass">已实现的 WorkTrace 展示能力</strong>
+            <p>Historical Artifact WorkTrace、Failure Scenario WorkTrace、WorkTrace Viewer、artifact_trace_key，以及节点、风险和 Claim 关联展示。</p>
+          </div>
+          <div>
+            <strong class="status-neutral">尚未实现的 runtime telemetry</strong>
+            <p>真实运行时 trace_id、真实 per-node timestamp、真实模型和 Agent runtime telemetry。</p>
+          </div>
+        </div>
+      </section>
+      </section>
+
+      <section class="ia-region" id="governance" aria-labelledby="governance-title">
+      <div class="ia-region-heading">
+        <p>Governance</p>
+        <h2 id="governance-title">企业治理</h2>
+      </div>
+      <div class="governance-tabs" role="tablist" aria-label="企业治理内容切换">
+        <button class="governance-tab" id="governance-tab-compliance" type="button" role="tab" aria-selected="true" aria-controls="compliance">
+          <span>双阶段合规</span><small>Two-stage Compliance</small>
+        </button>
+        <button class="governance-tab" id="governance-tab-failure" type="button" role="tab" aria-selected="false" aria-controls="failure-test">
+          <span>失败恢复测试</span><small>Failure Recovery</small>
+        </button>
+      </div>
+      <section class="section compliance-section governance-panel" id="compliance" role="tabpanel" aria-labelledby="governance-tab-compliance">
+        <div class="section-heading">
+          <p class="eyebrow">GOVERNANCE</p>
+          <h2>同一个 Compliance Agent，两次调用</h2>
+          <p>生成前控制输入质量，生成后检查结构化创意与视觉方案。两次审核共享稳定的风险 ID。</p>
+        </div>
+
+        <div class="compliance-compare">
+          <article class="compliance-panel pre-panel">
+            <div class="panel-kicker">PRE-CHECK</div>
+            <h3>规划前检查</h3>
+            <p>核对 Brief 完整性、能力证明、素材授权和数据来源，决定是否允许进入 Planner。</p>
+            <dl>
+              <div><dt>结果</dt><dd>needs_review</dd></div>
+              <div><dt>下一阶段</dt><dd>Planner Agent</dd></div>
+              <div><dt>风险</dt><dd>10 项</dd></div>
+            </dl>
+          </article>
+
+          <div class="risk-transfer" aria-label="风险传递关系">
+            <strong>10</strong>
+            <span>风险完整继承</span>
+            <span class="transfer-line" aria-hidden="true"></span>
+            <small>0 resolved</small>
+          </div>
+
+          <article class="compliance-panel post-panel">
+            <div class="panel-kicker">POST-GENERATION</div>
+            <h3>人工审批前检查</h3>
+            <p>检查结构化创意与视觉方案中的声明、夸张措辞、授权依赖和风险追踪缺口。</p>
+            <dl>
+              <div><dt>结果</dt><dd>needs_review</dd></div>
+              <div><dt>下一阶段</dt><dd>Human Approval</dd></div>
+              <div><dt>新增发现</dt><dd>1 项追踪缺口</dd></div>
+            </dl>
+          </article>
+        </div>
+      </section>
+
+      <section class="section failure-test-section governance-panel" id="failure-test" role="tabpanel" aria-labelledby="governance-tab-failure" hidden>
+        <div class="section-heading failure-heading">
+          <div>
+            <p class="eyebrow">FAILURE SCENARIO TEST</p>
+            <h2>活动目标缺失时，系统如何阻断并恢复</h2>
+            <p>当商品Brief缺少关键业务目标时，系统不会让Planner自行猜测，而是暂停工作流、创建修订任务，并在用户补充信息后从正确节点继续。</p>
+          </div>
+          <a class="text-link" href="../outputs/failure_scenario_test_report.md">打开测试报告 →</a>
+        </div>
+
+        <div class="verified-scenario-card" aria-label="已验证场景：关键输入缺失时的阻断、Revision Queue与重新校验">
+          <span class="scenario-tag status-pass">已验证场景</span>
+          <p>关键输入缺失时的阻断、Revision Queue与重新校验。</p>
+        </div>
+
+        <article class="failure-impact-card" aria-labelledby="failure-impact-title">
+          <div>
+            <h3 id="failure-impact-title">为什么必须阻断？</h3>
+            <p><code>campaign_goal</code>决定平台策略、内容CTA、指标优先级和任务路由。缺少该字段时继续生成，可能导致后续内容与真实业务目标不一致。</p>
+          </div>
+          <div class="failure-impact-tags" aria-label="失败分类标签">
+            <span>关键业务输入缺失</span>
+            <span>阻断级</span>
+            <span>用户可恢复</span>
+          </div>
+        </article>
+
+        <div class="failure-sequence" aria-label="失败—修订—恢复流程">
+          <article class="failure-step">
+            <span class="failure-index">01 · 发现缺失字段 / MISSING FIELD</span>
+            <h3>活动目标缺失</h3>
+            <p>Brief中缺少<code>campaign_goal</code>。</p>
+          </article>
+          <article class="failure-step blocked-step">
+            <span class="failure-index">02 · 阻断规划 / BLOCK PLANNER</span>
+            <h3>Schema拒绝，Planner跳过</h3>
+            <p>工作流状态变为blocked，并创建Revision Queue。</p>
+          </article>
+          <article class="failure-step revision-step">
+            <span class="failure-index">03 · 用户修订 / USER REPAIR</span>
+            <h3>用户补充活动目标</h3>
+            <p>电商运营或活动负责人填写品牌曝光、用户拉新、成交转化或复购等主要目标。</p>
+          </article>
+          <article class="failure-step pass-step">
+            <span class="failure-index">04 · 恢复检查 / RECOVERY</span>
+            <h3>重新校验并恢复</h3>
+            <p>使用同一个Schema重新校验；结构通过后进入<code>brand_compliance_pre_check</code>。</p>
+          </article>
+        </div>
+
+        <article class="failure-prompt-example" aria-labelledby="failure-prompt-title">
+          <div>
+            <p class="case-label">产品提示文案示例</p>
+            <h3 id="failure-prompt-title">无法开始活动规划</h3>
+            <p>当前商品Brief缺少“活动目标”。系统无法可靠确定内容方向、平台策略、CTA和效果指标。</p>
+            <p>请补充本次活动的主要目标后继续。</p>
+          </div>
+          <div class="example-actions" aria-label="示例按钮，不可操作">
+            <button type="button" disabled aria-disabled="true">补充活动目标</button>
+            <button type="button" disabled aria-disabled="true">保存并重新检查</button>
+          </div>
+          <p class="example-boundary">界面文案示例，当前Demo未实现真实表单提交；按钮不可操作，不修改数据，也不触发Agent或测试。</p>
+        </article>
+
+        <div class="failure-result" role="status" aria-label="失败场景验证结果">
+          <div><span>初次状态</span><strong class="gate-blocked" id="failure-initial-status">加载中</strong></div>
+          <div><span>修复后</span><strong class="status-pass" id="failure-rerun-status">加载中</strong></div>
+          <div><span>测试断言</span><strong id="failure-assertions">加载中</strong></div>
+          <div><span>发布闸口</span><strong class="gate-blocked" id="failure-release-gates">加载中</strong></div>
+        </div>
+        <p class="failure-boundary">Brief结构恢复只代表输入可以进入下一道合规检查，不代表商品声明、素材授权、人工审批或公开发布已经通过。</p>
+
+        <article class="failure-recovery-scope" aria-labelledby="failure-recovery-scope-title">
+          <h3 id="failure-recovery-scope-title">恢复策略</h3>
+          <p>本案例失败发生在第一个输入闸口，下游Agent尚未执行。因此，修复后只重新进行Brief结构校验，不应描述为完整工作流重跑。</p>
+        </article>
+
+        <div class="repair-comparison" id="repair-comparison" aria-label="失败场景修复前后对比">
+          <p class="failure-evidence-error" id="failure-evidence-error" role="status" hidden>失败测试证据暂不可用；当前仅显示页面内置的已验证回退文案。</p>
+          <div class="repair-columns">
+            <article class="repair-panel before-repair">
+              <div class="repair-panel-heading">
+                <h3>修复前</h3>
+                <small>Before Repair</small>
+              </div>
+              <dl class="repair-field-list" id="failure-before-fields"></dl>
+            </article>
+            <article class="repair-panel after-repair">
+              <div class="repair-panel-heading">
+                <h3>修复后</h3>
+                <small>After Repair</small>
+              </div>
+              <dl class="repair-field-list" id="failure-after-fields"></dl>
+            </article>
+          </div>
+          <p class="failure-boundary" id="failure-repair-boundary">加载失败测试边界说明中。</p>
+          <p class="failure-source">证据来源：<code>outputs/failure_scenario_test_report.json</code></p>
+        </div>
+
+        <article class="next-validation-card" aria-labelledby="next-validation-title" aria-label="下一项待验证场景，尚未执行">
+          <span class="scenario-tag status-neutral">下一项待验证</span>
+          <h3 id="next-validation-title">并行节点部分失败与局部恢复</h3>
+          <p>未来计划验证Audience Insight和Platform Strategy成功、Selling Point Analyst失败时，系统能否保留成功结果，只处理失败节点，并在无法自动恢复时转入人工确认。</p>
+          <ul>
+            <li>尚未执行</li>
+            <li>非本次测试结果</li>
+            <li>未计入7/7断言</li>
+            <li>当前没有真实重试次数、模型耗时或Token成本</li>
+          </ul>
+        </article>
+
+        <p class="failure-boundary">本测试没有调用 Agent 或模型；结构通过不代表事实、授权、业务效果、客户验证或生产可用性已经成立。</p>
+      </section>
+      </section>
+
+      <section class="ia-region" id="proof" aria-labelledby="proof-title">
+      <div class="ia-region-heading">
+        <p>Proof</p>
+        <h2 id="proof-title">证据与测评</h2>
+      </div>
+      <div class="proof-tabs" role="tablist" aria-label="证据与测评切换">
+        <button class="proof-tab" id="proof-tab-evidence" type="button" role="tab" aria-selected="true" aria-controls="evidence" data-proof-tab="evidence" tabindex="0">
+          <span>证据包</span><small>Evidence Pack</small>
+        </button>
+        <button class="proof-tab" id="proof-tab-metrics" type="button" role="tab" aria-selected="false" aria-controls="metrics" data-proof-tab="metrics" tabindex="-1">
+          <span>验证指标</span><small>Validation Metrics</small>
+        </button>
+        <button class="proof-tab" id="proof-tab-worktrace" type="button" role="tab" aria-selected="false" aria-controls="worktrace" data-proof-tab="worktrace" tabindex="-1">
+          <span>执行追踪</span><small>WorkTrace</small>
+        </button>
+        <button class="proof-tab" id="proof-tab-runtime" type="button" role="tab" aria-selected="false" aria-controls="runtime" data-proof-tab="runtime" tabindex="-1">
+          <span>运行记录</span><small>Runtime</small>
+        </button>
+      </div>
+      <section class="section evidence-section proof-panel" id="evidence" role="tabpanel" aria-labelledby="proof-tab-evidence">
+        <div class="section-heading evidence-heading">
+          <div>
+            <p class="eyebrow">EVIDENCE</p>
+            <h2>每个数字都能回到源文件</h2>
+            <p>证据类型明确区分真实测量、确定性验证、Mock 派生、人工审核与暂不可用。</p>
+          </div>
+          <a class="text-link" href="../outputs/portfolio_evidence_pack.json">查看原始 JSON →</a>
+        </div>
+
+        <div class="evidence-layout">
+          <div class="evidence-bars" id="evidence-bars" aria-label="证据类型分布"></div>
+          <div class="validation-summary">
+            <div class="status-line">
+              <span>Evidence</span>
+              <strong class="status-pass status-display" id="evidence-pack-total">数据加载中</strong>
+            </div>
+            <div class="status-line">
+              <span>Runtime Evidence</span>
+              <strong class="status-pass status-display" id="evidence-runtime-count">数据加载中</strong>
+            </div>
+            <div class="status-line">
+              <span>结构验证</span>
+              <strong class="status-pass status-display">结构验证通过 <code class="status-pass">validation_status = pass</code></strong>
+            </div>
+            <div class="status-line">
+              <span>治理状态</span>
+              <strong class="status-review status-display">治理状态待审核 <code class="status-review">governance_status = needs_review</code></strong>
+            </div>
+            <div class="status-line">
+              <span>生产可用</span>
+              <strong class="status-display status-neutral">尚未达到生产可用 <code class="status-neutral">production_ready = false</code></strong>
+            </div>
+            <div class="status-line">
+              <span>客户验证</span>
+              <strong class="status-display status-neutral">尚未进行真实客户验证 <code class="status-neutral">customer_validated = false</code></strong>
+            </div>
+            <p>Schema 通过只说明结构和关键治理约束正确，不代表事实、授权或业务结果已经成立。治理状态仍为待审核；Mock、估算和历史产物不能证明 CTR、CVR、GMV 或真实增长。</p>
+          </div>
+        </div>
+
+        <div class="evidence-source-panel" aria-labelledby="evidence-source-title">
+          <div>
+            <p class="eyebrow">SOURCE FILES</p>
+            <h3 id="evidence-source-title">证据来源文件</h3>
+            <p>展示部分包含 <code>source_path</code> 的证据条目；点击后在新标签页打开对应 JSON 或 Markdown 文件。</p>
+          </div>
+          <div class="evidence-source-list" id="evidence-source-links" aria-label="可打开的证据来源文件">
+            <p class="evidence-source-empty">证据来源加载中。</p>
+          </div>
+        </div>
+
+        <details class="evidence-methodology" id="evidence-methodology">
+          <summary>证据口径说明</summary>
+          <ol>
+            <li><strong>实测 <small>· Measured</small></strong><span>当前项目中可直接检查的文件、字段或构建结果，不代表真实业务增长效果。</span></li>
+            <li><strong>确定性验证 <small>· Deterministic</small></strong><span>由验证脚本、JSON 解析或 Schema 规则得到的确定性结果。</span></li>
+            <li><strong>产物派生 <small>· Artifact derived</small></strong><span>根据已有历史产物汇总得到，不是真实运行时 telemetry。</span></li>
+            <li><strong>Mock 派生 <small>· Mock derived</small></strong><span>来自 Demo 或 Mock 数据，只用于展示流程，不能证明客户效果。</span></li>
+            <li><strong>估算 <small>· Estimated</small></strong><span>来自 Demo 假设或估算，不能写成真实效率提升。</span></li>
+            <li><strong>需人工审核 <small>· Human review</small></strong><span>仍需要正式证明、素材授权、人工判断或签核后才能成立。</span></li>
+            <li><strong>暂不可用 <small>· Not available</small></strong><span>当前缺少可靠数据、真实日志或授权证明，系统没有补造。</span></li>
+          </ol>
+        </details>
+      </section>
+
+      <section class="section worktrace-section proof-panel" id="worktrace" role="tabpanel" aria-labelledby="proof-tab-worktrace" hidden>
+        <div class="section-heading worktrace-heading">
+          <div>
+            <p class="eyebrow">WORKTRACE</p>
+            <h2>执行追踪</h2>
+            <p>在同一作品集页面中查看回溯式历史轨迹与确定性失败场景轨迹；artifact_trace_key 用于 artifact reconstruction，不是运行时 trace_id。</p>
+          </div>
+          <a class="text-link" href="../outputs/worktrace.json">打开历史 WorkTrace JSON →</a>
+        </div>
+
+        <p class="worktrace-boundary-note">WorkTrace 的 15 个节点来自 Steps 1-15 历史产物，不是自动播放 UI 的节点数量，也不是 15 次实时 Agent 调用。15 个历史节点没有真实 runtime、timestamp 或 trace_id；artifact_trace_key 只是回溯追踪键，不是真实运行 ID。</p>
+
+        <div class="worktrace-controls" role="group" aria-label="WorkTrace 模式切换">
+          <button class="worktrace-toggle" id="worktrace-mode-history" type="button" aria-pressed="true" data-worktrace-mode="history">历史工作流</button>
+          <button class="worktrace-toggle" id="worktrace-mode-failure" type="button" aria-pressed="false" data-worktrace-mode="failure">失败场景</button>
+        </div>
+
+        <p class="worktrace-error" id="worktrace-error" role="status" hidden>WorkTrace 数据加载失败</p>
+
+        <div class="worktrace-summary" id="worktrace-summary" aria-label="Trace Summary">
+          <div><span>Trace 类型</span><strong id="worktrace-trace-type">—</strong></div>
+          <div><span>trace_id</span><strong id="worktrace-trace-id">—</strong></div>
+          <div><span>artifact_trace_key</span><strong id="worktrace-artifact-key">—</strong></div>
+          <div><span>执行上下文</span><strong id="worktrace-context">—</strong></div>
+          <div><span>工作流状态</span><strong id="worktrace-status">—</strong></div>
+          <div><span>节点数量</span><strong id="worktrace-node-count">—</strong></div>
+          <div><span>总耗时</span><strong id="worktrace-duration">—</strong></div>
+          <div><span>retry_count</span><strong id="worktrace-retry">—</strong></div>
+        </div>
+
+        <p class="worktrace-note" id="worktrace-summary-note">artifact_trace_key 不是运行时 trace_id。</p>
+
+        <div class="failure-path" id="worktrace-failure-path" hidden aria-label="失败场景轨迹">
+          <strong>Initial Validation</strong>
+          <span>→ BLOCKED →</span>
+          <strong>Revision Queue</strong>
+          <span>→</span>
+          <strong>Schema Rerun</strong>
+          <span>→ PASS</span>
+        </div>
+
+        <div class="worktrace-layout">
+          <div class="worktrace-node-list" id="worktrace-node-list" role="list" aria-label="WorkTrace 节点轨迹"></div>
+          <article class="worktrace-detail" id="worktrace-detail" aria-live="polite">
+            <p class="detail-type" id="worktrace-detail-type">节点详情 / NODE DETAIL</p>
+            <h3 id="worktrace-detail-title">选择节点查看详情</h3>
+            <dl class="worktrace-detail-grid">
+              <div><dt>输入文件</dt><dd id="worktrace-detail-inputs">—</dd></div>
+              <div><dt>输出文件</dt><dd id="worktrace-detail-outputs">—</dd></div>
+              <div><dt>risk_ids</dt><dd id="worktrace-detail-risks">—</dd></div>
+              <div><dt>claim_ids</dt><dd id="worktrace-detail-claims">—</dd></div>
+              <div><dt>error</dt><dd id="worktrace-detail-error">—</dd></div>
+              <div><dt>revision_action</dt><dd id="worktrace-detail-revision">—</dd></div>
+              <div><dt>Human Approval</dt><dd id="worktrace-detail-human">—</dd></div>
+              <div><dt>next_node</dt><dd id="worktrace-detail-next">—</dd></div>
+            </dl>
+          </article>
+        </div>
+
+        <div class="worktrace-boundaries" aria-label="WorkTrace 边界提示">
+          <ul>
+            <li>Historical WorkTrace 是回溯式 artifact reconstruction，15 个节点来自 Steps 1-15 历史产物。</li>
+            <li>15 个历史节点不是自动播放 UI 的节点数量，也没有真实 runtime、timestamp 或 trace_id。</li>
+            <li>58 ms 为本地确定性失败测试耗时，不是模型、Agent 或完整工作流运行耗时。</li>
+            <li>trace_id 均为 null。</li>
+            <li>production_ready = false。</li>
+            <li>customer_validated = false。</li>
+            <li>五个 release gates 继续 blocked。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section runtime-section proof-panel" id="runtime" role="tabpanel" aria-labelledby="proof-tab-runtime" hidden>
+        <div class="section-heading runtime-heading">
+          <div>
+            <p class="eyebrow">RUNTIME</p>
+            <h2>本地插桩工作流运行 / Instrumented Local Runtime</h2>
+            <p>从 <code>outputs/runtime_execution.json</code> 动态读取本次本地插桩 Runner 的真实执行记录；不硬编码 run_id、时间戳、耗时或节点状态。</p>
+          </div>
+          <a class="text-link" href="../outputs/runtime_execution.json">打开 Runtime JSON →</a>
+        </div>
+
+        <p class="runtime-boundary-note" id="runtime-boundary-note">本次耗时将从 Runtime JSON 动态读取；没有调用模型、网络服务或真实人工审批，不代表生产环境 Agent 推理耗时或业务处理时延。</p>
+        <p class="runtime-error" id="runtime-error" role="status" hidden>Runtime 数据加载失败</p>
+
+        <div class="runtime-summary-grid" aria-label="Runtime 摘要">
+          <div><span>run_id</span><strong id="runtime-run-id">加载中</strong></div>
+          <div><span>started_at</span><strong id="runtime-started-at">加载中</strong></div>
+          <div><span>ended_at</span><strong id="runtime-ended-at">加载中</strong></div>
+          <div><span>duration_ms</span><strong id="runtime-duration-ms">加载中</strong></div>
+          <div><span>Runtime Evidence</span><strong id="runtime-evidence-count">加载中</strong></div>
+          <div><span>Measured 节点</span><strong id="runtime-measured-count">加载中</strong></div>
+          <div><span>业务阶段</span><strong id="runtime-business-stage-count">10</strong></div>
+          <div><span>model_usage</span><strong id="runtime-model-usage" class="status-neutral">加载中</strong></div>
+          <div><span>Token / 成本</span><strong id="runtime-token-cost" class="status-neutral">加载中</strong></div>
+        </div>
+
+        <section class="real-runtime-panel" aria-labelledby="real-runtime-title">
+          <div class="real-runtime-heading">
+            <div>
+              <p class="eyebrow">REAL MODEL RUNTIME</p>
+              <h3 id="real-runtime-title">真实模型单节点 Runtime <small>Real Model-backed Node Runtime</small></h3>
+              <p>从 <code>../outputs/real_agent_brief_parser_runtime.json</code> 动态读取 Brief Parser 单节点的真实 OpenClaw 模型调用记录。</p>
+            </div>
+            <a class="text-link" href="../outputs/real_agent_brief_parser_runtime.json">打开真实 Runtime JSON →</a>
+          </div>
+          <p class="runtime-error" id="real-runtime-error" role="status" hidden>真实模型 Runtime 数据加载失败</p>
+          <div class="real-runtime-grid" aria-label="真实模型单节点 Runtime 字段">
+            <div><span>node_id</span><strong id="real-runtime-node-id">加载中</strong></div>
+            <div><span>run_id</span><strong id="real-runtime-run-id">加载中</strong></div>
+            <div><span>session_id</span><strong id="real-runtime-session-id">加载中</strong></div>
+            <div><span>provider</span><strong id="real-runtime-provider">加载中</strong></div>
+            <div><span>model</span><strong id="real-runtime-model">加载中</strong></div>
+            <div><span>duration_ms</span><strong id="real-runtime-duration-ms">加载中</strong></div>
+            <div><span>usage.input</span><strong id="real-runtime-usage-input">加载中</strong></div>
+            <div><span>usage.output</span><strong id="real-runtime-usage-output">加载中</strong></div>
+            <div><span>usage.total</span><strong id="real-runtime-usage-total">加载中</strong></div>
+            <div><span>stop_reason</span><strong id="real-runtime-stop-reason">加载中</strong></div>
+            <div><span>fallback_used</span><strong id="real-runtime-fallback-used">加载中</strong></div>
+            <div><span>parsed_output.status</span><strong id="real-runtime-parsed-status">加载中</strong></div>
+            <div><span>成本 / Cost</span><strong class="status-neutral" id="real-runtime-cost-status">成本数据暂不可用 / Cost not available</strong></div>
+          </div>
+          <div class="runtime-comparison runtime-kind-comparison" aria-label="真实模型 Runtime 与本地结构化 Runtime 区分">
+            <article>
+              <strong>真实模型单节点 Runtime</strong>
+              <p>模型实际调用，耗时 <span id="real-runtime-comparison-duration">加载中</span>。</p>
+            </article>
+            <article>
+              <strong>本地结构化 Runtime</strong>
+              <p>本地产物检查与流程编排，模型未调用，耗时 <span id="local-runtime-comparison-duration">加载中</span>。</p>
+            </article>
+          </div>
+          <p class="real-runtime-boundary">这是 Brief Parser 单节点的真实 OpenClaw 模型调用记录，不代表完整多 Agent 工作流已实现真实模型 Runtime。</p>
+        </section>
+
+        <section class="real-runtime-panel" aria-label="真实智能体执行追踪">
+          <div class="real-runtime-heading">
+            <div>
+              <h3>真实智能体执行追踪 <small>Real Agent Trace</small></h3>
+              <p>这是 Brief Parser 单节点真实模型 Trace，不是完整工作流 Trace。</p>
+            </div>
+          </div>
+          <div id="real-trace-summary">
+            <div><span>Trace ID</span><strong id="real-trace-id">加载中</strong></div>
+            <div><span>产物追踪键 <small>Artifact Trace Key</small></span><strong id="real-trace-artifact-key">加载中</strong></div>
+            <div><span>Trace ID 状态</span><strong id="real-trace-id-status">加载中</strong></div>
+            <div><span>事件数量 <small>Event Count</small></span><strong id="real-trace-event-count">加载中</strong></div>
+            <div><span>工具调用数量 <small>Tool Call Count</small></span><strong id="real-trace-tool-call-count">加载中</strong></div>
+            <div><span>错误数量 <small>Error Count</small></span><strong id="real-trace-error-count">加载中</strong></div>
+            <div><span>重试数量 <small>Retry Count</small></span><strong id="real-trace-retry-count">加载中</strong></div>
+            <div><span>Trace 状态</span><strong id="real-trace-status">加载中</strong></div>
+          </div>
+        </section>
+
+        <div class="runtime-comparison" aria-label="Runtime 与 WorkTrace 口径区分">
+          <article>
+            <strong>Runtime</strong>
+            <p><span id="runtime-comparison-nodes">加载中</span> 个 measured 节点，本次本地插桩运行。</p>
+          </article>
+          <article>
+            <strong>Historical WorkTrace</strong>
+            <p>15 个历史产物节点，时间为 <code>historical_not_available</code>。</p>
+          </article>
+          <article>
+            <strong>Failure WorkTrace</strong>
+            <p>3 个失败测试节点，58 ms 仅为本地确定性失败测试耗时。</p>
+          </article>
+        </div>
+
+        <div class="runtime-flow" id="runtime-flow" aria-label="并行 fan-out / fan-in 关系">
+          <span>Planner</span>
+          <b>→ fan-out →</b>
+          <span>Audience Insight / Selling Point Analyst / Platform Strategy</span>
+          <b>→ fan-in →</b>
+          <span>Creative Agent</span>
+        </div>
+
+        <div class="runtime-state-grid" aria-label="Runtime 治理状态">
+          <article>
+            <h3>Human Approval</h3>
+            <dl id="runtime-human-approval" class="runtime-kv-list"></dl>
+          </article>
+          <article>
+            <h3>Release Gates</h3>
+            <dl id="runtime-release-gates" class="runtime-kv-list"></dl>
+          </article>
+        </div>
+
+        <div class="runtime-node-table-wrap" aria-label="Runtime 节点时间线">
+          <table class="runtime-node-table">
+            <thead>
+              <tr>
+                <th>节点</th>
+                <th>status</th>
+                <th>started_at</th>
+                <th>ended_at</th>
+                <th>duration_ms</th>
+                <th>execution_group</th>
+                <th>input_refs / output_refs</th>
+              </tr>
+            </thead>
+            <tbody id="runtime-node-rows">
+              <tr><td colspan="7">Runtime 节点加载中。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section workflow-metrics-section proof-panel" id="metrics" role="tabpanel" aria-labelledby="proof-tab-metrics" hidden>
+        <div class="section-heading metrics-heading">
+          <div>
+            <p class="eyebrow">VALIDATION METRICS</p>
+            <h2>验证指标 / Validation Metrics</h2>
+            <p>只展示当前一次作品集 Demo 的可追溯验证快照；不展示没有真实依据的日期对比、趋势变化或周期对比。</p>
+          </div>
+          <a class="text-link" href="../outputs/workflow_metrics_report.md">打开指标报告 →</a>
+        </div>
+
+        <section class="metrics-subsection current-snapshot" aria-labelledby="current-validation-title">
+          <div class="metrics-subheading">
+            <h3 id="current-validation-title">当前验证快照 / Current Validation Snapshot</h3>
+            <p>以下四项为当前项目产物的结构验证、证据追踪与治理风险快照，不代表 CTR、CVR、GMV 或真实业务增长。</p>
+          </div>
+          <div class="workflow-metric-grid validation-snapshot-grid" aria-label="当前验证快照">
+            <article class="workflow-metric-item snapshot-item status-pass">
+              <span class="metric-label"><span>可追溯证据</span><small>Traceable Evidence</small></span>
+              <strong id="snapshot-evidence-total">加载中｜可追溯证据条目</strong>
+              <small>证据条目可回到来源文件或字段路径。</small>
+            </article>
+            <article class="workflow-metric-item snapshot-item status-pass">
+              <span class="metric-label"><span>JSON 解析</span><small>JSON Parse Validation</small></span>
+              <strong id="snapshot-json-parse">49/49｜公开仓库 JSON 文件解析通过</strong>
+              <small>项目 JSON 文件解析通过，不代表业务事实已验证。</small>
+            </article>
+            <article class="workflow-metric-item snapshot-item status-pass">
+              <span class="metric-label"><span>Schema 验证</span><small>Schema Validation</small></span>
+              <strong id="snapshot-schema-match">18/18｜关键产物 Schema 验证通过</strong>
+              <small>关键产物结构符合 Schema 约束。</small>
+            </article>
+            <article class="workflow-metric-item snapshot-item status-review">
+              <span class="metric-label"><span>风险追踪</span><small>Risk Tracking</small></span>
+              <strong id="workflow-risk" class="status-review">10 + 1｜10 项继承风险，1 项新发现</strong>
+              <small>风险仍需治理处理，不能包装为已放行。</small>
+            </article>
+          </div>
+        </section>
+
+        <section class="metrics-subsection technical-fields" aria-labelledby="technical-fields-title">
+          <div class="metrics-subheading compact">
+            <h3 id="technical-fields-title">底层技术字段 / Technical Fields</h3>
+            <p>保留原始字段名与状态值，便于追溯 JSON、Schema、WorkTrace 和治理状态。</p>
+          </div>
+          <div class="workflow-metric-grid technical-metric-grid" aria-label="底层技术字段">
+            <article class="workflow-metric-item">
+              <span class="metric-label"><span>历史执行耗时未记录</span><small>Historical Runtime Not Recorded</small></span>
+              <strong id="workflow-planner-time" class="status-neutral">historical_not_available</strong>
+              <small id="workflow-planner-note">历史产物未采集运行时间，不代表功能缺失。</small>
+            </article>
+            <article class="workflow-metric-item measured-item">
+              <span class="metric-label"><span>本地失败场景测试耗时</span><small>Local Failure Test Runtime</small></span>
+              <strong id="workflow-failure-time">加载中</strong>
+              <small id="workflow-failure-note">58 ms 为本地确定性失败测试耗时，不是模型、Agent 或完整工作流运行耗时。</small>
+            </article>
+            <article class="workflow-metric-item">
+              <span class="metric-label"><span>Workflow Retry</span><small>Failure Test Only</small></span>
+              <strong id="workflow-retry">1</strong>
+              <small>仅限失败测试</small>
+            </article>
+            <article class="workflow-metric-item">
+              <span class="metric-label"><span>Schema Match</span><small>Schema</small></span>
+              <strong id="workflow-schema-match">加载中</strong>
+              <small id="workflow-schema-rate">等待刷新数据</small>
+            </article>
+            <article class="workflow-metric-item">
+              <span class="metric-label"><span>Compliance Validation</span><small>validation_status</small></span>
+              <strong class="status-pass" id="workflow-compliance">validation_status = pass</strong>
+              <small>确定性检查</small>
+            </article>
+            <article class="workflow-metric-item">
+              <span class="metric-label"><span>Governance</span><small>governance_status</small></span>
+              <strong class="status-review" id="workflow-governance">governance_status = needs_review</strong>
+              <small>证明与授权未完成</small>
+            </article>
+            <article class="workflow-metric-item">
+              <span class="metric-label"><span>Human Review</span><small>Human Approval</small></span>
+              <strong class="status-review" id="workflow-human-review">needs_revision</strong>
+              <small>正式签核待完成</small>
+            </article>
+            <article class="workflow-metric-item">
+              <span class="metric-label"><span>Final Score</span><small>Evaluation</small></span>
+              <strong id="workflow-final-score" class="status-neutral">NOT AVAILABLE</strong>
+              <small>当前没有经过校准的综合评分公式。</small>
+            </article>
+          </div>
+        </section>
+
+        <section class="metrics-subsection historical-trend" aria-labelledby="historical-trend-title">
+          <div class="metrics-subheading">
+            <h3 id="historical-trend-title">历史趋势 / Historical Trend</h3>
+          </div>
+          <div class="trend-unavailable status-neutral" role="note">
+            <strong>暂无历史趋势数据</strong>
+            <small>Historical trend not available</small>
+            <p>当前仅保存一次作品集 Demo 验证快照，尚未积累多次真实运行数据。</p>
+          </div>
+        </section>
+      </section>
+      </section>
+
+      <section class="ia-region boundary-region" id="boundary" aria-labelledby="boundary-title">
+      <div class="ia-region-heading boundary-page-heading">
+        <p>Project Boundary</p>
+        <h2 id="boundary-title">项目边界 <small>Project Boundary</small></h2>
+      </div>
+      <section class="section project-boundary-section" aria-labelledby="boundary-title">
+        <p class="boundary-intro">这是一个面向电商运营场景的 ToB 多 Agent 工作流作品集 Demo，用于展示工作流编排、企业治理、测评和证据追踪方法。当前版本不代表生产部署，也没有完成真实客户验证。</p>
+
+        <div class="boundary-demo-grid" aria-label="已完成与尚未完成对照">
+          <article class="boundary-block boundary-demonstrated">
+            <div class="boundary-block-heading">
+              <h3>本项目已经完成</h3>
+              <small>What Has Been Demonstrated</small>
+            </div>
+            <ul>
+              <li>完成多 Agent 工作流与 Agent / Skill 职责拆分</li>
+              <li>完成双阶段合规、失败恢复、增长测评与证据追踪设计</li>
+              <li>完成 JSON 解析与关键产物 Schema 验证</li>
+              <li>完成历史产物播放、Sample I/O 和 WorkTrace 展示</li>
+              <li>完成 Human Approval Node 的结构化审批记录设计</li>
+            </ul>
+          </article>
+
+          <article class="boundary-block boundary-not-completed">
+            <div class="boundary-block-heading">
+              <h3>本项目尚未完成</h3>
+              <small>What Has Not Been Completed</small>
+            </div>
+            <ul>
+              <li>尚未完成真实审核人的人工签核</li>
+              <li>尚未采集真实 Agent 节点运行时间</li>
+              <li>尚未接入企业账号、权限、数据库和线上发布环境</li>
+              <li>尚未进行真实客户测试</li>
+              <li>尚未验证 CTR、CVR、GMV 或效率提升</li>
+              <li>尚未达到生产可用状态</li>
+            </ul>
+          </article>
+        </div>
+
+        <article class="boundary-block current-status-block" aria-labelledby="current-status-title">
+          <div class="boundary-block-heading">
+            <h3 id="current-status-title">当前真实状态</h3>
+            <small>Current Status</small>
+          </div>
+          <div class="current-status-grid" aria-label="当前真实状态列表">
+            <div class="boundary-status-item status-pass" id="boundary-validation-status"><strong>结构验证通过</strong><code>validation_status = pass</code></div>
+            <div class="boundary-status-item status-review" id="boundary-governance-status"><strong>治理状态待审核</strong><code>governance_status = needs_review</code></div>
+            <div class="boundary-status-item status-review" id="boundary-overall-decision"><strong>人工审批需修改</strong><code>overall_decision = needs_revision</code></div>
+            <div class="boundary-status-item status-review" id="boundary-human-signature"><strong>真实人工签核待完成</strong><code>human_signature = pending</code></div>
+            <div class="boundary-status-item status-neutral" id="boundary-reviewer-name"><strong>审核人未记录</strong><code>reviewer_name = null</code></div>
+            <div class="boundary-status-item status-neutral" id="boundary-reviewed-at"><strong>审核时间未记录</strong><code>reviewed_at = null</code></div>
+            <div class="boundary-status-item status-neutral" id="boundary-production-ready"><strong>尚未达到生产可用</strong><code>production_ready = false</code></div>
+            <div class="boundary-status-item status-neutral" id="boundary-customer-validated"><strong>尚未进行真实客户验证</strong><code>customer_validated = false</code></div>
+          </div>
+        </article>
+
+        <section class="boundary-block release-gates-block" id="release-gates" aria-labelledby="release-gates-title">
+          <div class="boundary-block-heading">
+            <h3 id="release-gates-title">发布闸口</h3>
+            <small>Release Gates</small>
+          </div>
+          <div class="release-gate-list" aria-label="发布闸口状态">
+            <div class="release-gate-item status-blocked" id="gate-final-marketing-copy"><strong>最终营销文案</strong><code>final_marketing_copy = blocked</code></div>
+            <div class="release-gate-item status-blocked" id="gate-final-image-prompt"><strong>最终图片 Prompt</strong><code>final_image_prompt = blocked</code></div>
+            <div class="release-gate-item status-blocked" id="gate-image-generation"><strong>图片生成</strong><code>image_generation = blocked</code></div>
+            <div class="release-gate-item status-blocked" id="gate-frontend-page"><strong>面向真实业务发布的前端页面</strong><code>frontend_page = blocked</code></div>
+            <div class="release-gate-item status-blocked" id="gate-public-release"><strong>公开发布</strong><code>public_release = blocked</code></div>
+          </div>
+          <div class="release-gate-explanation" aria-label="发布闸口说明">
+            <p><strong>blocked</strong> 表示当前证据、授权或人工签核不足，因此系统主动阻止最终生成或发布；不表示结构验证失败。</p>
+            <ul>
+              <li>结构化规划产物可以进入 Growth Evaluation。</li>
+              <li>进入测评不等于允许生成最终内容。</li>
+              <li>生成 Portfolio 页面不等于完成真实业务前端发布。</li>
+            </ul>
+          </div>
+        </section>
+
+        <p class="boundary-fact-note">口径保留：自动演示为 10 个业务阶段；Execution Graph 为 13 个可视节点；Historical WorkTrace 为 15 个历史产物节点；Failure WorkTrace 为 3 个节点；58 ms 为本地确定性失败测试耗时，不是模型、Agent 或完整工作流运行耗时；历史运行时间为 <code>historical_not_available</code>。不补造 trace_id、时间戳、审核人或客户结果。</p>
+      </section>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <strong>电商增长 Agent 工作台</strong>
+        <p>OpenClaw · Multi-Agent Workflow · Human-in-the-loop · Evaluation</p>
+      </div>
+      <div class="footer-links">
+        <a href="../README.md">README</a>
+        <a href="../docs/workflow_diagram.md">工作流图</a>
+        <a href="../outputs/failure_scenario_test_report.md">失败测试</a>
+        <a href="../outputs/workflow_metrics_report.md">工作流指标</a>
+        <a href="../outputs/two_stage_compliance_validation_report.md">合规验证</a>
+      </div>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1126 @@
+{
+  "meta": {
+    "artifact_name": "workflow_execution_log",
+    "artifact_version": "0.1.0",
+    "validation_extension": "Validation Extension B",
+    "schema_draft": "2020-12",
+    "brief_id": "brief_demo_action_camera_001",
+    "workflow_version": "V2",
+    "project_name": "E-commerce Growth Agent Studio",
+    "project_name_cn": "电商增长 Agent 工作台",
+    "status": "pass",
+    "log_type": "retrospective_artifact_derived_log",
+    "telemetry_type": "not_runtime_telemetry",
+    "log_build_started_at": "2026-07-16T07:38:49.399Z",
+    "log_build_completed_at": "2026-07-16T07:38:49.400Z",
+    "log_build_duration_ms": 1,
+    "log_generated_at": "2026-07-16T07:38:49.400Z",
+    "builder_script": "scripts/build_workflow_execution_log.mjs",
+    "builder_exit_code": 0
+  },
+  "workflow_summary": {
+    "covered_steps": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "node_count": 15,
+    "timing_policy": "Steps 1-15 are historical nodes; node-level timing is unavailable and must remain null with historical_not_available evidence.",
+    "steps_1_to_15_rerun": false,
+    "input_file_checks": {
+      "total": 81,
+      "passed": 81,
+      "failed": 0
+    },
+    "output_file_checks": {
+      "total": 30,
+      "passed": 30,
+      "failed": 0
+    },
+    "historical_not_available_node_count": 15,
+    "measured_node_time_count": 0
+  },
+  "nodes": [
+    {
+      "step": 1,
+      "node_id": "step_01_standard_product_brief_input",
+      "node_name": "Standard Product Brief Input",
+      "node_type": "input_artifact",
+      "execution_status": "historical_completed",
+      "execution_status_source": "PROJECT_MEMORY_FOR_OPENCLAW.md Progress: Step 1-8 已完成；README 当前进度",
+      "governance_status": "needs_review",
+      "governance_status_source": "workflow/agent_workflow.md 输入与前置校验；schemas/product_brief.schema.json 约束；后续节点继承 needs_review",
+      "input_files": [
+        {
+          "path": "docs/product_brief_input_template.md",
+          "exists": true
+        }
+      ],
+      "output_files": [
+        {
+          "path": "data/sample_brief.json",
+          "exists": true
+        }
+      ],
+      "missing_input_files": [],
+      "missing_output_files": [],
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "timing_evidence_type": "historical_not_available",
+      "timestamp_source": "none",
+      "release_gate_effect": {
+        "changes_release_gates": false,
+        "blocked_gates_preserved": true,
+        "notes": "No final generation release; blocked gates unchanged."
+      }
+    },
+    {
+      "step": 2,
+      "node_id": "step_02_workflow_schema_io_contract_specification",
+      "node_name": "Workflow / Schema / I/O Contract Specification",
+      "node_type": "specification",
+      "execution_status": "historical_completed",
+      "execution_status_source": "PROJECT_MEMORY_FOR_OPENCLAW.md Progress: Step 1-8 已完成；workflow/agent_io_contracts.md",
+      "governance_status": "not_applicable",
+      "governance_status_source": "workflow/agent_io_contracts.md 通用契约 and status rules",
+      "input_files": [
+        {
+          "path": "data/sample_brief.json",
+          "exists": true
+        }
+      ],
+      "output_files": [
+        {
+          "path": "schemas/product_brief.schema.json",
+          "exists": true
+        },
+        {
+          "path": "workflow/agent_workflow.md",
+          "exists": true
+        },
+        {
+          "path": "workflow/agent_io_contracts.md",
+          "exists": true
+        }
+      ],
+      "missing_input_files": [],
+      "missing_output_files": [],
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "timing_evidence_type": "historical_not_available",
+      "timestamp_source": "none",
+      "release_gate_effect": {
+        "changes_release_gates": false,
+        "blocked_gates_preserved": true,
+        "notes": "Defines status and workflow rules only; blocked gates unchanged."
+      }
+    },
+    {
+      "step": 3,
+      "node_id": "step_03_brief_parser_agent",
+      "node_name": "Brief Parser Agent",
+      "node_type": "agent",
+      "execution_status": "historical_completed",
+      "execution_status_source": "PROJECT_MEMORY_FOR_OPENCLAW.md Progress: Step 1-8 已完成；outputs/v2_final_report.json artifact_index.v1_artifacts[Brief Parser Agent]",
+      "governance_status": "needs_review",
+      "governance_status_source": "outputs/v2_final_report.json artifact_index.v1_artifacts: outputs/standardized_brief_summary.json status=needs_review",
+      "input_files": [
+        {
+          "path": "data/sample_brief.json",
+          "exists": true
+        },
+        {
+          "path": "schemas/product_brief.schema.json",
+          "exists": true
+        },
+        {
+          "path": "prompts/brief_parser.md",
+          "exists": true
+        }
+      ],
+      "output_files": [
+        {
+          "path": "outputs/standardized_brief_summary.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/brief_parser_report.md",
+          "exists": true
+        }
+      ],
+      "missing_input_files": [],
+      "missing_output_files": [],
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "timing_evidence_type": "historical_not_available",
+      "timestamp_source": "none",
+      "release_gate_effect": {
+        "changes_release_gates": false,
+        "blocked_gates_preserved": true,
+        "notes": "No release permission; downstream review state preserved."
+      }
+    },
+    {
+      "step": 4,
+      "node_id": "step_04_audience_insight_skill",
+      "node_name": "Audience Insight Skill",
+      "node_type": "skill",
+      "execution_status": "historical_completed",
+      "execution_status_source": "PROJECT_MEMORY_FOR_OPENCLAW.md Progress: Step 1-8 已完成；outputs/v2_final_report.json artifact_index.v1_artifacts[Audience Insight Skill]",
+      "governance_status": "needs_review",
+      "governance_status_source": "outputs/v2_final_report.json artifact_index.v1_artifacts: outputs/audience_insight.json status=needs_review",
+      "input_files": [
+        {
+          "path": "data/sample_brief.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/standardized_brief_summary.json",
+          "exists": true
+        },
+        {
+          "path": "prompts/audience_insight.md",
+          "exists": true
+        }
+      ],
+      "output_files": [
+        {
+          "path": "outputs/audience_insight.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/audience_insight_report.md",
+          "exists": true
+        }
+      ],
+      "missing_input_files": [],
+      "missing_output_files": [],
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "timing_evidence_type": "historical_not_available",
+      "timestamp_source": "none",
+      "release_gate_effect": {
+        "changes_release_gates": false,
+        "blocked_gates_preserved": true,
+        "notes": "No release permission; downstream review state preserved."
+      }
+    },
+    {
+      "step": 5,
+      "node_id": "step_05_selling_point_analyst_agent",
+      "node_name": "Selling Point Analyst Agent",
+      "node_type": "agent",
+      "execution_status": "historical_completed",
+      "execution_status_source": "PROJECT_MEMORY_FOR_OPENCLAW.md Progress: Step 1-8 已完成；outputs/v2_final_report.json artifact_index.v1_artifacts[Selling Point Analyst Agent]",
+      "governance_status": "needs_review",
+      "governance_status_source": "outputs/v2_final_report.json artifact_index.v1_artifacts: outputs/selling_point_matrix.json status=needs_review",
+      "input_files": [
+        {
+          "path": "data/sample_brief.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/standardized_brief_summary.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/audience_insight.json",
+          "exists": true
+        },
+        {
+          "path": "prompts/selling_point_analyst.md",
+          "exists": true
+        }
+      ],
+      "output_files": [
+        {
+          "path": "outputs/selling_point_matrix.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/selling_point_matrix.md",
+          "exists": true
+        }
+      ],
+      "missing_input_files": [],
+      "missing_output_files": [],
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "timing_evidence_type": "historical_not_available",
+      "timestamp_source": "none",
+      "release_gate_effect": {
+        "changes_release_gates": false,
+        "blocked_gates_preserved": true,
+        "notes": "Unsupported claims remain review-gated; blocked gates unchanged."
+      }
+    },
+    {
+      "step": 6,
+      "node_id": "step_06_platform_strategy_skill",
+      "node_name": "Platform Strategy Skill",
+      "node_type": "skill",
+      "execution_status": "historical_completed",
+      "execution_status_source": "PROJECT_MEMORY_FOR_OPENCLAW.md Progress: Step 1-8 已完成；outputs/v2_final_report.json artifact_index.v1_artifacts[Platform Strategy Skill]",
+      "governance_status": "needs_review",
+      "governance_status_source": "outputs/v2_final_report.json artifact_index.v1_artifacts: outputs/platform_strategy_plan.json status=needs_review",
+      "input_files": [
+        {
+          "path": "data/sample_brief.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/standardized_brief_summary.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/audience_insight.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/selling_point_matrix.json",
+          "exists": true
+        },
+        {
+          "path": "prompts/platform_strategy.md",
+          "exists": true
+        }
+      ],
+      "output_files": [
+        {
+          "path": "outputs/platform_strategy_plan.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/platform_strategy_plan.md",
+          "exists": true
+        }
+      ],
+      "missing_input_files": [],
+      "missing_output_files": [],
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "timing_evidence_type": "historical_not_available",
+      "timestamp_source": "none",
+      "release_gate_effect": {
+        "changes_release_gates": false,
+        "blocked_gates_preserved": true,
+        "notes": "KPI language remains observational; blocked gates unchanged."
+      }
+    },
+    {
+      "step": 7,
+      "node_id": "step_07_creative_copy_agent",
+      "node_name": "Creative Copy Agent",
+      "node_type": "agent",
+      "execution_status": "historical_completed",
+      "execution_status_source": "PROJECT_MEMORY_FOR_OPENCLAW.md Progress: Step 1-8 已完成；outputs/v2_final_report.json artifact_index.v1_artifacts[Creative Copy Agent]",
+      "governance_status": "needs_review",
+      "governance_status_source": "outputs/v2_final_report.json artifact_index.v1_artifacts: outputs/creative_copy_pack_outline.json status=needs_review",
+      "input_files": [
+        {
+          "path": "outputs/audience_insight.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/selling_point_matrix.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/platform_strategy_plan.json",
+          "exists": true
+        },
+        {
+          "path": "data/sample_brief.json",
+          "exists": true
+        },
+        {
+          "path": "prompts/creative_copy_agent.md",
+          "exists": true
+        }
+      ],
+      "output_files": [
+        {
+          "path": "outputs/creative_copy_pack_outline.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/creative_copy_pack_outline.md",
+          "exists": true
+        }
+      ],
+      "missing_input_files": [],
+      "missing_output_files": [],
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "timing_evidence_type": "historical_not_available",
+      "timestamp_source": "none",
+      "release_gate_effect": {
+        "changes_release_gates": false,
+        "blocked_gates_preserved": true,
+        "notes": "Produced structure only; final marketing copy remains blocked."
+      }
+    },
+    {
+      "step": 8,
+      "node_id": "step_08_image_prompt_skill",
+      "node_name": "Image Prompt Skill",
+      "node_type": "skill",
+      "execution_status": "historical_completed",
+      "execution_status_source": "PROJECT_MEMORY_FOR_OPENCLAW.md Progress: Step 1-8 已完成；outputs/v2_final_report.json artifact_index.v1_artifacts[Image Prompt Skill]",
+      "governance_status": "needs_review",
+      "governance_status_source": "outputs/v2_final_report.json artifact_index.v1_artifacts: outputs/image_prompt_pack_outline.json status=needs_review",
+      "input_files": [
+        {
+          "path": "data/sample_brief.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/platform_strategy_plan.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/selling_point_matrix.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/creative_copy_pack_outline.json",
+          "exists": true
+        },
+        {
+          "path": "prompts/image_prompt_skill.md",
+          "exists": true
+        }
+      ],
+      "output_files": [
+        {
+          "path": "outputs/image_prompt_pack_outline.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/image_prompt_pack_outline.md",
+          "exists": true
+        }
+      ],
+      "missing_input_files": [],
+      "missing_output_files": [],
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "timing_evidence_type": "historical_not_available",
+      "timestamp_source": "none",
+      "release_gate_effect": {
+        "changes_release_gates": false,
+        "blocked_gates_preserved": true,
+        "notes": "Produced visual structure only; final image prompt and image generation remain blocked."
+      }
+    },
+    {
+      "step": 9,
+      "node_id": "step_09_brand_compliance_agent",
+      "node_name": "Brand Compliance Agent",
+      "node_type": "agent",
+      "execution_status": "completed",
+      "execution_status_source": "PROJECT_MEMORY_FOR_OPENCLAW.md Step 9 Completion Notes",
+      "governance_status": "needs_review",
+      "governance_status_source": "outputs/v2_final_report.json compliance_summary.status=needs_review and blocked final generation fields; outputs/brand_compliance_report.json",
+      "input_files": [
+        {
+          "path": "data/sample_brief.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/selling_point_matrix.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/creative_copy_pack_outline.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/image_prompt_pack_outline.json",
+          "exists": true
+        },
+        {
+          "path": "prompts/brand_compliance_agent.md",
+          "exists": true
+        }
+      ],
+      "output_files": [
+        {
+          "path": "outputs/brand_compliance_report.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/brand_compliance_report.md",
+          "exists": true
+        }
+      ],
+      "missing_input_files": [],
+      "missing_output_files": [],
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "timing_evidence_type": "historical_not_available",
+      "timestamp_source": "none",
+      "release_gate_effect": {
+        "changes_release_gates": false,
+        "blocked_gates_preserved": true,
+        "notes": "Final marketing copy, final image prompt, image generation and public release remain blocked."
+      }
+    },
+    {
+      "step": 10,
+      "node_id": "step_10_growth_metrics_agent",
+      "node_name": "Growth Metrics Agent",
+      "node_type": "agent",
+      "execution_status": "completed",
+      "execution_status_source": "PROJECT_MEMORY_FOR_OPENCLAW.md Step 10 Completion Notes",
+      "governance_status": "needs_review",
+      "governance_status_source": "outputs/v2_final_report.json artifact_index.v1_artifacts: outputs/growth_metrics_plan.json status=needs_review",
+      "input_files": [
+        {
+          "path": "outputs/platform_strategy_plan.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/creative_copy_pack_outline.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/image_prompt_pack_outline.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/brand_compliance_report.json",
+          "exists": true
+        },
+        {
+          "path": "prompts/growth_metrics_agent.md",
+          "exists": true
+        }
+      ],
+      "output_files": [
+        {
+          "path": "outputs/growth_metrics_plan.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/growth_metrics_plan.md",
+          "exists": true
+        }
+      ],
+      "missing_input_files": [],
+      "missing_output_files": [],
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "timing_evidence_type": "historical_not_available",
+      "timestamp_source": "none",
+      "release_gate_effect": {
+        "changes_release_gates": false,
+        "blocked_gates_preserved": true,
+        "notes": "Growth metrics remain observational; no business outcome promise; blocked gates unchanged."
+      }
+    },
+    {
+      "step": 11,
+      "node_id": "step_11_creative_package_reporter",
+      "node_name": "Creative Package Reporter",
+      "node_type": "report_generator",
+      "execution_status": "completed",
+      "execution_status_source": "PROJECT_MEMORY_FOR_OPENCLAW.md Step 11 Completion Notes",
+      "governance_status": "needs_review",
+      "governance_status_source": "outputs/v2_final_report.json artifact_index.v1_artifacts: outputs/final_creative_package_report.json status=needs_review",
+      "input_files": [
+        {
+          "path": "outputs/standardized_brief_summary.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/audience_insight.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/selling_point_matrix.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/platform_strategy_plan.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/creative_copy_pack_outline.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/image_prompt_pack_outline.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/brand_compliance_report.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/growth_metrics_plan.json",
+          "exists": true
+        },
+        {
+          "path": "prompts/creative_package_reporter.md",
+          "exists": true
+        }
+      ],
+      "output_files": [
+        {
+          "path": "outputs/final_creative_package_report.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/final_creative_package_report.md",
+          "exists": true
+        }
+      ],
+      "missing_input_files": [],
+      "missing_output_files": [],
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "timing_evidence_type": "historical_not_available",
+      "timestamp_source": "none",
+      "release_gate_effect": {
+        "changes_release_gates": false,
+        "blocked_gates_preserved": true,
+        "notes": "Summarizes V1 only; final generation and public release remain blocked."
+      }
+    },
+    {
+      "step": 12,
+      "node_id": "step_12_planner_agent",
+      "node_name": "Planner Agent",
+      "node_type": "agent",
+      "execution_status": "completed_revised",
+      "execution_status_source": "PROJECT_MEMORY_FOR_OPENCLAW.md Step 12 Completion Notes; outputs/v2_final_report.json artifact_index.v2_artifacts[Planner Agent] status=completed_revised",
+      "governance_status": "not_applicable",
+      "governance_status_source": "Planner 只负责工作流规划和路由，不独立作出审批或发布决定；现有 blocked release gates 由 Brand Compliance、Human Approval 和 Growth Evaluation 继承控制。",
+      "input_files": [
+        {
+          "path": "PROJECT_MEMORY_FOR_OPENCLAW.md",
+          "exists": true
+        },
+        {
+          "path": "workflow/agent_workflow.md",
+          "exists": true
+        },
+        {
+          "path": "workflow/agent_io_contracts.md",
+          "exists": true
+        },
+        {
+          "path": "outputs/standardized_brief_summary.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/audience_insight.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/selling_point_matrix.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/platform_strategy_plan.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/creative_copy_pack_outline.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/image_prompt_pack_outline.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/brand_compliance_report.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/growth_metrics_plan.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/final_creative_package_report.json",
+          "exists": true
+        },
+        {
+          "path": "prompts/planner_agent.md",
+          "exists": true
+        }
+      ],
+      "output_files": [
+        {
+          "path": "outputs/planner_execution_plan.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/planner_execution_plan.md",
+          "exists": true
+        }
+      ],
+      "missing_input_files": [],
+      "missing_output_files": [],
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "timing_evidence_type": "historical_not_available",
+      "timestamp_source": "none",
+      "release_gate_effect": {
+        "changes_release_gates": false,
+        "blocked_gates_preserved": true,
+        "notes": "Preserves blocked gates and states that planning does not authorize final generation."
+      }
+    },
+    {
+      "step": 13,
+      "node_id": "step_13_human_approval_node",
+      "node_name": "Human Approval Node",
+      "node_type": "approval_node",
+      "execution_status": "completed",
+      "execution_status_source": "PROJECT_MEMORY_FOR_OPENCLAW.md Step 13 Completion Notes; outputs/v2_final_report.json artifact_index.v2_artifacts[Human Approval Node]",
+      "governance_status": "needs_revision",
+      "governance_status_source": "outputs/human_approval_record.json meta.status=needs_revision; approval_summary.overall_decision=needs_revision; release_gates",
+      "input_files": [
+        {
+          "path": "outputs/planner_execution_plan.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/creative_copy_pack_outline.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/brand_compliance_report.json",
+          "exists": true
+        },
+        {
+          "path": "data/sample_brief.json",
+          "exists": true
+        },
+        {
+          "path": "prompts/human_approval_node.md",
+          "exists": true
+        }
+      ],
+      "output_files": [
+        {
+          "path": "outputs/human_approval_record.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/human_approval_record.md",
+          "exists": true
+        }
+      ],
+      "missing_input_files": [],
+      "missing_output_files": [],
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "timing_evidence_type": "historical_not_available",
+      "timestamp_source": "none",
+      "release_gate_effect": {
+        "changes_release_gates": false,
+        "blocked_gates_preserved": true,
+        "notes": "Structured planning and growth evaluation are allowed for evaluation; final generation and public release remain blocked."
+      }
+    },
+    {
+      "step": 14,
+      "node_id": "step_14_growth_evaluation_agent",
+      "node_name": "Growth Evaluation Agent",
+      "node_type": "evaluation_agent",
+      "execution_status": "completed",
+      "execution_status_source": "PROJECT_MEMORY_FOR_OPENCLAW.md Step 14 Completion Notes; outputs/v2_final_report.json artifact_index.v2_artifacts[Growth Evaluation Agent]",
+      "governance_status": "needs_review",
+      "governance_status_source": "outputs/growth_evaluation_report.json meta.status=needs_review; human_approval_inheritance; release_gates",
+      "input_files": [
+        {
+          "path": "outputs/planner_execution_plan.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/brand_compliance_report.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/human_approval_record.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/growth_metrics_plan.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/final_creative_package_report.json",
+          "exists": true
+        },
+        {
+          "path": "docs/evaluation_metrics_test_plan.md",
+          "exists": true
+        },
+        {
+          "path": "data/evaluation_metrics_sample.csv",
+          "exists": true
+        },
+        {
+          "path": "data/audit_log_sample.json",
+          "exists": true
+        },
+        {
+          "path": "prompts/growth_evaluation_agent.md",
+          "exists": true
+        }
+      ],
+      "output_files": [
+        {
+          "path": "outputs/growth_evaluation_report.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/growth_evaluation_report.md",
+          "exists": true
+        }
+      ],
+      "missing_input_files": [],
+      "missing_output_files": [],
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "timing_evidence_type": "historical_not_available",
+      "timestamp_source": "none",
+      "release_gate_effect": {
+        "changes_release_gates": false,
+        "blocked_gates_preserved": true,
+        "notes": "Confirms evaluation status only; final marketing copy, final image prompt, image generation and public release remain blocked."
+      }
+    },
+    {
+      "step": 15,
+      "node_id": "step_15_v2_final_report_generator",
+      "node_name": "V2 Final Report Generator",
+      "node_type": "report_generator",
+      "execution_status": "completed",
+      "execution_status_source": "PROJECT_MEMORY_FOR_OPENCLAW.md Step 15 Completion Notes; outputs/v2_final_report.json meta.artifact_name=v2_final_report",
+      "governance_status": "needs_review",
+      "governance_status_source": "outputs/v2_final_report.json meta.status=needs_review; final_conclusion.overall_status=needs_review; release_gates",
+      "input_files": [
+        {
+          "path": "PROJECT_MEMORY_FOR_OPENCLAW.md",
+          "exists": true
+        },
+        {
+          "path": "README.md",
+          "exists": true
+        },
+        {
+          "path": "outputs/final_creative_package_report.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/planner_execution_plan.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/human_approval_record.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/growth_evaluation_report.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/brand_compliance_report.json",
+          "exists": true
+        },
+        {
+          "path": "prompts/v2_final_report_generator.md",
+          "exists": true
+        }
+      ],
+      "output_files": [
+        {
+          "path": "outputs/v2_final_report.json",
+          "exists": true
+        },
+        {
+          "path": "outputs/v2_final_report.md",
+          "exists": true
+        }
+      ],
+      "missing_input_files": [],
+      "missing_output_files": [],
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "timing_evidence_type": "historical_not_available",
+      "timestamp_source": "none",
+      "release_gate_effect": {
+        "changes_release_gates": false,
+        "blocked_gates_preserved": true,
+        "notes": "Final report summarizes but does not authorize final marketing copy, final image prompt, image generation, frontend page or public release."
+      }
+    }
+  ],
+  "release_gates": {
+    "structured_planning_package": "approved",
+    "growth_evaluation": "approved_for_evaluation_only",
+    "final_marketing_copy": "blocked",
+    "final_image_prompt": "blocked",
+    "image_generation": "blocked",
+    "frontend_page": "blocked",
+    "public_release": "blocked"
+  },
+  "artifact_existence_summary": {
+    "checked_files": [
+      {
+        "path": "docs/product_brief_input_template.md",
+        "exists": true
+      },
+      {
+        "path": "data/sample_brief.json",
+        "exists": true
+      },
+      {
+        "path": "schemas/product_brief.schema.json",
+        "exists": true
+      },
+      {
+        "path": "workflow/agent_workflow.md",
+        "exists": true
+      },
+      {
+        "path": "workflow/agent_io_contracts.md",
+        "exists": true
+      },
+      {
+        "path": "prompts/brief_parser.md",
+        "exists": true
+      },
+      {
+        "path": "outputs/standardized_brief_summary.json",
+        "exists": true
+      },
+      {
+        "path": "outputs/brief_parser_report.md",
+        "exists": true
+      },
+      {
+        "path": "prompts/audience_insight.md",
+        "exists": true
+      },
+      {
+        "path": "outputs/audience_insight.json",
+        "exists": true
+      },
+      {
+        "path": "outputs/audience_insight_report.md",
+        "exists": true
+      },
+      {
+        "path": "prompts/selling_point_analyst.md",
+        "exists": true
+      },
+      {
+        "path": "outputs/selling_point_matrix.json",
+        "exists": true
+      },
+      {
+        "path": "outputs/selling_point_matrix.md",
+        "exists": true
+      },
+      {
+        "path": "prompts/platform_strategy.md",
+        "exists": true
+      },
+      {
+        "path": "outputs/platform_strategy_plan.json",
+        "exists": true
+      },
+      {
+        "path": "outputs/platform_strategy_plan.md",
+        "exists": true
+      },
+      {
+        "path": "prompts/creative_copy_agent.md",
+        "exists": true
+      },
+      {
+        "path": "outputs/creative_copy_pack_outline.json",
+        "exists": true
+      },
+      {
+        "path": "outputs/creative_copy_pack_outline.md",
+        "exists": true
+      },
+      {
+        "path": "prompts/image_prompt_skill.md",
+        "exists": true
+      },
+      {
+        "path": "outputs/image_prompt_pack_outline.json",
+        "exists": true
+      },
+      {
+        "path": "outputs/image_prompt_pack_outline.md",
+        "exists": true
+      },
+      {
+        "path": "prompts/brand_compliance_agent.md",
+        "exists": true
+      },
+      {
+        "path": "outputs/brand_compliance_report.json",
+        "exists": true
+      },
+      {
+        "path": "outputs/brand_compliance_report.md",
+        "exists": true
+      },
+      {
+        "path": "prompts/growth_metrics_agent.md",
+        "exists": true
+      },
+      {
+        "path": "outputs/growth_metrics_plan.json",
+        "exists": true
+      },
+      {
+        "path": "outputs/growth_metrics_plan.md",
+        "exists": true
+      },
+      {
+        "path": "prompts/creative_package_reporter.md",
+        "exists": true
+      },
+      {
+        "path": "outputs/final_creative_package_report.json",
+        "exists": true
+      },
+      {
+        "path": "outputs/final_creative_package_report.md",
+        "exists": true
+      },
+      {
+        "path": "PROJECT_MEMORY_FOR_OPENCLAW.md",
+        "exists": true
+      },
+      {
+        "path": "prompts/planner_agent.md",
+        "exists": true
+      },
+      {
+        "path": "outputs/planner_execution_plan.json",
+        "exists": true
+      },
+      {
+        "path": "outputs/planner_execution_plan.md",
+        "exists": true
+      },
+      {
+        "path": "prompts/human_approval_node.md",
+        "exists": true
+      },
+      {
+        "path": "outputs/human_approval_record.json",
+        "exists": true
+      },
+      {
+        "path": "outputs/human_approval_record.md",
+        "exists": true
+      },
+      {
+        "path": "docs/evaluation_metrics_test_plan.md",
+        "exists": true
+      },
+      {
+        "path": "data/evaluation_metrics_sample.csv",
+        "exists": true
+      },
+      {
+        "path": "data/audit_log_sample.json",
+        "exists": true
+      },
+      {
+        "path": "prompts/growth_evaluation_agent.md",
+        "exists": true
+      },
+      {
+        "path": "outputs/growth_evaluation_report.json",
+        "exists": true
+      },
+      {
+        "path": "outputs/growth_evaluation_report.md",
+        "exists": true
+      },
+      {
+        "path": "README.md",
+        "exists": true
+      },
+      {
+        "path": "prompts/v2_final_report_generator.md",
+        "exists": true
+      },
+      {
+        "path": "outputs/v2_final_report.json",
+        "exists": true
+      },
+      {
+        "path": "outputs/v2_final_report.md",
+        "exists": true
+      }
+    ],
+    "missing_input_files": [],
+    "missing_output_files": [],
+    "input_files": {
+      "total": 81,
+      "passed": 81,
+      "failed": 0
+    },
+    "output_files": {
+      "total": 30,
+      "passed": 30,
+      "failed": 0
+    },
+    "blocked_future_assets_not_counted_as_missing": [
+      "final marketing copy",
+      "final image prompt",
+      "image",
+      "frontend page",
+      "public release asset"
+    ]
+  },
+  "limitations": [
+    "This is a retrospective artifact-derived log, not real runtime telemetry.",
+    "Node-level started_at, completed_at and duration_ms are intentionally null for all historical Steps 1-15.",
+    "File existence is used as artifact evidence, but file modification time is not used as execution timing evidence.",
+    "Chat timestamps, report created_at values and estimated durations are not used as node execution timestamps.",
+    "Release gates remain blocked for final marketing copy, final image prompt, image generation, frontend page and public release."
+  ]
+}

@@ -1,0 +1,692 @@
+{
+  "meta": {
+    "artifact_name": "planner_execution_plan",
+    "artifact_version": "0.1.1",
+    "brief_id": "brief_demo_action_camera_001",
+    "workflow_version": "0.2.1-v2-planner-revised",
+    "project_name": "E-commerce Growth Agent Studio",
+    "project_name_cn": "电商增长 Agent 工作台",
+    "producer": "Planner Agent",
+    "step": 12,
+    "status": "completed_revised",
+    "confidence": 0.88,
+    "created_at": "2026-07-15T17:42:00+08:00",
+    "language": "zh-CN",
+    "revised_at": "2026-07-15T19:12:00+08:00",
+    "revision_note": "Step 12 revised in place to align with E-commerce Growth Agent Studio V2 positioning and product naming constraints."
+  },
+  "planner_scope": {
+    "responsibility_boundary": [
+      "Convert the standardized Brief and upstream structured artifacts into an executable V2 workflow plan.",
+      "Define task decomposition, node routing, node input/output contracts, risk routing, human approval fields, evaluation targets, and downstream handoff fields.",
+      "Preserve existing compliance gates and blocked final generation states."
+    ],
+    "not_responsible_for": [
+      "final marketing copy",
+      "final image prompt",
+      "image generation",
+      "frontend page",
+      "public release assets",
+      "rerunning steps 1-11",
+      "executing Human Approval Node",
+      "executing Growth Evaluation Agent"
+    ],
+    "positioning_guardrail": "This is a ToB Agent Workflow / Skills product for enterprise ecommerce teams. The demo product is 运动相机 in a smart imaging device launch scenario, not a single-brand, single-model, or single-product tool. Image-quality parameters require source evidence and review."
+  },
+  "source_files": {
+    "read_successfully": [
+      "PROJECT_MEMORY_FOR_OPENCLAW.md",
+      "workflow/agent_workflow.md",
+      "workflow/agent_io_contracts.md",
+      "outputs/standardized_brief_summary.json",
+      "outputs/audience_insight.json",
+      "outputs/selling_point_matrix.json",
+      "outputs/platform_strategy_plan.json",
+      "outputs/creative_copy_pack_outline.json",
+      "outputs/image_prompt_pack_outline.json",
+      "outputs/brand_compliance_report.json",
+      "outputs/growth_metrics_plan.json",
+      "outputs/final_creative_package_report.json",
+      "FILE_INDEX.md"
+    ],
+    "missing_in_current_workspace": [
+      "README.md",
+      "docs/clickable_file_index.md",
+      "docs/steps_01_to_11_content_index.md",
+      "docs/workflow_diagram.md",
+      "docs/evaluation_metrics_test_plan.md",
+      "docs/enterprise_governance_design.md"
+    ],
+    "missing_file_handling": "Missing optional portfolio navigation files were recorded where applicable and do not block Step 12. This revision used only active workspace files."
+  },
+  "inherited_context": {
+    "completed_steps": [
+      "Brief Parser",
+      "Audience Insight",
+      "Selling Point Analyst",
+      "Platform Strategy",
+      "Creative Copy Outline",
+      "Image Prompt Outline",
+      "Brand Compliance",
+      "Growth Metrics",
+      "Creative Package Reporter"
+    ],
+    "v2_nodes_added": [
+      "Planner Agent",
+      "Human Approval Node",
+      "Growth Evaluation Agent"
+    ],
+    "compliance_inheritance": {
+      "final_marketing_copy": "blocked",
+      "final_image_prompt": "blocked",
+      "image_generation": "blocked",
+      "public_release": "blocked",
+      "allowed_current_action": "structured planning artifacts only"
+    },
+    "demo_context": {
+      "industry": "智能影像设备",
+      "scenario_type": "新品上市营销工作流",
+      "demo_product": "运动相机",
+      "target_regions": [
+        "中国大陆"
+      ],
+      "channels": [
+        "抖音",
+        "小红书",
+        "天猫",
+        "京东"
+      ],
+      "product_naming_rule": "Use 运动相机 as the only demo product name. Do not use parameter-prefixed product names, specific brand names, or specific model names.",
+      "parameter_review_rule": "HD and panorama parameters require source evidence and proof review; without evidence they must be needs_review or blocked."
+    }
+  },
+  "workflow_routing": {
+    "v2_route_summary": [
+      "Brief Parser normalizes and validates the input brief.",
+      "Planner Agent creates the governed V2 execution plan before downstream orchestration.",
+      "Audience Insight, Selling Point Analyst, and Platform Strategy may run in parallel after the standardized Brief is available.",
+      "Creative Agent waits for Audience Insight, Selling Point Analyst, and Platform Strategy outputs to be completed and summarized.",
+      "Brand Compliance must run before Human Approval.",
+      "Human Approval records approved, needs_revision, or blocked before Image Prompt Skill proceeds.",
+      "Image Prompt Skill remains a single node and must run after Human Approval in the V2 workflow.",
+      "Growth Evaluation Agent reads both compliance conclusions and human approval results before evaluation.",
+      "Final Report Generator summarizes the complete execution record and governed artifact index."
+    ],
+    "routing_rules": [
+      {
+        "rule_id": "route_parallel_analysis_after_brief",
+        "description": "Audience Insight, Selling Point Analyst, and Platform Strategy can execute in parallel after standardized_brief_summary is available.",
+        "upstream_required": [
+          "outputs/standardized_brief_summary.json"
+        ],
+        "parallel_nodes": [
+          "Audience Insight Skill",
+          "Selling Point Analyst Agent",
+          "Platform Strategy Skill"
+        ]
+      },
+      {
+        "rule_id": "route_creative_waits_for_analysis",
+        "description": "Creative Agent must wait for the three analysis outputs to be summarized before creating creative module structures.",
+        "upstream_required": [
+          "outputs/audience_insight.json",
+          "outputs/selling_point_matrix.json",
+          "outputs/platform_strategy_plan.json"
+        ],
+        "downstream_node": "Creative Agent"
+      },
+      {
+        "rule_id": "route_compliance_before_approval",
+        "description": "Brand Compliance must evaluate structured creative and visual planning risks before Human Approval.",
+        "upstream_required": [
+          "outputs/creative_copy_pack_outline.json",
+          "outputs/image_prompt_pack_outline.json"
+        ],
+        "downstream_node": "Human Approval Node"
+      },
+      {
+        "rule_id": "route_image_prompt_after_approval",
+        "description": "Image Prompt Skill must remain a single node and may only proceed after Human Approval records approved, needs_revision, or blocked in the V2 governed route.",
+        "upstream_required": [
+          "outputs/brand_compliance_report.json",
+          "future_outputs/human_approval_result.json"
+        ],
+        "downstream_node": "Image Prompt Skill"
+      },
+      {
+        "rule_id": "route_growth_evaluation_after_compliance_and_approval",
+        "description": "Growth Evaluation Agent must use compliance status and approval decisions before scoring workflow performance.",
+        "upstream_required": [
+          "outputs/brand_compliance_report.json",
+          "future_outputs/human_approval_result.json"
+        ],
+        "downstream_node": "Growth Evaluation Agent"
+      }
+    ],
+    "v2_workflow_sequence": [
+      "Brief Parser Agent",
+      "Planner Agent",
+      "Audience Insight Skill / Selling Point Analyst Agent / Platform Strategy Skill",
+      "Creative Agent",
+      "Brand Compliance Agent",
+      "Human Approval Node",
+      "Image Prompt Skill",
+      "Growth Evaluation Agent",
+      "Final Report Generator"
+    ]
+  },
+  "node_execution_plan": [
+    {
+      "node": "Brief Parser Agent",
+      "task_stage": "input parsing",
+      "read_files": [
+        "sample_brief.json",
+        "schemas/product_brief.schema.json"
+      ],
+      "expected_output": "outputs/standardized_brief_summary.json",
+      "hands_off_to": [
+        "Audience Insight Skill",
+        "Selling Point Analyst Agent",
+        "Platform Strategy Skill",
+        "Brand Compliance Agent"
+      ],
+      "status_rule": "Stop workflow if required fields are missing or schema validation fails."
+    },
+    {
+      "node": "Audience Insight Skill",
+      "task_stage": "user insight",
+      "read_files": [
+        "outputs/standardized_brief_summary.json",
+        "sample_brief.json"
+      ],
+      "expected_output": "outputs/audience_insight.json",
+      "hands_off_to": [
+        "Creative Copy Agent",
+        "Image Prompt Skill",
+        "Growth Evaluation Agent",
+        "Final Report Generator"
+      ],
+      "status_rule": "Mark assumptions and low-confidence insights for review."
+    },
+    {
+      "node": "Selling Point Analyst Agent",
+      "task_stage": "selling point analysis",
+      "read_files": [
+        "outputs/standardized_brief_summary.json",
+        "outputs/audience_insight.json",
+        "sample_brief.json"
+      ],
+      "expected_output": "outputs/selling_point_matrix.json",
+      "hands_off_to": [
+        "Creative Copy Agent",
+        "Brand Compliance Agent",
+        "Human Approval Node",
+        "Final Report Generator"
+      ],
+      "status_rule": "Any claim without proof must be tagged as needs_review or blocked for final generation."
+    },
+    {
+      "node": "Platform Strategy Skill",
+      "task_stage": "platform strategy",
+      "read_files": [
+        "outputs/standardized_brief_summary.json",
+        "outputs/audience_insight.json",
+        "outputs/selling_point_matrix.json"
+      ],
+      "expected_output": "outputs/platform_strategy_plan.json",
+      "hands_off_to": [
+        "Creative Copy Agent",
+        "Image Prompt Skill",
+        "Growth Evaluation Agent",
+        "Final Report Generator"
+      ],
+      "status_rule": "KPI language must remain observational and may not become commercial outcome promises."
+    },
+    {
+      "node": "Creative Copy Agent",
+      "task_stage": "creative structure",
+      "read_files": [
+        "outputs/audience_insight.json",
+        "outputs/selling_point_matrix.json",
+        "outputs/platform_strategy_plan.json",
+        "sample_brief.json"
+      ],
+      "expected_output": "outputs/creative_copy_pack_outline.json",
+      "hands_off_to": [
+        "Brand Compliance Agent",
+        "Human Approval Node",
+        "Growth Evaluation Agent",
+        "Final Report Generator"
+      ],
+      "status_rule": "Generate structure and module requirements only; do not generate final public-facing copy."
+    },
+    {
+      "node": "Brand Compliance Agent",
+      "task_stage": "brand compliance",
+      "read_files": [
+        "outputs/creative_copy_pack_outline.json",
+        "outputs/image_prompt_pack_outline.json",
+        "outputs/selling_point_matrix.json",
+        "sample_brief.json"
+      ],
+      "expected_output": "outputs/brand_compliance_report.json",
+      "hands_off_to": [
+        "Human Approval Node",
+        "Growth Evaluation Agent",
+        "Final Report Generator"
+      ],
+      "status_rule": "Must run before Human Approval and must preserve blocked gates for final generation until evidence and authorization are confirmed."
+    },
+    {
+      "node": "Human Approval Node",
+      "task_stage": "human approval",
+      "read_files": [
+        "outputs/brand_compliance_report.json",
+        "outputs/creative_copy_pack_outline.json",
+        "outputs/image_prompt_pack_outline.json",
+        "outputs/planner_execution_plan.json"
+      ],
+      "expected_output": "future_outputs/human_approval_result.json",
+      "hands_off_to": [
+        "Image Prompt Skill",
+        "Growth Evaluation Agent",
+        "Final Report Generator"
+      ],
+      "status_rule": "Approval must be separated by operations, brand, legal/compliance, and asset authorization responsibilities."
+    },
+    {
+      "node": "Image Prompt Skill",
+      "task_stage": "visual asset structure",
+      "read_files": [
+        "future_outputs/human_approval_result.json",
+        "outputs/platform_strategy_plan.json",
+        "outputs/selling_point_matrix.json",
+        "outputs/brand_compliance_report.json"
+      ],
+      "expected_output": "future_outputs/image_prompt_skill_approved_structure.json",
+      "hands_off_to": [
+        "Growth Evaluation Agent",
+        "Final Report Generator"
+      ],
+      "status_rule": "Remain a single node. Do not split into separate visual nodes. Do not generate final image prompts or images without explicit approval and authorization."
+    },
+    {
+      "node": "Growth Evaluation Agent",
+      "task_stage": "growth evaluation",
+      "read_files": [
+        "outputs/growth_metrics_plan.json",
+        "outputs/brand_compliance_report.json",
+        "future_outputs/human_approval_result.json",
+        "outputs/planner_execution_plan.json"
+      ],
+      "expected_output": "future_outputs/growth_evaluation_report.json",
+      "hands_off_to": [
+        "Final Report Generator",
+        "future campaign dashboard"
+      ],
+      "status_rule": "Evaluate workflow performance and field quality; never convert KPI observations into guaranteed business outcomes."
+    },
+    {
+      "node": "Final Report Generator",
+      "task_stage": "final reporting",
+      "read_files": [
+        "outputs/planner_execution_plan.json",
+        "future_outputs/human_approval_result.json",
+        "future_outputs/growth_evaluation_report.json",
+        "outputs/final_creative_package_report.json"
+      ],
+      "expected_output": "future_outputs/final_v2_workflow_report.json",
+      "hands_off_to": [
+        "portfolio viewer",
+        "enterprise workflow review"
+      ],
+      "status_rule": "Summarize governed workflow, traceability, approvals, evaluation results, and remaining blocked items."
+    }
+  ],
+  "parallel_execution_groups": [
+    {
+      "group_id": "group_01_brief_gate",
+      "mode": "serial",
+      "nodes": [
+        "Brief Parser Agent"
+      ],
+      "reason": "All downstream analysis depends on a standardized and validated brief."
+    },
+    {
+      "group_id": "group_02_parallel_analysis",
+      "mode": "parallel",
+      "nodes": [
+        "Audience Insight Skill",
+        "Selling Point Analyst Agent",
+        "Platform Strategy Skill"
+      ],
+      "reason": "These nodes can all read standardized brief context and produce complementary analysis artifacts."
+    },
+    {
+      "group_id": "group_03_creative_and_compliance_chain",
+      "mode": "serial",
+      "nodes": [
+        "Creative Copy Agent",
+        "Brand Compliance Agent",
+        "Human Approval Node"
+      ],
+      "reason": "Creative structure depends on summarized analysis; compliance must review risk before humans approve."
+    },
+    {
+      "group_id": "group_04_post_approval_execution",
+      "mode": "conditional",
+      "nodes": [
+        "Image Prompt Skill",
+        "Growth Evaluation Agent",
+        "Final Report Generator"
+      ],
+      "reason": "Post-approval nodes require compliance and human decision fields. Image Prompt Skill remains a single governed node."
+    }
+  ],
+  "risk_budget": {
+    "routing_required_to": [
+      "Brand Compliance Agent",
+      "Human Approval Node"
+    ],
+    "high_risk_fields": [
+      {
+        "risk_id": "risk_hd_panorama_quality",
+        "field_group": "高清 / 全景等画质参数（仅限原始 Brief 有证明时）",
+        "severity": "major",
+        "risk_reason": "HD and panorama quality parameters may become unsupported superiority or unconditional image-quality claims if proof is missing.",
+        "required_evidence": [
+          "source brief field showing the parameter",
+          "resolution specification",
+          "sample footage",
+          "approved comparison criteria if comparison is used"
+        ],
+        "approval_owner": [
+          "brand",
+          "legal_compliance"
+        ]
+      },
+      {
+        "risk_id": "risk_waterproof_stabilization_durability",
+        "field_group": "防水 / 防抖 / 耐用",
+        "severity": "critical",
+        "risk_reason": "May imply any-condition waterproofing, drop resistance, stabilization, or no-damage guarantees.",
+        "required_evidence": [
+          "waterproof rating",
+          "depth and duration limits",
+          "stabilization test conditions",
+          "durability limitations"
+        ],
+        "approval_owner": [
+          "brand",
+          "legal_compliance",
+          "operations"
+        ]
+      },
+      {
+        "risk_id": "risk_ai_auto_editing",
+        "field_group": "AI 自动剪辑",
+        "severity": "major",
+        "risk_reason": "May imply guaranteed viral content, professional results, or zero learning cost.",
+        "required_evidence": [
+          "AI editing workflow demo",
+          "draft output example",
+          "user control explanation"
+        ],
+        "approval_owner": [
+          "brand",
+          "legal_compliance"
+        ]
+      },
+      {
+        "risk_id": "risk_gmv_conversion_traffic_promise",
+        "field_group": "GMV / 转化 / 流量 / CTR / CVR 承诺",
+        "severity": "critical",
+        "risk_reason": "Business metrics may only be observations or test fields, not promised outcomes.",
+        "required_evidence": [
+          "growth measurement plan",
+          "actual campaign data for retrospective use only"
+        ],
+        "approval_owner": [
+          "operations",
+          "legal_compliance"
+        ]
+      },
+      {
+        "risk_id": "risk_brand_logo_celebrity_likeness",
+        "field_group": "品牌 Logo / 名人肖像 / 商标 / 肖像权",
+        "severity": "critical",
+        "risk_reason": "Unauthorized marks or likeness may create IP, trademark, or publicity-rights risks.",
+        "required_evidence": [
+          "brand asset authorization",
+          "likeness authorization",
+          "trademark use approval"
+        ],
+        "approval_owner": [
+          "asset_authorization",
+          "legal_compliance",
+          "brand"
+        ]
+      },
+      {
+        "risk_id": "risk_product_app_scene_assets",
+        "field_group": "商品图 / App 截图 / 场景样片 / 达人素材",
+        "severity": "critical",
+        "risk_reason": "Final multimodal assets require proof of usage rights and source traceability.",
+        "required_evidence": [
+          "product image usage approval",
+          "App screenshot authorization",
+          "scene footage usage approval",
+          "creator or model release if applicable"
+        ],
+        "approval_owner": [
+          "asset_authorization",
+          "brand",
+          "legal_compliance"
+        ]
+      }
+    ],
+    "budget_rule": "Any critical risk blocks final copy, final image prompt, image generation, and public release until evidence and human approval are recorded."
+  },
+  "human_approval_plan": {
+    "required_before_final_generation": true,
+    "approval_groups": [
+      {
+        "owner": "operations",
+        "must_confirm": [
+          "campaign goal and channel priority",
+          "platform content format scope",
+          "timeline and launch cadence",
+          "KPI fields are used as observations, not promises",
+          "which downstream tasks are allowed to continue"
+        ]
+      },
+      {
+        "owner": "brand",
+        "must_confirm": [
+          "brand voice and positioning",
+          "claim wording boundaries",
+          "approved selling point priority",
+          "visual style and product representation boundaries",
+          "no single-brand lock-in beyond demo context"
+        ]
+      },
+      {
+        "owner": "legal_compliance",
+        "must_confirm": [
+          "image quality, waterproof, stabilization, durability, and AI editing evidence",
+          "no absolute or unsupported claims",
+          "no guaranteed GMV, conversion, traffic, or viral outcomes",
+          "competitor comparison remains category-level and evidence-backed",
+          "platform and advertising compliance constraints"
+        ]
+      },
+      {
+        "owner": "asset_authorization",
+        "must_confirm": [
+          "brand logo authorization",
+          "product image and white-background image authorization",
+          "App screenshot authorization",
+          "scene sample and footage usage rights",
+          "celebrity, model, influencer, and creator likeness authorization where applicable"
+        ]
+      }
+    ],
+    "approval_output_schema_hint": {
+      "artifact_name": "human_approval_result",
+      "status": "approved | needs_revision | blocked",
+      "approved_fields": [],
+      "required_revisions": [],
+      "evidence_files": [],
+      "approver_roles": [],
+      "next_allowed_nodes": [],
+      "needs_revision_fields": []
+    },
+    "approval_decision_values": [
+      "approved",
+      "needs_revision",
+      "blocked"
+    ]
+  },
+  "evaluation_targets": {
+    "agent_workflow_metrics": [
+      {
+        "metric": "task_completion_rate",
+        "definition": "Percentage of planned nodes that produce valid structured artifacts without blocking errors."
+      },
+      {
+        "metric": "average_elapsed_time",
+        "definition": "Average time from node start to valid artifact output, measured per node and for the full workflow."
+      },
+      {
+        "metric": "human_modification_rate",
+        "definition": "Percentage of fields changed by human reviewers after agent output."
+      },
+      {
+        "metric": "hallucination_rate",
+        "definition": "Percentage of claims, assets, or assumptions not supported by source brief, upstream artifacts, evidence, or approvals."
+      },
+      {
+        "metric": "compliance_interception_rate",
+        "definition": "Percentage of risky items caught by Brand Compliance or Human Approval before final generation."
+      },
+      {
+        "metric": "field_completeness_rate",
+        "definition": "Percentage of required schema fields populated in each artifact and handoff packet."
+      },
+      {
+        "metric": "failure_reason_attribution",
+        "definition": "Categorized reasons for node failure, including missing field, unsupported claim, asset authorization gap, schema error, dependency missing, or human rejection."
+      }
+    ],
+    "evaluation_inputs": [
+      "node status",
+      "artifact schema validity",
+      "risk tags",
+      "human approval result",
+      "revision requests",
+      "blocked item reasons",
+      "elapsed time per node",
+      "field completeness score"
+    ]
+  },
+  "blocked_items": [
+    {
+      "item": "final marketing copy",
+      "status": "blocked",
+      "reason": "Requires evidence, brand/legal review, and Human Approval."
+    },
+    {
+      "item": "final image prompt",
+      "status": "blocked",
+      "reason": "Requires Human Approval and asset authorization; Image Prompt Skill must remain a single node."
+    },
+    {
+      "item": "image generation",
+      "status": "blocked",
+      "reason": "Requires final prompt approval and asset rights confirmation."
+    },
+    {
+      "item": "frontend page",
+      "status": "blocked",
+      "reason": "Out of scope for Step 12."
+    },
+    {
+      "item": "public release or ad delivery",
+      "status": "blocked",
+      "reason": "Requires final asset approval, campaign owner release decision, and platform compliance."
+    },
+    {
+      "item": "rerun steps 1-11",
+      "status": "blocked",
+      "reason": "Step 12 only plans the V2 workflow and inherits existing artifacts."
+    },
+    {
+      "item": "using technical parameters as the product name or as default product facts",
+      "status": "blocked",
+      "reason": "The demo product name must be 运动相机. Image-quality parameters require source evidence and review."
+    }
+  ],
+  "downstream_handoff": {
+    "to_human_approval_node": {
+      "fields": [
+        "risk_budget.high_risk_fields",
+        "brand_compliance_report.approval_status",
+        "brand_compliance_report.risk_items",
+        "creative_copy_pack_outline.claim_source_map",
+        "image_prompt_pack_outline.asset_dependency_map",
+        "platform_strategy_plan.metric_language_constraints",
+        "blocked_items"
+      ],
+      "purpose": "Enable role-based human review of claims, compliance risk, assets, platform metrics, and next allowed nodes."
+    },
+    "to_growth_evaluation_agent": {
+      "fields": [
+        "workflow_routing.routing_rules",
+        "node_execution_plan",
+        "parallel_execution_groups",
+        "human_approval_result.status",
+        "evaluation_targets.agent_workflow_metrics",
+        "blocked_items",
+        "risk_budget.high_risk_fields"
+      ],
+      "purpose": "Evaluate agent workflow efficiency, quality, risk interception, field completeness, and failure reasons after approval decisions are available."
+    },
+    "to_final_report_generator": {
+      "fields": [
+        "planner_scope",
+        "source_files",
+        "workflow_routing",
+        "node_execution_plan",
+        "human_approval_plan",
+        "evaluation_targets",
+        "blocked_items",
+        "downstream_handoff"
+      ],
+      "purpose": "Summarize V2 workflow orchestration, governance gates, evaluation readiness, and remaining blocked final-generation items for portfolio review."
+    }
+  },
+  "validation_summary": {
+    "json_validity_expected": true,
+    "final_marketing_copy_generated": false,
+    "final_image_prompt_generated": false,
+    "image_generated": false,
+    "frontend_generated": false,
+    "public_release_performed": false,
+    "steps_1_to_11_rerun": false,
+    "image_prompt_skill_split": false,
+    "human_approval_executed": false,
+    "growth_evaluation_executed": false,
+    "step_12_completion_record_required": true,
+    "clickable_file_index_update_required": true,
+    "step_12_status": "completed_revised",
+    "product_name_unified_to": "运动相机",
+    "parameter_prefixed_cn_used_as_product_name": false,
+    "parameter_prefixed_en_used_as_product_name": false,
+    "human_approval_decision_values": [
+      "approved",
+      "needs_revision",
+      "blocked"
+    ],
+    "next_step": "Step 13: Human Approval Node"
+  }
+}

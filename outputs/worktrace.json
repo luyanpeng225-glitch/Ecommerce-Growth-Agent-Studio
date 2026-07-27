@@ -1,0 +1,1894 @@
+{
+  "meta": {
+    "worktrace_version": "0.1.0",
+    "schema_version": "WorkTrace Artifact Schema",
+    "project_name": "E-commerce Growth Agent Studio",
+    "product_name": "运动相机",
+    "workflow_version": "V2"
+  },
+  "trace_summary": {
+    "trace_id": null,
+    "trace_id_status": "historical_not_available",
+    "artifact_trace_key": "historical_artifact_trace_534a02a2ce551ed2",
+    "trace_type": "historical_artifact_trace",
+    "execution_context": "retrospective_artifact_reconstruction",
+    "workflow_status": "needs_review",
+    "time_status": "historical_not_available",
+    "started_at": null,
+    "completed_at": null,
+    "duration_ms": null,
+    "retry_count": null,
+    "retry_count_status": "historical_not_available",
+    "source_artifacts": [
+      {
+        "path": "docs/worktrace_spec.md",
+        "exists": true,
+        "evidence_type": "artifact_derived",
+        "artifact_type": "markdown",
+        "required": true,
+        "json_pointer": null,
+        "section_hint": null,
+        "role": "evidence",
+        "source_status": null,
+        "notes": "Source artifact for retrospective WorkTrace reconstruction."
+      },
+      {
+        "path": "schemas/artifacts/worktrace.schema.json",
+        "exists": true,
+        "evidence_type": "artifact_derived",
+        "artifact_type": "json",
+        "required": true,
+        "json_pointer": null,
+        "section_hint": null,
+        "role": "evidence",
+        "source_status": null,
+        "notes": "Schema used for Ajv validation."
+      },
+      {
+        "path": "outputs/workflow_execution_log.json",
+        "exists": true,
+        "evidence_type": "artifact_derived",
+        "artifact_type": "json",
+        "required": true,
+        "json_pointer": null,
+        "section_hint": null,
+        "role": "evidence",
+        "source_status": null,
+        "notes": "Source artifact for retrospective WorkTrace reconstruction."
+      },
+      {
+        "path": "outputs/claim_trace_matrix.json",
+        "exists": true,
+        "evidence_type": "artifact_derived",
+        "artifact_type": "json",
+        "required": true,
+        "json_pointer": null,
+        "section_hint": null,
+        "role": "evidence",
+        "source_status": null,
+        "notes": "Source artifact for retrospective WorkTrace reconstruction."
+      },
+      {
+        "path": "outputs/human_approval_record.json",
+        "exists": true,
+        "evidence_type": "artifact_derived",
+        "artifact_type": "json",
+        "required": true,
+        "json_pointer": null,
+        "section_hint": null,
+        "role": "evidence",
+        "source_status": null,
+        "notes": "Source artifact for retrospective WorkTrace reconstruction."
+      },
+      {
+        "path": "outputs/two_stage_compliance_validation_report.json",
+        "exists": true,
+        "evidence_type": "artifact_derived",
+        "artifact_type": "json",
+        "required": true,
+        "json_pointer": null,
+        "section_hint": null,
+        "role": "evidence",
+        "source_status": null,
+        "notes": "Source artifact for retrospective WorkTrace reconstruction."
+      },
+      {
+        "path": "outputs/workflow_metrics_report.json",
+        "exists": true,
+        "evidence_type": "artifact_derived",
+        "artifact_type": "json",
+        "required": true,
+        "json_pointer": null,
+        "section_hint": null,
+        "role": "evidence",
+        "source_status": null,
+        "notes": "Source artifact for retrospective WorkTrace reconstruction."
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "step_01_standard_product_brief_input",
+      "sequence": 1,
+      "node_name": "Standard Product Brief Input",
+      "node_type": "input_artifact",
+      "status": "needs_review",
+      "time_status": "historical_not_available",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "docs/product_brief_input_template.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "data/sample_brief.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "risk_ids": [
+        "risk_hd_360_image_quality_requires_formal_proof",
+        "risk_stabilization_claim_requires_test_conditions",
+        "risk_waterproof_durability_requires_rating_and_limits",
+        "risk_ai_auto_editing_effect_requires_scope_limits",
+        "risk_required_product_app_scene_assets_need_authorization",
+        "risk_logo_portrait_and_scene_materials_need_rights_clearance",
+        "risk_forbidden_expression_competitor_and_negative_constraints",
+        "risk_growth_metrics_must_not_be_result_promises"
+      ],
+      "claim_ids": [
+        "claim_product_capability_001",
+        "claim_product_capability_002",
+        "claim_product_capability_003",
+        "claim_product_capability_004",
+        "claim_ai_capability_001",
+        "claim_usage_scenario_001",
+        "claim_usage_scenario_002",
+        "claim_visual_asset_authorization_001",
+        "claim_visual_asset_authorization_002",
+        "claim_visual_asset_authorization_003",
+        "claim_compliance_or_safety_001",
+        "claim_compliance_or_safety_002",
+        "claim_growth_or_business_outcome_001"
+      ],
+      "retry_count": null,
+      "retry_count_status": "historical_not_available",
+      "error": null,
+      "human_approval": null,
+      "next_node": "step_02_workflow_schema_io_contract_specification"
+    },
+    {
+      "node_id": "step_02_workflow_schema_io_contract_specification",
+      "sequence": 2,
+      "node_name": "Workflow / Schema / I/O Contract Specification",
+      "node_type": "specification",
+      "status": "pass",
+      "time_status": "historical_not_available",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "data/sample_brief.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "schemas/product_brief.schema.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "workflow/agent_workflow.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "workflow/agent_io_contracts.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "risk_ids": [],
+      "claim_ids": [],
+      "retry_count": null,
+      "retry_count_status": "historical_not_available",
+      "error": null,
+      "human_approval": null,
+      "next_node": "step_03_brief_parser_agent"
+    },
+    {
+      "node_id": "step_03_brief_parser_agent",
+      "sequence": 3,
+      "node_name": "Brief Parser Agent",
+      "node_type": "agent",
+      "status": "needs_review",
+      "time_status": "historical_not_available",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "data/sample_brief.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "schemas/product_brief.schema.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "prompts/brief_parser.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "outputs/standardized_brief_summary.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/brief_parser_report.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "risk_ids": [
+        "risk_brief_structure_complete_but_evidence_not_formal"
+      ],
+      "claim_ids": [],
+      "retry_count": null,
+      "retry_count_status": "historical_not_available",
+      "error": null,
+      "human_approval": null,
+      "next_node": "step_04_audience_insight_skill"
+    },
+    {
+      "node_id": "step_04_audience_insight_skill",
+      "sequence": 4,
+      "node_name": "Audience Insight Skill",
+      "node_type": "skill",
+      "status": "needs_review",
+      "time_status": "historical_not_available",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "data/sample_brief.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/standardized_brief_summary.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "prompts/audience_insight.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "outputs/audience_insight.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/audience_insight_report.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "risk_ids": [],
+      "claim_ids": [],
+      "retry_count": null,
+      "retry_count_status": "historical_not_available",
+      "error": null,
+      "human_approval": null,
+      "next_node": "step_05_selling_point_analyst_agent"
+    },
+    {
+      "node_id": "step_05_selling_point_analyst_agent",
+      "sequence": 5,
+      "node_name": "Selling Point Analyst Agent",
+      "node_type": "agent",
+      "status": "needs_review",
+      "time_status": "historical_not_available",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "data/sample_brief.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/standardized_brief_summary.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/audience_insight.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "prompts/selling_point_analyst.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "outputs/selling_point_matrix.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/selling_point_matrix.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "risk_ids": [],
+      "claim_ids": [
+        "claim_product_capability_001",
+        "claim_product_capability_002",
+        "claim_product_capability_003",
+        "claim_product_capability_004",
+        "claim_ai_capability_001",
+        "claim_usage_scenario_001",
+        "claim_usage_scenario_002"
+      ],
+      "retry_count": null,
+      "retry_count_status": "historical_not_available",
+      "error": null,
+      "human_approval": null,
+      "next_node": "step_06_platform_strategy_skill"
+    },
+    {
+      "node_id": "step_06_platform_strategy_skill",
+      "sequence": 6,
+      "node_name": "Platform Strategy Skill",
+      "node_type": "skill",
+      "status": "needs_review",
+      "time_status": "historical_not_available",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "data/sample_brief.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/standardized_brief_summary.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/audience_insight.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/selling_point_matrix.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "prompts/platform_strategy.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "outputs/platform_strategy_plan.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/platform_strategy_plan.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "risk_ids": [],
+      "claim_ids": [
+        "claim_compliance_or_safety_001",
+        "claim_compliance_or_safety_002"
+      ],
+      "retry_count": null,
+      "retry_count_status": "historical_not_available",
+      "error": null,
+      "human_approval": null,
+      "next_node": "step_07_creative_copy_agent"
+    },
+    {
+      "node_id": "step_07_creative_copy_agent",
+      "sequence": 7,
+      "node_name": "Creative Copy Agent",
+      "node_type": "agent",
+      "status": "needs_review",
+      "time_status": "historical_not_available",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "outputs/audience_insight.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/selling_point_matrix.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/platform_strategy_plan.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "data/sample_brief.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "prompts/creative_copy_agent.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "outputs/creative_copy_pack_outline.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/creative_copy_pack_outline.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "risk_ids": [
+        "risk_hd_360_image_quality_requires_formal_proof",
+        "risk_stabilization_claim_requires_test_conditions",
+        "risk_waterproof_durability_requires_rating_and_limits",
+        "risk_ai_auto_editing_effect_requires_scope_limits",
+        "risk_forbidden_expression_competitor_and_negative_constraints",
+        "risk_growth_metrics_must_not_be_result_promises",
+        "risk_traceability_gap"
+      ],
+      "claim_ids": [
+        "claim_product_capability_002",
+        "claim_compliance_or_safety_001",
+        "claim_compliance_or_safety_002"
+      ],
+      "retry_count": null,
+      "retry_count_status": "historical_not_available",
+      "error": null,
+      "human_approval": null,
+      "next_node": "step_08_image_prompt_skill"
+    },
+    {
+      "node_id": "step_08_image_prompt_skill",
+      "sequence": 8,
+      "node_name": "Image Prompt Skill",
+      "node_type": "skill",
+      "status": "needs_review",
+      "time_status": "historical_not_available",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "data/sample_brief.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/platform_strategy_plan.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/selling_point_matrix.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/creative_copy_pack_outline.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "prompts/image_prompt_skill.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "outputs/image_prompt_pack_outline.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/image_prompt_pack_outline.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "risk_ids": [
+        "risk_required_product_app_scene_assets_need_authorization",
+        "risk_logo_portrait_and_scene_materials_need_rights_clearance"
+      ],
+      "claim_ids": [
+        "claim_usage_scenario_001",
+        "claim_usage_scenario_002",
+        "claim_visual_asset_authorization_001",
+        "claim_visual_asset_authorization_003"
+      ],
+      "retry_count": null,
+      "retry_count_status": "historical_not_available",
+      "error": null,
+      "human_approval": null,
+      "next_node": "step_09_brand_compliance_agent"
+    },
+    {
+      "node_id": "step_09_brand_compliance_agent",
+      "sequence": 9,
+      "node_name": "Brand Compliance Agent",
+      "node_type": "agent",
+      "status": "needs_review",
+      "time_status": "historical_not_available",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "data/sample_brief.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/selling_point_matrix.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/creative_copy_pack_outline.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/image_prompt_pack_outline.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "prompts/brand_compliance_agent.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "outputs/brand_compliance_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/brand_compliance_report.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "risk_ids": [],
+      "claim_ids": [
+        "claim_product_capability_001",
+        "claim_product_capability_004",
+        "claim_ai_capability_001",
+        "claim_visual_asset_authorization_002",
+        "claim_visual_asset_authorization_003",
+        "claim_compliance_or_safety_001",
+        "claim_compliance_or_safety_002",
+        "claim_growth_or_business_outcome_001"
+      ],
+      "retry_count": null,
+      "retry_count_status": "historical_not_available",
+      "error": null,
+      "human_approval": null,
+      "next_node": "step_10_growth_metrics_agent"
+    },
+    {
+      "node_id": "step_10_growth_metrics_agent",
+      "sequence": 10,
+      "node_name": "Growth Metrics Agent",
+      "node_type": "agent",
+      "status": "needs_review",
+      "time_status": "historical_not_available",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "outputs/platform_strategy_plan.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/creative_copy_pack_outline.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/image_prompt_pack_outline.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/brand_compliance_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "prompts/growth_metrics_agent.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "outputs/growth_metrics_plan.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/growth_metrics_plan.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "risk_ids": [],
+      "claim_ids": [
+        "claim_growth_or_business_outcome_001"
+      ],
+      "retry_count": null,
+      "retry_count_status": "historical_not_available",
+      "error": null,
+      "human_approval": null,
+      "next_node": "step_11_creative_package_reporter"
+    },
+    {
+      "node_id": "step_11_creative_package_reporter",
+      "sequence": 11,
+      "node_name": "Creative Package Reporter",
+      "node_type": "report_generator",
+      "status": "needs_review",
+      "time_status": "historical_not_available",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "outputs/standardized_brief_summary.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/audience_insight.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/selling_point_matrix.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/platform_strategy_plan.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/creative_copy_pack_outline.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/image_prompt_pack_outline.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/brand_compliance_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/growth_metrics_plan.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "prompts/creative_package_reporter.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "outputs/final_creative_package_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/final_creative_package_report.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "risk_ids": [],
+      "claim_ids": [],
+      "retry_count": null,
+      "retry_count_status": "historical_not_available",
+      "error": null,
+      "human_approval": null,
+      "next_node": "step_12_planner_agent"
+    },
+    {
+      "node_id": "step_12_planner_agent",
+      "sequence": 12,
+      "node_name": "Planner Agent",
+      "node_type": "agent",
+      "status": "pass",
+      "time_status": "historical_not_available",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "PROJECT_MEMORY_FOR_OPENCLAW.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "workflow/agent_workflow.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "workflow/agent_io_contracts.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/standardized_brief_summary.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/audience_insight.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/selling_point_matrix.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/platform_strategy_plan.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/creative_copy_pack_outline.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/image_prompt_pack_outline.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/brand_compliance_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/growth_metrics_plan.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/final_creative_package_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "prompts/planner_agent.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "outputs/planner_execution_plan.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/planner_execution_plan.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "risk_ids": [],
+      "claim_ids": [],
+      "retry_count": null,
+      "retry_count_status": "historical_not_available",
+      "error": null,
+      "human_approval": null,
+      "next_node": "step_13_human_approval_node"
+    },
+    {
+      "node_id": "step_13_human_approval_node",
+      "sequence": 13,
+      "node_name": "Human Approval Node",
+      "node_type": "approval_node",
+      "status": "needs_revision",
+      "time_status": "historical_not_available",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "outputs/planner_execution_plan.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/creative_copy_pack_outline.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/brand_compliance_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "data/sample_brief.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "prompts/human_approval_node.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "outputs/human_approval_record.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/human_approval_record.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "risk_ids": [],
+      "claim_ids": [
+        "claim_product_capability_003",
+        "claim_visual_asset_authorization_001",
+        "claim_visual_asset_authorization_002"
+      ],
+      "retry_count": null,
+      "retry_count_status": "historical_not_available",
+      "error": null,
+      "human_approval": {
+        "required": true,
+        "status": "needs_revision",
+        "source_refs": [
+          {
+            "path": "outputs/human_approval_record.json",
+            "exists": true,
+            "evidence_type": "artifact_derived",
+            "artifact_type": "json",
+            "required": true,
+            "json_pointer": "/approval_summary/overall_decision",
+            "section_hint": null,
+            "role": "approval_source",
+            "source_status": "needs_revision",
+            "notes": "Human signature remains pending; no reviewer name or reviewed_at is fabricated."
+          }
+        ],
+        "notes": [
+          "overall_decision=needs_revision",
+          "human_signature=pending",
+          "final_generation_allowed=false and public_release_allowed=false are preserved."
+        ]
+      },
+      "next_node": "step_14_growth_evaluation_agent"
+    },
+    {
+      "node_id": "step_14_growth_evaluation_agent",
+      "sequence": 14,
+      "node_name": "Growth Evaluation Agent",
+      "node_type": "evaluation_agent",
+      "status": "needs_review",
+      "time_status": "historical_not_available",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "outputs/planner_execution_plan.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/brand_compliance_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/human_approval_record.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/growth_metrics_plan.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/final_creative_package_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "docs/evaluation_metrics_test_plan.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "data/evaluation_metrics_sample.csv",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "csv",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "data/audit_log_sample.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "prompts/growth_evaluation_agent.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "outputs/growth_evaluation_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/growth_evaluation_report.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "risk_ids": [],
+      "claim_ids": [
+        "claim_growth_or_business_outcome_001",
+        "claim_growth_or_business_outcome_002"
+      ],
+      "retry_count": null,
+      "retry_count_status": "historical_not_available",
+      "error": null,
+      "human_approval": null,
+      "next_node": "step_15_v2_final_report_generator"
+    },
+    {
+      "node_id": "step_15_v2_final_report_generator",
+      "sequence": 15,
+      "node_name": "V2 Final Report Generator",
+      "node_type": "report_generator",
+      "status": "needs_review",
+      "time_status": "historical_not_available",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "PROJECT_MEMORY_FOR_OPENCLAW.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "README.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/final_creative_package_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/planner_execution_plan.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/human_approval_record.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/growth_evaluation_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/brand_compliance_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "prompts/v2_final_report_generator.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "outputs/v2_final_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        },
+        {
+          "path": "outputs/v2_final_report.md",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "markdown",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "output",
+          "source_status": null,
+          "notes": "File existence checked; existence does not prove business approval."
+        }
+      ],
+      "risk_ids": [],
+      "claim_ids": [
+        "claim_growth_or_business_outcome_002"
+      ],
+      "retry_count": null,
+      "retry_count_status": "historical_not_available",
+      "error": null,
+      "human_approval": null,
+      "next_node": null
+    }
+  ],
+  "release_gates": {
+    "final_marketing_copy": "blocked",
+    "final_image_prompt": "blocked",
+    "image_generation": "blocked",
+    "frontend_page": "blocked",
+    "public_release": "blocked"
+  },
+  "boundaries": {
+    "historical_execution_claimed": false,
+    "production_ready": false,
+    "customer_validated": false,
+    "fabricated_runtime_allowed": false
+  },
+  "limitations": [
+    "artifact_trace_key is a stable retrospective artifact key derived from source artifact paths; it is not a runtime trace_id.",
+    "trace_id is null because no historical runtime trace id is available.",
+    "All Steps 1-15 keep historical_not_available timing and null started_at, completed_at, duration_ms.",
+    "All Steps 1-15 keep retry_count=null and retry_count_status=historical_not_available.",
+    "File existence checks prove references exist only; they do not prove governance, human approval, production readiness, or release permission.",
+    "1 unique risk_id values are not directly assigned to historical nodes because no node output_refs.path equals their risk_record.source_artifact; this is an evidence boundary between historical artifacts and retrospective two-stage compliance reconstruction, not permission to infer lineage.",
+    "Final marketing copy, final image prompt, image generation, frontend page, and public release remain blocked.",
+    "Workflow metrics source says historical nodes: 15 historical_not_available / 0 measured."
+  ]
+}

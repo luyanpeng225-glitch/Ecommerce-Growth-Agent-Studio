@@ -1,0 +1,329 @@
+{
+  "artifact_name": "standardized_brief_summary",
+  "artifact_version": "0.1.0",
+  "brief_id": "brief_demo_action_camera_001",
+  "producer": "Brief Parser Agent",
+  "status": "needs_review",
+  "confidence": 0.91,
+  "inputs_used": [
+    "sample_brief.json",
+    "schemas/product_brief.schema.json",
+    "workflow/agent_io_contracts.md",
+    "workflow/agent_workflow.md"
+  ],
+  "summary": "sample_brief.json satisfies the required product brief structure and is ready to enter downstream workflow nodes. The status is needs_review because performance, waterproofing, AI editing, and advertising claim fields require evidence-aware handling before creative generation.",
+  "data": {
+    "brief_basic_summary": {
+      "project_name": "E-commerce Growth Agent Studio",
+      "project_name_cn": "电商增长 Agent 工作台",
+      "industry": "智能影像设备",
+      "scenario_type": "新品上市营销工作流",
+      "brand_name": "Demo Brand",
+      "product_name": "运动相机",
+      "product_category": "运动相机 / 智能影像设备",
+      "launch_stage": "launch",
+      "target_regions": [
+        "中国大陆"
+      ],
+      "language": "zh-CN",
+      "campaign_goal": "新品上市阶段提升目标用户对高清运动拍摄价值的认知，并形成从内容种草到电商转化的首发创意包。",
+      "review_mode": "human_in_loop",
+      "confidence_threshold": 0.82
+    },
+    "standardized_product_brief": {
+      "brief_identity": {
+        "brief_id": "brief_demo_action_camera_001",
+        "workflow_version": "0.1.0",
+        "project_name": "E-commerce Growth Agent Studio",
+        "project_name_cn": "电商增长 Agent 工作台"
+      },
+      "business_context": {
+        "industry": "智能影像设备",
+        "scenario_type": "新品上市营销工作流",
+        "launch_stage": "launch",
+        "target_regions": [
+          "中国大陆"
+        ],
+        "language": "zh-CN"
+      },
+      "product_context": {
+        "brand_name": "Demo Brand",
+        "product_name": "运动相机",
+        "product_category": "运动相机 / 智能影像设备",
+        "short_description": "一款面向户外运动、旅行记录和内容创作者的运动相机，支持 360 度拍摄、运动防抖和 AI 自动剪辑。",
+        "price_band": "中高端",
+        "core_feature_count": 5,
+        "bundle_count": 2,
+        "availability": {
+          "sales_channels": [
+            "天猫",
+            "京东",
+            "抖音电商"
+          ],
+          "launch_date": "2026-07",
+          "inventory_status": "首发备货"
+        }
+      },
+      "audience_context": {
+        "target_audience_count": 3,
+        "usage_scenario_count": 3,
+        "decision_factor_count": 5,
+        "barrier_count": 5
+      },
+      "market_context": {
+        "competitor_count": 2,
+        "differentiator_count": 5,
+        "positioning_statement": "面向户外运动和旅行创作者的运动相机，让用户一次拍摄，轻松生成多平台高质量内容。"
+      },
+      "growth_context": {
+        "channel_count": 4,
+        "channels": [
+          "抖音",
+          "小红书",
+          "天猫",
+          "京东"
+        ],
+        "primary_kpis": [
+          "CTR",
+          "CVR",
+          "收藏加购率",
+          "直播间商品点击率",
+          "内容互动率"
+        ],
+        "secondary_kpis": [
+          "完播率",
+          "评论率",
+          "搜索指数",
+          "达人内容采用率",
+          "素材复用率"
+        ],
+        "budget_level": "medium",
+        "timeline_stages": [
+          "warmup",
+          "launch",
+          "growth"
+        ]
+      },
+      "governance_context": {
+        "brand_voice": "专业可信、年轻户外、科技感、强调真实场景体验",
+        "visual_style": "高动态户外画面、清晰商品主体、真实运动场景、明亮自然光、科技感信息标注",
+        "compliance_rule_count": 5,
+        "negative_constraint_count": 5,
+        "review_mode": "human_in_loop"
+      }
+    },
+    "field_completeness": {
+      "schema_validation_status": "pass",
+      "required_fields_total": 30,
+      "required_fields_present": 30,
+      "required_fields_missing": 0,
+      "required_field_score": 1,
+      "schema_fields_total": 42,
+      "schema_fields_present": 42,
+      "schema_fields_missing": 0,
+      "schema_field_score": 1,
+      "overall_score": 1,
+      "scoring_note": "All required schema fields and all defined optional schema fields are present in sample_brief.json."
+    },
+    "missing_fields": [],
+    "risk_fields": [
+      {
+        "field": "brand_name",
+        "risk_level": "minor",
+        "reason": "Uses Demo Brand. This is acceptable for a portfolio demo but should be replaced or anonymized consistently in client-facing enterprise usage.",
+        "recommended_handling": "Keep as demo placeholder or replace with approved brand naming before external delivery."
+      },
+      {
+        "field": "core_features[].proof",
+        "risk_level": "major",
+        "reason": "Performance-related proof points such as image quality, stabilization, waterproofing, and AI editing need substantiation before creative generation.",
+        "recommended_handling": "Downstream agents should preserve proof requirements and avoid turning features into absolute claims."
+      },
+      {
+        "field": "specs.waterproof",
+        "risk_level": "major",
+        "reason": "Waterproof claims usually require conditions, depth, duration, or rating information.",
+        "recommended_handling": "Brand Compliance Agent should require condition-aware wording before approval."
+      },
+      {
+        "field": "specs.stabilization",
+        "risk_level": "major",
+        "reason": "Stabilization claims may be interpreted as guaranteed stability in all scenes.",
+        "recommended_handling": "Avoid absolute claims and tie statements to supported scenarios or test evidence."
+      },
+      {
+        "field": "core_features[4].feature",
+        "risk_level": "major",
+        "reason": "AI automatic editing can be over-promised if downstream copy implies professional results without user effort.",
+        "recommended_handling": "Keep claims framed as assistance or efficiency improvement unless stronger proof is provided."
+      },
+      {
+        "field": "positioning_statement",
+        "risk_level": "minor",
+        "reason": "The phrase '高质量内容' is directionally useful but should be qualified by scenario and evidence in generated assets.",
+        "recommended_handling": "Use as positioning context, not as an unsupported guarantee."
+      },
+      {
+        "field": "availability.launch_date",
+        "risk_level": "minor",
+        "reason": "Launch date is month-level only, which is enough for workflow planning but not enough for precise campaign scheduling.",
+        "recommended_handling": "Platform Strategy Skill should request day-level dates if exact cadence is needed."
+      }
+    ],
+    "compliance_sensitive_fields": [
+      {
+        "field": "do_not_claim",
+        "sensitivity_type": "advertising_claim_boundary",
+        "reason": "Defines prohibited absolute, first-in-industry, competitor attack, durability, and professional-result claims."
+      },
+      {
+        "field": "compliance_rules",
+        "sensitivity_type": "brand_and_platform_policy",
+        "reason": "Defines required restrictions for advertising wording, waterproof/durability claims, competitor references, business outcome promises, logos, and celebrity likeness."
+      },
+      {
+        "field": "negative_constraints",
+        "sensitivity_type": "workflow_guardrail",
+        "reason": "Prevents the demo from becoming a single-brand tool and blocks exaggerated scenes, overpromised AI editing, and missing enterprise review needs."
+      },
+      {
+        "field": "core_features",
+        "sensitivity_type": "performance_claim",
+        "reason": "Contains image quality, stabilization, waterproofing, and AI editing claims that need proof-aware handling."
+      },
+      {
+        "field": "specs",
+        "sensitivity_type": "technical_claim",
+        "reason": "Contains technical specifications that must not be exaggerated or generalized beyond stated support."
+      },
+      {
+        "field": "competitors",
+        "sensitivity_type": "competitive_reference",
+        "reason": "Competitor information is category-level, but downstream copy still must avoid attacking specific competitor brands."
+      },
+      {
+        "field": "required_assets",
+        "sensitivity_type": "asset_dependency",
+        "reason": "Required images and app screenshots must be approved assets before use in production creative."
+      }
+    ],
+    "downstream_readiness": {
+      "Audience Insight Skill": {
+        "status": "ready",
+        "confidence": 0.94,
+        "reason": "Audience segments, needs, pain points, purchase triggers, usage scenarios, decision factors, barriers, channels, and campaign goal are present."
+      },
+      "Selling Point Analyst Agent": {
+        "status": "ready_with_review",
+        "confidence": 0.9,
+        "reason": "Core features, proof points, specs, competitors, differentiators, and positioning are present, but performance claims need evidence-aware analysis."
+      },
+      "Platform Strategy Skill": {
+        "status": "ready",
+        "confidence": 0.92,
+        "reason": "Channels, content formats, KPIs, budget level, timeline, campaign goal, and product context are present."
+      },
+      "Brand Compliance Agent": {
+        "status": "ready_with_review",
+        "confidence": 0.88,
+        "reason": "Compliance rules and prohibited claims are present, and several technical or advertising claims should be checked before creative approval."
+      }
+    },
+    "downstream_field_handoff": {
+      "Audience Insight Skill": {
+        "fields": [
+          "standardized_product_brief",
+          "target_audiences",
+          "usage_scenarios",
+          "decision_factors",
+          "barriers",
+          "channels",
+          "campaign_goal",
+          "target_regions",
+          "language"
+        ],
+        "handoff_note": "Use these fields to derive audience segments, pain points, purchase triggers, content interest tags, and purchase journey assumptions."
+      },
+      "Selling Point Analyst Agent": {
+        "fields": [
+          "standardized_product_brief",
+          "core_features",
+          "specs",
+          "competitors",
+          "differentiators",
+          "positioning_statement",
+          "target_audiences",
+          "usage_scenarios",
+          "decision_factors",
+          "barriers",
+          "do_not_claim"
+        ],
+        "handoff_note": "Use these fields to build a feature-to-benefit matrix with proof requirements and claim risk notes."
+      },
+      "Platform Strategy Skill": {
+        "fields": [
+          "standardized_product_brief",
+          "channels",
+          "campaign_goal",
+          "primary_kpis",
+          "secondary_kpis",
+          "budget_level",
+          "timeline",
+          "content_formats",
+          "target_audiences",
+          "usage_scenarios",
+          "decision_factors",
+          "barriers"
+        ],
+        "handoff_note": "Use these fields to map platform roles, content requirements, funnel stages, cadence, and KPI constraints."
+      },
+      "Brand Compliance Agent": {
+        "fields": [
+          "standardized_product_brief",
+          "core_features",
+          "specs",
+          "positioning_statement",
+          "competitors",
+          "do_not_claim",
+          "brand_voice",
+          "visual_style",
+          "required_assets",
+          "compliance_rules",
+          "negative_constraints",
+          "review_mode",
+          "risk_fields",
+          "compliance_sensitive_fields"
+        ],
+        "handoff_note": "Use these fields to check claim boundaries, technical proof requirements, platform and brand restrictions, and human review requirements."
+      }
+    },
+    "audit_trace": {
+      "workflow_node": "Brief Parser Agent",
+      "workflow_sequence": 1,
+      "schema_file": "schemas/product_brief.schema.json",
+      "source_brief_file": "sample_brief.json",
+      "generated_artifacts": [
+        "outputs/standardized_brief_summary.json",
+        "outputs/brief_parser_report.md"
+      ],
+      "not_generated": [
+        "final marketing copy",
+        "xiaohongshu post",
+        "douyin script",
+        "image prompt",
+        "frontend page"
+      ]
+    }
+  },
+  "risks": [
+    "Performance claims require proof-aware downstream handling.",
+    "Waterproofing, stabilization, and AI editing claims should be reviewed before any creative output is approved.",
+    "Month-level launch date may be insufficient for detailed execution scheduling."
+  ],
+  "next_actions": [
+    "Pass approved handoff fields to Audience Insight Skill.",
+    "Pass feature and proof fields to Selling Point Analyst Agent with risk notes attached.",
+    "Pass channel, KPI, content format, budget, and timeline fields to Platform Strategy Skill.",
+    "Pass compliance constraints, technical claims, and risk fields to Brand Compliance Agent."
+  ]
+}

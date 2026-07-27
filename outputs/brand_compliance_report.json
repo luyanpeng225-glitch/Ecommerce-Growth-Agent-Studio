@@ -1,0 +1,526 @@
+{
+  "artifact_name": "brand_compliance_report",
+  "artifact_version": "0.1.0",
+  "brief_id": "brief_demo_action_camera_001",
+  "producer": "Brand Compliance Agent",
+  "status": "needs_review",
+  "confidence": 0.89,
+  "inputs_used": [
+    "workflow/agent_io_contracts.md",
+    "workflow/agent_workflow.md",
+    "outputs/creative_copy_pack_outline.json",
+    "outputs/image_prompt_pack_outline.json"
+  ],
+  "summary": "Brand Compliance Agent reviewed the structured creative copy outline and visual asset outline from steps 7-8. The workflow artifacts may proceed to Growth Metrics Agent and Creative Package Reporter as governed planning outputs, but final marketing copy, final image prompts, image generation, public-facing creative production, and frontend pages remain blocked until proof materials, asset authorization, and human-in-the-loop review are completed.",
+  "data": {
+    "input_file_audit": {
+      "read_successfully": [
+        "workflow/agent_io_contracts.md",
+        "workflow/agent_workflow.md",
+        "outputs/creative_copy_pack_outline.json",
+        "outputs/image_prompt_pack_outline.json"
+      ],
+      "missing_files": [
+        "PROJECT_MEMORY_FOR_OPENCLAW.md",
+        "README.md",
+        "PROJECT_BLUEPRINT.md",
+        "docs/steps_01_to_11_file_map.md"
+      ],
+      "missing_file_handling": "Missing project context files were recorded and did not block this compliance run because the required workflow contracts and step 7-8 artifacts were available. PROJECT_MEMORY_FOR_OPENCLAW.md will be created or updated after this step."
+    },
+    "compliance_scope": {
+      "reviewed_artifacts": [
+        "creative copy package outline",
+        "visual asset structure outline",
+        "claim source map",
+        "proof waitlist",
+        "visual risk register",
+        "forbidden elements",
+        "asset dependency map",
+        "human-in-the-loop review gates"
+      ],
+      "not_reviewed_as_final_assets": [
+        "final marketing copy",
+        "final image prompt",
+        "specific image description body",
+        "generated images",
+        "xiaohongshu body text",
+        "douyin script",
+        "live selling talk track",
+        "frontend page"
+      ],
+      "project_positioning": "The output remains an AI Agent Workflow / Skills product artifact for the E-commerce Growth Agent Studio. The action camera is only a demo product."
+    },
+    "approval_status": {
+      "workflow_artifact_status": "conditionally_approved_for_downstream_planning",
+      "final_copy_generation": "blocked",
+      "final_image_prompt_generation": "blocked",
+      "image_generation": "blocked",
+      "public_release": "blocked",
+      "allowed_next_nodes": [
+        "Growth Metrics Agent",
+        "Creative Package Reporter"
+      ],
+      "required_before_final_generation": [
+        "Brand owner confirms product claims and proof materials",
+        "Product or legal owner confirms waterproof, stabilization, image quality, durability, and AI editing boundaries",
+        "Brand asset authorization is completed",
+        "No real brand logo or unauthorized celebrity likeness is used",
+        "Human-in-the-loop review signs off copy modules and visual structures"
+      ]
+    },
+    "risk_items": [
+      {
+        "risk_id": "risk_technical_image_quality",
+        "risk_category": "technical_claim",
+        "severity": "major",
+        "source_fields": [
+          "creative_copy_pack_outline.claim_source_map[高清影像质量]",
+          "image_prompt_pack_outline.visual_risk_register[高清影像质量视觉表达]"
+        ],
+        "issue": "高清、全景画质等表达容易被扩展为行业第一、画质最好、全面超越手机或无条件高画质。",
+        "impact": "Could create unsupported technical superiority claims in copy, detail-page modules, comparison modules, and visual assets.",
+        "blocking_rule": "Do not generate final copy or image prompts using this claim until high-resolution sample footage and resolution specifications are available.",
+        "required_evidence": [
+          "high-resolution sample footage",
+          "resolution specification",
+          "scenario-based image quality comparison if comparison is used"
+        ],
+        "human_review_required": true
+      },
+      {
+        "risk_id": "risk_performance_waterproof_stabilization_durability",
+        "risk_category": "performance_claim",
+        "severity": "critical",
+        "source_fields": [
+          "creative_copy_pack_outline.claim_source_map[运动防抖]",
+          "creative_copy_pack_outline.claim_source_map[裸机防水与耐用]",
+          "image_prompt_pack_outline.visual_risk_register[防水、防摔、稳定性视觉表达]"
+        ],
+        "issue": "防水、防抖、耐用等性能声明容易被误解为任何场景都防水、防摔、稳定或不会损坏。",
+        "impact": "Could create advertising, platform, safety, and consumer expectation risks across short video, live selling, product detail pages, and visual scenes.",
+        "blocking_rule": "Block final content and image prompt generation for these claims until usage conditions, ratings, depth, duration, test conditions, and limitations are confirmed.",
+        "required_evidence": [
+          "waterproof rating or test standard",
+          "water depth and duration limits",
+          "stabilization test conditions",
+          "durability limitations and usage notes"
+        ],
+        "human_review_required": true
+      },
+      {
+        "risk_id": "risk_ai_auto_editing_effect",
+        "risk_category": "ai_effect_claim",
+        "severity": "major",
+        "source_fields": [
+          "creative_copy_pack_outline.claim_source_map[AI 自动剪辑]",
+          "image_prompt_pack_outline.visual_risk_register[AI 自动剪辑视觉表达]"
+        ],
+        "issue": "AI 自动剪辑容易被表达为自动生成爆款、保证内容表现或无需学习达到专业效果。",
+        "impact": "Could create misleading AI capability claims and unrealistic user outcome expectations.",
+        "blocking_rule": "Only describe AI editing as assistance, workflow support, initial draft generation, or efficiency improvement after product owner confirmation.",
+        "required_evidence": [
+          "AI editing workflow demo",
+          "generated draft example",
+          "editable steps and user control explanation"
+        ],
+        "human_review_required": true
+      },
+      {
+        "risk_id": "risk_platform_commercial_result",
+        "risk_category": "commercial_result_claim",
+        "severity": "critical",
+        "source_fields": [
+          "creative_copy_pack_outline.claim_source_map[平台转化与商业结果]",
+          "image_prompt_pack_outline.visual_risk_register[平台转化和 GMV 视觉表达]"
+        ],
+        "issue": "CTR、CVR、GMV、直播间商品点击率、流量、成交、转化等指标只能作为观测指标，不能被表达为承诺。",
+        "impact": "Could create false advertising, business outcome guarantee, or platform policy risk.",
+        "blocking_rule": "Do not use any wording or visual element that guarantees traffic, conversion, GMV, business revenue, or viral performance.",
+        "required_evidence": [
+          "Growth Metrics Agent measurement plan",
+          "actual campaign data if later used in retrospective reporting"
+        ],
+        "human_review_required": true
+      },
+      {
+        "risk_id": "risk_competitor_comparison",
+        "risk_category": "competitive_claim",
+        "severity": "major",
+        "source_fields": [
+          "creative_copy_pack_outline.claim_source_map",
+          "image_prompt_pack_outline.forbidden_elements"
+        ],
+        "issue": "竞品比较必须保持类目级，不能攻击具体品牌、无依据排名或贬低手机与传统运动相机。",
+        "impact": "Could create trademark, unfair competition, or platform moderation risk.",
+        "blocking_rule": "Allow only category-level comparison with neutral wording and proof-backed criteria.",
+        "required_evidence": [
+          "approved category comparison criteria",
+          "legal or brand review for any comparison module"
+        ],
+        "human_review_required": true
+      },
+      {
+        "risk_id": "risk_brand_logo_celebrity_asset_authorization",
+        "risk_category": "ip_and_asset_rights",
+        "severity": "critical",
+        "source_fields": [
+          "image_prompt_pack_outline.forbidden_elements",
+          "image_prompt_pack_outline.asset_dependency_map"
+        ],
+        "issue": "真实品牌 Logo、未经授权名人肖像、商品图、App 截图和场景样片涉及授权风险。",
+        "impact": "Could create IP, likeness, trademark, or internal brand governance risk in multimodal assets and达人 Brief配图.",
+        "blocking_rule": "No final image prompt or image generation may proceed until asset authorization is confirmed.",
+        "required_evidence": [
+          "brand asset authorization",
+          "product image usage approval",
+          "App screenshot authorization",
+          "scene footage usage approval",
+          "confirmation that no unauthorized celebrity likeness is used"
+        ],
+        "human_review_required": true
+      },
+      {
+        "risk_id": "risk_extreme_visual_scene",
+        "risk_category": "visual_safety_and_exaggeration",
+        "severity": "major",
+        "source_fields": [
+          "image_prompt_pack_outline.visual_asset_structures[户外运动场景图结构]",
+          "image_prompt_pack_outline.forbidden_elements"
+        ],
+        "issue": "夸张失真的极限户外画面可能暗示产品能力超出证明边界，或鼓励危险行为。",
+        "impact": "Could undermine brand trust and increase platform safety or consumer protection risk.",
+        "blocking_rule": "Use realistic scenario structures only; no exaggerated extreme scenes or unsafe actions in future prompt generation.",
+        "required_evidence": [
+          "approved scenario list",
+          "safety review for outdoor and sports visuals"
+        ],
+        "human_review_required": true
+      },
+      {
+        "risk_id": "risk_single_brand_tool_positioning",
+        "risk_category": "portfolio_positioning",
+        "severity": "minor",
+        "source_fields": [
+          "creative_copy_pack_outline.upstream_inheritance.compliance_constraints.negative_constraints",
+          "image_prompt_pack_outline.forbidden_elements"
+        ],
+        "issue": "项目不能被包装成单一品牌专属工具，Demo 商品必须保持行业 Demo 定位。",
+        "impact": "Could weaken AI Agent Workflow / Skills product positioning for portfolio and job-alignment use.",
+        "blocking_rule": "All reports should keep E-commerce Growth Agent Studio as the main product and action camera as demo input.",
+        "required_evidence": [
+          "project positioning statement retained in final report"
+        ],
+        "human_review_required": false
+      }
+    ],
+    "blocked_expression_rules": [
+      {
+        "rule_id": "blocked_absolute_superiority",
+        "blocked_patterns": [
+          "行业第一",
+          "唯一",
+          "最好",
+          "全面超越",
+          "百分百稳定"
+        ],
+        "applies_to": [
+          "高清",
+          "防抖",
+          "防水",
+          "画质",
+          "耐用"
+        ]
+      },
+      {
+        "rule_id": "blocked_unconditional_performance",
+        "blocked_patterns": [
+          "任何场景都防水",
+          "任何运动都不抖",
+          "不会损坏",
+          "无需任何保护",
+          "不会产生废片"
+        ],
+        "applies_to": [
+          "waterproof",
+          "stabilization",
+          "durability"
+        ]
+      },
+      {
+        "rule_id": "blocked_ai_outcome_guarantee",
+        "blocked_patterns": [
+          "自动生成爆款",
+          "保证内容表现",
+          "无需学习即可成为专业摄影师",
+          "自动获得商业收益"
+        ],
+        "applies_to": [
+          "AI 自动剪辑"
+        ]
+      },
+      {
+        "rule_id": "blocked_business_result_guarantee",
+        "blocked_patterns": [
+          "保证流量",
+          "保证转化",
+          "保证 GMV",
+          "保证成交",
+          "保证直播间商品点击"
+        ],
+        "applies_to": [
+          "platform metrics",
+          "growth metrics",
+          "conversion claims"
+        ]
+      },
+      {
+        "rule_id": "blocked_ip_and_competitor_risk",
+        "blocked_patterns": [
+          "真实品牌 Logo",
+          "未经授权名人形象",
+          "攻击具体竞品品牌",
+          "无依据排名"
+        ],
+        "applies_to": [
+          "visual assets",
+          "competitor comparison",
+          "达人 Brief"
+        ]
+      }
+    ],
+    "proof_and_asset_waitlist": [
+      {
+        "item": "高清样片与规格说明",
+        "blocks": [
+          "高清影像质量相关正文生成",
+          "商品主图结构的高清 信息层级",
+          "详情页信息图结构",
+          "京东参数/问答内容结构"
+        ],
+        "status": "missing"
+      },
+      {
+        "item": "运动防抖真实样片和测试条件",
+        "blocks": [
+          "抖音短视频脚本结构证明材料模块",
+          "户外运动场景图结构",
+          "短视频分镜画面结构",
+          "直播间讲解素材结构"
+        ],
+        "status": "missing"
+      },
+      {
+        "item": "防水等级、深度、时长和使用条件",
+        "blocks": [
+          "天猫详情页合规条件模块",
+          "京东售前问答占位模块",
+          "户外运动场景图结构",
+          "达人 Brief 必须避免表达模块"
+        ],
+        "status": "missing"
+      },
+      {
+        "item": "AI 自动剪辑流程演示和可编辑步骤说明",
+        "blocks": [
+          "AI 自动剪辑相关文案结构",
+          "旅行/城市漫游场景图结构",
+          "短视频分镜画面结构",
+          "直播间讲解素材结构"
+        ],
+        "status": "missing"
+      },
+      {
+        "item": "品牌素材授权与真实资产许可",
+        "blocks": [
+          "商品主图结构",
+          "达人 Brief 配图结构",
+          "App 截图使用",
+          "所有后续图片 Prompt 生成"
+        ],
+        "status": "missing"
+      },
+      {
+        "item": "首发权益、套装和库存确认",
+        "blocks": [
+          "天猫套装与权益占位模块",
+          "直播间商品点击引导占位模块",
+          "任何价格权益表达"
+        ],
+        "status": "missing"
+      }
+    ],
+    "human_review_required": [
+      {
+        "review_gate": "copy_module_pre_generation_review",
+        "owner": "Brand Compliance Agent + Product Owner",
+        "required_for": [
+          "creative_copy_pack_outline",
+          "claim_source_map",
+          "proof_waitlist"
+        ],
+        "decision": "Required before any final copy generation."
+      },
+      {
+        "review_gate": "visual_prompt_pre_generation_review",
+        "owner": "Brand Compliance Agent + Product Owner",
+        "required_for": [
+          "visual_asset_structures",
+          "visual_risk_register",
+          "asset_dependency_map",
+          "forbidden_elements"
+        ],
+        "decision": "Required before any final image prompt generation."
+      },
+      {
+        "review_gate": "asset_authorization_review",
+        "owner": "Brand Owner",
+        "required_for": [
+          "product images",
+          "App screenshots",
+          "outdoor sample footage",
+          "达人 Brief visual assets"
+        ],
+        "decision": "Required before any public-facing or model-generated visual asset."
+      },
+      {
+        "review_gate": "growth_claim_review",
+        "owner": "Brand Compliance Agent + Growth Metrics Agent",
+        "required_for": [
+          "CTR",
+          "CVR",
+          "GMV",
+          "traffic",
+          "conversion",
+          "live room product click claims"
+        ],
+        "decision": "Only metric observation and testing language may proceed; guarantees are blocked."
+      }
+    ],
+    "replacement_guidance": [
+      {
+        "risk_area": "高清 / 全景画质",
+        "replace_with": "Use evidence-aware structure such as 'supported by sample footage' or 'based on stated resolution specification' only after proof is available.",
+        "do_not_use": [
+          "industry-leading",
+          "best quality",
+          "fully surpasses phones"
+        ]
+      },
+      {
+        "risk_area": "防水 / 防抖 / 耐用",
+        "replace_with": "Use condition-aware structure that names applicable scenarios, test conditions, and limitations.",
+        "do_not_use": [
+          "works in every scene",
+          "100% stable",
+          "will not break"
+        ]
+      },
+      {
+        "risk_area": "AI 自动剪辑",
+        "replace_with": "Use assistive framing: workflow support, initial draft, efficiency improvement, editable output.",
+        "do_not_use": [
+          "auto viral video",
+          "guaranteed performance",
+          "professional result without learning"
+        ]
+      },
+      {
+        "risk_area": "平台转化 / GMV / 流量",
+        "replace_with": "Use measurement framing: KPI to observe, test direction, dashboard field, review metric.",
+        "do_not_use": [
+          "guaranteed conversion",
+          "guaranteed GMV",
+          "guaranteed traffic"
+        ]
+      },
+      {
+        "risk_area": "视觉素材授权",
+        "replace_with": "Use approved product assets, authorized screenshots, and generic non-branded visual placeholders until approval.",
+        "do_not_use": [
+          "real brand logo",
+          "unauthorized celebrity likeness",
+          "specific competitor brand"
+        ]
+      }
+    ],
+    "downstream_field_handoff": {
+      "Growth Metrics Agent": {
+        "fields": [
+          "approval_status",
+          "risk_items",
+          "blocked_expression_rules",
+          "proof_and_asset_waitlist",
+          "human_review_required",
+          "replacement_guidance"
+        ],
+        "handoff_note": "Use compliance status to design metrics and experiments around observable KPIs only. Do not treat CTR, CVR, GMV, traffic, or conversion as promised outcomes."
+      },
+      "Creative Package Reporter": {
+        "fields": [
+          "input_file_audit",
+          "compliance_scope",
+          "approval_status",
+          "risk_items",
+          "blocked_expression_rules",
+          "proof_and_asset_waitlist",
+          "human_review_required",
+          "replacement_guidance"
+        ],
+        "handoff_note": "Use these fields to show auditability, risk inheritance, human review gates, and why final generation remains gated."
+      },
+      "Creative Copy Agent": {
+        "fields": [
+          "blocked_expression_rules",
+          "proof_and_asset_waitlist",
+          "replacement_guidance",
+          "approval_status.final_copy_generation"
+        ],
+        "handoff_note": "Final copy generation is blocked until required proof and review gates are satisfied."
+      },
+      "Future Image Prompt Generation Node": {
+        "fields": [
+          "blocked_expression_rules",
+          "proof_and_asset_waitlist",
+          "human_review_required",
+          "approval_status.final_image_prompt_generation"
+        ],
+        "handoff_note": "Final image prompt generation is blocked until Brand Compliance approval, proof availability, and asset authorization are complete."
+      }
+    },
+    "audit_trace": {
+      "workflow_node": "Brand Compliance Agent",
+      "workflow_sequence": 7,
+      "previous_artifacts": [
+        "outputs/creative_copy_pack_outline.json",
+        "outputs/image_prompt_pack_outline.json"
+      ],
+      "generated_artifacts": [
+        "prompts/brand_compliance_agent.md",
+        "outputs/brand_compliance_report.json",
+        "outputs/brand_compliance_report.md"
+      ],
+      "not_generated": [
+        "final marketing copy",
+        "final image prompt",
+        "specific image description body",
+        "generated image",
+        "xiaohongshu body text",
+        "douyin script",
+        "live selling talk track",
+        "frontend page"
+      ]
+    }
+  },
+  "risks": [
+    "Final copy and final image prompt generation remain blocked by missing proof materials and asset authorization.",
+    "High-risk technical, performance, AI, commercial result, IP, and visual exaggeration risks require human-in-the-loop review.",
+    "Several requested project context files were missing at read time; the compliance run used available workflow contracts and step 7-8 artifacts."
+  ],
+  "next_actions": [
+    "Run Growth Metrics Agent next using compliance status as a constraint layer.",
+    "Do not generate final copy or image prompts until proof materials and asset authorization are available.",
+    "Carry approval_status, risk_items, blocked_expression_rules, proof_and_asset_waitlist, and human_review_required into Creative Package Reporter.",
+    "Create or update project memory to record that Brand Compliance Agent is complete and Growth Metrics Agent is next."
+  ]
+}

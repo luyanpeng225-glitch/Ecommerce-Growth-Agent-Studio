@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openclaw.local/schemas/artifacts/real_agent_trace.schema.json",
+  "title": "Real Agent Single Node Trace: brief_parser",
+  "description": "JSON Schema for the brief_parser single-node real Agent Trace only. This schema cannot represent a complete multi-Agent trace and cannot represent Retriever, Planner, Tool Call, Review, Gate execution, fan-out, fan-in, handoff, or any node other than brief_parser.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "trace_type",
+    "node_id",
+    "trace_id",
+    "trace_id_status",
+    "artifact_trace_key",
+    "run_id",
+    "session_id",
+    "source_session_file",
+    "provider",
+    "model",
+    "started_at",
+    "ended_at",
+    "duration_ms",
+    "status",
+    "event_count",
+    "events",
+    "tool_call_count",
+    "error_count",
+    "retry_count",
+    "cost_status",
+    "release_gates"
+  ],
+  "properties": {
+    "trace_type": {
+      "const": "real_agent_single_node_trace"
+    },
+    "node_id": {
+      "const": "brief_parser"
+    },
+    "trace_id": {
+      "type": "null",
+      "description": "OpenClaw Runtime native trace_id was not provided. It must remain null and must not be generated, inferred, or replaced."
+    },
+    "trace_id_status": {
+      "const": "not_provided_by_runtime"
+    },
+    "artifact_trace_key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable project artifact key only. It is not an OpenClaw Runtime native trace_id."
+    },
+    "run_id": {
+      "const": "8785b62a-3858-434f-b65c-d810a98dc922"
+    },
+    "session_id": {
+      "const": "5a865079-8095-4bc0-8225-22cfd08ee8b1"
+    },
+    "source_session_file": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider": {
+      "type": "string",
+      "minLength": 1
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1
+    },
+    "started_at": {
+      "type": ["string", "null"],
+      "description": "Real start timestamp only; null if unavailable. Current time, estimates, or fabricated values are not allowed."
+    },
+    "ended_at": {
+      "type": ["string", "null"],
+      "description": "Real end timestamp only; null if unavailable. Current time, estimates, or fabricated values are not allowed."
+    },
+    "duration_ms": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "Real duration only; null if unavailable. Estimates are not allowed."
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Trace status reflecting only the real execution result."
+    },
+    "event_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/event"
+      }
+    },
+    "tool_call_count": {
+      "const": 0
+    },
+    "error_count": {
+      "const": 0
+    },
+    "retry_count": {
+      "const": 0
+    },
+    "cost_status": {
+      "const": "not_available"
+    },
+    "release_gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "final_marketing_copy",
+        "final_image_prompt",
+        "image_generation",
+        "frontend_page",
+        "public_release"
+      ],
+      "properties": {
+        "final_marketing_copy": { "const": "blocked" },
+        "final_image_prompt": { "const": "blocked" },
+        "image_generation": { "const": "blocked" },
+        "frontend_page": { "const": "blocked" },
+        "public_release": { "const": "blocked" }
+      }
+    }
+  },
+  "$defs": {
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sequence",
+        "event_type",
+        "timestamp",
+        "input_ref",
+        "output_ref",
+        "usage",
+        "stop_reason",
+        "error",
+        "retry_count"
+      ],
+      "properties": {
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "event_type": {
+          "type": "string",
+          "enum": [
+            "user_input",
+            "model_call_start",
+            "model_call_end",
+            "assistant_output"
+          ]
+        },
+        "timestamp": {
+          "type": ["string", "null"],
+          "description": "Real event timestamp only; null if unavailable. Current time, estimates, or fabricated values are not allowed."
+        },
+        "input_ref": {
+          "type": ["string", "null"]
+        },
+        "output_ref": {
+          "type": ["string", "null"]
+        },
+        "usage": {
+          "anyOf": [
+            { "type": "null" },
+            { "const": "not_available" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "input": { "type": ["integer", "null"], "minimum": 0 },
+                "output": { "type": ["integer", "null"], "minimum": 0 },
+                "reasoningTokens": { "type": ["integer", "null"], "minimum": 0 },
+                "total": { "type": ["integer", "null"], "minimum": 0 }
+              }
+            }
+          ]
+        },
+        "stop_reason": {
+          "anyOf": [
+            { "const": "not_available" },
+            { "type": "string", "minLength": 1 }
+          ]
+        },
+        "error": {
+          "anyOf": [
+            { "type": "null" },
+            { "type": "string" },
+            { "type": "object" }
+          ]
+        },
+        "retry_count": {
+          "const": 0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,797 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/artifacts/worktrace.schema.json",
+  "title": "WorkTrace Artifact Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "meta",
+    "trace_summary",
+    "nodes",
+    "release_gates",
+    "boundaries",
+    "limitations"
+  ],
+  "$defs": {
+    "workflowStatus": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "running",
+        "pass",
+        "needs_review",
+        "needs_revision",
+        "blocked",
+        "failed",
+        "skipped",
+        "historical_not_available"
+      ]
+    },
+    "timeStatus": {
+      "type": "string",
+      "enum": [
+        "measured",
+        "historical_not_available",
+        "not_applicable"
+      ]
+    },
+    "evidenceType": {
+      "type": "string",
+      "enum": [
+        "measured",
+        "deterministic_verified",
+        "artifact_derived",
+        "human_review_required",
+        "historical_not_available",
+        "not_available"
+      ]
+    },
+    "fileRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "exists",
+        "evidence_type"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "exists": {
+          "type": "boolean"
+        },
+        "evidence_type": {
+          "$ref": "#/$defs/evidenceType"
+        },
+        "artifact_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "json_pointer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "section_hint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "role": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "input",
+            "output",
+            "evidence",
+            "validation_source",
+            "approval_source",
+            null
+          ]
+        },
+        "source_status": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/workflowStatus"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "errorObject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "error_code",
+        "reason",
+        "revision_action"
+      ],
+      "properties": {
+        "error_code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision_action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/fileRef"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "timedObjectConditions": {
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "time_status": {
+                "const": "measured"
+              }
+            },
+            "required": [
+              "time_status"
+            ],
+            "type": "object"
+          },
+          "then": {
+            "properties": {
+              "started_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "completed_at": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "duration_ms": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "type": "object"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "time_status": {
+                "const": "historical_not_available"
+              }
+            },
+            "required": [
+              "time_status"
+            ],
+            "type": "object"
+          },
+          "then": {
+            "properties": {
+              "started_at": {
+                "type": "null"
+              },
+              "completed_at": {
+                "type": "null"
+              },
+              "duration_ms": {
+                "type": "null"
+              }
+            },
+            "type": "object"
+          }
+        }
+      ]
+    },
+    "retryCountStatus": {
+      "type": "string",
+      "enum": [
+        "measured",
+        "deterministic_verified",
+        "historical_not_available",
+        "not_applicable"
+      ]
+    },
+    "retryCountConditions": {
+      "allOf": [
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "retry_count_status": {
+                "enum": [
+                  "measured",
+                  "deterministic_verified"
+                ]
+              }
+            },
+            "required": [
+              "retry_count_status"
+            ]
+          },
+          "then": {
+            "type": "object",
+            "properties": {
+              "retry_count": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "retry_count_status": {
+                "enum": [
+                  "historical_not_available",
+                  "not_applicable"
+                ]
+              }
+            },
+            "required": [
+              "retry_count_status"
+            ]
+          },
+          "then": {
+            "type": "object",
+            "properties": {
+              "retry_count": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "traceIdStatus": {
+      "type": "string",
+      "enum": [
+        "measured",
+        "generated_at_runtime",
+        "historical_not_available",
+        "not_available"
+      ]
+    }
+  },
+  "properties": {
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "worktrace_version",
+        "schema_version"
+      ],
+      "properties": {
+        "worktrace_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "product_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "workflow_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "trace_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trace_id",
+        "trace_id_status",
+        "artifact_trace_key",
+        "trace_type",
+        "execution_context",
+        "workflow_status",
+        "time_status",
+        "started_at",
+        "completed_at",
+        "duration_ms",
+        "retry_count",
+        "retry_count_status",
+        "source_artifacts"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/$defs/timedObjectConditions"
+        },
+        {
+          "$ref": "#/$defs/retryCountConditions"
+        },
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "trace_type": {
+                "const": "historical_artifact_trace"
+              }
+            },
+            "required": [
+              "trace_type"
+            ]
+          },
+          "then": {
+            "type": "object",
+            "properties": {
+              "execution_context": {
+                "const": "retrospective_artifact_reconstruction"
+              },
+              "trace_id": {
+                "type": "null"
+              },
+              "trace_id_status": {
+                "const": "historical_not_available"
+              },
+              "time_status": {
+                "const": "historical_not_available"
+              },
+              "started_at": {
+                "type": "null"
+              },
+              "completed_at": {
+                "type": "null"
+              },
+              "duration_ms": {
+                "type": "null"
+              },
+              "retry_count": {
+                "type": "null"
+              },
+              "retry_count_status": {
+                "const": "historical_not_available"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "trace_type": {
+                "const": "deterministic_failure_scenario_trace"
+              }
+            },
+            "required": [
+              "trace_type"
+            ]
+          },
+          "then": {
+            "type": "object",
+            "properties": {
+              "execution_context": {
+                "const": "deterministic_test_execution"
+              },
+              "trace_id_status": {
+                "enum": [
+                  "measured",
+                  "generated_at_runtime",
+                  "not_available"
+                ]
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "type": "object",
+                  "properties": {
+                    "trace_id_status": {
+                      "const": "not_available"
+                    }
+                  },
+                  "required": [
+                    "trace_id_status"
+                  ]
+                },
+                "then": {
+                  "type": "object",
+                  "properties": {
+                    "trace_id": {
+                      "type": "null"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "type": "object",
+            "properties": {
+              "trace_type": {
+                "const": "live_execution_trace"
+              }
+            },
+            "required": [
+              "trace_type"
+            ]
+          },
+          "then": {
+            "type": "object",
+            "properties": {
+              "execution_context": {
+                "const": "live_runtime_execution"
+              },
+              "trace_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "trace_id_status": {
+                "enum": [
+                  "generated_at_runtime",
+                  "measured"
+                ]
+              },
+              "time_status": {
+                "const": "measured"
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "trace_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "trace_id_status": {
+          "$ref": "#/$defs/traceIdStatus"
+        },
+        "artifact_trace_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "trace_type": {
+          "type": "string",
+          "enum": [
+            "historical_artifact_trace",
+            "deterministic_failure_scenario_trace",
+            "live_execution_trace"
+          ]
+        },
+        "execution_context": {
+          "type": "string",
+          "enum": [
+            "retrospective_artifact_reconstruction",
+            "deterministic_test_execution",
+            "live_runtime_execution"
+          ]
+        },
+        "workflow_status": {
+          "$ref": "#/$defs/workflowStatus"
+        },
+        "time_status": {
+          "$ref": "#/$defs/timeStatus"
+        },
+        "started_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "completed_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "duration_ms": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "retry_count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "source_artifacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fileRef"
+          }
+        },
+        "retry_count_status": {
+          "$ref": "#/$defs/retryCountStatus"
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "node_id",
+          "sequence",
+          "node_name",
+          "node_type",
+          "status",
+          "time_status",
+          "started_at",
+          "completed_at",
+          "duration_ms",
+          "input_refs",
+          "output_refs",
+          "risk_ids",
+          "claim_ids",
+          "retry_count",
+          "retry_count_status",
+          "error",
+          "human_approval",
+          "next_node"
+        ],
+        "allOf": [
+          {
+            "$ref": "#/$defs/timedObjectConditions"
+          },
+          {
+            "$ref": "#/$defs/retryCountConditions"
+          },
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "enum": [
+                    "failed",
+                    "blocked"
+                  ]
+                }
+              },
+              "required": [
+                "status"
+              ],
+              "type": "object"
+            },
+            "then": {
+              "properties": {
+                "error": {
+                  "$ref": "#/$defs/errorObject"
+                }
+              },
+              "type": "object"
+            }
+          }
+        ],
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sequence": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "node_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "node_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "$ref": "#/$defs/workflowStatus"
+          },
+          "time_status": {
+            "$ref": "#/$defs/timeStatus"
+          },
+          "started_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "completed_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "duration_ms": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "input_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/fileRef"
+            }
+          },
+          "output_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/fileRef"
+            }
+          },
+          "risk_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "retry_count": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "error": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/errorObject"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "human_approval": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "source_refs": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/fileRef"
+                    }
+                  },
+                  "notes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "next_node": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "retry_count_status": {
+            "$ref": "#/$defs/retryCountStatus"
+          }
+        }
+      }
+    },
+    "release_gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "final_marketing_copy",
+        "final_image_prompt",
+        "image_generation",
+        "frontend_page",
+        "public_release"
+      ],
+      "properties": {
+        "final_marketing_copy": {
+          "const": "blocked"
+        },
+        "final_image_prompt": {
+          "const": "blocked"
+        },
+        "image_generation": {
+          "const": "blocked"
+        },
+        "frontend_page": {
+          "const": "blocked"
+        },
+        "public_release": {
+          "const": "blocked"
+        }
+      }
+    },
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "historical_execution_claimed",
+        "production_ready",
+        "customer_validated",
+        "fabricated_runtime_allowed"
+      ],
+      "properties": {
+        "historical_execution_claimed": {
+          "const": false
+        },
+        "production_ready": {
+          "const": false
+        },
+        "customer_validated": {
+          "const": false
+        },
+        "fabricated_runtime_allowed": {
+          "const": false
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

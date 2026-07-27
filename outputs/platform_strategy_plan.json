@@ -1,0 +1,694 @@
+{
+  "artifact_name": "platform_strategy_plan",
+  "artifact_version": "0.1.0",
+  "brief_id": "brief_demo_action_camera_001",
+  "producer": "Platform Strategy Skill",
+  "status": "needs_review",
+  "confidence": 0.87,
+  "inputs_used": [
+    "sample_brief.json",
+    "outputs/standardized_brief_summary.json",
+    "outputs/audience_insight.json",
+    "outputs/selling_point_matrix.json",
+    "workflow/agent_io_contracts.md",
+    "workflow/agent_workflow.md"
+  ],
+  "summary": "Platform Strategy Skill converted upstream Agent artifacts into a reusable channel strategy, funnel map, metric framework, launch cadence, A/B testing directions, human-review gates, and downstream handoff fields. No final copy, scripts, live talking points, image prompts, or frontend assets were generated.",
+  "data": {
+    "skill_contract": {
+      "responsibility_boundary": [
+        "Translate standardized brief, audience insights, and selling point matrix into channel strategy fields.",
+        "Define platform roles, audience-platform fit, selling point-platform fit, funnel path, metric framework, and launch cadence.",
+        "Preserve upstream risk fields, assumptions, proof requirements, and compliance constraints.",
+        "Output structured fields for downstream Agents without generating creative assets."
+      ],
+      "not_responsible_for": [
+        "final marketing copy",
+        "xiaohongshu post",
+        "douyin script",
+        "live selling script",
+        "image prompt",
+        "frontend page",
+        "real ad delivery or platform API integration"
+      ],
+      "upstream_artifacts_received": [
+        "outputs/standardized_brief_summary.json",
+        "outputs/audience_insight.json",
+        "outputs/selling_point_matrix.json"
+      ],
+      "downstream_consumers": [
+        "Creative Copy Agent",
+        "Image Prompt Skill",
+        "Growth Metrics Agent",
+        "Brand Compliance Agent",
+        "Creative Package Reporter"
+      ]
+    },
+    "upstream_artifact_inheritance": {
+      "brief_parser_risk_fields": [
+        "brand_name",
+        "core_features[].proof",
+        "specs.waterproof",
+        "specs.stabilization",
+        "core_features[4].feature",
+        "positioning_statement",
+        "availability.launch_date"
+      ],
+      "audience_assumptions_to_validate": [
+        "户外运动爱好者可能优先被防抖、防水和固定方式证明打动。",
+        "旅行内容创作者会重视一人出行、多平台复用和轻量剪辑流程。",
+        "数码发烧友会通过样片、参数解释和真实评测建立购买信心。",
+        "认知到转化的主路径可以从内容平台种草过渡到天猫、京东等承接渠道。"
+      ],
+      "selling_point_claim_risks": [
+        "高清运动视频不得表达为行业第一、画质最好或全面超越手机。",
+        "运动防抖不得表达为百分百稳定、任何运动都不抖或不会产生废片。",
+        "裸机防水与耐用机身必须补充等级、深度、时长和使用条件。",
+        "AI 自动剪辑不得表达为自动生成爆款或保证内容表现。",
+        "竞品比较必须保持类目级，不攻击具体品牌。"
+      ],
+      "compliance_constraints": {
+        "do_not_claim": [
+          "不要声称行业第一，除非有权威证明",
+          "不要使用绝对化表述，如最好、唯一、百分百稳定",
+          "不要攻击具体竞品品牌",
+          "不要承诺任何场景下都不会损坏",
+          "不要暗示普通用户无需学习即可达到专业摄影师水平"
+        ],
+        "compliance_rules": [
+          "避免绝对化广告语",
+          "涉及防水、防摔、续航等能力时需要保留条件描述",
+          "不得攻击具体竞品品牌",
+          "不得暗示使用产品即可保证获得商业收益",
+          "图片 Prompt 不生成真实品牌 Logo 或未经授权的名人形象"
+        ],
+        "negative_constraints": [
+          "不要把项目包装成单一品牌专属工具",
+          "不要只强调参数，必须转化为用户利益点",
+          "不要生成夸张失真的户外极限画面",
+          "不要过度承诺 AI 自动剪辑效果",
+          "不要忽略企业电商团队的协作和审核需求"
+        ]
+      }
+    },
+    "channel_role_map": [
+      {
+        "platform": "抖音",
+        "workflow_role": [
+          "认知放大",
+          "场景种草",
+          "直播转化入口"
+        ],
+        "primary_audiences": [
+          "户外运动爱好者",
+          "数码发烧友"
+        ],
+        "secondary_audiences": [
+          "旅行内容创作者"
+        ],
+        "recommended_selling_points": [
+          "运动场景稳定记录",
+          "一次拍摄，多平台复用",
+          "AI 剪辑辅助降低发布门槛"
+        ],
+        "content_formats": [
+          "15 秒卖点视频结构",
+          "30 秒场景视频结构",
+          "直播间讲解结构"
+        ],
+        "platform_constraints": [
+          "不生成脚本正文",
+          "防抖和 AI 剪辑表达需保留证明材料",
+          "不得承诺直播间成交结果"
+        ]
+      },
+      {
+        "platform": "小红书",
+        "workflow_role": [
+          "生活方式种草",
+          "场景解释",
+          "搜索心智沉淀"
+        ],
+        "primary_audiences": [
+          "旅行内容创作者"
+        ],
+        "secondary_audiences": [
+          "户外运动爱好者",
+          "数码发烧友"
+        ],
+        "recommended_selling_points": [
+          "一次拍摄，多平台复用",
+          "高清影像与沉浸视角",
+          "AI 剪辑辅助降低发布门槛"
+        ],
+        "content_formats": [
+          "种草笔记结构",
+          "场景解释结构",
+          "达人 Brief 结构"
+        ],
+        "platform_constraints": [
+          "不生成笔记正文",
+          "不得承诺普通用户必然获得专业大片效果",
+          "多平台复用不得等同于平台表现保证"
+        ]
+      },
+      {
+        "platform": "天猫",
+        "workflow_role": [
+          "货架承接",
+          "商品详情转化",
+          "加购与成交决策"
+        ],
+        "primary_audiences": [
+          "旅行内容创作者",
+          "户外运动爱好者"
+        ],
+        "secondary_audiences": [
+          "数码发烧友"
+        ],
+        "recommended_selling_points": [
+          "一次拍摄，多平台复用",
+          "高清影像与沉浸视角",
+          "户外环境覆盖能力"
+        ],
+        "content_formats": [
+          "商品标题结构",
+          "详情页卖点模块结构",
+          "主图信息层级结构"
+        ],
+        "platform_constraints": [
+          "不生成商品页文案",
+          "参数和防水耐用表达必须有证据",
+          "首发权益需等待品牌确认"
+        ]
+      },
+      {
+        "platform": "京东",
+        "workflow_role": [
+          "参数解释",
+          "理性决策承接",
+          "问答与对比导购"
+        ],
+        "primary_audiences": [
+          "数码发烧友"
+        ],
+        "secondary_audiences": [
+          "户外运动爱好者",
+          "旅行内容创作者"
+        ],
+        "recommended_selling_points": [
+          "高清影像与沉浸视角",
+          "运动场景稳定记录",
+          "户外环境覆盖能力"
+        ],
+        "content_formats": [
+          "参数解释结构",
+          "类目对比导购结构",
+          "问答素材结构"
+        ],
+        "platform_constraints": [
+          "不生成问答或导购正文",
+          "类目对比不得攻击具体品牌",
+          "所有技术参数需要证明材料"
+        ]
+      }
+    ],
+    "platform_strategy_plan": [
+      {
+        "platform": "抖音",
+        "funnel_role": "从高动态场景认知到直播间或商品卡点击",
+        "core_metrics": [
+          "CTR",
+          "完播率",
+          "互动率",
+          "直播间商品点击率",
+          "CVR",
+          "GMV"
+        ],
+        "human_review_required_for": [
+          "防抖演示是否有测试条件",
+          "直播转化表达是否暗示确定收益",
+          "AI 剪辑效率表达是否过度承诺"
+        ]
+      },
+      {
+        "platform": "小红书",
+        "funnel_role": "从旅行和生活方式种草到搜索、收藏、站外或电商承接",
+        "core_metrics": [
+          "收藏加购率",
+          "互动率",
+          "完播率",
+          "CTR",
+          "素材复用率"
+        ],
+        "human_review_required_for": [
+          "大片感或高质量内容是否被表达为必然结果",
+          "达人 Brief 是否保留 Demo 项目边界",
+          "图片和素材是否授权"
+        ]
+      },
+      {
+        "platform": "天猫",
+        "funnel_role": "从内容流量承接到商品详情页加购和成交",
+        "core_metrics": [
+          "CTR",
+          "收藏加购率",
+          "CVR",
+          "GMV",
+          "素材复用率"
+        ],
+        "human_review_required_for": [
+          "商品参数是否有证明",
+          "首发权益和套装信息是否准确",
+          "防水耐用表达是否带条件"
+        ]
+      },
+      {
+        "platform": "京东",
+        "funnel_role": "从参数理解和理性比较到咨询、点击和转化",
+        "core_metrics": [
+          "CTR",
+          "CVR",
+          "互动率",
+          "GMV",
+          "素材复用率"
+        ],
+        "human_review_required_for": [
+          "类目对比是否避免竞品攻击",
+          "参数解释是否有证据",
+          "问答素材是否避免绝对化承诺"
+        ]
+      }
+    ],
+    "funnel_mapping": {
+      "awareness": {
+        "goal": "让目标用户理解全景运动相机在运动、旅行和内容创作中的价值。",
+        "platforms": [
+          "抖音",
+          "小红书"
+        ],
+        "audiences": [
+          "户外运动爱好者",
+          "旅行内容创作者",
+          "数码发烧友"
+        ],
+        "selling_points": [
+          "运动场景稳定记录",
+          "一次拍摄，多平台复用",
+          "高清影像与沉浸视角"
+        ],
+        "metrics": [
+          "CTR",
+          "完播率",
+          "互动率"
+        ]
+      },
+      "interest": {
+        "goal": "用场景和功能解释降低构图、剪辑和多平台适配门槛。",
+        "platforms": [
+          "抖音",
+          "小红书"
+        ],
+        "selling_points": [
+          "一次拍摄，多平台复用",
+          "AI 剪辑辅助降低发布门槛",
+          "户外环境覆盖能力"
+        ],
+        "metrics": [
+          "收藏加购率",
+          "互动率",
+          "素材复用率"
+        ]
+      },
+      "comparison": {
+        "goal": "通过参数、样片和类目级对比帮助用户建立购买信心。",
+        "platforms": [
+          "京东",
+          "天猫",
+          "小红书"
+        ],
+        "selling_points": [
+          "高清影像与沉浸视角",
+          "运动场景稳定记录",
+          "户外环境覆盖能力"
+        ],
+        "metrics": [
+          "CTR",
+          "互动率",
+          "收藏加购率"
+        ]
+      },
+      "conversion": {
+        "goal": "承接商品点击、加购、直播间商品点击和成交。",
+        "platforms": [
+          "天猫",
+          "京东",
+          "抖音"
+        ],
+        "selling_points": [
+          "一次拍摄，多平台复用",
+          "户外环境覆盖能力",
+          "AI 剪辑辅助降低发布门槛"
+        ],
+        "metrics": [
+          "直播间商品点击率",
+          "CVR",
+          "GMV",
+          "收藏加购率"
+        ]
+      },
+      "review": {
+        "goal": "复盘内容表现、卖点有效性、平台承接效率和素材复用价值。",
+        "platforms": [
+          "抖音",
+          "小红书",
+          "天猫",
+          "京东"
+        ],
+        "metrics": [
+          "CTR",
+          "CVR",
+          "完播率",
+          "互动率",
+          "收藏加购率",
+          "GMV",
+          "素材复用率"
+        ]
+      }
+    },
+    "metrics_framework": {
+      "metric_scope_note": "These are strategy fields for later Growth Metrics Agent use, not verified delivery results.",
+      "platform_metrics": {
+        "抖音": [
+          "CTR",
+          "完播率",
+          "互动率",
+          "直播间商品点击率",
+          "CVR",
+          "GMV"
+        ],
+        "小红书": [
+          "CTR",
+          "收藏加购率",
+          "互动率",
+          "完播率",
+          "素材复用率"
+        ],
+        "天猫": [
+          "CTR",
+          "收藏加购率",
+          "CVR",
+          "GMV",
+          "素材复用率"
+        ],
+        "京东": [
+          "CTR",
+          "CVR",
+          "互动率",
+          "GMV",
+          "素材复用率"
+        ]
+      },
+      "cross_platform_metrics": [
+        "CTR",
+        "CVR",
+        "收藏加购率",
+        "完播率",
+        "互动率",
+        "直播间商品点击率",
+        "GMV",
+        "素材复用率"
+      ]
+    },
+    "cadence_recommendations": [
+      {
+        "stage": "预热期",
+        "relative_time": "T-14 至 T-7",
+        "workflow_goal": "建立新品认知和核心场景兴趣。",
+        "platform_focus": [
+          "抖音",
+          "小红书"
+        ],
+        "strategy_tasks": [
+          "验证高动态场景是否能提升完播和互动",
+          "验证旅行和一人出行场景是否能提升收藏",
+          "收集用户对价格、续航、剪辑门槛的疑问"
+        ]
+      },
+      {
+        "stage": "首发期",
+        "relative_time": "T-7 至 T+7",
+        "workflow_goal": "把内容兴趣导向商品点击、加购和直播间商品点击。",
+        "platform_focus": [
+          "抖音",
+          "天猫",
+          "京东"
+        ],
+        "strategy_tasks": [
+          "承接核心卖点和首发权益",
+          "监控 CTR、直播间商品点击率、收藏加购率和 CVR",
+          "确保高风险性能表达经过人工审核"
+        ]
+      },
+      {
+        "stage": "增长期",
+        "relative_time": "T+7 至 T+30",
+        "workflow_goal": "基于早期数据迭代卖点、素材结构和平台分发。",
+        "platform_focus": [
+          "抖音",
+          "小红书",
+          "天猫",
+          "京东"
+        ],
+        "strategy_tasks": [
+          "比较卖点组合的 CTR、CVR 和互动差异",
+          "复用表现较好的场景素材",
+          "补齐证明材料不足的卖点"
+        ]
+      },
+      {
+        "stage": "复盘期",
+        "relative_time": "T+30 后",
+        "workflow_goal": "沉淀可复用 Skill 模板和跨品类策略规则。",
+        "platform_focus": [
+          "全平台"
+        ],
+        "strategy_tasks": [
+          "复盘用户分层、卖点、平台角色和指标表现",
+          "更新待验证假设状态",
+          "把可复用策略抽象为下一品类 Demo 的 Skill 输入"
+        ]
+      }
+    ],
+    "ab_test_directions": [
+      {
+        "test_area": "主卖点顺序",
+        "variants": [
+          "先讲一次拍摄多平台复用",
+          "先讲运动防抖",
+          "先讲 高清影像质量"
+        ],
+        "target_metrics": [
+          "CTR",
+          "完播率",
+          "收藏加购率"
+        ],
+        "requires_review": true,
+        "review_reason": "涉及性能类卖点，需要确认证明材料和合规边界。"
+      },
+      {
+        "test_area": "用户场景入口",
+        "variants": [
+          "骑行第一视角",
+          "旅行城市漫游",
+          "滑雪和水上运动"
+        ],
+        "target_metrics": [
+          "完播率",
+          "互动率",
+          "素材复用率"
+        ],
+        "requires_review": true,
+        "review_reason": "户外极限场景不得夸张失真，防水防抖需条件化。"
+      },
+      {
+        "test_area": "平台承接路径",
+        "variants": [
+          "内容平台到天猫承接",
+          "内容平台到京东承接",
+          "抖音内容到直播间商品点击"
+        ],
+        "target_metrics": [
+          "CTR",
+          "直播间商品点击率",
+          "CVR",
+          "GMV"
+        ],
+        "requires_review": false,
+        "review_reason": "主要是链路归因和指标验证，不涉及具体创意表达。"
+      },
+      {
+        "test_area": "证明材料类型",
+        "variants": [
+          "真实运动样片",
+          "参数说明",
+          "App 流程演示"
+        ],
+        "target_metrics": [
+          "互动率",
+          "收藏加购率",
+          "CVR"
+        ],
+        "requires_review": true,
+        "review_reason": "证明材料必须与产品真实能力一致。"
+      }
+    ],
+    "human_in_the_loop_review": [
+      {
+        "review_item": "防水、耐用、防抖、高清 和 AI 剪辑相关卖点",
+        "reason": "上游标记为高风险或需要证明材料。",
+        "blocking_level": "must_review_before_creative_generation"
+      },
+      {
+        "review_item": "首发权益、套装和库存信息",
+        "reason": "活动权益影响转化承接，当前 Brief 只提供概括信息。",
+        "blocking_level": "review_before_launch_package"
+      },
+      {
+        "review_item": "跨平台归因路径",
+        "reason": "内容种草到电商转化是假设路径，需要数据验证。",
+        "blocking_level": "validate_during_growth_metrics_step"
+      },
+      {
+        "review_item": "竞品和类目对比策略",
+        "reason": "需要避免攻击具体竞品品牌和无依据排名。",
+        "blocking_level": "must_review_before_public_copy"
+      }
+    ],
+    "reusability_notes": {
+      "skill_reuse_scope": [
+        "智能硬件新品上市",
+        "美妆新品种草到转化",
+        "服饰大促内容承接",
+        "食品饮料节点营销",
+        "B2B SaaS 线索转化内容"
+      ],
+      "reusable_inputs": [
+        "audience_segments",
+        "purchase_journey_notes",
+        "core_selling_point_priority",
+        "platform_selling_point_fit",
+        "primary_kpis",
+        "timeline",
+        "risk_fields",
+        "compliance_constraints"
+      ],
+      "customizable_dimensions": [
+        "platform list",
+        "channel roles",
+        "content formats",
+        "metric set",
+        "compliance rules",
+        "launch cadence"
+      ],
+      "agent_product_value": "This Skill packages platform strategy as a reusable workflow node rather than a one-off ecommerce operation plan."
+    },
+    "downstream_field_handoff": {
+      "Creative Copy Agent": {
+        "fields": [
+          "channel_role_map",
+          "platform_strategy_plan",
+          "funnel_mapping",
+          "platform_constraints",
+          "core_selling_point_priority",
+          "claim_risk_notes",
+          "human_in_the_loop_review",
+          "compliance_constraints"
+        ],
+        "handoff_note": "Use these fields to plan copy modules and claim boundaries later; do not generate final copy without compliance review."
+      },
+      "Image Prompt Skill": {
+        "fields": [
+          "channel_role_map.content_formats",
+          "platform_strategy_plan",
+          "funnel_mapping",
+          "usage_scenario_interest_map",
+          "proof_requirements",
+          "human_in_the_loop_review",
+          "compliance_constraints"
+        ],
+        "handoff_note": "Use these fields for visual planning only; do not generate image prompts in this step."
+      },
+      "Growth Metrics Agent": {
+        "fields": [
+          "metrics_framework",
+          "funnel_mapping",
+          "cadence_recommendations",
+          "ab_test_directions",
+          "assumptions_to_validate",
+          "platform_strategy_plan"
+        ],
+        "handoff_note": "Use these fields to define KPI mapping, experiment design, tracking fields, and review dashboards."
+      },
+      "Brand Compliance Agent": {
+        "fields": [
+          "upstream_artifact_inheritance",
+          "human_in_the_loop_review",
+          "platform_constraints",
+          "proof_requirements",
+          "claim_risk_notes",
+          "ab_test_directions"
+        ],
+        "handoff_note": "Use these fields to check whether platform strategy and later creative outputs preserve proof and compliance boundaries."
+      },
+      "Creative Package Reporter": {
+        "fields": [
+          "skill_contract",
+          "upstream_artifact_inheritance",
+          "channel_role_map",
+          "platform_strategy_plan",
+          "funnel_mapping",
+          "metrics_framework",
+          "cadence_recommendations",
+          "ab_test_directions",
+          "human_in_the_loop_review",
+          "reusability_notes"
+        ],
+        "handoff_note": "Use these fields to show Agent Workflow traceability, Skill reuse value, platform strategy, and audit state in the final portfolio report."
+      }
+    },
+    "audit_trace": {
+      "workflow_node": "Platform Strategy Skill",
+      "workflow_sequence": 4,
+      "previous_artifacts": [
+        "outputs/standardized_brief_summary.json",
+        "outputs/audience_insight.json",
+        "outputs/selling_point_matrix.json"
+      ],
+      "generated_artifacts": [
+        "outputs/platform_strategy_plan.json",
+        "outputs/platform_strategy_plan.md"
+      ],
+      "not_generated": [
+        "final marketing copy",
+        "xiaohongshu post",
+        "douyin script",
+        "live selling script",
+        "image prompt",
+        "frontend page"
+      ]
+    }
+  },
+  "risks": [
+    "Platform strategy depends on unvalidated audience assumptions and cross-platform attribution assumptions.",
+    "High-risk technical claims require proof and human review before creative generation.",
+    "GMV and conversion metrics are strategic targets for later measurement, not predicted outcomes."
+  ],
+  "next_actions": [
+    "Pass platform role, funnel, metric, and compliance fields to Creative Copy Agent as planning inputs only.",
+    "Pass scenario and format constraints to Image Prompt Skill as visual planning inputs only.",
+    "Pass metric framework, cadence, and A/B directions to Growth Metrics Agent for formal measurement design.",
+    "Pass proof requirements and risk inheritance to Brand Compliance Agent before public-facing creative approval.",
+    "Pass the strategy trace to Creative Package Reporter for the final workflow report."
+  ]
+}

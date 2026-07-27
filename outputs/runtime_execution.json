@@ -1,0 +1,649 @@
+{
+  "schema_version": "runtime_execution.schema.v1",
+  "run_id": "runtime_ef30ea4b-420f-4cbd-b7d3-7d30420759eb",
+  "run_type": "real_runtime",
+  "execution_context": "instrumented_local_run",
+  "scenario_name": "运动相机 deterministic local artifact-check runtime",
+  "run_status": "needs_revision",
+  "started_at": "2026-07-20T14:32:24.339Z",
+  "ended_at": "2026-07-20T14:32:24.353Z",
+  "duration_ms": 12,
+  "timing_status": "measured",
+  "nodes": [
+    {
+      "node_id": "brief_parser",
+      "node_name": "Brief Parser",
+      "node_type": "agent",
+      "sequence": 1,
+      "execution_group": "serial",
+      "status": "pass",
+      "started_at": "2026-07-20T14:32:24.340Z",
+      "ended_at": "2026-07-20T14:32:24.343Z",
+      "duration_ms": 2,
+      "timing_status": "measured",
+      "input_refs": [
+        {
+          "file_path": "data/sample_brief.json"
+        },
+        {
+          "file_path": "schemas/product_brief.schema.json"
+        }
+      ],
+      "output_refs": [
+        {
+          "file_path": "outputs/standardized_brief_summary.json"
+        },
+        {
+          "file_path": "outputs/brief_parser_report.md"
+        }
+      ],
+      "retry_count": 0,
+      "retry_count_status": "measured",
+      "model_usage": {
+        "usage_status": "not_used",
+        "provider": null,
+        "model": null,
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "estimated_cost": null,
+        "currency": null
+      },
+      "tool_calls": [],
+      "error": {
+        "error_code": null,
+        "error_message": null
+      },
+      "risk_ids": [],
+      "claim_ids": []
+    },
+    {
+      "node_id": "compliance_pre",
+      "node_name": "Compliance Pre",
+      "node_type": "governance",
+      "sequence": 2,
+      "execution_group": "serial",
+      "status": "pass",
+      "started_at": "2026-07-20T14:32:24.343Z",
+      "ended_at": "2026-07-20T14:32:24.344Z",
+      "duration_ms": 1,
+      "timing_status": "measured",
+      "input_refs": [
+        {
+          "file_path": "outputs/standardized_brief_summary.json"
+        },
+        {
+          "file_path": "data/sample_brief.json"
+        }
+      ],
+      "output_refs": [
+        {
+          "file_path": "outputs/brand_compliance_pre_check.json"
+        },
+        {
+          "file_path": "outputs/brand_compliance_pre_check.md"
+        }
+      ],
+      "retry_count": 0,
+      "retry_count_status": "measured",
+      "model_usage": {
+        "usage_status": "not_used",
+        "provider": null,
+        "model": null,
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "estimated_cost": null,
+        "currency": null
+      },
+      "tool_calls": [],
+      "error": {
+        "error_code": null,
+        "error_message": null
+      },
+      "risk_ids": [],
+      "claim_ids": []
+    },
+    {
+      "node_id": "planner",
+      "node_name": "Planner",
+      "node_type": "agent",
+      "sequence": 3,
+      "execution_group": "serial",
+      "status": "pass",
+      "started_at": "2026-07-20T14:32:24.344Z",
+      "ended_at": "2026-07-20T14:32:24.345Z",
+      "duration_ms": 1,
+      "timing_status": "measured",
+      "input_refs": [
+        {
+          "file_path": "outputs/standardized_brief_summary.json"
+        },
+        {
+          "file_path": "outputs/brand_compliance_pre_check.json"
+        },
+        {
+          "file_path": "workflow/agent_workflow.md"
+        }
+      ],
+      "output_refs": [
+        {
+          "file_path": "outputs/planner_execution_plan.json"
+        },
+        {
+          "file_path": "outputs/planner_execution_plan.md"
+        }
+      ],
+      "retry_count": 0,
+      "retry_count_status": "measured",
+      "model_usage": {
+        "usage_status": "not_used",
+        "provider": null,
+        "model": null,
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "estimated_cost": null,
+        "currency": null
+      },
+      "tool_calls": [],
+      "error": {
+        "error_code": null,
+        "error_message": null
+      },
+      "risk_ids": [],
+      "claim_ids": []
+    },
+    {
+      "node_id": "audience_insight",
+      "node_name": "Audience Insight",
+      "node_type": "skill",
+      "sequence": 4,
+      "execution_group": "insight_skills_parallel_group",
+      "status": "pass",
+      "started_at": "2026-07-20T14:32:24.345Z",
+      "ended_at": "2026-07-20T14:32:24.347Z",
+      "duration_ms": 1,
+      "timing_status": "measured",
+      "input_refs": [
+        {
+          "file_path": "outputs/standardized_brief_summary.json"
+        },
+        {
+          "file_path": "outputs/planner_execution_plan.json"
+        }
+      ],
+      "output_refs": [
+        {
+          "file_path": "outputs/audience_insight.json"
+        },
+        {
+          "file_path": "outputs/audience_insight_report.md"
+        }
+      ],
+      "retry_count": 0,
+      "retry_count_status": "measured",
+      "model_usage": {
+        "usage_status": "not_used",
+        "provider": null,
+        "model": null,
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "estimated_cost": null,
+        "currency": null
+      },
+      "tool_calls": [],
+      "error": {
+        "error_code": null,
+        "error_message": null
+      },
+      "risk_ids": [],
+      "claim_ids": []
+    },
+    {
+      "node_id": "selling_point_analyst",
+      "node_name": "Selling Point Analyst",
+      "node_type": "skill",
+      "sequence": 4,
+      "execution_group": "insight_skills_parallel_group",
+      "status": "pass",
+      "started_at": "2026-07-20T14:32:24.345Z",
+      "ended_at": "2026-07-20T14:32:24.347Z",
+      "duration_ms": 2,
+      "timing_status": "measured",
+      "input_refs": [
+        {
+          "file_path": "outputs/standardized_brief_summary.json"
+        },
+        {
+          "file_path": "outputs/planner_execution_plan.json"
+        },
+        {
+          "file_path": "outputs/audience_insight.json"
+        }
+      ],
+      "output_refs": [
+        {
+          "file_path": "outputs/selling_point_matrix.json"
+        },
+        {
+          "file_path": "outputs/selling_point_matrix.md"
+        }
+      ],
+      "retry_count": 0,
+      "retry_count_status": "measured",
+      "model_usage": {
+        "usage_status": "not_used",
+        "provider": null,
+        "model": null,
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "estimated_cost": null,
+        "currency": null
+      },
+      "tool_calls": [],
+      "error": {
+        "error_code": null,
+        "error_message": null
+      },
+      "risk_ids": [],
+      "claim_ids": []
+    },
+    {
+      "node_id": "platform_strategy",
+      "node_name": "Platform Strategy",
+      "node_type": "skill",
+      "sequence": 4,
+      "execution_group": "insight_skills_parallel_group",
+      "status": "pass",
+      "started_at": "2026-07-20T14:32:24.345Z",
+      "ended_at": "2026-07-20T14:32:24.347Z",
+      "duration_ms": 2,
+      "timing_status": "measured",
+      "input_refs": [
+        {
+          "file_path": "outputs/standardized_brief_summary.json"
+        },
+        {
+          "file_path": "outputs/planner_execution_plan.json"
+        }
+      ],
+      "output_refs": [
+        {
+          "file_path": "outputs/platform_strategy_plan.json"
+        },
+        {
+          "file_path": "outputs/platform_strategy_plan.md"
+        }
+      ],
+      "retry_count": 0,
+      "retry_count_status": "measured",
+      "model_usage": {
+        "usage_status": "not_used",
+        "provider": null,
+        "model": null,
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "estimated_cost": null,
+        "currency": null
+      },
+      "tool_calls": [],
+      "error": {
+        "error_code": null,
+        "error_message": null
+      },
+      "risk_ids": [],
+      "claim_ids": []
+    },
+    {
+      "node_id": "creative_agent",
+      "node_name": "Creative Agent",
+      "node_type": "agent",
+      "sequence": 5,
+      "execution_group": "serial",
+      "status": "pass",
+      "started_at": "2026-07-20T14:32:24.347Z",
+      "ended_at": "2026-07-20T14:32:24.348Z",
+      "duration_ms": 1,
+      "timing_status": "measured",
+      "input_refs": [
+        {
+          "file_path": "outputs/audience_insight.json"
+        },
+        {
+          "file_path": "outputs/selling_point_matrix.json"
+        },
+        {
+          "file_path": "outputs/platform_strategy_plan.json"
+        }
+      ],
+      "output_refs": [
+        {
+          "file_path": "outputs/creative_copy_pack_outline.json"
+        },
+        {
+          "file_path": "outputs/creative_copy_pack_outline.md"
+        }
+      ],
+      "retry_count": 0,
+      "retry_count_status": "measured",
+      "model_usage": {
+        "usage_status": "not_used",
+        "provider": null,
+        "model": null,
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "estimated_cost": null,
+        "currency": null
+      },
+      "tool_calls": [],
+      "error": {
+        "error_code": null,
+        "error_message": null
+      },
+      "risk_ids": [],
+      "claim_ids": []
+    },
+    {
+      "node_id": "image_prompt_skill",
+      "node_name": "Image Prompt Skill",
+      "node_type": "skill",
+      "sequence": 6,
+      "execution_group": "serial",
+      "status": "pass",
+      "started_at": "2026-07-20T14:32:24.348Z",
+      "ended_at": "2026-07-20T14:32:24.349Z",
+      "duration_ms": 1,
+      "timing_status": "measured",
+      "input_refs": [
+        {
+          "file_path": "outputs/creative_copy_pack_outline.json"
+        },
+        {
+          "file_path": "outputs/selling_point_matrix.json"
+        },
+        {
+          "file_path": "outputs/platform_strategy_plan.json"
+        }
+      ],
+      "output_refs": [
+        {
+          "file_path": "outputs/image_prompt_pack_outline.json"
+        },
+        {
+          "file_path": "outputs/image_prompt_pack_outline.md"
+        }
+      ],
+      "retry_count": 0,
+      "retry_count_status": "measured",
+      "model_usage": {
+        "usage_status": "not_used",
+        "provider": null,
+        "model": null,
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "estimated_cost": null,
+        "currency": null
+      },
+      "tool_calls": [],
+      "error": {
+        "error_code": null,
+        "error_message": null
+      },
+      "risk_ids": [],
+      "claim_ids": []
+    },
+    {
+      "node_id": "compliance_post",
+      "node_name": "Compliance Post",
+      "node_type": "governance",
+      "sequence": 7,
+      "execution_group": "serial",
+      "status": "pass",
+      "started_at": "2026-07-20T14:32:24.349Z",
+      "ended_at": "2026-07-20T14:32:24.350Z",
+      "duration_ms": 1,
+      "timing_status": "measured",
+      "input_refs": [
+        {
+          "file_path": "outputs/creative_copy_pack_outline.json"
+        },
+        {
+          "file_path": "outputs/image_prompt_pack_outline.json"
+        }
+      ],
+      "output_refs": [
+        {
+          "file_path": "outputs/brand_compliance_post_generation_check.json"
+        },
+        {
+          "file_path": "outputs/brand_compliance_post_generation_check.md"
+        }
+      ],
+      "retry_count": 0,
+      "retry_count_status": "measured",
+      "model_usage": {
+        "usage_status": "not_used",
+        "provider": null,
+        "model": null,
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "estimated_cost": null,
+        "currency": null
+      },
+      "tool_calls": [],
+      "error": {
+        "error_code": null,
+        "error_message": null
+      },
+      "risk_ids": [],
+      "claim_ids": []
+    },
+    {
+      "node_id": "human_approval",
+      "node_name": "Human Approval",
+      "node_type": "human",
+      "sequence": 8,
+      "execution_group": "serial",
+      "status": "needs_revision",
+      "started_at": "2026-07-20T14:32:24.350Z",
+      "ended_at": "2026-07-20T14:32:24.351Z",
+      "duration_ms": 1,
+      "timing_status": "measured",
+      "input_refs": [
+        {
+          "file_path": "outputs/brand_compliance_post_generation_check.json"
+        },
+        {
+          "file_path": "outputs/creative_copy_pack_outline.json"
+        }
+      ],
+      "output_refs": [
+        {
+          "file_path": "outputs/human_approval_record.json"
+        },
+        {
+          "file_path": "outputs/human_approval_record.md"
+        }
+      ],
+      "retry_count": 0,
+      "retry_count_status": "measured",
+      "model_usage": {
+        "usage_status": "not_used",
+        "provider": null,
+        "model": null,
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "estimated_cost": null,
+        "currency": null
+      },
+      "tool_calls": [],
+      "error": {
+        "error_code": null,
+        "error_message": null
+      },
+      "risk_ids": [],
+      "claim_ids": []
+    },
+    {
+      "node_id": "growth_evaluation",
+      "node_name": "Growth Evaluation",
+      "node_type": "evaluation",
+      "sequence": 9,
+      "execution_group": "serial",
+      "status": "pass",
+      "started_at": "2026-07-20T14:32:24.351Z",
+      "ended_at": "2026-07-20T14:32:24.351Z",
+      "duration_ms": 1,
+      "timing_status": "measured",
+      "input_refs": [
+        {
+          "file_path": "outputs/planner_execution_plan.json"
+        },
+        {
+          "file_path": "outputs/human_approval_record.json"
+        },
+        {
+          "file_path": "data/evaluation_metrics_sample.csv"
+        },
+        {
+          "file_path": "data/audit_log_sample.json"
+        }
+      ],
+      "output_refs": [
+        {
+          "file_path": "outputs/growth_evaluation_report.json"
+        },
+        {
+          "file_path": "outputs/growth_evaluation_report.md"
+        }
+      ],
+      "retry_count": 0,
+      "retry_count_status": "measured",
+      "model_usage": {
+        "usage_status": "not_used",
+        "provider": null,
+        "model": null,
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "estimated_cost": null,
+        "currency": null
+      },
+      "tool_calls": [],
+      "error": {
+        "error_code": null,
+        "error_message": null
+      },
+      "risk_ids": [],
+      "claim_ids": []
+    },
+    {
+      "node_id": "final_report",
+      "node_name": "Final Report",
+      "node_type": "report",
+      "sequence": 10,
+      "execution_group": "serial",
+      "status": "needs_review",
+      "started_at": "2026-07-20T14:32:24.352Z",
+      "ended_at": "2026-07-20T14:32:24.353Z",
+      "duration_ms": 1,
+      "timing_status": "measured",
+      "input_refs": [
+        {
+          "file_path": "outputs/planner_execution_plan.json"
+        },
+        {
+          "file_path": "outputs/human_approval_record.json"
+        },
+        {
+          "file_path": "outputs/growth_evaluation_report.json"
+        }
+      ],
+      "output_refs": [
+        {
+          "file_path": "outputs/v2_final_report.json"
+        },
+        {
+          "file_path": "outputs/v2_final_report.md"
+        }
+      ],
+      "retry_count": 0,
+      "retry_count_status": "measured",
+      "model_usage": {
+        "usage_status": "not_used",
+        "provider": null,
+        "model": null,
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "estimated_cost": null,
+        "currency": null
+      },
+      "tool_calls": [],
+      "error": {
+        "error_code": null,
+        "error_message": null
+      },
+      "risk_ids": [],
+      "claim_ids": []
+    }
+  ],
+  "parallel_groups": [
+    {
+      "group_id": "insight_skills_parallel_group",
+      "fan_out_from": "planner",
+      "parallel_node_ids": [
+        "audience_insight",
+        "selling_point_analyst",
+        "platform_strategy"
+      ],
+      "fan_in_to": "creative_agent",
+      "started_at": "2026-07-20T14:32:24.345Z",
+      "ended_at": "2026-07-20T14:32:24.347Z",
+      "duration_ms": 2,
+      "timing_status": "measured",
+      "status": "pass"
+    }
+  ],
+  "runtime_summary": {
+    "node_count": 12,
+    "completed_node_count": 12,
+    "failed_node_count": 0,
+    "blocked_node_count": 0,
+    "retry_count": 0,
+    "model_call_count": 0,
+    "tool_call_count": 0,
+    "total_input_tokens": null,
+    "total_output_tokens": null,
+    "estimated_cost": null,
+    "currency": null,
+    "summary_status": "measured"
+  },
+  "human_approval": {
+    "overall_decision": "needs_revision",
+    "human_signature": "pending",
+    "reviewer_name": null,
+    "reviewed_at": null
+  },
+  "release_gates": {
+    "final_marketing_copy": "blocked",
+    "final_image_prompt": "blocked",
+    "image_generation": "blocked",
+    "frontend_page": "blocked",
+    "public_release": "blocked"
+  },
+  "boundaries": {
+    "production_ready": false,
+    "customer_validated": false,
+    "real_customer_data_used": false,
+    "realtime_model_execution": false
+  }
+}

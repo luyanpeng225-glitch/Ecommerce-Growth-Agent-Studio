@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/artifacts/common.schema.json",
+  "title": "Common Artifact Schema Definitions",
+  "type": "object",
+  "additionalProperties": true,
+  "$defs": {
+    "non_empty_string": {
+      "type": "string",
+      "minLength": 1
+    },
+    "string_array": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "artifact_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "workflow_status": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "needs_review",
+        "blocked",
+        "needs_revision",
+        "completed",
+        "completed_revised"
+      ]
+    },
+    "human_approval_status": {
+      "type": "string",
+      "enum": [
+        "approved",
+        "needs_revision",
+        "blocked"
+      ]
+    },
+    "growth_evaluation_status": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "needs_review",
+        "blocked"
+      ]
+    },
+    "release_gate_status": {
+      "type": "string",
+      "enum": [
+        "approved",
+        "approved_for_evaluation_only",
+        "needs_revision",
+        "blocked"
+      ]
+    },
+    "evidence_type": {
+      "type": "string",
+      "enum": [
+        "measured",
+        "derived_from_mock",
+        "estimated",
+        "not_available"
+      ]
+    },
+    "source_files_object": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "read_successfully": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/artifact_path" }
+        },
+        "missing_in_current_workspace": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/artifact_path" }
+        }
+      }
+    },
+    "basic_meta": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "artifact_name",
+        "brief_id",
+        "producer",
+        "status"
+      ],
+      "properties": {
+        "artifact_name": { "$ref": "#/$defs/non_empty_string" },
+        "artifact_version": { "type": "string" },
+        "brief_id": { "$ref": "#/$defs/non_empty_string" },
+        "producer": { "$ref": "#/$defs/non_empty_string" },
+        "status": { "$ref": "#/$defs/workflow_status" },
+        "workflow_version": { "type": "string" },
+        "project_name": { "type": "string" },
+        "project_name_cn": { "type": "string" },
+        "product_name": { "type": "string" }
+      }
+    }
+  }
+}

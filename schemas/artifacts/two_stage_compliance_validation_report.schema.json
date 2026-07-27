@@ -1,0 +1,376 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/artifacts/two_stage_compliance_validation_report.schema.json",
+  "title": "Two-stage Compliance Validation Report Schema",
+  "description": "Validates the deterministic validation report for two-stage Brand Compliance Agent artifacts. Schema validation does not prove that governance risks are resolved or release gates are unlocked.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "validation_status",
+    "governance_status",
+    "input_artifacts",
+    "schema_validation",
+    "identity_checks",
+    "risk_tracking_checks",
+    "risk_counts",
+    "governance_findings",
+    "release_gate_checks",
+    "errors",
+    "limitations"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "artifact_name",
+        "artifact_version",
+        "producer",
+        "validation_status",
+        "governance_status",
+        "execution_context",
+        "model_used",
+        "modifies_input_files"
+      ],
+      "properties": {
+        "artifact_name": { "const": "two_stage_compliance_validation_report" },
+        "artifact_version": { "$ref": "#/$defs/non_empty_string" },
+        "producer": { "const": "validate_two_stage_compliance.mjs" },
+        "validation_status": { "$ref": "#/$defs/validation_status" },
+        "governance_status": { "$ref": "#/$defs/governance_status" },
+        "execution_context": { "const": "retrospective_design_validation" },
+        "model_used": { "const": false },
+        "modifies_input_files": { "const": false }
+      }
+    },
+    "validation_status": { "$ref": "#/$defs/validation_status" },
+    "governance_status": { "$ref": "#/$defs/governance_status" },
+    "input_artifacts": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["schema", "pre_check", "post_generation_check"],
+      "properties": {
+        "schema": { "$ref": "#/$defs/non_empty_string" },
+        "pre_check": { "$ref": "#/$defs/non_empty_string" },
+        "post_generation_check": { "$ref": "#/$defs/non_empty_string" }
+      }
+    },
+    "schema_validation": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "schema_json_parse_ok",
+        "schema_compiled",
+        "schema_compile_errors",
+        "pre_check",
+        "post_generation_check"
+      ],
+      "properties": {
+        "schema_json_parse_ok": { "type": "boolean" },
+        "schema_compiled": { "type": "boolean" },
+        "schema_compile_errors": { "$ref": "#/$defs/error_array" },
+        "pre_check": { "$ref": "#/$defs/schema_artifact_validation" },
+        "post_generation_check": { "$ref": "#/$defs/schema_artifact_validation" }
+      }
+    },
+    "identity_checks": {
+      "type": "object",
+      "additionalProperties": { "type": "boolean" },
+      "required": ["all_passed"],
+      "properties": {
+        "all_passed": { "type": "boolean" }
+      }
+    },
+    "risk_tracking_checks": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["sets", "checks", "diagnostics", "all_passed"],
+      "properties": {
+        "sets": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "pre_detected",
+            "post_inherited",
+            "post_resolved",
+            "post_unresolved",
+            "post_newly_detected",
+            "post_risk_record_ids"
+          ],
+          "properties": {
+            "pre_detected": { "$ref": "#/$defs/unique_string_array" },
+            "post_inherited": { "$ref": "#/$defs/unique_string_array" },
+            "post_resolved": { "$ref": "#/$defs/unique_string_array" },
+            "post_unresolved": { "$ref": "#/$defs/unique_string_array" },
+            "post_newly_detected": { "$ref": "#/$defs/unique_string_array" },
+            "post_risk_record_ids": { "$ref": "#/$defs/unique_string_array" }
+          }
+        },
+        "checks": {
+          "type": "object",
+          "additionalProperties": { "type": "boolean" },
+          "required": [
+            "pre_detected_equals_post_inherited",
+            "resolved_unresolved_disjoint",
+            "resolved_unresolved_union_equals_inherited",
+            "newly_detected_not_in_inherited",
+            "newly_detected_equals_post_record_ids_not_in_inherited",
+            "arrays_have_no_duplicate_ids",
+            "pre_risk_records_have_no_duplicate_ids",
+            "post_risk_records_have_no_duplicate_ids",
+            "risk_tracking_ids_exist_in_records"
+          ],
+          "properties": {
+            "pre_detected_equals_post_inherited": { "type": "boolean" },
+            "resolved_unresolved_disjoint": { "type": "boolean" },
+            "resolved_unresolved_union_equals_inherited": { "type": "boolean" },
+            "newly_detected_not_in_inherited": { "type": "boolean" },
+            "newly_detected_equals_post_record_ids_not_in_inherited": { "type": "boolean" },
+            "arrays_have_no_duplicate_ids": { "type": "boolean" },
+            "pre_risk_records_have_no_duplicate_ids": { "type": "boolean" },
+            "post_risk_records_have_no_duplicate_ids": { "type": "boolean" },
+            "risk_tracking_ids_exist_in_records": { "type": "boolean" }
+          }
+        },
+        "diagnostics": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "all_passed": { "type": "boolean" }
+      }
+    },
+    "risk_counts": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["inherited", "resolved", "unresolved", "newly_detected"],
+      "properties": {
+        "inherited": { "$ref": "#/$defs/non_negative_integer" },
+        "resolved": { "$ref": "#/$defs/non_negative_integer" },
+        "unresolved": { "$ref": "#/$defs/non_negative_integer" },
+        "newly_detected": { "$ref": "#/$defs/non_negative_integer" }
+      }
+    },
+    "governance_findings": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "inherited_risk_count",
+        "resolved_risk_count",
+        "unresolved_risk_count",
+        "newly_detected_risk_count",
+        "risk_traceability_gap_present",
+        "formal_proof_gap_present",
+        "formal_proof_gap_risk_ids",
+        "asset_authorization_gap_present",
+        "asset_authorization_gap_risk_ids",
+        "human_approval_required",
+        "post_generation_check_scope",
+        "final_generation_or_public_release_allowed",
+        "evidence_status_counts_across_both_artifacts"
+      ],
+      "properties": {
+        "inherited_risk_count": { "$ref": "#/$defs/non_negative_integer" },
+        "resolved_risk_count": { "$ref": "#/$defs/non_negative_integer" },
+        "unresolved_risk_count": { "$ref": "#/$defs/non_negative_integer" },
+        "newly_detected_risk_count": { "$ref": "#/$defs/non_negative_integer" },
+        "risk_traceability_gap_present": { "type": "boolean" },
+        "risk_traceability_gap": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/risk_traceability_gap" }
+          ]
+        },
+        "formal_proof_gap_present": { "type": "boolean" },
+        "formal_proof_gap_risk_ids": { "$ref": "#/$defs/unique_string_array" },
+        "asset_authorization_gap_present": { "type": "boolean" },
+        "asset_authorization_gap_risk_ids": { "$ref": "#/$defs/unique_string_array" },
+        "human_approval_required": { "type": "boolean" },
+        "post_generation_check_scope": { "const": "structured_creative_and_visual_plans_only" },
+        "final_generation_or_public_release_allowed": { "const": false },
+        "evidence_status_counts_across_both_artifacts": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/non_negative_integer" }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "risk_traceability_gap_present": { "const": true }
+            },
+            "required": ["risk_traceability_gap_present"]
+          },
+          "then": {
+            "required": ["risk_traceability_gap"],
+            "properties": {
+              "risk_traceability_gap": { "$ref": "#/$defs/risk_traceability_gap" }
+            }
+          }
+        }
+      ]
+    },
+    "release_gate_checks": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["checked_gates", "pre_check", "post_generation_check", "all_passed"],
+      "properties": {
+        "checked_gates": { "$ref": "#/$defs/critical_release_gate_array" },
+        "pre_check": { "$ref": "#/$defs/release_gate_artifact_check" },
+        "post_generation_check": { "$ref": "#/$defs/release_gate_artifact_check" },
+        "all_passed": { "type": "boolean" }
+      }
+    },
+    "errors": { "$ref": "#/$defs/error_array" },
+    "limitations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/non_empty_string" }
+    }
+  },
+  "$defs": {
+    "non_empty_string": { "type": "string", "minLength": 1 },
+    "validation_status": { "type": "string", "enum": ["pass", "fail"] },
+    "governance_status": { "type": "string", "enum": ["approved", "needs_review", "blocked"] },
+    "non_negative_integer": { "type": "integer", "minimum": 0 },
+    "unique_string_array": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/non_empty_string" },
+      "uniqueItems": true
+    },
+    "error_array": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "schema_artifact_validation": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["file", "json_parse_ok", "schema_valid", "schema_errors", "mode_artifact_name_match"],
+      "properties": {
+        "file": { "$ref": "#/$defs/non_empty_string" },
+        "json_parse_ok": { "type": "boolean" },
+        "schema_valid": { "type": "boolean" },
+        "schema_errors": { "$ref": "#/$defs/error_array" },
+        "mode_artifact_name_match": { "type": "boolean" }
+      }
+    },
+    "risk_traceability_gap": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["risk_id", "source_artifact", "source_json_pointer", "explanation"],
+      "properties": {
+        "risk_id": { "$ref": "#/$defs/non_empty_string" },
+        "source_artifact": { "$ref": "#/$defs/non_empty_string" },
+        "source_json_pointer": { "$ref": "#/$defs/non_empty_string" },
+        "explanation": { "$ref": "#/$defs/non_empty_string" }
+      }
+    },
+    "critical_release_gate_array": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "final_marketing_copy",
+          "final_image_prompt",
+          "image_generation",
+          "frontend_page",
+          "public_release"
+        ]
+      },
+      "uniqueItems": true,
+      "allOf": [
+        { "contains": { "const": "final_marketing_copy" } },
+        { "contains": { "const": "final_image_prompt" } },
+        { "contains": { "const": "image_generation" } },
+        { "contains": { "const": "frontend_page" } },
+        { "contains": { "const": "public_release" } }
+      ]
+    },
+    "release_gate_artifact_check": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["artifact", "checked_gates", "all_blocked", "failures"],
+      "properties": {
+        "artifact": { "$ref": "#/$defs/non_empty_string" },
+        "checked_gates": { "$ref": "#/$defs/critical_release_gate_array" },
+        "all_blocked": { "type": "boolean" },
+        "failures": { "$ref": "#/$defs/error_array" }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "validation_status": { "const": "pass" }
+        },
+        "required": ["validation_status"]
+      },
+      "then": {
+        "properties": {
+          "schema_validation": {
+            "properties": {
+              "schema_json_parse_ok": { "const": true },
+              "schema_compiled": { "const": true },
+              "pre_check": {
+                "properties": {
+                  "json_parse_ok": { "const": true },
+                  "schema_valid": { "const": true },
+                  "mode_artifact_name_match": { "const": true }
+                }
+              },
+              "post_generation_check": {
+                "properties": {
+                  "json_parse_ok": { "const": true },
+                  "schema_valid": { "const": true },
+                  "mode_artifact_name_match": { "const": true }
+                }
+              }
+            }
+          },
+          "identity_checks": {
+            "properties": {
+              "all_passed": { "const": true }
+            }
+          },
+          "risk_tracking_checks": {
+            "properties": {
+              "all_passed": { "const": true }
+            }
+          },
+          "release_gate_checks": {
+            "properties": {
+              "all_passed": { "const": true },
+              "pre_check": {
+                "properties": {
+                  "all_blocked": { "const": true }
+                }
+              },
+              "post_generation_check": {
+                "properties": {
+                  "all_blocked": { "const": true }
+                }
+              }
+            }
+          },
+          "errors": { "maxItems": 0 }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "validation_status": { "const": "fail" }
+        },
+        "required": ["validation_status"]
+      },
+      "then": {
+        "properties": {
+          "errors": { "minItems": 1 }
+        }
+      }
+    }
+  ]
+}

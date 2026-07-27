@@ -1,0 +1,480 @@
+{
+  "artifact_name": "selling_point_matrix",
+  "artifact_version": "0.1.0",
+  "brief_id": "brief_demo_action_camera_001",
+  "producer": "Selling Point Analyst Agent",
+  "status": "needs_review",
+  "confidence": 0.88,
+  "inputs_used": [
+    "sample_brief.json",
+    "outputs/standardized_brief_summary.json",
+    "outputs/audience_insight.json",
+    "workflow/agent_io_contracts.md",
+    "workflow/agent_workflow.md"
+  ],
+  "summary": "Selling Point Analyst Agent converted product features, audience insights, competitor context, risk fields, and compliance constraints into a prioritized selling point matrix. The artifact is ready for downstream planning, but major proof and compliance checks remain required before any creative generation.",
+  "data": {
+    "core_selling_point_priority": [
+      {
+        "priority_rank": 1,
+        "selling_point_id": "sp_multi_platform_reframe",
+        "selling_point_name": "一次拍摄，多平台复用",
+        "source_features": [
+          "360 度后期取景",
+          "高清运动视频"
+        ],
+        "priority_score": 92,
+        "priority_reason": "覆盖旅行内容创作者和户外运动用户的构图、横竖屏适配和内容复用痛点，同时适配抖音、小红书、视频号和商品页素材承接。",
+        "proof_status": "needs_product_demo",
+        "risk_level": "medium"
+      },
+      {
+        "priority_rank": 2,
+        "selling_point_id": "sp_sports_stabilization",
+        "selling_point_name": "运动场景稳定记录",
+        "source_features": [
+          "运动防抖"
+        ],
+        "priority_score": 88,
+        "priority_reason": "直接对应户外运动爱好者的拍摄不稳痛点，是骑行、滑雪、跑步和摩托等场景的关键购买判断点。",
+        "proof_status": "needs_test_or_sample_footage",
+        "risk_level": "high"
+      },
+      {
+        "priority_rank": 3,
+        "selling_point_id": "sp_image_quality",
+        "selling_point_name": "高清影像与沉浸视角",
+        "source_features": [
+          "高清运动视频"
+        ],
+        "priority_score": 84,
+        "priority_reason": "满足数码发烧友对高规格影像能力的关注，也帮助解释全景相机相对手机和传统运动相机的体验差异。",
+        "proof_status": "needs_sample_comparison",
+        "risk_level": "high"
+      },
+      {
+        "priority_rank": 4,
+        "selling_point_id": "sp_outdoor_durability",
+        "selling_point_name": "户外环境覆盖能力",
+        "source_features": [
+          "裸机防水与耐用机身"
+        ],
+        "priority_score": 79,
+        "priority_reason": "匹配滑雪、水上运动、雨天和海边等场景，有助于降低户外使用顾虑。",
+        "proof_status": "needs_spec_conditions",
+        "risk_level": "high"
+      },
+      {
+        "priority_rank": 5,
+        "selling_point_id": "sp_ai_editing_efficiency",
+        "selling_point_name": "AI 剪辑辅助降低发布门槛",
+        "source_features": [
+          "AI 自动剪辑"
+        ],
+        "priority_score": 75,
+        "priority_reason": "回应不会剪辑和后期耗时的购买阻力，但必须控制表达边界，不能承诺专业结果或无学习成本。",
+        "proof_status": "needs_workflow_demo",
+        "risk_level": "high"
+      }
+    ],
+    "feature_benefit_mapping": [
+      {
+        "feature": "高清运动视频",
+        "proof": "支持高分辨率 360 度视频记录",
+        "user_benefit": "提升运动和旅行素材的细节表现，并为后期取景留下更大空间。",
+        "usage_scenarios": [
+          "旅行打卡与城市漫游",
+          "骑行第一视角记录",
+          "滑雪和水上运动"
+        ],
+        "audience_fit": [
+          "旅行内容创作者",
+          "数码发烧友",
+          "户外运动爱好者"
+        ],
+        "risk_boundary": "不得表达为行业第一、唯一、最好或必然优于所有手机；需要样片、参数说明或对比材料支撑。",
+        "proof_required": [
+          "高清样片",
+          "分辨率规格说明",
+          "真实场景画质对比"
+        ]
+      },
+      {
+        "feature": "360 度后期取景",
+        "proof": "拍摄后可重新构图并导出横屏或竖屏内容",
+        "user_benefit": "降低运动和旅行场景构图压力，让同一段素材适配多个平台和内容比例。",
+        "usage_scenarios": [
+          "旅行打卡与城市漫游",
+          "骑行第一视角记录"
+        ],
+        "audience_fit": [
+          "旅行内容创作者",
+          "户外运动爱好者"
+        ],
+        "risk_boundary": "可以强调内容复用效率，但不得承诺平台流量、转化或商业收益。",
+        "proof_required": [
+          "后期取景演示",
+          "横竖屏导出流程",
+          "同一素材多比例导出示例"
+        ]
+      },
+      {
+        "feature": "运动防抖",
+        "proof": "适合骑行、滑雪、跑步、摩托等高运动场景",
+        "user_benefit": "减少剧烈运动中的画面抖动和废片率，增强运动记录可用性。",
+        "usage_scenarios": [
+          "骑行第一视角记录",
+          "滑雪和水上运动"
+        ],
+        "audience_fit": [
+          "户外运动爱好者",
+          "数码发烧友"
+        ],
+        "risk_boundary": "不得使用百分百稳定、任何场景都稳定等绝对表述；需说明适用场景和测试条件。",
+        "proof_required": [
+          "运动样片",
+          "防抖前后或不同场景对比",
+          "测试条件说明"
+        ]
+      },
+      {
+        "feature": "裸机防水与耐用机身",
+        "proof": "覆盖雨天、海边、潜水、雪地等户外环境",
+        "user_benefit": "降低户外拍摄对额外保护配件的依赖，增强复杂环境使用信心。",
+        "usage_scenarios": [
+          "滑雪和水上运动",
+          "旅行打卡与城市漫游"
+        ],
+        "audience_fit": [
+          "户外运动爱好者",
+          "数码发烧友"
+        ],
+        "risk_boundary": "必须补充防水等级、深度、时长和使用条件；不得承诺任何场景下都不会损坏。",
+        "proof_required": [
+          "防水等级或测试标准",
+          "适用环境条件",
+          "售后或使用注意事项"
+        ]
+      },
+      {
+        "feature": "AI 自动剪辑",
+        "proof": "自动识别精彩片段并生成短视频初稿",
+        "user_benefit": "降低从拍摄到发布的时间成本，帮助非专业用户更快形成可编辑素材。",
+        "usage_scenarios": [
+          "旅行打卡与城市漫游",
+          "骑行第一视角记录"
+        ],
+        "audience_fit": [
+          "旅行内容创作者",
+          "户外运动爱好者"
+        ],
+        "risk_boundary": "只能表述为剪辑辅助或效率提升，不得暗示无需学习即可达到专业摄影师水平。",
+        "proof_required": [
+          "AI 剪辑流程演示",
+          "生成初稿示例",
+          "用户可编辑步骤说明"
+        ]
+      }
+    ],
+    "audience_selling_point_fit": [
+      {
+        "segment_name": "户外运动爱好者",
+        "primary_selling_points": [
+          "运动场景稳定记录",
+          "户外环境覆盖能力",
+          "一次拍摄，多平台复用"
+        ],
+        "supporting_selling_points": [
+          "AI 剪辑辅助降低发布门槛",
+          "高清影像与沉浸视角"
+        ],
+        "reason": "该人群的核心阻力是运动不稳、构图困难和剪辑耗时，防抖、防水、固定方式和快速分享价值更靠前。",
+        "inherited_assumption": "户外运动爱好者可能优先被防抖、防水和固定方式证明打动。"
+      },
+      {
+        "segment_name": "旅行内容创作者",
+        "primary_selling_points": [
+          "一次拍摄，多平台复用",
+          "高清影像与沉浸视角",
+          "AI 剪辑辅助降低发布门槛"
+        ],
+        "supporting_selling_points": [
+          "运动场景稳定记录",
+          "户外环境覆盖能力"
+        ],
+        "reason": "该人群关注一人出行拍摄、多角度素材、横竖屏适配和轻量剪辑流程。",
+        "inherited_assumption": "旅行内容创作者会重视一人出行、多平台复用和轻量剪辑流程。"
+      },
+      {
+        "segment_name": "数码发烧友",
+        "primary_selling_points": [
+          "高清影像与沉浸视角",
+          "运动场景稳定记录",
+          "户外环境覆盖能力"
+        ],
+        "supporting_selling_points": [
+          "一次拍摄，多平台复用",
+          "AI 剪辑辅助降低发布门槛"
+        ],
+        "reason": "该人群更重视参数、真实场景评测、样片对比和规格可信度。",
+        "inherited_assumption": "数码发烧友会通过样片、参数解释和真实评测建立购买信心。"
+      }
+    ],
+    "platform_selling_point_fit": [
+      {
+        "platform": "抖音",
+        "suitable_selling_points": [
+          "运动场景稳定记录",
+          "一次拍摄，多平台复用",
+          "AI 剪辑辅助降低发布门槛"
+        ],
+        "fit_reason": "抖音适合承接高动态场景、短视频素材效率和直播间转化解释，但本节点不生成脚本。",
+        "risk_boundary": "不得把防抖、AI 剪辑或内容发布效率表达为确定转化结果。"
+      },
+      {
+        "platform": "小红书",
+        "suitable_selling_points": [
+          "一次拍摄，多平台复用",
+          "高清影像与沉浸视角",
+          "AI 剪辑辅助降低发布门槛"
+        ],
+        "fit_reason": "小红书适合承接旅行、城市漫游、一人出行和内容创作流程解释，但本节点不生成种草笔记。",
+        "risk_boundary": "不得承诺普通用户必然获得专业大片效果。"
+      },
+      {
+        "platform": "天猫",
+        "suitable_selling_points": [
+          "一次拍摄，多平台复用",
+          "高清影像与沉浸视角",
+          "户外环境覆盖能力"
+        ],
+        "fit_reason": "天猫适合承接商品详情页的模块化卖点、套装权益和购买决策信息，但本节点不生成详情页文案。",
+        "risk_boundary": "性能、耐用和防水表达必须有参数或条件说明。"
+      },
+      {
+        "platform": "京东",
+        "suitable_selling_points": [
+          "高清影像与沉浸视角",
+          "运动场景稳定记录",
+          "户外环境覆盖能力"
+        ],
+        "fit_reason": "京东适合承接参数解释、理性对比、问答素材和真实评测证据，但本节点不生成问答或导购文案。",
+        "risk_boundary": "只做类目级比较，不能攻击具体竞品品牌。"
+      }
+    ],
+    "proof_requirements": [
+      {
+        "selling_point_name": "一次拍摄，多平台复用",
+        "required_materials": [
+          "同一素材横屏、竖屏和方图导出示例",
+          "后期重新构图流程截图或录屏",
+          "移动端 App 导出路径说明"
+        ],
+        "priority": "high"
+      },
+      {
+        "selling_point_name": "运动场景稳定记录",
+        "required_materials": [
+          "骑行、滑雪或跑步真实运动样片",
+          "防抖测试条件",
+          "稳定效果对比素材"
+        ],
+        "priority": "high"
+      },
+      {
+        "selling_point_name": "高清影像与沉浸视角",
+        "required_materials": [
+          "高清样片",
+          "分辨率参数说明",
+          "与手机或传统运动相机的类目级体验对比"
+        ],
+        "priority": "high"
+      },
+      {
+        "selling_point_name": "户外环境覆盖能力",
+        "required_materials": [
+          "防水等级或测试标准",
+          "适用深度、时长、温度或环境条件",
+          "使用注意事项"
+        ],
+        "priority": "critical"
+      },
+      {
+        "selling_point_name": "AI 剪辑辅助降低发布门槛",
+        "required_materials": [
+          "AI 自动剪辑流程演示",
+          "自动生成短视频初稿示例",
+          "人工编辑和导出步骤说明"
+        ],
+        "priority": "high"
+      }
+    ],
+    "claim_risk_notes": [
+      {
+        "claim_area": "高清运动视频",
+        "risk_level": "high",
+        "risky_expression_types": [
+          "行业第一",
+          "画质最好",
+          "全面超越手机"
+        ],
+        "safe_boundary": "仅基于已给参数和样片证明描述画质与全景能力。"
+      },
+      {
+        "claim_area": "运动防抖",
+        "risk_level": "high",
+        "risky_expression_types": [
+          "百分百稳定",
+          "任何运动都不抖",
+          "不会产生废片"
+        ],
+        "safe_boundary": "说明适用运动场景和测试条件，避免绝对化。"
+      },
+      {
+        "claim_area": "裸机防水与耐用机身",
+        "risk_level": "high",
+        "risky_expression_types": [
+          "任何场景都不会损坏",
+          "随便潜水",
+          "无需任何保护"
+        ],
+        "safe_boundary": "必须补充防水等级、深度、时长和使用条件。"
+      },
+      {
+        "claim_area": "AI 自动剪辑",
+        "risk_level": "high",
+        "risky_expression_types": [
+          "无需学习即可成为专业摄影师",
+          "自动生成爆款",
+          "保证内容表现"
+        ],
+        "safe_boundary": "只表达为剪辑辅助、初稿生成或效率提升。"
+      },
+      {
+        "claim_area": "竞品比较",
+        "risk_level": "medium",
+        "risky_expression_types": [
+          "攻击具体竞品品牌",
+          "贬低手机或传统运动相机",
+          "无依据排名"
+        ],
+        "safe_boundary": "保持类目级差异解释，避免具体品牌攻击。"
+      }
+    ],
+    "inherited_assumptions_to_validate": [
+      "户外运动爱好者可能优先被防抖、防水和固定方式证明打动。",
+      "旅行内容创作者会重视一人出行、多平台复用和轻量剪辑流程。",
+      "数码发烧友会通过样片、参数解释和真实评测建立购买信心。",
+      "认知到转化的主路径可以从内容平台种草过渡到天猫、京东等承接渠道。"
+    ],
+    "inherited_risk_fields": [
+      "brand_name",
+      "core_features[].proof",
+      "specs.waterproof",
+      "specs.stabilization",
+      "core_features[4].feature",
+      "positioning_statement",
+      "availability.launch_date"
+    ],
+    "inherited_compliance_constraints": {
+      "do_not_claim": [
+        "不要声称行业第一，除非有权威证明",
+        "不要使用绝对化表述，如最好、唯一、百分百稳定",
+        "不要攻击具体竞品品牌",
+        "不要承诺任何场景下都不会损坏",
+        "不要暗示普通用户无需学习即可达到专业摄影师水平"
+      ],
+      "compliance_rules": [
+        "避免绝对化广告语",
+        "涉及防水、防摔、续航等能力时需要保留条件描述",
+        "不得攻击具体竞品品牌",
+        "不得暗示使用产品即可保证获得商业收益",
+        "图片 Prompt 不生成真实品牌 Logo 或未经授权的名人形象"
+      ],
+      "negative_constraints": [
+        "不要把项目包装成单一品牌专属工具",
+        "不要只强调参数，必须转化为用户利益点",
+        "不要生成夸张失真的户外极限画面",
+        "不要过度承诺 AI 自动剪辑效果",
+        "不要忽略企业电商团队的协作和审核需求"
+      ]
+    },
+    "downstream_field_handoff": {
+      "Platform Strategy Skill": {
+        "fields": [
+          "core_selling_point_priority",
+          "audience_selling_point_fit",
+          "platform_selling_point_fit",
+          "proof_requirements",
+          "claim_risk_notes",
+          "inherited_assumptions_to_validate",
+          "inherited_compliance_constraints"
+        ],
+        "handoff_note": "Use selling point priority and platform fit to plan channel roles and cadence without generating platform copy."
+      },
+      "Creative Copy Agent": {
+        "fields": [
+          "core_selling_point_priority",
+          "feature_benefit_mapping",
+          "audience_selling_point_fit",
+          "claim_risk_notes",
+          "proof_requirements",
+          "inherited_compliance_constraints"
+        ],
+        "handoff_note": "Use these as copy planning inputs only; final copy must wait for the Creative Copy Agent step and later compliance review."
+      },
+      "Image Prompt Skill": {
+        "fields": [
+          "feature_benefit_mapping.usage_scenarios",
+          "audience_selling_point_fit",
+          "platform_selling_point_fit",
+          "proof_requirements",
+          "claim_risk_notes",
+          "inherited_compliance_constraints"
+        ],
+        "handoff_note": "Use scene and proof needs as visual planning inputs only; do not generate image prompts in this node."
+      },
+      "Brand Compliance Agent": {
+        "fields": [
+          "feature_benefit_mapping",
+          "proof_requirements",
+          "claim_risk_notes",
+          "inherited_risk_fields",
+          "inherited_assumptions_to_validate",
+          "inherited_compliance_constraints"
+        ],
+        "handoff_note": "Use these fields to check proof sufficiency, advertising boundaries, technical claims, and human review requirements."
+      }
+    },
+    "audit_trace": {
+      "workflow_node": "Selling Point Analyst Agent",
+      "workflow_sequence": 3,
+      "previous_artifacts": [
+        "outputs/standardized_brief_summary.json",
+        "outputs/audience_insight.json"
+      ],
+      "generated_artifacts": [
+        "outputs/selling_point_matrix.json",
+        "outputs/selling_point_matrix.md"
+      ],
+      "not_generated": [
+        "final marketing copy",
+        "xiaohongshu post",
+        "douyin script",
+        "image prompt",
+        "frontend page"
+      ]
+    }
+  },
+  "risks": [
+    "Several high-priority selling points require proof materials before creative generation.",
+    "Waterproofing, stabilization, image quality, and AI editing claims remain high-risk without conditions or evidence.",
+    "Audience assumptions remain unvalidated and should not be treated as business facts."
+  ],
+  "next_actions": [
+    "Pass prioritized selling points and platform fit to Platform Strategy Skill.",
+    "Pass feature-benefit mappings and risk boundaries to Creative Copy Agent as planning inputs only.",
+    "Pass usage scenarios and proof requirements to Image Prompt Skill as visual planning inputs only.",
+    "Pass proof requirements, claim risks, inherited risk fields, and compliance constraints to Brand Compliance Agent."
+  ]
+}

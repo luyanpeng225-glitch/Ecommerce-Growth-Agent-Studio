@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/artifacts/v2_final_report.schema.json",
+  "title": "V2 Final Report Artifact",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "project_overview",
+    "business_problem",
+    "executed_v1_workflow",
+    "designed_v2_workflow",
+    "artifact_index",
+    "node_status_summary",
+    "planner_summary",
+    "compliance_summary",
+    "human_approval_summary",
+    "growth_evaluation_summary",
+    "metric_summary",
+    "rubric_summary",
+    "issue_summary",
+    "release_gates",
+    "limitations",
+    "iteration_backlog",
+    "reproducibility_record",
+    "final_conclusion"
+  ],
+  "properties": {
+    "meta": {
+      "allOf": [{ "$ref": "common.schema.json#/$defs/basic_meta" }],
+      "properties": {
+        "artifact_name": { "const": "v2_final_report" },
+        "producer": { "const": "V2 Final Report Generator" },
+        "status": { "const": "needs_review" },
+        "input_files_read": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/artifact_path" } },
+        "generated_files": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/artifact_path" } },
+        "not_generated": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "project_overview": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["demo_product", "demo_product_rule", "portfolio_focus"],
+      "properties": {
+        "demo_product": { "const": "运动相机" },
+        "demo_product_rule": { "type": "string" },
+        "portfolio_focus": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "business_problem": { "type": "object", "additionalProperties": true },
+    "executed_v1_workflow": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["status", "report_artifact"],
+      "properties": {
+        "status": { "const": "needs_review" },
+        "report_artifact": { "$ref": "common.schema.json#/$defs/artifact_path" }
+      }
+    },
+    "designed_v2_workflow": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["overall_status", "sequence", "v2_nodes_added"],
+      "properties": {
+        "overall_status": { "const": "needs_review" },
+        "sequence": { "type": "array", "items": { "type": "string" } },
+        "v2_nodes_added": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "artifact_index": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["v1_artifacts", "v2_artifacts"],
+      "properties": {
+        "v1_artifacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["artifact", "status"],
+            "properties": {
+              "artifact": { "$ref": "common.schema.json#/$defs/artifact_path" },
+              "status": { "type": "string" }
+            }
+          }
+        },
+        "v2_artifacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["artifact", "status"],
+            "properties": {
+              "artifact": { "$ref": "common.schema.json#/$defs/artifact_path" },
+              "status": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "node_status_summary": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "planner_summary": { "type": "object", "additionalProperties": true },
+    "compliance_summary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["final_copy_generation", "final_image_prompt_generation", "image_generation", "public_release"],
+      "properties": {
+        "final_copy_generation": { "const": "blocked" },
+        "final_image_prompt_generation": { "const": "blocked" },
+        "image_generation": { "const": "blocked" },
+        "public_release": { "const": "blocked" }
+      }
+    },
+    "human_approval_summary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["status", "overall_decision", "planning_artifacts_can_enter_evaluation", "final_generation_allowed", "public_release_allowed"],
+      "properties": {
+        "status": { "const": "needs_revision" },
+        "overall_decision": { "const": "needs_revision" },
+        "planning_artifacts_can_enter_evaluation": { "const": true },
+        "final_generation_allowed": { "const": false },
+        "public_release_allowed": { "const": false }
+      }
+    },
+    "growth_evaluation_summary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["status", "completed_demo"],
+      "properties": {
+        "status": { "const": "needs_review" },
+        "completed_demo": { "const": "运动相机" }
+      }
+    },
+    "metric_summary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["status", "metrics"],
+      "properties": {
+        "status": { "const": "needs_review" },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "data_source_type": {
+                "type": "string",
+                "enum": ["measured", "derived_from_mock", "estimated", "not_available", "measured_or_derived_from_mock"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "rubric_summary": { "type": "object", "additionalProperties": true },
+    "issue_summary": { "type": "object", "additionalProperties": true },
+    "release_gates": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["structured_planning_package", "growth_evaluation", "final_marketing_copy", "final_image_prompt", "image_generation", "frontend_page", "public_release"],
+      "properties": {
+        "structured_planning_package": { "const": "approved" },
+        "growth_evaluation": { "const": "approved_for_evaluation_only" },
+        "final_marketing_copy": { "const": "blocked" },
+        "final_image_prompt": { "const": "blocked" },
+        "image_generation": { "const": "blocked" },
+        "frontend_page": { "const": "blocked" },
+        "public_release": { "const": "blocked" }
+      }
+    },
+    "limitations": { "type": "array", "items": { "type": "string" } },
+    "iteration_backlog": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "reproducibility_record": { "type": "object", "additionalProperties": true },
+    "final_conclusion": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["overall_status", "what_remains_blocked"],
+      "properties": {
+        "overall_status": { "const": "needs_review" },
+        "what_remains_blocked": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

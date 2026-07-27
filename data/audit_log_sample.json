@@ -1,0 +1,74 @@
+{
+  "project": "E-commerce Growth Agent Studio",
+  "demo_case": "运动相机",
+  "log_type": "mock_enterprise_audit_log",
+  "disclaimer": "This is a portfolio demo audit log sample, not a real production system log.",
+  "events": [
+    {
+      "event_id": "audit_001",
+      "timestamp": "2026-06-25T15:20:00+08:00",
+      "actor_role": "Operator",
+      "agent_or_skill": "Brief Parser Agent",
+      "input_artifacts": [
+        "data/sample_brief.json",
+        "schemas/product_brief.schema.json"
+      ],
+      "output_artifacts": [
+        "outputs/standardized_brief_summary.json",
+        "outputs/brief_parser_report.md"
+      ],
+      "decision": "needs_review",
+      "risk_tags": [
+        "product_claim_requires_evidence",
+        "downstream_compliance_required"
+      ],
+      "next_gate": "Audience Insight Skill"
+    },
+    {
+      "event_id": "audit_002",
+      "timestamp": "2026-06-25T17:40:00+08:00",
+      "actor_role": "Brand Reviewer",
+      "agent_or_skill": "Brand Compliance Agent",
+      "input_artifacts": [
+        "outputs/creative_copy_pack_outline.json",
+        "outputs/image_prompt_pack_outline.json",
+        "outputs/platform_strategy_plan.json"
+      ],
+      "output_artifacts": [
+        "outputs/brand_compliance_report.json",
+        "outputs/brand_compliance_report.md"
+      ],
+      "decision": "blocked_for_final_generation",
+      "risk_tags": [
+        "image_quality_claim_proof_missing",
+        "waterproof_condition_missing",
+        "stabilization_claim_requires_evidence",
+        "asset_license_missing",
+        "public_publish_not_approved"
+      ],
+      "next_gate": "Human review and evidence upload"
+    },
+    {
+      "event_id": "audit_003",
+      "timestamp": "2026-06-25T18:30:00+08:00",
+      "actor_role": "Marketing Lead",
+      "agent_or_skill": "Creative Package Reporter",
+      "input_artifacts": [
+        "outputs/brand_compliance_report.json",
+        "outputs/growth_metrics_plan.json"
+      ],
+      "output_artifacts": [
+        "outputs/final_creative_package_report.json",
+        "outputs/final_creative_package_report.md"
+      ],
+      "decision": "approved_for_structured_report_only",
+      "risk_tags": [
+        "final_copy_blocked",
+        "final_image_prompt_blocked",
+        "image_generation_blocked",
+        "public_publish_blocked"
+      ],
+      "next_gate": "Portfolio demo review"
+    }
+  ]
+}

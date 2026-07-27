@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/artifacts/planner_execution_plan.schema.json",
+  "title": "Planner Execution Plan Artifact",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "planner_scope",
+    "source_files",
+    "inherited_context",
+    "workflow_routing",
+    "node_execution_plan",
+    "parallel_execution_groups",
+    "risk_budget",
+    "human_approval_plan",
+    "evaluation_targets",
+    "blocked_items",
+    "downstream_handoff",
+    "validation_summary"
+  ],
+  "properties": {
+    "meta": {
+      "allOf": [{ "$ref": "common.schema.json#/$defs/basic_meta" }],
+      "properties": {
+        "artifact_name": { "const": "planner_execution_plan" },
+        "producer": { "const": "Planner Agent" },
+        "step": { "type": "integer", "const": 12 },
+        "status": { "const": "completed_revised" }
+      }
+    },
+    "planner_scope": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["responsibility_boundary", "not_responsible_for", "positioning_guardrail"],
+      "properties": {
+        "responsibility_boundary": { "type": "array", "items": { "type": "string" } },
+        "not_responsible_for": { "type": "array", "items": { "type": "string" } },
+        "positioning_guardrail": { "type": "string" }
+      }
+    },
+    "source_files": { "$ref": "common.schema.json#/$defs/source_files_object" },
+    "inherited_context": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["compliance_inheritance", "demo_context"],
+      "properties": {
+        "compliance_inheritance": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["final_marketing_copy", "final_image_prompt", "image_generation", "public_release"],
+          "properties": {
+            "final_marketing_copy": { "const": "blocked" },
+            "final_image_prompt": { "const": "blocked" },
+            "image_generation": { "const": "blocked" },
+            "public_release": { "const": "blocked" }
+          }
+        },
+        "demo_context": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["demo_product"],
+          "properties": {
+            "demo_product": { "const": "运动相机" },
+            "target_regions": { "type": "array", "items": { "type": "string" } },
+            "channels": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "workflow_routing": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["routing_rules", "v2_workflow_sequence"],
+      "properties": {
+        "routing_rules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["rule_id", "description"],
+            "properties": {
+              "rule_id": { "type": "string" },
+              "description": { "type": "string" },
+              "upstream_required": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/artifact_path" } }
+            }
+          }
+        },
+        "v2_workflow_sequence": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "node_execution_plan": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["node", "task_stage", "read_files", "expected_output", "status_rule"],
+        "properties": {
+          "node": { "type": "string" },
+          "task_stage": { "type": "string" },
+          "read_files": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/artifact_path" } },
+          "expected_output": { "$ref": "common.schema.json#/$defs/artifact_path" },
+          "hands_off_to": { "type": "array", "items": { "type": "string" } },
+          "status_rule": { "type": "string" }
+        }
+      }
+    },
+    "parallel_execution_groups": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "risk_budget": { "type": "object", "additionalProperties": true },
+    "human_approval_plan": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["required_before_final_generation", "approval_decision_values"],
+      "properties": {
+        "required_before_final_generation": { "const": true },
+        "approval_decision_values": {
+          "type": "array",
+          "items": { "$ref": "common.schema.json#/$defs/human_approval_status" }
+        }
+      }
+    },
+    "evaluation_targets": { "type": "object", "additionalProperties": true },
+    "blocked_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["item", "status", "reason"],
+        "properties": {
+          "item": { "type": "string" },
+          "status": { "const": "blocked" },
+          "reason": { "type": "string" }
+        }
+      }
+    },
+    "downstream_handoff": { "type": "object", "additionalProperties": true },
+    "validation_summary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["json_validity_expected", "product_name_unified_to"],
+      "properties": {
+        "json_validity_expected": { "const": true },
+        "product_name_unified_to": { "const": "运动相机" },
+        "final_marketing_copy_generated": { "const": false },
+        "final_image_prompt_generated": { "const": false },
+        "image_generated": { "const": false },
+        "frontend_generated": { "const": false },
+        "public_release_performed": { "const": false }
+      }
+    }
+  }
+}

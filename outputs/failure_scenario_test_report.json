@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "artifact_name": "failure_scenario_test_report",
+    "scenario_id": "failure_brief_missing_campaign_goal",
+    "validation_type": "deterministic_failure_scenario_test",
+    "evidence_type": "deterministic_verified",
+    "status": "pass",
+    "script_path": "scripts/run_failure_scenario_test.mjs",
+    "script_exit_code": 0
+  },
+  "execution": {
+    "time_status": "measured",
+    "started_at": "2026-07-17T13:06:01.722Z",
+    "completed_at": "2026-07-17T13:06:01.780Z",
+    "duration_ms": 58
+  },
+  "scenario": {
+    "title": "Brief missing required campaign_goal",
+    "source_brief_path": "data/sample_brief.json",
+    "fault_operation": "remove",
+    "fault_json_pointer": "/campaign_goal",
+    "missing_field": "campaign_goal"
+  },
+  "initial_run": {
+    "schema_valid": false,
+    "workflow_status": "blocked",
+    "planner_executed": false,
+    "missing_required_fields": [
+      "campaign_goal"
+    ],
+    "schema_errors": [
+      {
+        "instance_path": "",
+        "keyword": "required",
+        "message": "must have required property 'campaign_goal'",
+        "missing_property": "campaign_goal"
+      }
+    ]
+  },
+  "revision": {
+    "queue_created": true,
+    "required_fields": [
+      "campaign_goal"
+    ],
+    "repair_action": "restore_from_source",
+    "source_modified": false
+  },
+  "rerun": {
+    "schema_valid": true,
+    "workflow_status": "pass",
+    "planner_eligible": true,
+    "next_gate": "brand_compliance_pre_check"
+  },
+  "assertions": [
+    {
+      "assertion_id": "initial_schema_rejected",
+      "expected": false,
+      "actual": false,
+      "status": "pass"
+    },
+    {
+      "assertion_id": "missing_field_identified",
+      "expected": [
+        "campaign_goal"
+      ],
+      "actual": [
+        "campaign_goal"
+      ],
+      "status": "pass"
+    },
+    {
+      "assertion_id": "planner_skipped_when_blocked",
+      "expected": false,
+      "actual": false,
+      "status": "pass"
+    },
+    {
+      "assertion_id": "revision_queue_created",
+      "expected": [
+        "campaign_goal"
+      ],
+      "actual": [
+        "campaign_goal"
+      ],
+      "status": "pass"
+    },
+    {
+      "assertion_id": "repaired_schema_accepted",
+      "expected": true,
+      "actual": true,
+      "status": "pass"
+    },
+    {
+      "assertion_id": "rerun_routes_to_pre_check",
+      "expected": "brand_compliance_pre_check",
+      "actual": "brand_compliance_pre_check",
+      "status": "pass"
+    },
+    {
+      "assertion_id": "release_gates_remain_blocked",
+      "expected": true,
+      "actual": true,
+      "status": "pass"
+    }
+  ],
+  "release_gates": {
+    "final_marketing_copy": "blocked",
+    "final_image_prompt": "blocked",
+    "image_generation": "blocked",
+    "frontend_page": "blocked",
+    "public_release": "blocked"
+  },
+  "boundaries": {
+    "historical_execution_claimed": false,
+    "modifies_steps_1_to_15": false,
+    "model_or_agent_called": false,
+    "production_ready": false,
+    "customer_validated": false
+  },
+  "limitations": [
+    "This test validates deterministic input gating and recovery; it does not execute an LLM or the Planner Agent.",
+    "Schema pass proves input structure only, not claim truth, asset authorization, business performance, or production readiness.",
+    "Measured timestamps describe this test script run only and are not historical workflow telemetry.",
+    "All final generation and release gates remain blocked."
+  ]
+}

@@ -1,0 +1,518 @@
+{
+  "meta": {
+    "artifact_name": "v2_final_report",
+    "artifact_version": "0.1.0",
+    "producer": "V2 Final Report Generator",
+    "brief_id": "brief_demo_action_camera_001",
+    "project_name": "E-commerce Growth Agent Studio",
+    "project_name_cn": "电商增长 Agent 工作台",
+    "workflow_version": "V2",
+    "status": "needs_review",
+    "language": "zh-CN",
+    "created_at": "2026-07-15T21:24:00+08:00",
+    "input_files_read": [
+      "PROJECT_MEMORY_FOR_OPENCLAW.md",
+      "README.md",
+      "outputs/final_creative_package_report.json",
+      "outputs/planner_execution_plan.json",
+      "outputs/human_approval_record.json",
+      "outputs/growth_evaluation_report.json",
+      "outputs/brand_compliance_report.json"
+    ],
+    "generated_files": [
+      "prompts/v2_final_report_generator.md",
+      "outputs/v2_final_report.json",
+      "outputs/v2_final_report.md"
+    ],
+    "not_generated": [
+      "final marketing copy",
+      "final image prompt",
+      "image",
+      "frontend page",
+      "public release asset"
+    ]
+  },
+  "project_overview": {
+    "positioning": "A ToB multi-agent ecommerce growth workflow demo that turns product briefs into governed, auditable, reviewable and evaluable structured creative planning packages.",
+    "demo_product": "运动相机",
+    "demo_product_rule": "Use only 运动相机 as the demo product name; do not convert technical parameters into product naming or unsupported facts.",
+    "scenario": "智能影像设备新品上市营销工作流",
+    "target_users": [
+      "品牌方电商团队",
+      "店铺运营团队",
+      "内容营销团队",
+      "MCN / 代运营团队",
+      "企业市场与增长团队"
+    ],
+    "portfolio_focus": [
+      "Agent Workflow 编排",
+      "可复用 Agent / Skill 职责体系",
+      "结构化 I/O 契约",
+      "合规约束传递",
+      "human-in-the-loop 审核",
+      "Growth Evaluation 测评闭环"
+    ]
+  },
+  "business_problem": {
+    "summary": "Enterprise ecommerce teams need a governed workflow for turning inconsistent product information into traceable creative planning artifacts while preventing unsupported claims, unauthorized assets and unverified business-result promises.",
+    "problems": [
+      "商品资料格式不统一，缺失字段和风险声明容易被遗漏。",
+      "用户洞察、卖点、平台策略、创意结构和视觉规划之间交接成本高。",
+      "技术参数、广告表达和视觉素材缺少证据与授权检查。",
+      "最终结果难以追踪来源，也难以定位失败发生在哪个节点。",
+      "内容效果和 Agent 执行质量缺少统一评估口径。"
+    ]
+  },
+  "executed_v1_workflow": {
+    "scope": "Historical Steps 1-11 MVP content asset workflow summarized by Creative Package Reporter.",
+    "status": "needs_review",
+    "report_artifact": "outputs/final_creative_package_report.json",
+    "sequence": [
+      "Brief Parser Agent",
+      "Audience Insight Skill",
+      "Selling Point Analyst Agent",
+      "Platform Strategy Skill",
+      "Creative Copy Agent",
+      "Image Prompt Skill",
+      "Brand Compliance Agent",
+      "Growth Metrics Agent",
+      "Creative Package Reporter"
+    ],
+    "boundary": "V1 produced structured planning and reporting artifacts only; it did not generate final public-facing creative assets."
+  },
+  "designed_v2_workflow": {
+    "scope": "Governed target workflow adding Planner orchestration, Human Approval, Growth Evaluation and Final Report Generator.",
+    "overall_status": "needs_review",
+    "sequence": [
+      "商品 Brief",
+      "Brief Parser Agent",
+      "Planner Agent",
+      "Audience Insight / Selling Point Analyst / Platform Strategy",
+      "Creative Agent",
+      "Brand Compliance Agent",
+      "Human Approval Node",
+      "Image Prompt Skill",
+      "Growth Evaluation Agent",
+      "Final Report Generator"
+    ],
+    "v2_nodes_added": [
+      "Planner Agent",
+      "Human Approval Node",
+      "Growth Evaluation Agent",
+      "Final Report Generator"
+    ],
+    "key_rules": [
+      "Brief Parser must run before downstream analysis.",
+      "Audience Insight, Selling Point Analyst and Platform Strategy can run in parallel after standardized Brief.",
+      "Creative Agent waits for the three analysis outputs.",
+      "Brand Compliance must run before Human Approval.",
+      "Image Prompt Skill remains a single node and should be after Human Approval in V2.",
+      "Growth Evaluation reads compliance status and human approval results before evaluation.",
+      "Final Report Generator summarizes Planner, approval, evaluation and artifact index."
+    ]
+  },
+  "workflow_difference_note": {
+    "v1": "V1 is the already executed Steps 1-11 historical chain. It produced structured creative planning artifacts and the historical final creative package report.",
+    "v2": "V2 is the target governance and evaluation workflow. It does not replace or overwrite the V1 report; it summarizes Planner orchestration, Human Approval, Growth Evaluation and the V1 artifact index.",
+    "important_distinction": "V2 can evaluate and report the workflow, but it does not authorize final marketing copy, final image prompts, image generation or public release."
+  },
+  "artifact_index": {
+    "source": "outputs/final_creative_package_report.json data.artifact_index",
+    "v1_artifacts": [
+      {
+        "step": 3,
+        "node": "Brief Parser Agent",
+        "artifact": "outputs/standardized_brief_summary.json",
+        "status": "needs_review",
+        "role": "Standardizes the product brief and identifies risk fields for downstream agents."
+      },
+      {
+        "step": 4,
+        "node": "Audience Insight Skill",
+        "artifact": "outputs/audience_insight.json",
+        "status": "needs_review",
+        "role": "Converts the brief into audience segments, needs, pains, purchase triggers and validation assumptions."
+      },
+      {
+        "step": 5,
+        "node": "Selling Point Analyst Agent",
+        "artifact": "outputs/selling_point_matrix.json",
+        "status": "needs_review",
+        "role": "Maps product features to benefits, selling point priority, proof requirements and claim risks."
+      },
+      {
+        "step": 6,
+        "node": "Platform Strategy Skill",
+        "artifact": "outputs/platform_strategy_plan.json",
+        "status": "needs_review",
+        "role": "Defines channel roles, funnel mapping, content formats, cadence, metrics and review gates."
+      },
+      {
+        "step": 7,
+        "node": "Creative Copy Agent",
+        "artifact": "outputs/creative_copy_pack_outline.json",
+        "status": "needs_review",
+        "role": "Defines governed copy module structures without writing final public-facing copy."
+      },
+      {
+        "step": 8,
+        "node": "Image Prompt Skill",
+        "artifact": "outputs/image_prompt_pack_outline.json",
+        "status": "needs_review",
+        "role": "Defines visual asset structures and multimodal governance without generating model-ready image prompts."
+      },
+      {
+        "step": 9,
+        "node": "Brand Compliance Agent",
+        "artifact": "outputs/brand_compliance_report.json",
+        "status": "needs_review",
+        "role": "Reviews structured copy and visual planning risks and blocks final generation gates."
+      },
+      {
+        "step": 10,
+        "node": "Growth Metrics Agent",
+        "artifact": "outputs/growth_metrics_plan.json",
+        "status": "needs_review",
+        "role": "Defines observable metrics, A/B directions, tracking fields and retrospective schema."
+      },
+      {
+        "step": 11,
+        "node": "Creative Package Reporter",
+        "artifact": "outputs/final_creative_package_report.json",
+        "status": "needs_review",
+        "role": "Summarizes the governed V1 workflow without releasing final creative assets."
+      }
+    ],
+    "v2_artifacts": [
+      {
+        "step": 12,
+        "node": "Planner Agent",
+        "artifact": "outputs/planner_execution_plan.json",
+        "status": "completed_revised"
+      },
+      {
+        "step": 13,
+        "node": "Human Approval Node",
+        "artifact": "outputs/human_approval_record.json",
+        "status": "needs_revision"
+      },
+      {
+        "step": 14,
+        "node": "Growth Evaluation Agent",
+        "artifact": "outputs/growth_evaluation_report.json",
+        "status": "needs_review"
+      },
+      {
+        "step": 15,
+        "node": "V2 Final Report Generator",
+        "artifact": "outputs/v2_final_report.json",
+        "status": "needs_review"
+      }
+    ]
+  },
+  "node_status_summary": [
+    {
+      "step": "Steps 1-11",
+      "node_group": "V1 MVP content asset workflow",
+      "status": "needs_review",
+      "note": "Historical structured artifacts exist; final generation remained blocked."
+    },
+    {
+      "step": 12,
+      "node": "Planner Agent",
+      "status": "completed_revised",
+      "note": "V2 route, node execution plan, risk budget and downstream handoff are defined."
+    },
+    {
+      "step": 13,
+      "node": "Human Approval Node",
+      "status": "needs_revision",
+      "note": "Structured planning may enter evaluation; final generation and public release remain blocked."
+    },
+    {
+      "step": 14,
+      "node": "Growth Evaluation Agent",
+      "status": "needs_review",
+      "note": "Workflow evaluation completed with partial data quality and one completed demo case."
+    },
+    {
+      "step": 15,
+      "node": "V2 Final Report Generator",
+      "status": "needs_review",
+      "note": "Summarizes existing Planner, approval, evaluation and artifact index only."
+    }
+  ],
+  "planner_summary": {
+    "source_artifact": "outputs/planner_execution_plan.json",
+    "status": "completed_revised",
+    "responsibility_boundary": [
+      "Convert standardized Brief and upstream artifacts into executable V2 workflow plan.",
+      "Define task decomposition, node routing, node input/output contracts, risk routing, human approval fields, evaluation targets and downstream handoff fields.",
+      "Preserve compliance gates and blocked final generation states."
+    ],
+    "parallel_execution": "Audience Insight, Selling Point Analyst and Platform Strategy can run in parallel after standardized Brief.",
+    "risk_budget_summary": "High-risk fields include unsupported image quality claims, waterproof/stabilization/durability claims, AI auto-editing claims, business result promises, brand/logo/likeness authorization and product/App/scene asset authorization.",
+    "blocked_items": [
+      "final marketing copy",
+      "final image prompt",
+      "image generation",
+      "frontend page",
+      "public release or ad delivery",
+      "rerun steps 1-11",
+      "using technical parameters as product name or default product facts"
+    ]
+  },
+  "compliance_summary": {
+    "source_artifact": "outputs/brand_compliance_report.json",
+    "status": "needs_review",
+    "workflow_artifact_status": "conditionally_approved_for_downstream_planning",
+    "final_copy_generation": "blocked",
+    "final_image_prompt_generation": "blocked",
+    "image_generation": "blocked",
+    "public_release": "blocked",
+    "major_risk_areas": [
+      "高清、全景画质等表达缺少证明材料",
+      "防水、防抖、耐用性能声明缺少等级、条件和限制说明",
+      "AI 自动剪辑不能承诺爆款、专业结果或商业表现",
+      "CTR、CVR、GMV、流量和转化不能作为结果承诺",
+      "品牌 Logo、名人肖像、商品图、App 截图和场景样片需要授权",
+      "夸张失真的极限户外画面不得进入后续 Prompt 或图片生成"
+    ],
+    "required_before_final_generation": [
+      "Product and claim proof materials",
+      "Usage conditions and limitations",
+      "Brand asset authorization",
+      "Human-in-the-loop review signoff",
+      "Compliance-safe wording and visual boundaries"
+    ]
+  },
+  "human_approval_summary": {
+    "source_artifact": "outputs/human_approval_record.json",
+    "step": 13,
+    "status": "needs_revision",
+    "overall_decision": "needs_revision",
+    "planning_artifacts_can_enter_evaluation": true,
+    "final_generation_allowed": false,
+    "public_release_allowed": false,
+    "reviewer_name": null,
+    "human_signature": "pending",
+    "reviewed_at": null,
+    "approval_item_counts": {
+      "approved": 3,
+      "needs_revision": 2,
+      "blocked": 2
+    },
+    "important_note": "This is a portfolio Demo approval record, not a real enterprise employee signature or authorization proof."
+  },
+  "growth_evaluation_summary": {
+    "source_artifact": "outputs/growth_evaluation_report.json",
+    "step": 14,
+    "status": "needs_review",
+    "overall_data_quality": "partial",
+    "completed_demo_cases": 1,
+    "pending_demo_cases": 2,
+    "completed_demo": "运动相机",
+    "pending_cases": [
+      "便携投影仪",
+      "美妆精华"
+    ],
+    "evaluation_scope": [
+      "Agent workflow completion and artifact structure",
+      "Planner routing and downstream handoff quality",
+      "Brand Compliance risk detection and blocked gate propagation",
+      "Human Approval inheritance and release gate correctness",
+      "Metric data availability and source classification",
+      "Failure taxonomy, issue attribution and iteration recommendations"
+    ],
+    "non_business_result_rule": "CTR, CVR, GMV, traffic and conversion are only observation, experiment, dashboard or retrospective fields, not achieved or guaranteed outcomes."
+  },
+  "metric_summary": {
+    "status": "needs_review",
+    "source_artifact": "outputs/growth_evaluation_report.json metric_results",
+    "source_type_note": "mock, estimated and not_available values are not real business results.",
+    "metrics": [
+      {
+        "name": "任务完成率",
+        "summary": "Original MVP core nodes were reported as 11/11 for the single 运动相机 demo; V2 governance coverage is counted separately.",
+        "data_source_type": "derived_from_mock",
+        "limitation": "Cannot infer cross-category stability from one demo."
+      },
+      {
+        "name": "平均耗时",
+        "summary": "90-150 minutes Agent workflow estimate vs 360-600 minutes manual baseline estimate.",
+        "data_source_type": "estimated",
+        "limitation": "No real timestamped per-node execution logs; not a real efficiency improvement claim."
+      },
+      {
+        "name": "人工修改率",
+        "summary": null,
+        "data_source_type": "not_available",
+        "limitation": "No field-level manual annotations."
+      },
+      {
+        "name": "幻觉率",
+        "summary": null,
+        "data_source_type": "not_available",
+        "limitation": "No reliable numerator or denominator yet."
+      },
+      {
+        "name": "合规阻断率 / 审批闸口正确率 / 风险传递完整率",
+        "summary": "Current artifacts show blocked gates were preserved and inherited.",
+        "data_source_type": "measured_or_derived_from_mock",
+        "limitation": "Needs more benchmark cases and production-grade audit data."
+      }
+    ]
+  },
+  "rubric_summary": {
+    "source_artifact": "outputs/growth_evaluation_report.json rubric_results",
+    "overall_status": "needs_review",
+    "strengths": [
+      "Planner 路由正确性 is pass_with_caution.",
+      "合规风险识别与传递 is pass_with_caution.",
+      "Human Approval 闸口正确性 is pass_with_caution.",
+      "blocked 内容是否被正确阻止 is pass_with_caution."
+    ],
+    "needs_review_dimensions": [
+      "输入完整性",
+      "上下游字段交接完整性",
+      "声明来源可追踪性",
+      "失败归因是否清晰",
+      "工作流是否可复现"
+    ],
+    "lowest_observed_dimension": {
+      "dimension": "工作流是否可复现",
+      "score": 0.7,
+      "reason": "Only one completed case is available and some audit data is mock."
+    }
+  },
+  "issue_summary": {
+    "source_artifact": "outputs/growth_evaluation_report.json issue_list",
+    "issues": [
+      {
+        "issue_id": "issue_001",
+        "severity": "high",
+        "summary": "Only one completed benchmark case exists; cross-category stability cannot be claimed."
+      },
+      {
+        "issue_id": "issue_002",
+        "severity": "high",
+        "summary": "Final generation and public release remain blocked because proof and asset authorization are missing."
+      },
+      {
+        "issue_id": "issue_003",
+        "severity": "medium",
+        "summary": "Human edit rate and hallucination rate cannot be calculated without manual field annotations."
+      },
+      {
+        "issue_id": "issue_004",
+        "severity": "medium",
+        "summary": "Traceability exists at artifact level but no automated field-level trace matrix exists yet."
+      },
+      {
+        "issue_id": "issue_005",
+        "severity": "medium",
+        "summary": "Average time is estimated because real per-node timestamps are unavailable."
+      }
+    ],
+    "failure_categories_to_monitor": [
+      "input_missing",
+      "routing_error",
+      "unsupported_claim",
+      "risk_propagation_failure",
+      "compliance_gate_failure",
+      "human_approval_failure",
+      "artifact_schema_failure",
+      "traceability_failure",
+      "insufficient_test_data"
+    ]
+  },
+  "release_gates": {
+    "structured_planning_package": "approved",
+    "growth_evaluation": "approved_for_evaluation_only",
+    "final_marketing_copy": "blocked",
+    "final_image_prompt": "blocked",
+    "image_generation": "blocked",
+    "frontend_page": "blocked",
+    "public_release": "blocked",
+    "reason": "Evidence, usage conditions, asset authorization and real human approval are incomplete. Evaluation permission does not equal final generation permission."
+  },
+  "limitations": [
+    "Only one complete Demo exists: 运动相机.",
+    "便携投影仪 and 美妆精华 benchmark cases are pending and must not be treated as results.",
+    "Some metrics are mock or estimated; they are not production evidence.",
+    "Human edit rate and hallucination rate are not_available because no field-level annotations exist.",
+    "No real campaign CTR, CVR, GMV, traffic, conversion or revenue data exists.",
+    "No real reviewer name, signature, timestamp or asset authorization proof exists.",
+    "Field-level claim trace matrix is not yet automated.",
+    "Final creative generation and public release are still blocked."
+  ],
+  "iteration_backlog": [
+    {
+      "priority": "high",
+      "item": "Run two additional benchmark cases",
+      "description": "Prepare and execute 便携投影仪 and 美妆精华 through the same workflow before claiming cross-category stability."
+    },
+    {
+      "priority": "high",
+      "item": "Collect proof and authorization",
+      "description": "Collect product proof, usage-condition boundaries, asset licenses and real approval records before final generation."
+    },
+    {
+      "priority": "medium",
+      "item": "Add metric instrumentation",
+      "description": "Add per-node start/end timestamps and human review annotations to calculate average time, human edit rate and hallucination rate."
+    },
+    {
+      "priority": "medium",
+      "item": "Add field-level traceability",
+      "description": "Require every claim, risk and recommendation to include source artifact and source field."
+    },
+    {
+      "priority": "medium",
+      "item": "Keep Growth Evaluation distinct from Growth Metrics",
+      "description": "Maintain the difference between Step 10 metrics planning and Step 14 workflow evaluation."
+    }
+  ],
+  "reproducibility_record": {
+    "reproducible_now": "partial",
+    "workspace": "/Users/mabook/.openclaw/workspace",
+    "required_inputs_for_this_report": [
+      "PROJECT_MEMORY_FOR_OPENCLAW.md",
+      "README.md",
+      "outputs/final_creative_package_report.json",
+      "outputs/planner_execution_plan.json",
+      "outputs/human_approval_record.json",
+      "outputs/growth_evaluation_report.json",
+      "outputs/brand_compliance_report.json"
+    ],
+    "validation_performed": [
+      "python3 -m json.tool outputs/v2_final_report.json"
+    ],
+    "not_rerun": [
+      "Steps 1-11",
+      "Planner Agent",
+      "Human Approval Node",
+      "Growth Evaluation Agent",
+      "Creative generation",
+      "Image generation"
+    ]
+  },
+  "final_conclusion": {
+    "overall_status": "needs_review",
+    "summary": "V2 Final Report Generator completed a governed summary of Planner orchestration, Human Approval, Growth Evaluation and the V1 artifact index. The project demonstrates a ToB multi-agent workflow with compliance and evaluation gates, but it is not ready for final creative generation or public release.",
+    "what_is_ready": [
+      "Structured planning artifacts for portfolio review",
+      "V2 route design and risk budget",
+      "Human Approval gate record for Demo evaluation",
+      "Growth Evaluation findings for one completed 运动相机 case"
+    ],
+    "what_remains_blocked": [
+      "final marketing copy",
+      "final image prompt",
+      "image generation",
+      "frontend page",
+      "public release"
+    ],
+    "reason_for_needs_review": "Only one full Demo exists, several metrics are mock/estimated/not_available, proof and asset authorization are missing, and real human approval has not been completed."
+  }
+}

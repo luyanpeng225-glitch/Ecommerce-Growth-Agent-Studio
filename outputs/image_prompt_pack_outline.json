@@ -1,0 +1,731 @@
+{
+  "artifact_name": "image_prompt_pack_outline",
+  "artifact_version": "0.1.0",
+  "brief_id": "brief_demo_action_camera_001",
+  "producer": "Image Prompt Skill",
+  "status": "needs_review",
+  "confidence": 0.85,
+  "inputs_used": [
+    "sample_brief.json",
+    "outputs/standardized_brief_summary.json",
+    "outputs/audience_insight.json",
+    "outputs/selling_point_matrix.json",
+    "outputs/platform_strategy_plan.json",
+    "outputs/creative_copy_pack_outline.json",
+    "workflow/agent_io_contracts.md",
+    "workflow/agent_workflow.md"
+  ],
+  "summary": "Image Prompt Skill generated a structured visual asset outline for downstream multimodal planning. It defines visual asset types, source fields, proof dependencies, composition constraints, forbidden elements, audit gates, and downstream handoff fields without generating final image prompts or direct model-ready descriptions.",
+  "data": {
+    "skill_contract": {
+      "responsibility_boundary": [
+        "Translate upstream Agent artifacts into visual asset structure specifications.",
+        "Define multimodal fields for asset goals, platforms, audiences, selling points, visual constraints, proof dependencies, and compliance gates.",
+        "Preserve upstream risk fields, assumptions, proof requirements, forbidden elements, and human review requirements.",
+        "Prepare structured handoff fields for Brand Compliance Agent, Growth Metrics Agent, Creative Package Reporter, and a future image prompt generation node."
+      ],
+      "not_responsible_for": [
+        "final image prompt",
+        "model-ready Midjourney prompt",
+        "model-ready Jimeng prompt",
+        "model-ready Stable Diffusion prompt",
+        "model-ready DALL-E prompt",
+        "specific image description body",
+        "final marketing copy",
+        "xiaohongshu body text",
+        "douyin script",
+        "live selling talk track",
+        "frontend page"
+      ],
+      "upstream_artifacts_received": [
+        "outputs/standardized_brief_summary.json",
+        "outputs/audience_insight.json",
+        "outputs/selling_point_matrix.json",
+        "outputs/platform_strategy_plan.json",
+        "outputs/creative_copy_pack_outline.json"
+      ],
+      "downstream_consumers": [
+        "Brand Compliance Agent",
+        "Growth Metrics Agent",
+        "Creative Package Reporter",
+        "Future Image Prompt Generation Node"
+      ]
+    },
+    "upstream_inheritance": {
+      "brief_parser_risk_fields": [
+        "brand_name",
+        "core_features[].proof",
+        "specs.waterproof",
+        "specs.stabilization",
+        "core_features[4].feature",
+        "positioning_statement",
+        "availability.launch_date"
+      ],
+      "audience_assumptions_to_validate": [
+        "户外运动爱好者可能优先被防抖、防水和固定方式证明打动。",
+        "旅行内容创作者会重视一人出行、多平台复用和轻量剪辑流程。",
+        "数码发烧友会通过样片、参数解释和真实评测建立购买信心。",
+        "内容平台种草到天猫、京东等承接渠道的转化路径需要数据验证。"
+      ],
+      "selling_point_claim_risks": [
+        "高清运动视频不得表达为行业第一、画质最好或全面超越手机。",
+        "运动防抖不得表达为百分百稳定、任何运动都不抖或不会产生废片。",
+        "裸机防水与耐用机身必须补充等级、深度、时长和使用条件。",
+        "AI 自动剪辑不得表达为自动生成爆款或保证内容表现。",
+        "竞品比较必须保持类目级，不攻击具体品牌。"
+      ],
+      "platform_strategy_constraints": [
+        "抖音视觉素材不得暗示直播间成交结果。",
+        "小红书视觉素材不得承诺普通用户必然获得专业大片效果。",
+        "天猫视觉素材中的参数和防水耐用表达必须有证据。",
+        "京东视觉素材的类目对比不得攻击具体品牌。"
+      ],
+      "creative_copy_constraints": [
+        "视觉素材只能承接文案结构模块，不得生成正文或图片 Prompt。",
+        "claim source map 中的高风险声明必须先由 Brand Compliance Agent 审核。",
+        "proof waitlist 未完成前不得进入最终图片 Prompt 生成。"
+      ],
+      "compliance_constraints": {
+        "do_not_claim": [
+          "不要声称行业第一，除非有权威证明",
+          "不要使用绝对化表述，如最好、唯一、百分百稳定",
+          "不要攻击具体竞品品牌",
+          "不要承诺任何场景下都不会损坏",
+          "不要暗示普通用户无需学习即可达到专业摄影师水平"
+        ],
+        "compliance_rules": [
+          "避免绝对化广告语",
+          "涉及防水、防摔、续航等能力时需要保留条件描述",
+          "不得攻击具体竞品品牌",
+          "不得暗示使用产品即可保证获得商业收益",
+          "图片 Prompt 不生成真实品牌 Logo 或未经授权的名人形象"
+        ],
+        "negative_constraints": [
+          "不要把项目包装成单一品牌专属工具",
+          "不要只强调参数，必须转化为用户利益点",
+          "不要生成夸张失真的户外极限画面",
+          "不要过度承诺 AI 自动剪辑效果",
+          "不要忽略企业电商团队的协作和审核需求"
+        ]
+      }
+    },
+    "visual_asset_structures": [
+      {
+        "asset_type": "商品主图结构",
+        "visual_goal": "建立商品识别、类目定位和核心信息层级，服务电商承接。",
+        "applicable_platforms": [
+          "天猫",
+          "京东"
+        ],
+        "target_audience_segments": [
+          "旅行内容创作者",
+          "户外运动爱好者",
+          "数码发烧友"
+        ],
+        "corresponding_selling_points": [
+          "一次拍摄，多平台复用",
+          "高清影像与沉浸视角"
+        ],
+        "required_upstream_fields": [
+          "sample_brief.product_name",
+          "sample_brief.product_category",
+          "sample_brief.required_assets",
+          "selling_point_matrix.core_selling_point_priority",
+          "creative_copy_pack_outline.content_module_specs"
+        ],
+        "proof_materials_to_wait_for": [
+          "商品白底图",
+          "高清样片与规格说明",
+          "已授权商品渲染或实拍素材"
+        ],
+        "visual_subject": "商品主体和关键配件的结构占位，不写具体画面描述。",
+        "usage_scene": "电商货架和商品详情承接。",
+        "composition_requirements": "主体清晰、信息层级明确、避免遮挡关键部件。",
+        "light_color_style_requirements": "遵循明亮自然光和科技感信息标注方向，但不生成具体风格 Prompt。",
+        "product_exposure_requirements": "商品必须可识别，配件关系清楚，不能被场景元素压过。",
+        "text_copy_limits": "只允许文字占位和信息层级，不生成主图文案。",
+        "forbidden_elements": [
+          "真实品牌 Logo",
+          "未经授权商标",
+          "绝对化卖点文字",
+          "无证明的高清 或防水承诺"
+        ],
+        "requires_human_review": true
+      },
+      {
+        "asset_type": "户外运动场景图结构",
+        "visual_goal": "承接骑行、滑雪、水上运动等运动场景，展示使用情境和运动记录价值。",
+        "applicable_platforms": [
+          "抖音",
+          "小红书",
+          "天猫",
+          "京东"
+        ],
+        "target_audience_segments": [
+          "户外运动爱好者",
+          "数码发烧友"
+        ],
+        "corresponding_selling_points": [
+          "运动场景稳定记录",
+          "户外环境覆盖能力"
+        ],
+        "required_upstream_fields": [
+          "audience_insight.usage_scenario_interest_map",
+          "selling_point_matrix.feature_benefit_mapping",
+          "platform_strategy_plan.channel_role_map",
+          "creative_copy_pack_outline.proof_waitlist"
+        ],
+        "proof_materials_to_wait_for": [
+          "骑行、滑雪或跑步真实运动样片",
+          "防抖测试条件",
+          "防水等级、深度、时长和使用条件"
+        ],
+        "visual_subject": "运动场景中的商品使用关系占位，不写具体镜头 Prompt。",
+        "usage_scene": "骑行第一视角、滑雪、水上运动或雨天户外。",
+        "composition_requirements": "强调商品和使用方式可见，避免过度危险或极限化构图。",
+        "light_color_style_requirements": "高动态户外画面、自然光、真实运动环境方向。",
+        "product_exposure_requirements": "商品固定方式或佩戴方式需清楚，不得只展示环境。",
+        "text_copy_limits": "只允许证明材料和规格条件的文字占位，不生成营销文字。",
+        "forbidden_elements": [
+          "夸张失真的极限户外画面",
+          "暗示任何场景都防水、防摔、稳定",
+          "危险动作鼓励",
+          "无证明的防抖或防水视觉结论"
+        ],
+        "requires_human_review": true
+      },
+      {
+        "asset_type": "旅行/城市漫游场景图结构",
+        "visual_goal": "承接旅行内容创作者的一人出行、多平台复用和城市漫游素材需求。",
+        "applicable_platforms": [
+          "小红书",
+          "抖音",
+          "天猫"
+        ],
+        "target_audience_segments": [
+          "旅行内容创作者",
+          "户外运动爱好者"
+        ],
+        "corresponding_selling_points": [
+          "一次拍摄，多平台复用",
+          "高清影像与沉浸视角",
+          "AI 剪辑辅助降低发布门槛"
+        ],
+        "required_upstream_fields": [
+          "audience_insight.audience_segments",
+          "audience_insight.usage_scenario_interest_map",
+          "selling_point_matrix.audience_selling_point_fit",
+          "platform_strategy_plan.funnel_mapping",
+          "creative_copy_pack_outline.creative_copy_pack_outline"
+        ],
+        "proof_materials_to_wait_for": [
+          "旅行或城市漫游样片",
+          "同一素材横屏、竖屏和方图导出示例",
+          "AI 自动剪辑流程演示"
+        ],
+        "visual_subject": "旅行或城市漫游中的商品使用关系占位，不写具体图像描述。",
+        "usage_scene": "城市街区、旅行打卡、人物同框和一人出行记录。",
+        "composition_requirements": "保留人物、环境和商品关系，避免商品不可见。",
+        "light_color_style_requirements": "明亮自然光、真实城市或旅行氛围、不过度滤镜化。",
+        "product_exposure_requirements": "商品或使用方式需有明确露出，不能仅表现旅行结果。",
+        "text_copy_limits": "不生成小红书标题、标签、正文或图中文字。",
+        "forbidden_elements": [
+          "未经授权名人形象",
+          "虚构地标商标",
+          "暗示普通用户必然获得专业大片效果",
+          "承诺平台流量或商业收益"
+        ],
+        "requires_human_review": true
+      },
+      {
+        "asset_type": "详情页信息图结构",
+        "visual_goal": "为天猫和京东承接参数、证明材料、卖点层级和购买疑虑说明提供结构。",
+        "applicable_platforms": [
+          "天猫",
+          "京东"
+        ],
+        "target_audience_segments": [
+          "数码发烧友",
+          "旅行内容创作者",
+          "户外运动爱好者"
+        ],
+        "corresponding_selling_points": [
+          "高清影像与沉浸视角",
+          "运动场景稳定记录",
+          "户外环境覆盖能力",
+          "一次拍摄，多平台复用"
+        ],
+        "required_upstream_fields": [
+          "sample_brief.specs",
+          "sample_brief.bundles",
+          "sample_brief.availability",
+          "selling_point_matrix.proof_requirements",
+          "creative_copy_pack_outline.claim_source_map"
+        ],
+        "proof_materials_to_wait_for": [
+          "分辨率规格说明",
+          "防水等级或测试标准",
+          "防抖测试条件",
+          "套装和首发权益确认"
+        ],
+        "visual_subject": "参数、卖点、证明材料和商品图的版块占位。",
+        "usage_scene": "详情页模块、参数解释、购买疑虑回应。",
+        "composition_requirements": "信息分区清晰、证据来源可追踪、避免过密排版。",
+        "light_color_style_requirements": "电商信息图方向，清晰、克制、专业可信。",
+        "product_exposure_requirements": "商品图和参数模块必须对应，不得视觉和规格脱节。",
+        "text_copy_limits": "只生成字段占位，不生成详情页文案或参数卖点正文。",
+        "forbidden_elements": [
+          "无依据排名",
+          "竞品攻击",
+          "绝对化参数表达",
+          "未经确认的价格或权益"
+        ],
+        "requires_human_review": true
+      },
+      {
+        "asset_type": "短视频分镜画面结构",
+        "visual_goal": "为抖音短视频和平台短内容提供分镜画面字段，不生成镜头 Prompt 或脚本。",
+        "applicable_platforms": [
+          "抖音",
+          "小红书"
+        ],
+        "target_audience_segments": [
+          "户外运动爱好者",
+          "旅行内容创作者",
+          "数码发烧友"
+        ],
+        "corresponding_selling_points": [
+          "运动场景稳定记录",
+          "一次拍摄，多平台复用",
+          "AI 剪辑辅助降低发布门槛"
+        ],
+        "required_upstream_fields": [
+          "creative_copy_pack_outline.creative_copy_pack_outline[抖音短视频脚本结构]",
+          "platform_strategy_plan.ab_test_directions",
+          "audience_insight.purchase_journey_notes",
+          "selling_point_matrix.claim_risk_notes"
+        ],
+        "proof_materials_to_wait_for": [
+          "真实运动样片",
+          "App 流程演示",
+          "同一素材多比例导出示例"
+        ],
+        "visual_subject": "分镜画面模块占位，包括场景、商品、证明材料、转化动作位置。",
+        "usage_scene": "认知、兴趣、比较、转化阶段的短视频结构。",
+        "composition_requirements": "每个分镜只保留结构字段，避免生成可直接拍摄的镜头正文。",
+        "light_color_style_requirements": "按平台风格要求保留风格字段，不生成最终 Prompt。",
+        "product_exposure_requirements": "关键分镜必须有商品或使用方式露出。",
+        "text_copy_limits": "不生成字幕、标题、口播、脚本正文。",
+        "forbidden_elements": [
+          "平台流量承诺",
+          "直播成交承诺",
+          "AI 自动爆款暗示",
+          "无证据的运动稳定结论"
+        ],
+        "requires_human_review": true
+      },
+      {
+        "asset_type": "直播间讲解素材结构",
+        "visual_goal": "为直播间讲解提供商品、证据、场景和购买疑虑回应的素材结构。",
+        "applicable_platforms": [
+          "抖音"
+        ],
+        "target_audience_segments": [
+          "户外运动爱好者",
+          "旅行内容创作者",
+          "数码发烧友"
+        ],
+        "corresponding_selling_points": [
+          "运动场景稳定记录",
+          "高清影像与沉浸视角",
+          "户外环境覆盖能力",
+          "AI 剪辑辅助降低发布门槛"
+        ],
+        "required_upstream_fields": [
+          "creative_copy_pack_outline.creative_copy_pack_outline[直播间话术结构]",
+          "platform_strategy_plan.human_in_the_loop_review",
+          "selling_point_matrix.proof_requirements",
+          "sample_brief.bundles",
+          "sample_brief.availability"
+        ],
+        "proof_materials_to_wait_for": [
+          "首发权益、套装和库存确认",
+          "防抖样片",
+          "防水条件说明",
+          "AI 剪辑流程演示"
+        ],
+        "visual_subject": "直播讲解所需素材版块占位，不写直播画面 Prompt。",
+        "usage_scene": "直播间商品讲解、证明材料展示、购买疑虑回应。",
+        "composition_requirements": "商品、证明材料和要点区分明确，避免过度促单视觉。",
+        "light_color_style_requirements": "清晰、可信、适合讲解，不夸张。",
+        "product_exposure_requirements": "商品主体和证明材料需对应讲解模块。",
+        "text_copy_limits": "不生成主播口播、促单文案、价格权益文案。",
+        "forbidden_elements": [
+          "GMV 或成交承诺",
+          "未经确认的价格权益",
+          "极限功效承诺",
+          "未经授权 Logo"
+        ],
+        "requires_human_review": true
+      },
+      {
+        "asset_type": "达人 Brief 配图结构",
+        "visual_goal": "为达人协作提供可用场景、素材要求、禁用元素和审核流程的配图结构。",
+        "applicable_platforms": [
+          "小红书",
+          "抖音"
+        ],
+        "target_audience_segments": [
+          "旅行内容创作者",
+          "户外运动爱好者",
+          "数码发烧友"
+        ],
+        "corresponding_selling_points": [
+          "一次拍摄，多平台复用",
+          "运动场景稳定记录",
+          "高清影像与沉浸视角",
+          "AI 剪辑辅助降低发布门槛"
+        ],
+        "required_upstream_fields": [
+          "creative_copy_pack_outline.creative_copy_pack_outline[达人 Brief 结构]",
+          "audience_insight.usage_scenario_interest_map",
+          "selling_point_matrix.platform_selling_point_fit",
+          "sample_brief.required_assets",
+          "creative_copy_pack_outline.human_in_the_loop_review"
+        ],
+        "proof_materials_to_wait_for": [
+          "商品白底图",
+          "相机佩戴或固定方式图",
+          "户外运动场景样片",
+          "移动端 App 剪辑界面截图",
+          "素材授权确认"
+        ],
+        "visual_subject": "达人 Brief 中素材规范、禁用元素和审核流程的结构占位。",
+        "usage_scene": "达人内容合作前的视觉规范说明。",
+        "composition_requirements": "清晰区分可用素材、禁止元素、审核流程和交付格式。",
+        "light_color_style_requirements": "专业、清晰、适合企业协作流转。",
+        "product_exposure_requirements": "示例素材必须保持商品可见和授权可追溯。",
+        "text_copy_limits": "不生成达人发布文案、标题、标签或 Prompt。",
+        "forbidden_elements": [
+          "达人自行扩展未经证明的能力",
+          "未经授权名人形象",
+          "真实品牌 Logo",
+          "单一品牌专属工具包装"
+        ],
+        "requires_human_review": true
+      }
+    ],
+    "multimodal_audit_map": {
+      "from_brief": [
+        "product_name",
+        "product_category",
+        "short_description",
+        "core_features",
+        "specs",
+        "usage_scenarios",
+        "visual_style",
+        "required_assets",
+        "compliance_rules",
+        "negative_constraints"
+      ],
+      "from_audience_insight": [
+        "audience_segments",
+        "usage_scenario_interest_map",
+        "purchase_journey_notes",
+        "assumptions_to_validate"
+      ],
+      "from_selling_point_matrix": [
+        "core_selling_point_priority",
+        "feature_benefit_mapping",
+        "audience_selling_point_fit",
+        "platform_selling_point_fit",
+        "proof_requirements",
+        "claim_risk_notes"
+      ],
+      "from_platform_strategy": [
+        "channel_role_map",
+        "platform_strategy_plan",
+        "funnel_mapping",
+        "metrics_framework",
+        "ab_test_directions",
+        "human_in_the_loop_review"
+      ],
+      "from_creative_copy_outline": [
+        "creative_copy_pack_outline",
+        "content_module_specs",
+        "claim_source_map",
+        "proof_waitlist",
+        "human_in_the_loop_review"
+      ],
+      "high_risk_visual_claims": [
+        "防水",
+        "防摔",
+        "运动防抖",
+        "高清影像质量",
+        "AI 自动剪辑",
+        "平台转化",
+        "GMV",
+        "竞品比较"
+      ],
+      "must_go_to_brand_compliance": [
+        "visual_asset_structures",
+        "visual_risk_register",
+        "forbidden_elements",
+        "asset_dependency_map",
+        "proof_materials_to_wait_for",
+        "all high-risk visual claim fields"
+      ],
+      "can_go_to_creative_package_reporter": [
+        "skill_contract",
+        "upstream_inheritance",
+        "visual_asset_structures",
+        "multimodal_audit_map",
+        "forbidden_elements",
+        "asset_dependency_map",
+        "human_in_the_loop_review",
+        "reusability_notes"
+      ]
+    },
+    "visual_risk_register": [
+      {
+        "risk_area": "防水、防摔、稳定性视觉表达",
+        "risk_level": "critical",
+        "risk_reason": "容易被理解为任何场景都防水、防摔、稳定。",
+        "required_control": "必须等待测试条件、等级和合规审核，不得生成夸张极限画面。"
+      },
+      {
+        "risk_area": "高清影像质量视觉表达",
+        "risk_level": "major",
+        "risk_reason": "容易被表达为行业领先、全面超越手机或无条件高画质。",
+        "required_control": "必须等待样片和分辨率规格说明。"
+      },
+      {
+        "risk_area": "AI 自动剪辑视觉表达",
+        "risk_level": "major",
+        "risk_reason": "容易暗示自动生成爆款、保证内容表现或无需学习达到专业效果。",
+        "required_control": "只能保留流程结构和辅助能力，不生成效果承诺。"
+      },
+      {
+        "risk_area": "平台转化和 GMV 视觉表达",
+        "risk_level": "critical",
+        "risk_reason": "容易形成流量、转化或商业收益承诺。",
+        "required_control": "指标只能作为 Growth Metrics 节点观测字段。"
+      },
+      {
+        "risk_area": "品牌、Logo、名人和竞品元素",
+        "risk_level": "critical",
+        "risk_reason": "涉及授权、商标、肖像和竞品攻击风险。",
+        "required_control": "必须禁止真实品牌 Logo、未经授权名人形象和具体竞品攻击。"
+      }
+    ],
+    "forbidden_elements": [
+      "不生成真实品牌 Logo",
+      "不生成未经授权的名人形象",
+      "不生成夸张失真的极限户外画面",
+      "不暗示任何场景都防水、防摔、稳定",
+      "不暗示 AI 剪辑能自动生成爆款",
+      "不攻击具体竞品品牌",
+      "不承诺平台流量、GMV、转化或商业收益",
+      "不把项目包装成单一品牌专属工具",
+      "不生成模型可直接使用的最终图片 Prompt",
+      "不生成小红书正文、抖音脚本或直播话术"
+    ],
+    "asset_dependency_map": [
+      {
+        "asset_dependency": "商品白底图",
+        "used_by": [
+          "商品主图结构",
+          "详情页信息图结构",
+          "达人 Brief 配图结构"
+        ],
+        "approval_needed": "brand_asset_authorization"
+      },
+      {
+        "asset_dependency": "相机佩戴或固定方式图",
+        "used_by": [
+          "户外运动场景图结构",
+          "直播间讲解素材结构",
+          "达人 Brief 配图结构"
+        ],
+        "approval_needed": "usage_accuracy_review"
+      },
+      {
+        "asset_dependency": "户外运动场景样片",
+        "used_by": [
+          "户外运动场景图结构",
+          "短视频分镜画面结构",
+          "直播间讲解素材结构"
+        ],
+        "approval_needed": "proof_and_safety_review"
+      },
+      {
+        "asset_dependency": "移动端 App 剪辑界面截图",
+        "used_by": [
+          "旅行/城市漫游场景图结构",
+          "详情页信息图结构",
+          "达人 Brief 配图结构"
+        ],
+        "approval_needed": "product_ui_authorization"
+      },
+      {
+        "asset_dependency": "防水、防抖、高清 和 AI 剪辑证明材料",
+        "used_by": [
+          "all high-risk visual assets"
+        ],
+        "approval_needed": "brand_compliance_and_product_proof_review"
+      }
+    ],
+    "human_in_the_loop_review": [
+      {
+        "review_item": "所有视觉素材结构进入最终 Prompt 生成前",
+        "reason": "当前产物只定义结构，最终 Prompt 生成前必须确认素材授权、证明材料和合规边界。",
+        "owner": "Brand Compliance Agent"
+      },
+      {
+        "review_item": "防水、防抖、高清、AI 剪辑相关画面",
+        "reason": "涉及高风险技术能力或效果声明。",
+        "owner": "Brand Compliance Agent + Product Owner"
+      },
+      {
+        "review_item": "达人 Brief 配图和素材包",
+        "reason": "达人协作可能扩展未经证明的视觉表达。",
+        "owner": "Brand Compliance Agent"
+      },
+      {
+        "review_item": "后续模型可用 Prompt 生成",
+        "reason": "需要先通过本结构规划、素材授权、证明材料和合规审核。",
+        "owner": "Future Image Prompt Generation Node gated by Brand Compliance Agent"
+      }
+    ],
+    "reusability_notes": {
+      "skill_reuse_scope": [
+        "智能硬件新品上市",
+        "美妆电商视觉素材",
+        "服饰大促多平台素材",
+        "食品饮料场景化海报",
+        "B2B SaaS 产品图和信息图",
+        "企业多模态创意工作流"
+      ],
+      "reusable_structure": [
+        "asset_type",
+        "visual_goal",
+        "applicable_platforms",
+        "target_audience_segments",
+        "corresponding_selling_points",
+        "required_upstream_fields",
+        "proof_materials_to_wait_for",
+        "composition_requirements",
+        "product_exposure_requirements",
+        "forbidden_elements",
+        "requires_human_review"
+      ],
+      "customizable_dimensions": [
+        "platform list",
+        "visual style",
+        "asset types",
+        "product category",
+        "proof requirements",
+        "brand compliance rules",
+        "model-specific prompt format"
+      ],
+      "agent_product_value": "This Skill turns multimodal generation into a governed workflow stage: it plans visual structures, preserves upstream evidence boundaries, and gates final prompt generation behind compliance review."
+    },
+    "downstream_field_handoff": {
+      "Brand Compliance Agent": {
+        "fields": [
+          "visual_asset_structures",
+          "multimodal_audit_map",
+          "visual_risk_register",
+          "forbidden_elements",
+          "asset_dependency_map",
+          "human_in_the_loop_review",
+          "upstream_inheritance.compliance_constraints"
+        ],
+        "handoff_note": "Review visual structures, high-risk claims, forbidden elements, asset authorization, and proof dependencies before final image prompt generation."
+      },
+      "Growth Metrics Agent": {
+        "fields": [
+          "visual_asset_structures.asset_type",
+          "visual_asset_structures.applicable_platforms",
+          "visual_asset_structures.corresponding_selling_points",
+          "platform_strategy_plan.metrics_framework",
+          "platform_strategy_plan.ab_test_directions",
+          "asset_dependency_map"
+        ],
+        "handoff_note": "Use visual asset types and selling point mappings to design later creative variant measurement and素材复用率 tracking."
+      },
+      "Creative Package Reporter": {
+        "fields": [
+          "skill_contract",
+          "upstream_inheritance",
+          "visual_asset_structures",
+          "multimodal_audit_map",
+          "visual_risk_register",
+          "forbidden_elements",
+          "asset_dependency_map",
+          "human_in_the_loop_review",
+          "reusability_notes"
+        ],
+        "handoff_note": "Use these fields to show multimodal workflow traceability, governance, reusable Skill design, and audit state in the final package report."
+      },
+      "Future Image Prompt Generation Node": {
+        "fields": [
+          "approved_visual_asset_structures",
+          "approved_asset_dependency_map",
+          "brand_compliance_approval_status",
+          "model_target",
+          "platform_size_requirements",
+          "approved_visual_style",
+          "approved_forbidden_elements"
+        ],
+        "preconditions": [
+          "Brand Compliance Agent approval",
+          "proof materials available for high-risk claims",
+          "brand asset authorization",
+          "human-in-the-loop review completed",
+          "model target selected"
+        ],
+        "handoff_note": "Only this future gated node should generate model-specific image prompts after approvals are complete."
+      }
+    },
+    "audit_trace": {
+      "workflow_node": "Image Prompt Skill",
+      "workflow_sequence": 6,
+      "previous_artifacts": [
+        "outputs/standardized_brief_summary.json",
+        "outputs/audience_insight.json",
+        "outputs/selling_point_matrix.json",
+        "outputs/platform_strategy_plan.json",
+        "outputs/creative_copy_pack_outline.json"
+      ],
+      "generated_artifacts": [
+        "outputs/image_prompt_pack_outline.json",
+        "outputs/image_prompt_pack_outline.md"
+      ],
+      "not_generated": [
+        "final image prompt",
+        "specific image description body",
+        "model-ready Midjourney prompt",
+        "model-ready Jimeng prompt",
+        "model-ready Stable Diffusion prompt",
+        "model-ready DALL-E prompt",
+        "final marketing copy",
+        "xiaohongshu body text",
+        "douyin script",
+        "live selling talk track",
+        "frontend page"
+      ]
+    }
+  },
+  "risks": [
+    "This outline is not an approved image prompt and must not be used directly in any image generation model.",
+    "Proof materials and brand asset authorization are still required for multiple high-risk visual claims.",
+    "Final image prompt generation must wait for Brand Compliance Agent approval and human-in-the-loop review."
+  ],
+  "next_actions": [
+    "Pass visual structures, forbidden elements, proof dependencies, and risk register to Brand Compliance Agent.",
+    "Pass asset types, platform fit, and selling point mappings to Growth Metrics Agent for future variant measurement.",
+    "Pass the multimodal audit map and visual outline to Creative Package Reporter.",
+    "Only after compliance approval, pass approved structures to a future Image Prompt Generation Node."
+  ]
+}

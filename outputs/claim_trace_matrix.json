@@ -1,0 +1,1588 @@
+{
+  "meta": {
+    "artifact_name": "claim_trace_matrix",
+    "validation_extension": "Validation Extension C",
+    "artifact_version": "0.1.0",
+    "brief_id": "brief_demo_action_camera_001",
+    "producer": "Deterministic Claim Trace Matrix Builder",
+    "status": "needs_review",
+    "workflow_version": "V2",
+    "product_name": "运动相机",
+    "generation_method": "deterministic_script_no_model_call",
+    "notes": [
+      "source_found only means the source field exists in a project artifact; it does not prove real-world truth.",
+      "Downstream Agent artifacts are treated as references or governance decisions, not original fact proof."
+    ]
+  },
+  "source_priority": {
+    "factual_sources": [
+      "original brief",
+      "formal proof materials when provided"
+    ],
+    "governance_decision_sources": [
+      "Human Approval",
+      "Brand Compliance"
+    ],
+    "downstream_artifact_rule": "Downstream Agent artifacts can cite or transform claims but cannot prove original facts.",
+    "mock_data_rule": "Mock or demo data cannot prove real business outcomes."
+  },
+  "claims": [
+    {
+      "claim_id": "claim_product_capability_001",
+      "claim_category": "product_capability",
+      "claim_summary": "Brief describes high-definition motion video and 360 recording support for the demo product.",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/core_features/0/proof",
+      "evidence_artifact": "data/sample_brief.json",
+      "evidence_json_pointer": "/core_features/0/proof",
+      "evidence_status": "requires_human_verification",
+      "downstream_artifacts": [
+        {
+          "artifact": "outputs/selling_point_matrix.json",
+          "json_pointer": "/data/feature_benefit_mapping/0/risk_boundary",
+          "reference_type": "risk_inheritance",
+          "value_consistency": "consistent",
+          "notes": "Downstream keeps proof requirements and avoids absolute superiority."
+        },
+        {
+          "artifact": "outputs/brand_compliance_report.json",
+          "json_pointer": "/data/risk_items/0/blocking_rule",
+          "reference_type": "governance_decision",
+          "value_consistency": "consistent",
+          "notes": "Final copy and image prompts remain blocked until footage and specs are available."
+        }
+      ],
+      "risk_level": "major",
+      "human_review_required": true,
+      "compliance_decision": "blocked_for_final_generation",
+      "release_gate_effect": {
+        "structured_planning_package": "approved",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "required_action": "Collect high-resolution footage, specifications, and review boundaries before final generation.",
+      "source_exists": "source_found"
+    },
+    {
+      "claim_id": "claim_product_capability_002",
+      "claim_category": "product_capability",
+      "claim_summary": "Brief describes post-capture reframing and multiple export ratios as product capabilities.",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/core_features/1/proof",
+      "evidence_artifact": "data/sample_brief.json",
+      "evidence_json_pointer": "/specs/export_formats",
+      "evidence_status": "requires_human_verification",
+      "downstream_artifacts": [
+        {
+          "artifact": "outputs/selling_point_matrix.json",
+          "json_pointer": "/data/core_selling_point_priority/0/proof_status",
+          "reference_type": "risk_inheritance",
+          "value_consistency": "consistent",
+          "notes": "Downstream marks the capability as needing product demo proof."
+        },
+        {
+          "artifact": "outputs/creative_copy_pack_outline.json",
+          "json_pointer": "/data/creative_copy_pack_outline/2/selling_point_boundaries/1",
+          "reference_type": "risk_inheritance",
+          "value_consistency": "consistent",
+          "notes": "Copy outline keeps proof and confirmation boundaries."
+        }
+      ],
+      "risk_level": "medium",
+      "human_review_required": true,
+      "compliance_decision": "needs_revision",
+      "release_gate_effect": {
+        "structured_planning_package": "approved",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "required_action": "Provide product demo evidence for reframing and export workflow before public-facing use.",
+      "source_exists": "source_found"
+    },
+    {
+      "claim_id": "claim_product_capability_003",
+      "claim_category": "product_capability",
+      "claim_summary": "Brief describes motion stabilization for sports use cases.",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/core_features/2/proof",
+      "evidence_artifact": "data/sample_brief.json",
+      "evidence_json_pointer": "/specs/stabilization",
+      "evidence_status": "requires_human_verification",
+      "downstream_artifacts": [
+        {
+          "artifact": "outputs/selling_point_matrix.json",
+          "json_pointer": "/data/feature_benefit_mapping/2/proof_required/2",
+          "reference_type": "risk_inheritance",
+          "value_consistency": "consistent",
+          "notes": "Downstream requires test conditions."
+        },
+        {
+          "artifact": "outputs/human_approval_record.json",
+          "json_pointer": "/approval_items/2/decision",
+          "reference_type": "governance_decision",
+          "value_consistency": "consistent",
+          "notes": "Human approval keeps technical/performance claims blocked."
+        }
+      ],
+      "risk_level": "critical",
+      "human_review_required": true,
+      "compliance_decision": "blocked_for_final_generation",
+      "release_gate_effect": {
+        "structured_planning_package": "approved",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "required_action": "Provide stabilization test conditions and limits; do not imply unconditional stability.",
+      "source_exists": "source_found"
+    },
+    {
+      "claim_id": "claim_product_capability_004",
+      "claim_category": "product_capability",
+      "claim_summary": "Brief describes waterproof and durability-related outdoor coverage.",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/core_features/3/proof",
+      "evidence_artifact": "data/sample_brief.json",
+      "evidence_json_pointer": "/specs/waterproof",
+      "evidence_status": "requires_human_verification",
+      "downstream_artifacts": [
+        {
+          "artifact": "outputs/selling_point_matrix.json",
+          "json_pointer": "/data/feature_benefit_mapping/3/proof_required/0",
+          "reference_type": "risk_inheritance",
+          "value_consistency": "consistent",
+          "notes": "Downstream requires rating or test standard."
+        },
+        {
+          "artifact": "outputs/brand_compliance_report.json",
+          "json_pointer": "/data/risk_items/1/blocking_rule",
+          "reference_type": "governance_decision",
+          "value_consistency": "consistent",
+          "notes": "Compliance blocks final generation until conditions are confirmed."
+        }
+      ],
+      "risk_level": "critical",
+      "human_review_required": true,
+      "compliance_decision": "blocked_for_final_generation",
+      "release_gate_effect": {
+        "structured_planning_package": "approved",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "required_action": "Provide waterproof rating, depth, duration, usage limits, and durability conditions.",
+      "source_exists": "source_found"
+    },
+    {
+      "claim_id": "claim_ai_capability_001",
+      "claim_category": "ai_capability",
+      "claim_summary": "Brief describes AI-assisted automatic editing that identifies moments and creates a short-video draft.",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/core_features/4/proof",
+      "evidence_artifact": "data/sample_brief.json",
+      "evidence_json_pointer": "/core_features/4/proof",
+      "evidence_status": "requires_human_verification",
+      "downstream_artifacts": [
+        {
+          "artifact": "outputs/selling_point_matrix.json",
+          "json_pointer": "/data/feature_benefit_mapping/4/risk_boundary",
+          "reference_type": "risk_inheritance",
+          "value_consistency": "consistent",
+          "notes": "Downstream limits the claim to assistance and efficiency."
+        },
+        {
+          "artifact": "outputs/brand_compliance_report.json",
+          "json_pointer": "/data/risk_items/2/blocking_rule",
+          "reference_type": "governance_decision",
+          "value_consistency": "consistent",
+          "notes": "Compliance prevents outcome guarantees."
+        }
+      ],
+      "risk_level": "major",
+      "human_review_required": true,
+      "compliance_decision": "needs_revision",
+      "release_gate_effect": {
+        "structured_planning_package": "approved",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "required_action": "Provide AI editing workflow demo and editable-step explanation; avoid professional-result guarantees.",
+      "source_exists": "source_found"
+    },
+    {
+      "claim_id": "claim_usage_scenario_001",
+      "claim_category": "usage_scenario",
+      "claim_summary": "Brief includes cycling first-person recording as a usage scenario.",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/usage_scenarios/0/context",
+      "evidence_artifact": "data/sample_brief.json",
+      "evidence_json_pointer": "/usage_scenarios/0/desired_outcome",
+      "evidence_status": "requires_human_verification",
+      "downstream_artifacts": [
+        {
+          "artifact": "outputs/selling_point_matrix.json",
+          "json_pointer": "/data/feature_benefit_mapping/2/usage_scenarios/0",
+          "reference_type": "direct_quote",
+          "value_consistency": "consistent",
+          "notes": "Downstream maps stabilization to cycling scenario."
+        },
+        {
+          "artifact": "outputs/image_prompt_pack_outline.json",
+          "json_pointer": "/data/visual_asset_structures/1/usage_scene",
+          "reference_type": "paraphrase",
+          "value_consistency": "consistent",
+          "notes": "Visual outline uses scenario structure only, not final prompt text."
+        }
+      ],
+      "risk_level": "major",
+      "human_review_required": true,
+      "compliance_decision": "approved_for_planning",
+      "release_gate_effect": {
+        "structured_planning_package": "approved",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "required_action": "Keep as planning scenario until sample footage and safety review are available.",
+      "source_exists": "source_found"
+    },
+    {
+      "claim_id": "claim_usage_scenario_002",
+      "claim_category": "usage_scenario",
+      "claim_summary": "Brief includes travel check-in and city roaming as usage scenarios.",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/usage_scenarios/1/context",
+      "evidence_artifact": "data/sample_brief.json",
+      "evidence_json_pointer": "/usage_scenarios/1/desired_outcome",
+      "evidence_status": "requires_human_verification",
+      "downstream_artifacts": [
+        {
+          "artifact": "outputs/selling_point_matrix.json",
+          "json_pointer": "/data/feature_benefit_mapping/1/usage_scenarios/0",
+          "reference_type": "direct_quote",
+          "value_consistency": "consistent",
+          "notes": "Downstream connects reframing to travel scenario."
+        },
+        {
+          "artifact": "outputs/image_prompt_pack_outline.json",
+          "json_pointer": "/data/visual_asset_structures/2/forbidden_elements/2",
+          "reference_type": "risk_inheritance",
+          "value_consistency": "consistent",
+          "notes": "Visual outline blocks guaranteed professional-looking outcomes."
+        }
+      ],
+      "risk_level": "medium",
+      "human_review_required": true,
+      "compliance_decision": "approved_for_planning",
+      "release_gate_effect": {
+        "structured_planning_package": "approved",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "required_action": "Keep scenario neutral and require sample authorization before final visual generation.",
+      "source_exists": "source_found"
+    },
+    {
+      "claim_id": "claim_visual_asset_authorization_001",
+      "claim_category": "visual_asset_authorization",
+      "claim_summary": "Brief lists product white-background image as a required asset, but no authorization proof is provided.",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/required_assets/0",
+      "evidence_artifact": null,
+      "evidence_json_pointer": null,
+      "evidence_status": "not_available",
+      "downstream_artifacts": [
+        {
+          "artifact": "outputs/image_prompt_pack_outline.json",
+          "json_pointer": "/data/visual_asset_structures/0/proof_materials_to_wait_for/2",
+          "reference_type": "risk_inheritance",
+          "value_consistency": "consistent",
+          "notes": "Visual outline waits for authorized product render or photo."
+        },
+        {
+          "artifact": "outputs/human_approval_record.json",
+          "json_pointer": "/approval_items/6/decision",
+          "reference_type": "governance_decision",
+          "value_consistency": "consistent",
+          "notes": "Human approval blocks asset authorization."
+        }
+      ],
+      "risk_level": "critical",
+      "human_review_required": true,
+      "compliance_decision": "blocked_for_final_generation",
+      "release_gate_effect": {
+        "structured_planning_package": "approved",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "required_action": "Provide product image authorization and usage scope before final image prompt or image generation.",
+      "source_exists": "source_found"
+    },
+    {
+      "claim_id": "claim_visual_asset_authorization_002",
+      "claim_category": "visual_asset_authorization",
+      "claim_summary": "Brief lists mobile App editing interface screenshots as required assets, but no authorization proof is provided.",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/required_assets/3",
+      "evidence_artifact": null,
+      "evidence_json_pointer": null,
+      "evidence_status": "not_available",
+      "downstream_artifacts": [
+        {
+          "artifact": "outputs/brand_compliance_report.json",
+          "json_pointer": "/data/risk_items/5/required_evidence/2",
+          "reference_type": "governance_decision",
+          "value_consistency": "consistent",
+          "notes": "Compliance requires App screenshot authorization."
+        },
+        {
+          "artifact": "outputs/human_approval_record.json",
+          "json_pointer": "/revision_queue/2/required_action",
+          "reference_type": "governance_decision",
+          "value_consistency": "consistent",
+          "notes": "Revision queue requires asset authorization and source tracking."
+        }
+      ],
+      "risk_level": "critical",
+      "human_review_required": true,
+      "compliance_decision": "blocked_for_final_generation",
+      "release_gate_effect": {
+        "structured_planning_package": "approved",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "required_action": "Collect App screenshot authorization, source tracking, and permitted usage scope.",
+      "source_exists": "source_found"
+    },
+    {
+      "claim_id": "claim_visual_asset_authorization_003",
+      "claim_category": "visual_asset_authorization",
+      "claim_summary": "Compliance rules prohibit real brand Logo or unauthorized celebrity likeness in future visual outputs.",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/compliance_rules/4",
+      "evidence_artifact": "outputs/brand_compliance_report.json",
+      "evidence_json_pointer": "/data/risk_items/5/blocking_rule",
+      "evidence_status": "requires_human_verification",
+      "downstream_artifacts": [
+        {
+          "artifact": "outputs/image_prompt_pack_outline.json",
+          "json_pointer": "/data/visual_asset_structures/0/forbidden_elements/0",
+          "reference_type": "risk_inheritance",
+          "value_consistency": "consistent",
+          "notes": "Visual outline forbids real brand Logo."
+        },
+        {
+          "artifact": "outputs/brand_compliance_report.json",
+          "json_pointer": "/data/risk_items/5/human_review_required",
+          "reference_type": "governance_decision",
+          "value_consistency": "consistent",
+          "notes": "Compliance requires human review for asset rights."
+        }
+      ],
+      "risk_level": "critical",
+      "human_review_required": true,
+      "compliance_decision": "blocked_for_final_generation",
+      "release_gate_effect": {
+        "structured_planning_package": "approved",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "required_action": "Confirm brand asset and likeness authorization or exclude those elements.",
+      "source_exists": "source_found"
+    },
+    {
+      "claim_id": "claim_compliance_or_safety_001",
+      "claim_category": "compliance_or_safety",
+      "claim_summary": "Brief prohibits absolute superiority and unconditional performance wording.",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/do_not_claim/1",
+      "evidence_artifact": "outputs/brand_compliance_report.json",
+      "evidence_json_pointer": "/data/blocked_expression_rules/0/blocked_patterns/0",
+      "evidence_status": "supported_by_provided_source",
+      "downstream_artifacts": [
+        {
+          "artifact": "outputs/platform_strategy_plan.json",
+          "json_pointer": "/data/upstream_artifact_inheritance/compliance_constraints/do_not_claim/1",
+          "reference_type": "risk_inheritance",
+          "value_consistency": "consistent",
+          "notes": "Platform strategy inherits prohibited absolute wording."
+        },
+        {
+          "artifact": "outputs/creative_copy_pack_outline.json",
+          "json_pointer": "/data/upstream_inheritance/compliance_constraints/do_not_claim/1",
+          "reference_type": "risk_inheritance",
+          "value_consistency": "consistent",
+          "notes": "Copy outline inherits prohibited absolute wording."
+        }
+      ],
+      "risk_level": "major",
+      "human_review_required": false,
+      "compliance_decision": "approved_for_planning",
+      "release_gate_effect": {
+        "structured_planning_package": "approved",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "required_action": "Keep blocked expression rules active in all future generation steps.",
+      "source_exists": "source_found"
+    },
+    {
+      "claim_id": "claim_compliance_or_safety_002",
+      "claim_category": "compliance_or_safety",
+      "claim_summary": "Brief requires competitor comparison to avoid attacks on specific competitor brands.",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/do_not_claim/2",
+      "evidence_artifact": "outputs/brand_compliance_report.json",
+      "evidence_json_pointer": "/data/risk_items/4/blocking_rule",
+      "evidence_status": "supported_by_provided_source",
+      "downstream_artifacts": [
+        {
+          "artifact": "outputs/platform_strategy_plan.json",
+          "json_pointer": "/data/channel_role_map/3/platform_constraints/1",
+          "reference_type": "risk_inheritance",
+          "value_consistency": "consistent",
+          "notes": "JD strategy keeps category comparison neutral."
+        },
+        {
+          "artifact": "outputs/creative_copy_pack_outline.json",
+          "json_pointer": "/data/creative_copy_pack_outline/3/selling_point_boundaries/0",
+          "reference_type": "risk_inheritance",
+          "value_consistency": "consistent",
+          "notes": "Copy outline blocks specific competitor attacks."
+        }
+      ],
+      "risk_level": "major",
+      "human_review_required": false,
+      "compliance_decision": "approved_for_planning",
+      "release_gate_effect": {
+        "structured_planning_package": "approved",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "required_action": "Use neutral category-level comparison only when evidence and legal review allow it.",
+      "source_exists": "source_found"
+    },
+    {
+      "claim_id": "claim_growth_or_business_outcome_001",
+      "claim_category": "growth_or_business_outcome",
+      "claim_summary": "Brief and downstream plans use CTR, CVR, GMV and related values as observation metrics, not promised outcomes.",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/primary_kpis/0",
+      "evidence_artifact": "outputs/growth_evaluation_report.json",
+      "evidence_json_pointer": "/metric_results/4/data_source_type",
+      "evidence_status": "derived_from_mock",
+      "downstream_artifacts": [
+        {
+          "artifact": "outputs/growth_metrics_plan.json",
+          "json_pointer": "/data/compliance_inheritance/metric_language_rule",
+          "reference_type": "metric_observation",
+          "value_consistency": "consistent",
+          "notes": "Growth metrics plan limits metrics to observation and retrospective use."
+        },
+        {
+          "artifact": "outputs/brand_compliance_report.json",
+          "json_pointer": "/data/risk_items/3/blocking_rule",
+          "reference_type": "governance_decision",
+          "value_consistency": "consistent",
+          "notes": "Compliance blocks business outcome guarantees."
+        }
+      ],
+      "risk_level": "critical",
+      "human_review_required": true,
+      "compliance_decision": "blocked_for_final_generation",
+      "release_gate_effect": {
+        "structured_planning_package": "approved",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "required_action": "Keep metrics as observation fields; do not claim real traffic, conversion, GMV, or sales improvements.",
+      "source_exists": "source_found"
+    },
+    {
+      "claim_id": "claim_growth_or_business_outcome_002",
+      "claim_category": "growth_or_business_outcome",
+      "claim_summary": "Growth evaluation reports workflow metrics from demo or unavailable sources rather than real production telemetry.",
+      "source_artifact": "outputs/growth_evaluation_report.json",
+      "source_json_pointer": "/data_quality_summary/data_source_type_rules/derived_from_mock",
+      "evidence_artifact": "outputs/growth_evaluation_report.json",
+      "evidence_json_pointer": "/metric_results/6/data_source_type",
+      "evidence_status": "derived_from_mock",
+      "downstream_artifacts": [
+        {
+          "artifact": "outputs/v2_final_report.json",
+          "json_pointer": "/workflow_difference_note/important_distinction",
+          "reference_type": "governance_decision",
+          "value_consistency": "consistent",
+          "notes": "V2 report confirms evaluation does not authorize final generation or release."
+        },
+        {
+          "artifact": "outputs/growth_evaluation_report.json",
+          "json_pointer": "/evaluation_scope/does_not_evaluate_as_real_business_results/0",
+          "reference_type": "metric_observation",
+          "value_consistency": "consistent",
+          "notes": "Evaluation scope excludes real CTR uplift proof."
+        }
+      ],
+      "risk_level": "major",
+      "human_review_required": true,
+      "compliance_decision": "approved_for_evaluation_only",
+      "release_gate_effect": {
+        "structured_planning_package": "approved",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "required_action": "Label demo/mock measurements clearly and require real campaign data before any business-result claim.",
+      "source_exists": "source_found"
+    }
+  ],
+  "summary": {
+    "claim_total": 14,
+    "claim_category_counts": {
+      "product_capability": 4,
+      "ai_capability": 1,
+      "usage_scenario": 2,
+      "visual_asset_authorization": 3,
+      "compliance_or_safety": 2,
+      "growth_or_business_outcome": 2
+    },
+    "source_exists_counts": {
+      "source_found": 14
+    },
+    "evidence_status_counts": {
+      "requires_human_verification": 8,
+      "not_available": 2,
+      "supported_by_provided_source": 2,
+      "derived_from_mock": 2
+    },
+    "risk_level_counts": {
+      "major": 6,
+      "medium": 2,
+      "critical": 6
+    },
+    "human_review_required_count": 12,
+    "file_checks": {
+      "total": 67,
+      "passed": 67,
+      "failed": 0
+    },
+    "json_pointer_checks": {
+      "total": 54,
+      "passed": 54,
+      "failed": 0
+    },
+    "category_coverage_ok": true,
+    "key_files_ok": true,
+    "key_pointers_ok": true,
+    "release_gates_preserved": true,
+    "check_log": [
+      {
+        "kind": "file",
+        "role": "required_input_file",
+        "claim_id": null,
+        "target": "docs/claim_trace_matrix_spec.md",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "required_input_file",
+        "claim_id": null,
+        "target": "schemas/artifacts/claim_trace_matrix.schema.json",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "required_input_file",
+        "claim_id": null,
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "required_input_file",
+        "claim_id": null,
+        "target": "outputs/standardized_brief_summary.json",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "required_input_file",
+        "claim_id": null,
+        "target": "outputs/selling_point_matrix.json",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "required_input_file",
+        "claim_id": null,
+        "target": "outputs/platform_strategy_plan.json",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "required_input_file",
+        "claim_id": null,
+        "target": "outputs/creative_copy_pack_outline.json",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "required_input_file",
+        "claim_id": null,
+        "target": "outputs/image_prompt_pack_outline.json",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "required_input_file",
+        "claim_id": null,
+        "target": "outputs/brand_compliance_report.json",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "required_input_file",
+        "claim_id": null,
+        "target": "outputs/growth_metrics_plan.json",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "required_input_file",
+        "claim_id": null,
+        "target": "outputs/human_approval_record.json",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "required_input_file",
+        "claim_id": null,
+        "target": "outputs/growth_evaluation_report.json",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "required_input_file",
+        "claim_id": null,
+        "target": "outputs/v2_final_report.json",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_source_artifact",
+        "claim_id": "claim_product_capability_001",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_source_json_pointer",
+        "claim_id": "claim_product_capability_001",
+        "artifact": "data/sample_brief.json",
+        "target": "/core_features/0/proof",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_evidence_artifact",
+        "claim_id": "claim_product_capability_001",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_evidence_json_pointer",
+        "claim_id": "claim_product_capability_001",
+        "artifact": "data/sample_brief.json",
+        "target": "/core_features/0/proof",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_product_capability_001",
+        "target": "outputs/selling_point_matrix.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_product_capability_001",
+        "artifact": "outputs/selling_point_matrix.json",
+        "target": "/data/feature_benefit_mapping/0/risk_boundary",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_product_capability_001",
+        "target": "outputs/brand_compliance_report.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_product_capability_001",
+        "artifact": "outputs/brand_compliance_report.json",
+        "target": "/data/risk_items/0/blocking_rule",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_source_artifact",
+        "claim_id": "claim_product_capability_002",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_source_json_pointer",
+        "claim_id": "claim_product_capability_002",
+        "artifact": "data/sample_brief.json",
+        "target": "/core_features/1/proof",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_evidence_artifact",
+        "claim_id": "claim_product_capability_002",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_evidence_json_pointer",
+        "claim_id": "claim_product_capability_002",
+        "artifact": "data/sample_brief.json",
+        "target": "/specs/export_formats",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_product_capability_002",
+        "target": "outputs/selling_point_matrix.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_product_capability_002",
+        "artifact": "outputs/selling_point_matrix.json",
+        "target": "/data/core_selling_point_priority/0/proof_status",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_product_capability_002",
+        "target": "outputs/creative_copy_pack_outline.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_product_capability_002",
+        "artifact": "outputs/creative_copy_pack_outline.json",
+        "target": "/data/creative_copy_pack_outline/2/selling_point_boundaries/1",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_source_artifact",
+        "claim_id": "claim_product_capability_003",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_source_json_pointer",
+        "claim_id": "claim_product_capability_003",
+        "artifact": "data/sample_brief.json",
+        "target": "/core_features/2/proof",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_evidence_artifact",
+        "claim_id": "claim_product_capability_003",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_evidence_json_pointer",
+        "claim_id": "claim_product_capability_003",
+        "artifact": "data/sample_brief.json",
+        "target": "/specs/stabilization",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_product_capability_003",
+        "target": "outputs/selling_point_matrix.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_product_capability_003",
+        "artifact": "outputs/selling_point_matrix.json",
+        "target": "/data/feature_benefit_mapping/2/proof_required/2",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_product_capability_003",
+        "target": "outputs/human_approval_record.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_product_capability_003",
+        "artifact": "outputs/human_approval_record.json",
+        "target": "/approval_items/2/decision",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_source_artifact",
+        "claim_id": "claim_product_capability_004",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_source_json_pointer",
+        "claim_id": "claim_product_capability_004",
+        "artifact": "data/sample_brief.json",
+        "target": "/core_features/3/proof",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_evidence_artifact",
+        "claim_id": "claim_product_capability_004",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_evidence_json_pointer",
+        "claim_id": "claim_product_capability_004",
+        "artifact": "data/sample_brief.json",
+        "target": "/specs/waterproof",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_product_capability_004",
+        "target": "outputs/selling_point_matrix.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_product_capability_004",
+        "artifact": "outputs/selling_point_matrix.json",
+        "target": "/data/feature_benefit_mapping/3/proof_required/0",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_product_capability_004",
+        "target": "outputs/brand_compliance_report.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_product_capability_004",
+        "artifact": "outputs/brand_compliance_report.json",
+        "target": "/data/risk_items/1/blocking_rule",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_source_artifact",
+        "claim_id": "claim_ai_capability_001",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_source_json_pointer",
+        "claim_id": "claim_ai_capability_001",
+        "artifact": "data/sample_brief.json",
+        "target": "/core_features/4/proof",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_evidence_artifact",
+        "claim_id": "claim_ai_capability_001",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_evidence_json_pointer",
+        "claim_id": "claim_ai_capability_001",
+        "artifact": "data/sample_brief.json",
+        "target": "/core_features/4/proof",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_ai_capability_001",
+        "target": "outputs/selling_point_matrix.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_ai_capability_001",
+        "artifact": "outputs/selling_point_matrix.json",
+        "target": "/data/feature_benefit_mapping/4/risk_boundary",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_ai_capability_001",
+        "target": "outputs/brand_compliance_report.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_ai_capability_001",
+        "artifact": "outputs/brand_compliance_report.json",
+        "target": "/data/risk_items/2/blocking_rule",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_source_artifact",
+        "claim_id": "claim_usage_scenario_001",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_source_json_pointer",
+        "claim_id": "claim_usage_scenario_001",
+        "artifact": "data/sample_brief.json",
+        "target": "/usage_scenarios/0/context",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_evidence_artifact",
+        "claim_id": "claim_usage_scenario_001",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_evidence_json_pointer",
+        "claim_id": "claim_usage_scenario_001",
+        "artifact": "data/sample_brief.json",
+        "target": "/usage_scenarios/0/desired_outcome",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_usage_scenario_001",
+        "target": "outputs/selling_point_matrix.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_usage_scenario_001",
+        "artifact": "outputs/selling_point_matrix.json",
+        "target": "/data/feature_benefit_mapping/2/usage_scenarios/0",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_usage_scenario_001",
+        "target": "outputs/image_prompt_pack_outline.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_usage_scenario_001",
+        "artifact": "outputs/image_prompt_pack_outline.json",
+        "target": "/data/visual_asset_structures/1/usage_scene",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_source_artifact",
+        "claim_id": "claim_usage_scenario_002",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_source_json_pointer",
+        "claim_id": "claim_usage_scenario_002",
+        "artifact": "data/sample_brief.json",
+        "target": "/usage_scenarios/1/context",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_evidence_artifact",
+        "claim_id": "claim_usage_scenario_002",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_evidence_json_pointer",
+        "claim_id": "claim_usage_scenario_002",
+        "artifact": "data/sample_brief.json",
+        "target": "/usage_scenarios/1/desired_outcome",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_usage_scenario_002",
+        "target": "outputs/selling_point_matrix.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_usage_scenario_002",
+        "artifact": "outputs/selling_point_matrix.json",
+        "target": "/data/feature_benefit_mapping/1/usage_scenarios/0",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_usage_scenario_002",
+        "target": "outputs/image_prompt_pack_outline.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_usage_scenario_002",
+        "artifact": "outputs/image_prompt_pack_outline.json",
+        "target": "/data/visual_asset_structures/2/forbidden_elements/2",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_source_artifact",
+        "claim_id": "claim_visual_asset_authorization_001",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_source_json_pointer",
+        "claim_id": "claim_visual_asset_authorization_001",
+        "artifact": "data/sample_brief.json",
+        "target": "/required_assets/0",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_evidence_artifact",
+        "claim_id": "claim_visual_asset_authorization_001",
+        "target": null,
+        "passed": true,
+        "skipped": true,
+        "note": "null is allowed for missing source/evidence"
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_evidence_json_pointer",
+        "claim_id": "claim_visual_asset_authorization_001",
+        "target": null,
+        "artifact": null,
+        "passed": true,
+        "skipped": true,
+        "note": "null is allowed for missing source/evidence"
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_visual_asset_authorization_001",
+        "target": "outputs/image_prompt_pack_outline.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_visual_asset_authorization_001",
+        "artifact": "outputs/image_prompt_pack_outline.json",
+        "target": "/data/visual_asset_structures/0/proof_materials_to_wait_for/2",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_visual_asset_authorization_001",
+        "target": "outputs/human_approval_record.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_visual_asset_authorization_001",
+        "artifact": "outputs/human_approval_record.json",
+        "target": "/approval_items/6/decision",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_source_artifact",
+        "claim_id": "claim_visual_asset_authorization_002",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_source_json_pointer",
+        "claim_id": "claim_visual_asset_authorization_002",
+        "artifact": "data/sample_brief.json",
+        "target": "/required_assets/3",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_evidence_artifact",
+        "claim_id": "claim_visual_asset_authorization_002",
+        "target": null,
+        "passed": true,
+        "skipped": true,
+        "note": "null is allowed for missing source/evidence"
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_evidence_json_pointer",
+        "claim_id": "claim_visual_asset_authorization_002",
+        "target": null,
+        "artifact": null,
+        "passed": true,
+        "skipped": true,
+        "note": "null is allowed for missing source/evidence"
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_visual_asset_authorization_002",
+        "target": "outputs/brand_compliance_report.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_visual_asset_authorization_002",
+        "artifact": "outputs/brand_compliance_report.json",
+        "target": "/data/risk_items/5/required_evidence/2",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_visual_asset_authorization_002",
+        "target": "outputs/human_approval_record.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_visual_asset_authorization_002",
+        "artifact": "outputs/human_approval_record.json",
+        "target": "/revision_queue/2/required_action",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_source_artifact",
+        "claim_id": "claim_visual_asset_authorization_003",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_source_json_pointer",
+        "claim_id": "claim_visual_asset_authorization_003",
+        "artifact": "data/sample_brief.json",
+        "target": "/compliance_rules/4",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_evidence_artifact",
+        "claim_id": "claim_visual_asset_authorization_003",
+        "target": "outputs/brand_compliance_report.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_evidence_json_pointer",
+        "claim_id": "claim_visual_asset_authorization_003",
+        "artifact": "outputs/brand_compliance_report.json",
+        "target": "/data/risk_items/5/blocking_rule",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_visual_asset_authorization_003",
+        "target": "outputs/image_prompt_pack_outline.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_visual_asset_authorization_003",
+        "artifact": "outputs/image_prompt_pack_outline.json",
+        "target": "/data/visual_asset_structures/0/forbidden_elements/0",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_visual_asset_authorization_003",
+        "target": "outputs/brand_compliance_report.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_visual_asset_authorization_003",
+        "artifact": "outputs/brand_compliance_report.json",
+        "target": "/data/risk_items/5/human_review_required",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_source_artifact",
+        "claim_id": "claim_compliance_or_safety_001",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_source_json_pointer",
+        "claim_id": "claim_compliance_or_safety_001",
+        "artifact": "data/sample_brief.json",
+        "target": "/do_not_claim/1",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_evidence_artifact",
+        "claim_id": "claim_compliance_or_safety_001",
+        "target": "outputs/brand_compliance_report.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_evidence_json_pointer",
+        "claim_id": "claim_compliance_or_safety_001",
+        "artifact": "outputs/brand_compliance_report.json",
+        "target": "/data/blocked_expression_rules/0/blocked_patterns/0",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_compliance_or_safety_001",
+        "target": "outputs/platform_strategy_plan.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_compliance_or_safety_001",
+        "artifact": "outputs/platform_strategy_plan.json",
+        "target": "/data/upstream_artifact_inheritance/compliance_constraints/do_not_claim/1",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_compliance_or_safety_001",
+        "target": "outputs/creative_copy_pack_outline.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_compliance_or_safety_001",
+        "artifact": "outputs/creative_copy_pack_outline.json",
+        "target": "/data/upstream_inheritance/compliance_constraints/do_not_claim/1",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_source_artifact",
+        "claim_id": "claim_compliance_or_safety_002",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_source_json_pointer",
+        "claim_id": "claim_compliance_or_safety_002",
+        "artifact": "data/sample_brief.json",
+        "target": "/do_not_claim/2",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_evidence_artifact",
+        "claim_id": "claim_compliance_or_safety_002",
+        "target": "outputs/brand_compliance_report.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_evidence_json_pointer",
+        "claim_id": "claim_compliance_or_safety_002",
+        "artifact": "outputs/brand_compliance_report.json",
+        "target": "/data/risk_items/4/blocking_rule",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_compliance_or_safety_002",
+        "target": "outputs/platform_strategy_plan.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_compliance_or_safety_002",
+        "artifact": "outputs/platform_strategy_plan.json",
+        "target": "/data/channel_role_map/3/platform_constraints/1",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_compliance_or_safety_002",
+        "target": "outputs/creative_copy_pack_outline.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_compliance_or_safety_002",
+        "artifact": "outputs/creative_copy_pack_outline.json",
+        "target": "/data/creative_copy_pack_outline/3/selling_point_boundaries/0",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_source_artifact",
+        "claim_id": "claim_growth_or_business_outcome_001",
+        "target": "data/sample_brief.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_source_json_pointer",
+        "claim_id": "claim_growth_or_business_outcome_001",
+        "artifact": "data/sample_brief.json",
+        "target": "/primary_kpis/0",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_evidence_artifact",
+        "claim_id": "claim_growth_or_business_outcome_001",
+        "target": "outputs/growth_evaluation_report.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_evidence_json_pointer",
+        "claim_id": "claim_growth_or_business_outcome_001",
+        "artifact": "outputs/growth_evaluation_report.json",
+        "target": "/metric_results/4/data_source_type",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_growth_or_business_outcome_001",
+        "target": "outputs/growth_metrics_plan.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_growth_or_business_outcome_001",
+        "artifact": "outputs/growth_metrics_plan.json",
+        "target": "/data/compliance_inheritance/metric_language_rule",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_growth_or_business_outcome_001",
+        "target": "outputs/brand_compliance_report.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_growth_or_business_outcome_001",
+        "artifact": "outputs/brand_compliance_report.json",
+        "target": "/data/risk_items/3/blocking_rule",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_source_artifact",
+        "claim_id": "claim_growth_or_business_outcome_002",
+        "target": "outputs/growth_evaluation_report.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_source_json_pointer",
+        "claim_id": "claim_growth_or_business_outcome_002",
+        "artifact": "outputs/growth_evaluation_report.json",
+        "target": "/data_quality_summary/data_source_type_rules/derived_from_mock",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "claim_evidence_artifact",
+        "claim_id": "claim_growth_or_business_outcome_002",
+        "target": "outputs/growth_evaluation_report.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "claim_evidence_json_pointer",
+        "claim_id": "claim_growth_or_business_outcome_002",
+        "artifact": "outputs/growth_evaluation_report.json",
+        "target": "/metric_results/6/data_source_type",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_growth_or_business_outcome_002",
+        "target": "outputs/v2_final_report.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_growth_or_business_outcome_002",
+        "artifact": "outputs/v2_final_report.json",
+        "target": "/workflow_difference_note/important_distinction",
+        "passed": true
+      },
+      {
+        "kind": "file",
+        "role": "downstream_artifact",
+        "claim_id": "claim_growth_or_business_outcome_002",
+        "target": "outputs/growth_evaluation_report.json",
+        "passed": true
+      },
+      {
+        "kind": "json_pointer",
+        "role": "downstream_json_pointer",
+        "claim_id": "claim_growth_or_business_outcome_002",
+        "artifact": "outputs/growth_evaluation_report.json",
+        "target": "/evaluation_scope/does_not_evaluate_as_real_business_results/0",
+        "passed": true
+      }
+    ]
+  },
+  "release_gates": {
+    "structured_planning_package": "approved",
+    "growth_evaluation": "approved_for_evaluation_only",
+    "final_marketing_copy": "blocked",
+    "final_image_prompt": "blocked",
+    "image_generation": "blocked",
+    "frontend_page": "blocked",
+    "public_release": "blocked"
+  },
+  "limitations": [
+    "Schema and pointer validation do not prove product facts in reality.",
+    "Schema and pointer validation do not prove legal authorization for brands, logos, likenesses, product images, App screenshots, or scene materials.",
+    "Visual quality and aesthetic suitability require human judgment.",
+    "CTR, CVR, GMV, traffic, conversion, sales, and other business outcomes are not proven by mock or demo data.",
+    "The demo product name remains 运动相机 and no removed parameter terms are restored as the product name."
+  ]
+}

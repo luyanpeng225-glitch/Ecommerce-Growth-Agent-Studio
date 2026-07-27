@@ -1,0 +1,393 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/ecommerce-growth-agent-studio/schemas/product_brief.schema.json",
+  "title": "E-commerce Growth Agent Studio Product Brief",
+  "description": "Standardized product brief input for the E-commerce Growth Agent Studio workflow. The schema keeps the workflow industry-agnostic while supporting the action camera as the first demo.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "brief_id",
+    "workflow_version",
+    "project_name",
+    "industry",
+    "scenario_type",
+    "product_name",
+    "product_category",
+    "launch_stage",
+    "target_regions",
+    "language",
+    "short_description",
+    "core_features",
+    "target_audiences",
+    "usage_scenarios",
+    "decision_factors",
+    "barriers",
+    "differentiators",
+    "positioning_statement",
+    "do_not_claim",
+    "channels",
+    "campaign_goal",
+    "primary_kpis",
+    "brand_voice",
+    "visual_style",
+    "content_formats",
+    "compliance_rules",
+    "negative_constraints",
+    "enabled_skills",
+    "output_package",
+    "review_mode"
+  ],
+  "properties": {
+    "brief_id": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+      "description": "Unique identifier for the product brief."
+    },
+    "workflow_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Workflow version, using semantic version format."
+    },
+    "project_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_name_cn": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Optional Chinese display name for portfolio or demo pages."
+    },
+    "industry": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Industry category, such as smart hardware, apparel, beauty, food and beverage."
+    },
+    "scenario_type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Business scenario, such as product launch, campaign promotion, content seeding, or hero SKU review."
+    },
+    "brand_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "product_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "product_category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "launch_stage": {
+      "type": "string",
+      "enum": ["pre_launch", "launch", "growth", "mature"]
+    },
+    "target_regions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "language": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Output language code, such as zh-CN or en-US."
+    },
+    "short_description": {
+      "type": "string",
+      "minLength": 10
+    },
+    "core_features": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/core_feature"
+      }
+    },
+    "specs": {
+      "type": "object",
+      "description": "Flexible product specs. Values may be strings, numbers, booleans, arrays, or simple objects.",
+      "additionalProperties": {
+        "anyOf": [
+          { "type": "string" },
+          { "type": "number" },
+          { "type": "integer" },
+          { "type": "boolean" },
+          {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                { "type": "string" },
+                { "type": "number" },
+                { "type": "boolean" }
+              ]
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": {
+              "anyOf": [
+                { "type": "string" },
+                { "type": "number" },
+                { "type": "boolean" }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "price_band": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bundles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/bundle"
+      }
+    },
+    "availability": {
+      "$ref": "#/$defs/availability"
+    },
+    "target_audiences": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/target_audience"
+      }
+    },
+    "usage_scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/usage_scenario"
+      }
+    },
+    "decision_factors": {
+      "$ref": "#/$defs/non_empty_string_array"
+    },
+    "barriers": {
+      "$ref": "#/$defs/non_empty_string_array"
+    },
+    "competitors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/competitor"
+      }
+    },
+    "differentiators": {
+      "$ref": "#/$defs/non_empty_string_array"
+    },
+    "positioning_statement": {
+      "type": "string",
+      "minLength": 10
+    },
+    "do_not_claim": {
+      "$ref": "#/$defs/non_empty_string_array"
+    },
+    "channels": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/channel"
+      }
+    },
+    "campaign_goal": {
+      "type": "string",
+      "minLength": 10
+    },
+    "primary_kpis": {
+      "$ref": "#/$defs/non_empty_string_array"
+    },
+    "secondary_kpis": {
+      "$ref": "#/$defs/string_array"
+    },
+    "budget_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "timeline": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "brand_voice": {
+      "type": "string",
+      "minLength": 1
+    },
+    "visual_style": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content_formats": {
+      "$ref": "#/$defs/non_empty_string_array"
+    },
+    "required_assets": {
+      "$ref": "#/$defs/string_array"
+    },
+    "compliance_rules": {
+      "$ref": "#/$defs/non_empty_string_array"
+    },
+    "negative_constraints": {
+      "$ref": "#/$defs/non_empty_string_array"
+    },
+    "enabled_skills": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "brief_parser",
+          "audience_insight",
+          "selling_point_analysis",
+          "platform_strategy",
+          "creative_copy_generation",
+          "image_prompt_generation",
+          "brand_compliance_check",
+          "growth_metrics_recommendation",
+          "creative_package_report"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "output_package": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "standardized_brief_summary",
+          "audience_insight_report",
+          "selling_point_matrix",
+          "platform_strategy_plan",
+          "creative_copy_pack",
+          "image_prompt_pack",
+          "brand_compliance_report",
+          "growth_metrics_plan",
+          "final_creative_package_report"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "review_mode": {
+      "type": "string",
+      "enum": ["auto", "human_in_loop", "strict"]
+    },
+    "confidence_threshold": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  },
+  "$defs": {
+    "string_array": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "non_empty_string_array": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "core_feature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["feature", "proof", "customer_benefit"],
+      "properties": {
+        "feature": { "type": "string", "minLength": 1 },
+        "proof": { "type": "string", "minLength": 1 },
+        "customer_benefit": { "type": "string", "minLength": 1 }
+      }
+    },
+    "bundle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bundle_name", "items"],
+      "properties": {
+        "bundle_name": { "type": "string", "minLength": 1 },
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        }
+      }
+    },
+    "availability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sales_channels": {
+          "$ref": "#/$defs/non_empty_string_array"
+        },
+        "launch_date": {
+          "type": "string",
+          "minLength": 4
+        },
+        "inventory_status": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "target_audience": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["segment", "needs", "pain_points", "purchase_triggers"],
+      "properties": {
+        "segment": { "type": "string", "minLength": 1 },
+        "needs": { "$ref": "#/$defs/non_empty_string_array" },
+        "pain_points": { "$ref": "#/$defs/non_empty_string_array" },
+        "purchase_triggers": { "$ref": "#/$defs/non_empty_string_array" }
+      }
+    },
+    "usage_scenario": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scene", "context", "desired_outcome"],
+      "properties": {
+        "scene": { "type": "string", "minLength": 1 },
+        "context": { "type": "string", "minLength": 1 },
+        "desired_outcome": { "type": "string", "minLength": 1 }
+      }
+    },
+    "competitor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "positioning", "strengths", "weaknesses"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "positioning": { "type": "string", "minLength": 1 },
+        "strengths": { "$ref": "#/$defs/non_empty_string_array" },
+        "weaknesses": { "$ref": "#/$defs/non_empty_string_array" }
+      }
+    },
+    "channel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "role", "content_formats", "primary_kpis"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "role": { "type": "string", "minLength": 1 },
+        "content_formats": { "$ref": "#/$defs/non_empty_string_array" },
+        "primary_kpis": { "$ref": "#/$defs/non_empty_string_array" }
+      }
+    }
+  }
+}

@@ -1,0 +1,237 @@
+{
+  "brief_id": "brief_demo_action_camera_001",
+  "workflow_version": "0.1.0",
+  "project_name": "E-commerce Growth Agent Studio",
+  "project_name_cn": "电商增长 Agent 工作台",
+  "industry": "智能影像设备",
+  "scenario_type": "新品上市营销工作流",
+  "brand_name": "Demo Brand",
+  "product_name": "运动相机",
+  "product_category": "运动相机 / 智能影像设备",
+  "launch_stage": "launch",
+  "target_regions": ["中国大陆"],
+  "language": "zh-CN",
+  "short_description": "一款面向户外运动、旅行记录和内容创作者的运动相机，支持 360 度拍摄、运动防抖和 AI 自动剪辑。",
+  "core_features": [
+    {
+      "feature": "高清运动视频",
+      "proof": "支持高分辨率 360 度视频记录",
+      "customer_benefit": "旅行和运动时不用担心错过关键画面，后期可以自由选择视角。"
+    },
+    {
+      "feature": "360 度后期取景",
+      "proof": "拍摄后可重新构图并导出横屏或竖屏内容",
+      "customer_benefit": "一次拍摄即可适配抖音、小红书、视频号和商品页素材。"
+    },
+    {
+      "feature": "运动防抖",
+      "proof": "适合骑行、滑雪、跑步、摩托等高运动场景",
+      "customer_benefit": "剧烈运动中也能获得稳定画面，降低废片率。"
+    },
+    {
+      "feature": "裸机防水与耐用机身",
+      "proof": "覆盖雨天、海边、潜水、雪地等户外环境",
+      "customer_benefit": "减少额外配件依赖，提升户外拍摄安全感。"
+    },
+    {
+      "feature": "AI 自动剪辑",
+      "proof": "自动识别精彩片段并生成短视频初稿",
+      "customer_benefit": "降低剪辑门槛，让非专业用户更快发布内容。"
+    }
+  ],
+  "specs": {
+    "video_resolution": "高清",
+    "shooting_mode": ["360 全景", "单镜头广角", "延时摄影", "运动模式"],
+    "stabilization": "运动防抖",
+    "waterproof": "裸机防水",
+    "export_formats": ["16:9", "9:16", "1:1"],
+    "companion_app": "支持移动端剪辑与导出"
+  },
+  "price_band": "中高端",
+  "bundles": [
+    {
+      "bundle_name": "户外运动套装",
+      "items": ["相机主体", "自拍杆", "备用电池", "骑行支架"]
+    },
+    {
+      "bundle_name": "旅行创作套装",
+      "items": ["相机主体", "隐形自拍杆", "收纳包", "快充配件"]
+    }
+  ],
+  "availability": {
+    "sales_channels": ["天猫", "京东", "抖音电商"],
+    "launch_date": "2026-07",
+    "inventory_status": "首发备货"
+  },
+  "target_audiences": [
+    {
+      "segment": "户外运动爱好者",
+      "needs": ["稳定记录运动过程", "解放双手", "快速分享精彩瞬间"],
+      "pain_points": ["普通手机拍摄不稳", "运动时难以构图", "后期剪辑耗时"],
+      "purchase_triggers": ["新品首发优惠", "运动场景样片", "防抖和防水能力证明"]
+    },
+    {
+      "segment": "旅行内容创作者",
+      "needs": ["高质量旅行素材", "多平台内容复用", "独特视角"],
+      "pain_points": ["一个人旅行拍摄角度有限", "素材不够有冲击力", "横竖屏适配麻烦"],
+      "purchase_triggers": ["360 度后期取景演示", "旅行大片模板", "轻量化剪辑流程"]
+    },
+    {
+      "segment": "数码发烧友",
+      "needs": ["新技术体验", "高规格影像能力", "可玩性"],
+      "pain_points": ["同质化运动相机缺少新鲜感", "参数强但实际体验不明确"],
+      "purchase_triggers": ["高清样片对比", "真实场景评测", "首发权益"]
+    }
+  ],
+  "usage_scenarios": [
+    {
+      "scene": "骑行第一视角记录",
+      "context": "用户将相机固定在车把或头盔上，记录城市骑行或山地路线。",
+      "desired_outcome": "生成稳定、有速度感、适合短视频发布的骑行内容。"
+    },
+    {
+      "scene": "旅行打卡与城市漫游",
+      "context": "用户使用隐形自拍杆拍摄景点、街区和人物同框画面。",
+      "desired_outcome": "一次拍摄产出小红书图文、短视频和商品页场景素材。"
+    },
+    {
+      "scene": "滑雪和水上运动",
+      "context": "用户在雪地、雨天或海边环境中拍摄运动过程。",
+      "desired_outcome": "突出防抖、防水和耐用性，形成高冲击力样片。"
+    }
+  ],
+  "decision_factors": [
+    "画质是否明显优于手机",
+    "运动防抖是否可靠",
+    "是否容易剪辑和发布",
+    "配件生态是否完善",
+    "价格与套装权益是否有吸引力"
+  ],
+  "barriers": [
+    "价格偏高",
+    "担心不会剪辑",
+    "担心续航不够",
+    "不确定是否真的需要全景相机",
+    "担心运动场景下画面不稳定"
+  ],
+  "competitors": [
+    {
+      "name": "传统运动相机",
+      "positioning": "稳定、耐用、运动记录",
+      "strengths": ["运动场景认知强", "配件成熟"],
+      "weaknesses": ["视角固定", "后期重构空间有限"]
+    },
+    {
+      "name": "手机影像",
+      "positioning": "随手拍摄与日常记录",
+      "strengths": ["低学习成本", "随身携带"],
+      "weaknesses": ["运动固定困难", "防抖和视角受限", "户外耐用性不足"]
+    }
+  ],
+  "differentiators": [
+    "一次拍摄，多平台复用",
+    "先拍摄后构图，降低运动拍摄难度",
+    "高清影像质量提升内容专业感",
+    "AI 自动剪辑降低从拍摄到发布的门槛",
+    "运动、防水、旅行场景覆盖完整"
+  ],
+  "positioning_statement": "面向户外运动和旅行创作者的运动相机，让用户一次拍摄，轻松生成多平台高质量内容。",
+  "do_not_claim": [
+    "不要声称行业第一，除非有权威证明",
+    "不要使用绝对化表述，如最好、唯一、百分百稳定",
+    "不要攻击具体竞品品牌",
+    "不要承诺任何场景下都不会损坏",
+    "不要暗示普通用户无需学习即可达到专业摄影师水平"
+  ],
+  "channels": [
+    {
+      "name": "抖音",
+      "role": "短视频种草与直播转化",
+      "content_formats": ["15 秒卖点视频", "30 秒场景脚本", "直播间讲解话术"],
+      "primary_kpis": ["CTR", "直播间进入率", "商品点击率", "CVR"]
+    },
+    {
+      "name": "小红书",
+      "role": "生活方式种草与场景解释",
+      "content_formats": ["种草笔记", "场景图素材结构", "达人 Brief"],
+      "primary_kpis": ["收藏率", "评论率", "搜索提升", "站外跳转"]
+    },
+    {
+      "name": "天猫",
+      "role": "承接转化与商品详情页表达",
+      "content_formats": ["商品标题", "详情页卖点模块", "主图文案"],
+      "primary_kpis": ["加购率", "转化率", "客单价"]
+    },
+    {
+      "name": "京东",
+      "role": "参数解释与理性决策承接",
+      "content_formats": ["参数卖点", "对比导购", "问答素材"],
+      "primary_kpis": ["点击率", "咨询率", "转化率"]
+    }
+  ],
+  "campaign_goal": "新品上市阶段提升目标用户对高清运动拍摄价值的认知，并形成从内容种草到电商转化的首发创意包。",
+  "primary_kpis": ["CTR", "CVR", "收藏加购率", "直播间商品点击率", "内容互动率"],
+  "secondary_kpis": ["完播率", "评论率", "搜索指数", "达人内容采用率", "素材复用率"],
+  "budget_level": "medium",
+  "timeline": {
+    "warmup": "T-14 至 T-7",
+    "launch": "T-7 至 T+7",
+    "growth": "T+7 至 T+30"
+  },
+  "brand_voice": "专业可信、年轻户外、科技感、强调真实场景体验",
+  "visual_style": "高动态户外画面、清晰商品主体、真实运动场景、明亮自然光、科技感信息标注",
+  "content_formats": [
+    "短视频脚本",
+    "小红书种草笔记",
+    "商品详情页文案",
+    "直播间话术",
+    "达人合作 Brief",
+    "图片生成 Prompt",
+    "A/B 测试建议",
+    "创意包报告"
+  ],
+  "required_assets": [
+    "商品白底图",
+    "相机佩戴或固定方式图",
+    "户外运动场景样片",
+    "移动端 App 剪辑界面截图"
+  ],
+  "compliance_rules": [
+    "避免绝对化广告语",
+    "涉及防水、防摔、续航等能力时需要保留条件描述",
+    "不得攻击具体竞品品牌",
+    "不得暗示使用产品即可保证获得商业收益",
+    "图片 Prompt 不生成真实品牌 Logo 或未经授权的名人形象"
+  ],
+  "negative_constraints": [
+    "不要把项目包装成单一品牌专属工具",
+    "不要只强调参数，必须转化为用户利益点",
+    "不要生成夸张失真的户外极限画面",
+    "不要过度承诺 AI 自动剪辑效果",
+    "不要忽略企业电商团队的协作和审核需求"
+  ],
+  "enabled_skills": [
+    "brief_parser",
+    "audience_insight",
+    "selling_point_analysis",
+    "platform_strategy",
+    "creative_copy_generation",
+    "image_prompt_generation",
+    "brand_compliance_check",
+    "growth_metrics_recommendation",
+    "creative_package_report"
+  ],
+  "output_package": [
+    "standardized_brief_summary",
+    "audience_insight_report",
+    "selling_point_matrix",
+    "platform_strategy_plan",
+    "creative_copy_pack",
+    "image_prompt_pack",
+    "brand_compliance_report",
+    "growth_metrics_plan",
+    "final_creative_package_report"
+  ],
+  "review_mode": "human_in_loop",
+  "confidence_threshold": 0.82
+}

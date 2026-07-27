@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openclaw.local/schemas/artifacts/real_agent_brief_parser_runtime.schema.json",
+  "title": "Real Agent Brief Parser Runtime",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "runtime_type",
+    "node_id",
+    "run_id",
+    "session_id",
+    "provider",
+    "model",
+    "duration_ms",
+    "usage",
+    "stop_reason",
+    "fallback_used",
+    "parsed_output"
+  ],
+  "properties": {
+    "runtime_type": {
+      "const": "real_model_runtime"
+    },
+    "node_id": {
+      "const": "brief_parser"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "session_id": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "duration_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "usage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "input",
+        "output",
+        "reasoningTokens",
+        "total"
+      ],
+      "properties": {
+        "input": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "output": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "reasoningTokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "stop_reason": {
+      "type": "string"
+    },
+    "fallback_used": {
+      "type": "boolean"
+    },
+    "parsed_output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "product_name",
+        "product_category",
+        "missing_required_fields",
+        "risk_fields",
+        "downstream_ready"
+      ],
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "product_name": {
+          "type": "string"
+        },
+        "product_category": {
+          "type": "string"
+        },
+        "missing_required_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "risk_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "downstream_ready": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

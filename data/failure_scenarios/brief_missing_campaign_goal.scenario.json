@@ -1,0 +1,36 @@
+{
+  "scenario_id": "failure_brief_missing_campaign_goal",
+  "title": "Brief missing required campaign_goal",
+  "source_brief_path": "data/sample_brief.json",
+  "fault_injection": {
+    "operation": "remove",
+    "json_pointer": "/campaign_goal",
+    "missing_field": "campaign_goal"
+  },
+  "expected_initial_outcome": {
+    "schema_valid": false,
+    "workflow_status": "blocked",
+    "planner_executed": false,
+    "revision_queue": [
+      "campaign_goal"
+    ]
+  },
+  "repair": {
+    "operation": "restore_from_source",
+    "json_pointer": "/campaign_goal"
+  },
+  "expected_rerun_outcome": {
+    "schema_valid": true,
+    "workflow_status": "pass",
+    "planner_eligible": true,
+    "next_gate": "brand_compliance_pre_check"
+  },
+  "release_gates": {
+    "final_marketing_copy": "blocked",
+    "final_image_prompt": "blocked",
+    "image_generation": "blocked",
+    "frontend_page": "blocked",
+    "public_release": "blocked"
+  }
+}
+

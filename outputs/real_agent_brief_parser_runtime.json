@@ -1,0 +1,29 @@
+{
+  "runtime_type": "real_model_runtime",
+  "node_id": "brief_parser",
+  "run_id": "8785b62a-3858-434f-b65c-d810a98dc922",
+  "session_id": "5a865079-8095-4bc0-8225-22cfd08ee8b1",
+  "provider": "openai",
+  "model": "gpt-5.5",
+  "duration_ms": 6544,
+  "usage": {
+    "input": 18300,
+    "output": 119,
+    "reasoningTokens": 61,
+    "total": 18419
+  },
+  "stop_reason": "stop",
+  "fallback_used": false,
+  "parsed_output": {
+    "status": "ok",
+    "product_name": "运动相机",
+    "product_category": "运动相机 / 智能影像设备",
+    "missing_required_fields": [],
+    "risk_fields": [
+      "do_not_claim",
+      "compliance_rules",
+      "negative_constraints"
+    ],
+    "downstream_ready": true
+  }
+}

@@ -1,0 +1,515 @@
+{
+  "artifact_name": "audience_insight",
+  "artifact_version": "0.1.0",
+  "brief_id": "brief_demo_action_camera_001",
+  "producer": "Audience Insight Skill",
+  "status": "needs_review",
+  "confidence": 0.9,
+  "inputs_used": [
+    "sample_brief.json",
+    "outputs/standardized_brief_summary.json",
+    "workflow/agent_io_contracts.md",
+    "workflow/agent_workflow.md"
+  ],
+  "summary": "Audience Insight Skill converted the standardized product brief into audience segments, need-pain-trigger mappings, usage scenario interest tags, and purchase journey notes. The artifact is ready for downstream workflow nodes, with Brief Parser risks and compliance constraints retained.",
+  "data": {
+    "source_path_note": "User referenced data/sample_brief.json, but the workspace currently contains sample_brief.json at the project root. This run used sample_brief.json plus outputs/standardized_brief_summary.json.",
+    "audience_segments": [
+      {
+        "segment_id": "audience_outdoor_sports",
+        "segment_name": "户外运动爱好者",
+        "brief_source": "sample_brief.json.target_audiences[0]",
+        "needs": [
+          "稳定记录运动过程",
+          "解放双手",
+          "快速分享精彩瞬间"
+        ],
+        "pain_points": [
+          "普通手机拍摄不稳",
+          "运动时难以构图",
+          "后期剪辑耗时"
+        ],
+        "purchase_triggers": [
+          "新品首发优惠",
+          "运动场景样片",
+          "防抖和防水能力证明"
+        ],
+        "content_interest_tags": [
+          "骑行第一视角",
+          "滑雪和水上运动记录",
+          "稳定画面对比",
+          "装备固定方式",
+          "户外耐用性说明"
+        ],
+        "decision_focus": [
+          "运动防抖是否可靠",
+          "户外环境下是否耐用",
+          "配件生态是否完善"
+        ],
+        "risk_notes": [
+          "防抖和防水相关内容需要保留条件，不得变成绝对承诺。"
+        ]
+      },
+      {
+        "segment_id": "audience_travel_creator",
+        "segment_name": "旅行内容创作者",
+        "brief_source": "sample_brief.json.target_audiences[1]",
+        "needs": [
+          "高质量旅行素材",
+          "多平台内容复用",
+          "独特视角"
+        ],
+        "pain_points": [
+          "一个人旅行拍摄角度有限",
+          "素材不够有冲击力",
+          "横竖屏适配麻烦"
+        ],
+        "purchase_triggers": [
+          "360 度后期取景演示",
+          "旅行大片模板",
+          "轻量化剪辑流程"
+        ],
+        "content_interest_tags": [
+          "城市漫游",
+          "旅行打卡",
+          "一人出行拍摄",
+          "横竖屏复用",
+          "后期取景流程"
+        ],
+        "decision_focus": [
+          "画质是否明显优于手机",
+          "是否容易剪辑和发布",
+          "多平台素材复用效率"
+        ],
+        "risk_notes": [
+          "高质量旅行素材和大片感只能作为内容方向，不能承诺普通用户必然达到专业效果。"
+        ]
+      },
+      {
+        "segment_id": "audience_digital_enthusiast",
+        "segment_name": "数码发烧友",
+        "brief_source": "sample_brief.json.target_audiences[2]",
+        "needs": [
+          "新技术体验",
+          "高规格影像能力",
+          "可玩性"
+        ],
+        "pain_points": [
+          "同质化运动相机缺少新鲜感",
+          "参数强但实际体验不明确"
+        ],
+        "purchase_triggers": [
+          "高清样片对比",
+          "真实场景评测",
+          "首发权益"
+        ],
+        "content_interest_tags": [
+          "高清样片解析",
+          "参数体验对照",
+          "全景玩法",
+          "首发权益",
+          "真实场景评测"
+        ],
+        "decision_focus": [
+          "高清影像能力是否可感知",
+          "参数和真实体验是否一致",
+          "价格与首发权益是否匹配"
+        ],
+        "risk_notes": [
+          "高清、AI 自动剪辑和性能体验需要事实证明，不应扩展为行业领先或唯一能力。"
+        ]
+      }
+    ],
+    "need_pain_trigger_map": [
+      {
+        "segment_name": "户外运动爱好者",
+        "primary_need": "在高运动量场景稳定、低负担地记录过程。",
+        "core_pain": "手机或普通设备在运动中拍摄不稳，构图困难，剪辑耗时。",
+        "purchase_trigger_cluster": [
+          "运动样片",
+          "防抖证明",
+          "防水或户外耐用证明",
+          "首发权益"
+        ],
+        "downstream_value": "适合 Selling Point Analyst Agent 评估防抖、防水、固定方式和配件相关卖点。"
+      },
+      {
+        "segment_name": "旅行内容创作者",
+        "primary_need": "一次拍摄获得可复用、多角度、适配多平台的旅行素材。",
+        "core_pain": "独自旅行难以拍到多角度素材，横竖屏适配和剪辑流程增加负担。",
+        "purchase_trigger_cluster": [
+          "360 度后期取景演示",
+          "旅行内容模板",
+          "多平台导出",
+          "轻量化剪辑流程"
+        ],
+        "downstream_value": "适合 Platform Strategy Skill 设计种草和承接平台的内容兴趣路径。"
+      },
+      {
+        "segment_name": "数码发烧友",
+        "primary_need": "理解新技术是否真的带来可感知体验提升。",
+        "core_pain": "参数强但实际价值不明确，同质化产品缺少新鲜感。",
+        "purchase_trigger_cluster": [
+          "高清样片对比",
+          "真实场景评测",
+          "参数解释",
+          "首发权益"
+        ],
+        "downstream_value": "适合 Selling Point Analyst Agent 区分参数证明、体验证明和不可过度承诺的表达边界。"
+      }
+    ],
+    "usage_scenario_interest_map": [
+      {
+        "scene": "骑行第一视角记录",
+        "brief_context": "用户将相机固定在车把或头盔上，记录城市骑行或山地路线。",
+        "desired_outcome": "生成稳定、有速度感、适合短视频发布的骑行内容。",
+        "content_interest_tags": [
+          "第一视角",
+          "速度感",
+          "车把或头盔固定",
+          "城市骑行",
+          "山地路线",
+          "稳定画面"
+        ],
+        "relevant_segments": [
+          "户外运动爱好者",
+          "数码发烧友"
+        ],
+        "risk_note": "稳定画面相关表达需要避免绝对化。"
+      },
+      {
+        "scene": "旅行打卡与城市漫游",
+        "brief_context": "用户使用隐形自拍杆拍摄景点、街区和人物同框画面。",
+        "desired_outcome": "一次拍摄产出小红书图文、短视频和商品页场景素材。",
+        "content_interest_tags": [
+          "城市漫游",
+          "旅行打卡",
+          "人物同框",
+          "隐形自拍杆",
+          "多平台复用",
+          "一人出行"
+        ],
+        "relevant_segments": [
+          "旅行内容创作者",
+          "户外运动爱好者"
+        ],
+        "risk_note": "多平台复用是内容效率方向，不等于承诺平台表现。"
+      },
+      {
+        "scene": "滑雪和水上运动",
+        "brief_context": "用户在雪地、雨天或海边环境中拍摄运动过程。",
+        "desired_outcome": "突出防抖、防水和耐用性，形成高冲击力样片。",
+        "content_interest_tags": [
+          "滑雪",
+          "水上运动",
+          "雨天拍摄",
+          "海边场景",
+          "户外耐用",
+          "运动样片"
+        ],
+        "relevant_segments": [
+          "户外运动爱好者",
+          "数码发烧友"
+        ],
+        "risk_note": "防水和耐用相关内容必须等待规格条件或合规确认。"
+      }
+    ],
+    "purchase_journey_notes": {
+      "awareness": {
+        "stage_name": "认知",
+        "user_questions": [
+          "为什么我需要一台全景运动相机，而不是继续用手机或传统运动相机？",
+          "高清影像和 360 度后期取景对运动、旅行和内容创作有什么实际价值？"
+        ],
+        "brief_derived_inputs": [
+          "short_description",
+          "positioning_statement",
+          "differentiators",
+          "usage_scenarios"
+        ],
+        "content_interest_tags": [
+          "全景视角价值",
+          "运动和旅行真实场景",
+          "一次拍摄多平台复用"
+        ],
+        "compliance_guardrail": "不得使用行业第一、唯一、最好等绝对化认知钩子。"
+      },
+      "interest": {
+        "stage_name": "兴趣",
+        "user_questions": [
+          "这个产品能解决我拍摄不稳、构图困难和剪辑耗时的问题吗？",
+          "不同人群在骑行、旅行、滑雪或水上运动中能怎么用？"
+        ],
+        "brief_derived_inputs": [
+          "target_audiences",
+          "usage_scenarios",
+          "core_features",
+          "barriers"
+        ],
+        "content_interest_tags": [
+          "场景演示",
+          "固定方式",
+          "后期取景流程",
+          "AI 剪辑辅助"
+        ],
+        "compliance_guardrail": "AI 自动剪辑只能作为辅助能力，不得承诺无学习成本达到专业水平。"
+      },
+      "comparison": {
+        "stage_name": "比较",
+        "user_questions": [
+          "相比手机或传统运动相机，它的差异在哪里？",
+          "画质、防抖、防水、配件和剪辑效率是否足以支撑中高端价格带？"
+        ],
+        "brief_derived_inputs": [
+          "competitors",
+          "decision_factors",
+          "price_band",
+          "specs",
+          "core_features"
+        ],
+        "content_interest_tags": [
+          "参数解释",
+          "真实场景评测",
+          "类目差异",
+          "配件套装"
+        ],
+        "compliance_guardrail": "只做类目级比较，不攻击具体竞品品牌。"
+      },
+      "conversion": {
+        "stage_name": "转化",
+        "user_questions": [
+          "现在购买有什么权益？",
+          "套装、渠道、售后和首发备货是否能降低决策风险？"
+        ],
+        "brief_derived_inputs": [
+          "bundles",
+          "availability",
+          "channels",
+          "primary_kpis",
+          "campaign_goal"
+        ],
+        "content_interest_tags": [
+          "首发权益",
+          "套装选择",
+          "渠道承接",
+          "购买阻力消除"
+        ],
+        "compliance_guardrail": "不得暗示购买后一定获得商业收益或内容增长结果。"
+      }
+    },
+    "brief_derived_insights": [
+      {
+        "insight": "目标人群分为户外运动爱好者、旅行内容创作者和数码发烧友。",
+        "source_fields": [
+          "target_audiences"
+        ]
+      },
+      {
+        "insight": "共同购买阻力集中在价格、剪辑门槛、续航、运动相机必要性和运动稳定性。",
+        "source_fields": [
+          "barriers"
+        ]
+      },
+      {
+        "insight": "核心使用场景覆盖骑行、旅行城市漫游、滑雪和水上运动。",
+        "source_fields": [
+          "usage_scenarios"
+        ]
+      },
+      {
+        "insight": "平台覆盖抖音、小红书、天猫和京东，既有内容种草，也有电商转化承接。",
+        "source_fields": [
+          "channels"
+        ]
+      },
+      {
+        "insight": "Brief 明确要求不要把项目包装成单一品牌专属工具，需保留企业电商团队协作和审核需求。",
+        "source_fields": [
+          "negative_constraints"
+        ]
+      }
+    ],
+    "assumptions_to_validate": [
+      {
+        "assumption": "户外运动爱好者可能优先被防抖、防水和固定方式证明打动。",
+        "validation_needed": "需要平台内容数据、调研或历史素材表现验证。",
+        "risk_if_unvalidated": "可能高估技术证明对所有运动人群的转化影响。"
+      },
+      {
+        "assumption": "旅行内容创作者会重视一人出行、多平台复用和轻量剪辑流程。",
+        "validation_needed": "需要对旅行创作者内容生产习惯和平台发布频率做验证。",
+        "risk_if_unvalidated": "可能把内容效率误判为所有旅行人群的第一购买动机。"
+      },
+      {
+        "assumption": "数码发烧友会通过样片、参数解释和真实评测建立购买信心。",
+        "validation_needed": "需要评测内容点击、评论和转化数据验证。",
+        "risk_if_unvalidated": "可能过度依赖参数表达，忽略价格和实际使用门槛。"
+      },
+      {
+        "assumption": "认知到转化的主路径可以从内容平台种草过渡到天猫、京东等承接渠道。",
+        "validation_needed": "需要跨平台链路数据或 UTM/埋点验证。",
+        "risk_if_unvalidated": "可能无法准确归因内容种草对电商转化的贡献。"
+      }
+    ],
+    "retained_risk_fields": [
+      {
+        "field": "brand_name",
+        "risk_level": "minor",
+        "reason": "Uses Demo Brand. This is acceptable for a portfolio demo but should be replaced or anonymized consistently in client-facing enterprise usage.",
+        "recommended_handling": "Keep as demo placeholder or replace with approved brand naming before external delivery."
+      },
+      {
+        "field": "core_features[].proof",
+        "risk_level": "major",
+        "reason": "Performance-related proof points such as image quality, stabilization, waterproofing, and AI editing need substantiation before creative generation.",
+        "recommended_handling": "Downstream agents should preserve proof requirements and avoid turning features into absolute claims."
+      },
+      {
+        "field": "specs.waterproof",
+        "risk_level": "major",
+        "reason": "Waterproof claims usually require conditions, depth, duration, or rating information.",
+        "recommended_handling": "Brand Compliance Agent should require condition-aware wording before approval."
+      },
+      {
+        "field": "specs.stabilization",
+        "risk_level": "major",
+        "reason": "Stabilization claims may be interpreted as guaranteed stability in all scenes.",
+        "recommended_handling": "Avoid absolute claims and tie statements to supported scenarios or test evidence."
+      },
+      {
+        "field": "core_features[4].feature",
+        "risk_level": "major",
+        "reason": "AI automatic editing can be over-promised if downstream copy implies professional results without user effort.",
+        "recommended_handling": "Keep claims framed as assistance or efficiency improvement unless stronger proof is provided."
+      },
+      {
+        "field": "positioning_statement",
+        "risk_level": "minor",
+        "reason": "The phrase '高质量内容' is directionally useful but should be qualified by scenario and evidence in generated assets.",
+        "recommended_handling": "Use as positioning context, not as an unsupported guarantee."
+      },
+      {
+        "field": "availability.launch_date",
+        "risk_level": "minor",
+        "reason": "Launch date is month-level only, which is enough for workflow planning but not enough for precise campaign scheduling.",
+        "recommended_handling": "Platform Strategy Skill should request day-level dates if exact cadence is needed."
+      }
+    ],
+    "retained_compliance_constraints": {
+      "do_not_claim": [
+        "不要声称行业第一，除非有权威证明",
+        "不要使用绝对化表述，如最好、唯一、百分百稳定",
+        "不要攻击具体竞品品牌",
+        "不要承诺任何场景下都不会损坏",
+        "不要暗示普通用户无需学习即可达到专业摄影师水平"
+      ],
+      "compliance_rules": [
+        "避免绝对化广告语",
+        "涉及防水、防摔、续航等能力时需要保留条件描述",
+        "不得攻击具体竞品品牌",
+        "不得暗示使用产品即可保证获得商业收益",
+        "图片 Prompt 不生成真实品牌 Logo 或未经授权的名人形象"
+      ],
+      "negative_constraints": [
+        "不要把项目包装成单一品牌专属工具",
+        "不要只强调参数，必须转化为用户利益点",
+        "不要生成夸张失真的户外极限画面",
+        "不要过度承诺 AI 自动剪辑效果",
+        "不要忽略企业电商团队的协作和审核需求"
+      ]
+    },
+    "downstream_field_handoff": {
+      "Selling Point Analyst Agent": {
+        "fields": [
+          "audience_segments",
+          "need_pain_trigger_map",
+          "usage_scenario_interest_map",
+          "purchase_journey_notes",
+          "brief_derived_insights",
+          "assumptions_to_validate",
+          "retained_risk_fields",
+          "retained_compliance_constraints"
+        ],
+        "handoff_note": "Use audience needs, pains, triggers, and risk notes to prioritize feature-to-benefit mapping without overclaiming performance."
+      },
+      "Platform Strategy Skill": {
+        "fields": [
+          "audience_segments",
+          "usage_scenario_interest_map",
+          "purchase_journey_notes",
+          "channels",
+          "campaign_goal",
+          "primary_kpis",
+          "secondary_kpis",
+          "assumptions_to_validate",
+          "retained_compliance_constraints"
+        ],
+        "handoff_note": "Use journey stages, audience-platform fit, and validation assumptions to design platform roles and content cadence."
+      },
+      "Creative Copy Agent": {
+        "fields": [
+          "audience_segments",
+          "need_pain_trigger_map",
+          "purchase_journey_notes",
+          "content_interest_tags",
+          "brief_derived_insights",
+          "assumptions_to_validate",
+          "retained_risk_fields",
+          "retained_compliance_constraints"
+        ],
+        "handoff_note": "Use these fields only as copy planning inputs in later nodes; do not bypass compliance or generate final copy from this artifact alone."
+      },
+      "Image Prompt Skill": {
+        "fields": [
+          "usage_scenario_interest_map",
+          "audience_segments.content_interest_tags",
+          "visual_style",
+          "required_assets",
+          "retained_risk_fields",
+          "retained_compliance_constraints"
+        ],
+        "handoff_note": "Use scenario tags and asset dependencies as visual planning inputs, while preserving restrictions on exaggerated scenes, logos, and unauthorized likeness."
+      },
+      "Growth Metrics Agent": {
+        "fields": [
+          "audience_segments",
+          "purchase_journey_notes",
+          "assumptions_to_validate",
+          "channels",
+          "primary_kpis",
+          "secondary_kpis",
+          "campaign_goal"
+        ],
+        "handoff_note": "Use audience assumptions and journey stages to design KPI mapping, A/B test variables, and validation loops in a later node."
+      }
+    },
+    "audit_trace": {
+      "workflow_node": "Audience Insight Skill",
+      "workflow_sequence": 2,
+      "previous_artifact": "outputs/standardized_brief_summary.json",
+      "generated_artifacts": [
+        "outputs/audience_insight.json",
+        "outputs/audience_insight_report.md"
+      ],
+      "not_generated": [
+        "final marketing copy",
+        "xiaohongshu post",
+        "douyin script",
+        "image prompt",
+        "frontend page"
+      ]
+    }
+  },
+  "risks": [
+    "Audience insights include assumptions that need validation before being treated as business facts.",
+    "Performance, waterproofing, stabilization, and AI editing claims remain sensitive and must flow into downstream compliance checks.",
+    "Cross-platform journey assumptions require later tracking or research before growth decisions are finalized."
+  ],
+  "next_actions": [
+    "Pass audience needs, pain points, purchase triggers, and retained risks to Selling Point Analyst Agent.",
+    "Pass journey notes, platform relevance, and validation assumptions to Platform Strategy Skill.",
+    "Pass content interest tags and compliance constraints to Creative Copy Agent only as planning inputs.",
+    "Pass usage scenario interest tags and asset dependencies to Image Prompt Skill only as planning inputs.",
+    "Pass assumptions and journey stages to Growth Metrics Agent for later KPI and experiment design."
+  ]
+}

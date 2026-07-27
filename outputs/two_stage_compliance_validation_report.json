@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "artifact_name": "two_stage_compliance_validation_report",
+    "artifact_version": "0.1.0",
+    "producer": "validate_two_stage_compliance.mjs",
+    "validation_status": "pass",
+    "governance_status": "needs_review",
+    "execution_context": "retrospective_design_validation",
+    "model_used": false,
+    "modifies_input_files": false
+  },
+  "validation_status": "pass",
+  "governance_status": "needs_review",
+  "input_artifacts": {
+    "schema": "schemas/artifacts/two_stage_compliance_report.schema.json",
+    "pre_check": "outputs/brand_compliance_pre_check.json",
+    "post_generation_check": "outputs/brand_compliance_post_generation_check.json"
+  },
+  "schema_validation": {
+    "schema_json_parse_ok": true,
+    "schema_compiled": true,
+    "schema_compile_errors": [],
+    "pre_check": {
+      "file": "outputs/brand_compliance_pre_check.json",
+      "json_parse_ok": true,
+      "schema_valid": true,
+      "schema_errors": [],
+      "mode_artifact_name_match": true
+    },
+    "post_generation_check": {
+      "file": "outputs/brand_compliance_post_generation_check.json",
+      "json_parse_ok": true,
+      "schema_valid": true,
+      "schema_errors": [],
+      "mode_artifact_name_match": true
+    }
+  },
+  "identity_checks": {
+    "brief_id_same": true,
+    "product_name_same": true,
+    "product_name_is_action_camera_cn": true,
+    "producer_pre": true,
+    "producer_post": true,
+    "trace_id_same": true,
+    "execution_context_pre": true,
+    "execution_context_post": true,
+    "historical_execution_claimed_pre_false": true,
+    "historical_execution_claimed_post_false": true,
+    "compliance_run_id_different": true,
+    "pre_compliance_run_id_contains_mode": true,
+    "post_compliance_run_id_contains_mode": true,
+    "pre_mode_artifact_name": true,
+    "post_mode_artifact_name": true,
+    "all_passed": true
+  },
+  "risk_tracking_checks": {
+    "sets": {
+      "pre_detected": [
+        "risk_brief_structure_complete_but_evidence_not_formal",
+        "risk_hd_360_image_quality_requires_formal_proof",
+        "risk_stabilization_claim_requires_test_conditions",
+        "risk_waterproof_durability_requires_rating_and_limits",
+        "risk_ai_auto_editing_effect_requires_scope_limits",
+        "risk_required_product_app_scene_assets_need_authorization",
+        "risk_logo_portrait_and_scene_materials_need_rights_clearance",
+        "risk_forbidden_expression_competitor_and_negative_constraints",
+        "risk_growth_metrics_must_not_be_result_promises",
+        "risk_mock_estimated_not_available_data_must_not_be_real_results"
+      ],
+      "post_inherited": [
+        "risk_brief_structure_complete_but_evidence_not_formal",
+        "risk_hd_360_image_quality_requires_formal_proof",
+        "risk_stabilization_claim_requires_test_conditions",
+        "risk_waterproof_durability_requires_rating_and_limits",
+        "risk_ai_auto_editing_effect_requires_scope_limits",
+        "risk_required_product_app_scene_assets_need_authorization",
+        "risk_logo_portrait_and_scene_materials_need_rights_clearance",
+        "risk_forbidden_expression_competitor_and_negative_constraints",
+        "risk_growth_metrics_must_not_be_result_promises",
+        "risk_mock_estimated_not_available_data_must_not_be_real_results"
+      ],
+      "post_resolved": [],
+      "post_unresolved": [
+        "risk_brief_structure_complete_but_evidence_not_formal",
+        "risk_hd_360_image_quality_requires_formal_proof",
+        "risk_stabilization_claim_requires_test_conditions",
+        "risk_waterproof_durability_requires_rating_and_limits",
+        "risk_ai_auto_editing_effect_requires_scope_limits",
+        "risk_required_product_app_scene_assets_need_authorization",
+        "risk_logo_portrait_and_scene_materials_need_rights_clearance",
+        "risk_forbidden_expression_competitor_and_negative_constraints",
+        "risk_growth_metrics_must_not_be_result_promises",
+        "risk_mock_estimated_not_available_data_must_not_be_real_results"
+      ],
+      "post_newly_detected": [
+        "risk_traceability_gap"
+      ],
+      "post_risk_record_ids": [
+        "risk_brief_structure_complete_but_evidence_not_formal",
+        "risk_hd_360_image_quality_requires_formal_proof",
+        "risk_stabilization_claim_requires_test_conditions",
+        "risk_waterproof_durability_requires_rating_and_limits",
+        "risk_ai_auto_editing_effect_requires_scope_limits",
+        "risk_required_product_app_scene_assets_need_authorization",
+        "risk_logo_portrait_and_scene_materials_need_rights_clearance",
+        "risk_forbidden_expression_competitor_and_negative_constraints",
+        "risk_growth_metrics_must_not_be_result_promises",
+        "risk_mock_estimated_not_available_data_must_not_be_real_results",
+        "risk_traceability_gap"
+      ]
+    },
+    "checks": {
+      "pre_detected_equals_post_inherited": true,
+      "resolved_unresolved_disjoint": true,
+      "resolved_unresolved_union_equals_inherited": true,
+      "newly_detected_not_in_inherited": true,
+      "newly_detected_equals_post_record_ids_not_in_inherited": true,
+      "arrays_have_no_duplicate_ids": true,
+      "pre_risk_records_have_no_duplicate_ids": true,
+      "post_risk_records_have_no_duplicate_ids": true,
+      "risk_tracking_ids_exist_in_records": true
+    },
+    "diagnostics": {
+      "array_duplicate_ids": {
+        "pre_detected": [],
+        "post_inherited": [],
+        "post_resolved": [],
+        "post_unresolved": [],
+        "post_newly_detected": []
+      },
+      "pre_risk_record_duplicate_ids": [],
+      "post_risk_record_duplicate_ids": [],
+      "resolved_unresolved_overlap": [],
+      "newly_detected_in_inherited": [],
+      "post_risk_record_ids_not_in_inherited": [
+        "risk_traceability_gap"
+      ],
+      "missing_ids": {
+        "pre_detected_missing_from_pre_records": [],
+        "post_inherited_missing_from_post_records": [],
+        "post_resolved_missing_from_post_records": [],
+        "post_unresolved_missing_from_post_records": [],
+        "post_newly_detected_missing_from_post_records": []
+      }
+    },
+    "all_passed": true
+  },
+  "risk_counts": {
+    "inherited": 10,
+    "resolved": 0,
+    "unresolved": 10,
+    "newly_detected": 1
+  },
+  "governance_findings": {
+    "inherited_risk_count": 10,
+    "resolved_risk_count": 0,
+    "unresolved_risk_count": 10,
+    "newly_detected_risk_count": 1,
+    "risk_traceability_gap_present": true,
+    "risk_traceability_gap": {
+      "risk_id": "risk_traceability_gap",
+      "source_artifact": "outputs/creative_copy_pack_outline.json",
+      "source_json_pointer": "/data/proof_waitlist",
+      "explanation": "由于 pre_check 是本次新增的回溯式设计验证，历史结构化创意方案和视觉方案继承了风险主题、proof waitlist 与 forbidden elements，但没有逐条使用 pre_check 的稳定 risk_id；这构成跨阶段可追踪性缺口，post_generation_check 必须在本产物中恢复并显式继承全部 risk_id。"
+    },
+    "formal_proof_gap_present": true,
+    "formal_proof_gap_risk_ids": [
+      "risk_hd_360_image_quality_requires_formal_proof",
+      "risk_stabilization_claim_requires_test_conditions",
+      "risk_waterproof_durability_requires_rating_and_limits",
+      "risk_ai_auto_editing_effect_requires_scope_limits"
+    ],
+    "asset_authorization_gap_present": true,
+    "asset_authorization_gap_risk_ids": [
+      "risk_required_product_app_scene_assets_need_authorization",
+      "risk_logo_portrait_and_scene_materials_need_rights_clearance"
+    ],
+    "human_approval_required": true,
+    "post_generation_check_scope": "structured_creative_and_visual_plans_only",
+    "final_generation_or_public_release_allowed": false,
+    "evidence_status_counts_across_both_artifacts": {
+      "verified": 2,
+      "requires_human_verification": 8,
+      "pending": 4,
+      "supported_by_provided_source": 4,
+      "derived_from_mock": 2,
+      "artifact_derived": 1
+    }
+  },
+  "release_gate_checks": {
+    "checked_gates": [
+      "final_marketing_copy",
+      "final_image_prompt",
+      "image_generation",
+      "frontend_page",
+      "public_release"
+    ],
+    "pre_check": {
+      "artifact": "pre_check",
+      "checked_gates": [
+        "final_marketing_copy",
+        "final_image_prompt",
+        "image_generation",
+        "frontend_page",
+        "public_release"
+      ],
+      "all_blocked": true,
+      "failures": []
+    },
+    "post_generation_check": {
+      "artifact": "post_generation_check",
+      "checked_gates": [
+        "final_marketing_copy",
+        "final_image_prompt",
+        "image_generation",
+        "frontend_page",
+        "public_release"
+      ],
+      "all_blocked": true,
+      "failures": []
+    },
+    "all_passed": true
+  },
+  "errors": [],
+  "limitations": [
+    "This script performs deterministic structural and relationship checks only; it does not call a large language model.",
+    "Schema validation does not prove product facts, legal authorization, production readiness, customer validation, or public-release eligibility.",
+    "Unresolved risks and risk_traceability_gap are governance findings, not hard validation failures when Schema and set relationships pass.",
+    "post_generation_check currently reviews structured creative and visual plans only, not final marketing copy, final image prompts, generated images, frontend pages, or public-release material."
+  ]
+}

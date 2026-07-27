@@ -1,0 +1,282 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/ecommerce-growth-agent-studio/schemas/artifacts/workflow_metrics_report.schema.json",
+  "title": "Workflow Metrics Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "meta",
+    "execution",
+    "source_artifacts",
+    "runtime_metrics",
+    "quality_metrics",
+    "governance_metrics",
+    "overall",
+    "metric_integrity",
+    "release_gates",
+    "boundaries",
+    "limitations"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_name", "artifact_version", "producer", "build_status", "script_path", "script_exit_code"],
+      "properties": {
+        "artifact_name": { "const": "workflow_metrics_report" },
+        "artifact_version": { "const": "0.1.0" },
+        "producer": { "const": "build_workflow_metrics.mjs" },
+        "build_status": { "enum": ["pass", "failed"] },
+        "script_path": { "const": "scripts/build_workflow_metrics.mjs" },
+        "script_exit_code": { "enum": [0, 1] }
+      }
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["time_status", "started_at", "completed_at", "duration_ms"],
+      "properties": {
+        "time_status": { "const": "measured" },
+        "started_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$" },
+        "completed_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$" },
+        "duration_ms": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "source_artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["workflow_execution_log", "failure_scenario_test", "artifact_validation", "two_stage_compliance_validation", "human_approval"],
+      "properties": {
+        "workflow_execution_log": { "const": "outputs/workflow_execution_log.json" },
+        "failure_scenario_test": { "const": "outputs/failure_scenario_test_report.json" },
+        "artifact_validation": { "const": "outputs/artifact_validation_report.json" },
+        "two_stage_compliance_validation": { "const": "outputs/two_stage_compliance_validation_report.json" },
+        "human_approval": { "const": "outputs/human_approval_record.json" }
+      }
+    },
+    "runtime_metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["planner_runtime", "historical_node_timing_coverage", "failure_scenario_test_runtime", "workflow_retry_count"],
+      "properties": {
+        "planner_runtime": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "unit", "status", "source_path", "source_pointer"],
+          "properties": {
+            "value": { "type": "null" },
+            "unit": { "const": "ms" },
+            "status": { "const": "historical_not_available" },
+            "source_path": { "const": "outputs/workflow_execution_log.json" },
+            "source_pointer": { "type": "string", "minLength": 1 }
+          }
+        },
+        "historical_node_timing_coverage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["total_nodes", "measured_nodes", "historical_not_available_nodes", "coverage_percent", "status"],
+          "properties": {
+            "total_nodes": { "const": 15 },
+            "measured_nodes": { "const": 0 },
+            "historical_not_available_nodes": { "const": 15 },
+            "coverage_percent": { "const": 0 },
+            "status": { "const": "historical_not_available" }
+          }
+        },
+        "failure_scenario_test_runtime": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "unit", "status", "scope", "source_path", "source_pointer"],
+          "properties": {
+            "value": { "type": "integer", "minimum": 0 },
+            "unit": { "const": "ms" },
+            "status": { "const": "measured" },
+            "scope": { "const": "failure_scenario_test_only" },
+            "source_path": { "const": "outputs/failure_scenario_test_report.json" },
+            "source_pointer": { "const": "/execution/duration_ms" }
+          }
+        },
+        "workflow_retry_count": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "status", "scope", "source_path"],
+          "properties": {
+            "value": { "const": 1 },
+            "status": { "const": "deterministic_verified" },
+            "scope": { "const": "failure_scenario_test_only" },
+            "source_path": { "const": "outputs/failure_scenario_test_report.json" }
+          }
+        }
+      }
+    },
+    "quality_metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["json_parse_rate", "schema_match_rate", "failure_assertion_rate", "release_gate_preservation_rate"],
+      "properties": {
+        "json_parse_rate": { "$ref": "#/$defs/rate_metric" },
+        "schema_match_rate": { "$ref": "#/$defs/rate_metric" },
+        "failure_assertion_rate": { "$ref": "#/$defs/rate_metric" },
+        "release_gate_preservation_rate": { "$ref": "#/$defs/rate_metric" }
+      }
+    },
+    "governance_metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["compliance", "human_review", "risk_tracking"],
+      "properties": {
+        "compliance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["validation_status", "governance_status", "evidence_type", "source_path"],
+          "properties": {
+            "validation_status": { "const": "pass" },
+            "governance_status": { "const": "needs_review" },
+            "evidence_type": { "const": "artifact_derived" },
+            "source_path": { "const": "outputs/two_stage_compliance_validation_report.json" }
+          }
+        },
+        "human_review": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "human_signature", "evidence_type", "source_path"],
+          "properties": {
+            "status": { "const": "needs_revision" },
+            "human_signature": { "const": "pending" },
+            "evidence_type": { "const": "artifact_derived" },
+            "source_path": { "const": "outputs/human_approval_record.json" }
+          }
+        },
+        "risk_tracking": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["inherited", "resolved", "unresolved", "newly_detected", "total_post_check", "status", "source_path"],
+          "properties": {
+            "inherited": { "type": "integer", "minimum": 0 },
+            "resolved": { "type": "integer", "minimum": 0 },
+            "unresolved": { "type": "integer", "minimum": 0 },
+            "newly_detected": { "type": "integer", "minimum": 0 },
+            "total_post_check": { "type": "integer", "minimum": 0 },
+            "status": { "const": "needs_review" },
+            "source_path": { "const": "outputs/two_stage_compliance_validation_report.json" }
+          }
+        }
+      }
+    },
+    "overall": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["workflow_status", "final_score", "summary"],
+      "properties": {
+        "workflow_status": { "const": "needs_review" },
+        "final_score": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["availability", "value", "reason"],
+          "properties": {
+            "availability": { "const": "not_available" },
+            "value": { "type": "null" },
+            "reason": { "type": "string", "minLength": 1 }
+          }
+        },
+        "summary": { "type": "string", "minLength": 1 }
+      }
+    },
+    "metric_integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "checks"],
+      "properties": {
+        "status": { "enum": ["pass", "failed"] },
+        "checks": {
+          "type": "array",
+          "minItems": 9,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["check_id", "status", "source_path"],
+            "properties": {
+              "check_id": { "type": "string", "minLength": 1 },
+              "status": { "enum": ["pass", "failed"] },
+              "source_path": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    },
+    "release_gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["final_marketing_copy", "final_image_prompt", "image_generation", "frontend_page", "public_release"],
+      "properties": {
+        "final_marketing_copy": { "const": "blocked" },
+        "final_image_prompt": { "const": "blocked" },
+        "image_generation": { "const": "blocked" },
+        "frontend_page": { "const": "blocked" },
+        "public_release": { "const": "blocked" }
+      }
+    },
+    "boundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["historical_execution_claimed", "planner_time_fabricated", "production_ready", "customer_validated"],
+      "properties": {
+        "historical_execution_claimed": { "const": false },
+        "planner_time_fabricated": { "const": false },
+        "production_ready": { "const": false },
+        "customer_validated": { "const": false }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "$defs": {
+    "rate_metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["passed", "total", "rate_percent", "status", "evidence_type", "source_path"],
+      "properties": {
+        "passed": { "type": "integer", "minimum": 0 },
+        "total": { "type": "integer", "minimum": 1 },
+        "rate_percent": { "type": "number", "minimum": 0, "maximum": 100 },
+        "status": { "enum": ["pass", "failed"] },
+        "evidence_type": { "enum": ["deterministic_verified", "artifact_derived"] },
+        "source_path": { "type": "string", "minLength": 1 }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "meta": { "properties": { "build_status": { "const": "pass" } }, "required": ["build_status"] } } },
+      "then": {
+        "properties": {
+          "meta": { "properties": { "script_exit_code": { "const": 0 } } },
+          "metric_integrity": {
+            "properties": {
+              "status": { "const": "pass" },
+              "checks": { "items": { "properties": { "status": { "const": "pass" } } } }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "meta": { "properties": { "build_status": { "const": "failed" } }, "required": ["build_status"] } } },
+      "then": {
+        "properties": {
+          "meta": { "properties": { "script_exit_code": { "const": 1 } } },
+          "metric_integrity": {
+            "properties": {
+              "status": { "const": "failed" },
+              "checks": { "contains": { "properties": { "status": { "const": "failed" } }, "required": ["status"] } }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
+

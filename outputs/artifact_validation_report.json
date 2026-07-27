@@ -1,0 +1,443 @@
+{
+  "meta": {
+    "artifact_name": "artifact_validation_report",
+    "validation_type": "deterministic_json_schema",
+    "schema_draft": "2020-12",
+    "validator": "Ajv",
+    "validator_version": "8.20.0",
+    "dependency_status": "available",
+    "status": "pass",
+    "generated_at": "2026-07-27T07:00:08.641Z",
+    "script_path": "scripts/validate_artifacts.mjs",
+    "script_exit_code": 0
+  },
+  "parse_validation": {
+    "total_json_files": 49,
+    "passed": 49,
+    "failed": 0
+  },
+  "schema_validation": {
+    "mapped_artifacts": 18,
+    "passed": 18,
+    "failed": 0
+  },
+  "schema_coverage": {
+    "covered_artifacts": [
+      "data/sample_brief.json",
+      "outputs/brand_compliance_post_generation_check.json",
+      "outputs/brand_compliance_pre_check.json",
+      "outputs/claim_trace_matrix.json",
+      "outputs/failure_scenario_test_report.json",
+      "outputs/growth_evaluation_report.json",
+      "outputs/human_approval_record.json",
+      "outputs/planner_execution_plan.json",
+      "outputs/portfolio_evidence_pack.json",
+      "outputs/real_agent_brief_parser_runtime.json",
+      "outputs/real_agent_trace.json",
+      "outputs/runtime_execution.json",
+      "outputs/two_stage_compliance_validation_report.json",
+      "outputs/v2_final_report.json",
+      "outputs/workflow_execution_log.json",
+      "outputs/workflow_metrics_report.json",
+      "outputs/worktrace.json",
+      "outputs/worktrace_failure_scenario.json"
+    ],
+    "not_yet_covered_artifacts": [
+      "data/audit_log_sample.json",
+      "data/failure_scenarios/brief_missing_campaign_goal.scenario.json",
+      "outputs/artifact_validation_report.json",
+      "outputs/audience_insight.json",
+      "outputs/brand_compliance_report.json",
+      "outputs/creative_copy_pack_outline.json",
+      "outputs/final_creative_package_report.json",
+      "outputs/growth_metrics_plan.json",
+      "outputs/image_prompt_pack_outline.json",
+      "outputs/platform_strategy_plan.json",
+      "outputs/selling_point_matrix.json",
+      "outputs/standardized_brief_summary.json",
+      "package-lock.json",
+      "package.json",
+      "schemas/artifacts/claim_trace_matrix.schema.json",
+      "schemas/artifacts/common.schema.json",
+      "schemas/artifacts/failure_scenario_test_report.schema.json",
+      "schemas/artifacts/growth_evaluation_report.schema.json",
+      "schemas/artifacts/human_approval_record.schema.json",
+      "schemas/artifacts/planner_execution_plan.schema.json",
+      "schemas/artifacts/portfolio_evidence_pack.schema.json",
+      "schemas/artifacts/real_agent_brief_parser_runtime.schema.json",
+      "schemas/artifacts/real_agent_trace.schema.json",
+      "schemas/artifacts/runtime_execution.schema.json",
+      "schemas/artifacts/two_stage_compliance_report.schema.json",
+      "schemas/artifacts/two_stage_compliance_validation_report.schema.json",
+      "schemas/artifacts/v2_final_report.schema.json",
+      "schemas/artifacts/workflow_execution_log.schema.json",
+      "schemas/artifacts/workflow_metrics_report.schema.json",
+      "schemas/artifacts/worktrace.schema.json",
+      "schemas/product_brief.schema.json"
+    ]
+  },
+  "results": [
+    {
+      "artifact_path": "data/audit_log_sample.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "data/failure_scenarios/brief_missing_campaign_goal.scenario.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "data/sample_brief.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/artifact_validation_report.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/audience_insight.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/brand_compliance_post_generation_check.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/brand_compliance_pre_check.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/brand_compliance_report.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/claim_trace_matrix.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/creative_copy_pack_outline.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/failure_scenario_test_report.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/final_creative_package_report.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/growth_evaluation_report.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/growth_metrics_plan.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/human_approval_record.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/image_prompt_pack_outline.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/planner_execution_plan.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/platform_strategy_plan.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/portfolio_evidence_pack.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/real_agent_brief_parser_runtime.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/real_agent_trace.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/runtime_execution.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/selling_point_matrix.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/standardized_brief_summary.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/two_stage_compliance_validation_report.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/v2_final_report.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/workflow_execution_log.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/workflow_metrics_report.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/worktrace_failure_scenario.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/worktrace.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "package-lock.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "package.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/artifacts/claim_trace_matrix.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/artifacts/common.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/artifacts/failure_scenario_test_report.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/artifacts/growth_evaluation_report.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/artifacts/human_approval_record.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/artifacts/planner_execution_plan.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/artifacts/portfolio_evidence_pack.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/artifacts/real_agent_brief_parser_runtime.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/artifacts/real_agent_trace.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/artifacts/runtime_execution.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/artifacts/two_stage_compliance_report.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/artifacts/two_stage_compliance_validation_report.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/artifacts/v2_final_report.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/artifacts/workflow_execution_log.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/artifacts/workflow_metrics_report.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/artifacts/worktrace.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "schemas/product_brief.schema.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "data/sample_brief.json",
+      "schema_path": "schemas/product_brief.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/planner_execution_plan.json",
+      "schema_path": "schemas/artifacts/planner_execution_plan.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/human_approval_record.json",
+      "schema_path": "schemas/artifacts/human_approval_record.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/growth_evaluation_report.json",
+      "schema_path": "schemas/artifacts/growth_evaluation_report.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/v2_final_report.json",
+      "schema_path": "schemas/artifacts/v2_final_report.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/workflow_execution_log.json",
+      "schema_path": "schemas/artifacts/workflow_execution_log.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/claim_trace_matrix.json",
+      "schema_path": "schemas/artifacts/claim_trace_matrix.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/portfolio_evidence_pack.json",
+      "schema_path": "schemas/artifacts/portfolio_evidence_pack.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/brand_compliance_pre_check.json",
+      "schema_path": "schemas/artifacts/two_stage_compliance_report.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/brand_compliance_post_generation_check.json",
+      "schema_path": "schemas/artifacts/two_stage_compliance_report.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/two_stage_compliance_validation_report.json",
+      "schema_path": "schemas/artifacts/two_stage_compliance_validation_report.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/failure_scenario_test_report.json",
+      "schema_path": "schemas/artifacts/failure_scenario_test_report.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/workflow_metrics_report.json",
+      "schema_path": "schemas/artifacts/workflow_metrics_report.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/runtime_execution.json",
+      "schema_path": "schemas/artifacts/runtime_execution.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/worktrace.json",
+      "schema_path": "schemas/artifacts/worktrace.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/worktrace_failure_scenario.json",
+      "schema_path": "schemas/artifacts/worktrace.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/real_agent_brief_parser_runtime.json",
+      "schema_path": "schemas/artifacts/real_agent_brief_parser_runtime.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/real_agent_trace.json",
+      "schema_path": "schemas/artifacts/real_agent_trace.schema.json",
+      "validation": "schema",
+      "status": "pass"
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Schema validation checks structure and key governance states; it does not prove business factual correctness.",
+    "JSON parse validation is not the same as Schema validation.",
+    "Only mapped critical governance artifacts receive full Schema validation in this extension set.",
+    "Workflow Execution Log is a retrospective artifact-derived log, not real production telemetry.",
+    "Source authenticity and field-level claim evidence will be validated later in an Automatic Claim Trace Matrix.",
+    "Current coverage is partial and must not be represented as 100% project Schema coverage."
+  ]
+}

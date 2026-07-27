@@ -1,0 +1,316 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/artifacts/two_stage_compliance_report.schema.json",
+  "title": "Two-stage Brand Compliance Report Schema",
+  "description": "Unified schema for Brand Compliance Agent pre_check and post_generation_check reports. This schema validates structure and governance controls only; it does not prove real-world product facts, legal authorization, creative quality, customer validation, production readiness, or public-release eligibility.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "inputs_used",
+    "decision_summary",
+    "risk_records",
+    "cross_stage_risk_tracking",
+    "release_gates",
+    "limitations"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "artifact_name",
+        "artifact_version",
+        "brief_id",
+        "product_name",
+        "producer",
+        "compliance_run_id",
+        "mode",
+        "trace_id",
+        "status"
+      ],
+      "properties": {
+        "artifact_name": { "$ref": "#/$defs/non_empty_string" },
+        "artifact_version": { "$ref": "#/$defs/non_empty_string" },
+        "brief_id": { "$ref": "#/$defs/non_empty_string" },
+        "product_name": { "const": "运动相机" },
+        "producer": { "const": "Brand Compliance Agent" },
+        "compliance_run_id": { "$ref": "#/$defs/non_empty_string" },
+        "mode": { "$ref": "#/$defs/compliance_mode" },
+        "trace_id": { "$ref": "#/$defs/non_empty_string" },
+        "status": { "$ref": "#/$defs/compliance_decision" }
+      }
+    },
+    "inputs_used": {
+      "description": "Artifacts, files, or source objects read by the compliance run.",
+      "oneOf": [
+        {
+          "type": "array",
+          "items": { "$ref": "#/$defs/non_empty_string" }
+        },
+        {
+          "type": "object",
+          "additionalProperties": true
+        }
+      ]
+    },
+    "decision_summary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "decision",
+        "summary",
+        "target_stage",
+        "next_stage_allowed",
+        "human_review_required"
+      ],
+      "properties": {
+        "decision": { "$ref": "#/$defs/compliance_decision" },
+        "summary": { "$ref": "#/$defs/non_empty_string" },
+        "target_stage": { "$ref": "#/$defs/non_empty_string" },
+        "next_stage_allowed": { "type": "boolean" },
+        "human_review_required": { "type": "boolean" }
+      }
+    },
+    "risk_records": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/risk_record" }
+    },
+    "cross_stage_risk_tracking": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "detected_risk_ids": { "$ref": "#/$defs/unique_string_array" },
+        "inherited_risk_ids": { "$ref": "#/$defs/unique_string_array" },
+        "resolved_risk_ids": { "$ref": "#/$defs/unique_string_array" },
+        "unresolved_risk_ids": { "$ref": "#/$defs/unique_string_array" },
+        "newly_detected_risk_ids": { "$ref": "#/$defs/unique_string_array" }
+      }
+    },
+    "release_gates": { "$ref": "#/$defs/release_gates" },
+    "limitations": {
+      "description": "Known limits, such as lack of final marketing copy, final image prompt, generated images, public release, real customer validation, production telemetry, or complete formal proof.",
+      "oneOf": [
+        {
+          "type": "array",
+          "items": { "$ref": "#/$defs/non_empty_string" }
+        },
+        {
+          "type": "object",
+          "additionalProperties": true
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "non_empty_string": {
+      "type": "string",
+      "minLength": 1
+    },
+    "unique_string_array": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/non_empty_string" },
+      "uniqueItems": true
+    },
+    "compliance_mode": {
+      "type": "string",
+      "enum": [
+        "pre_check",
+        "post_generation_check"
+      ]
+    },
+    "compliance_decision": {
+      "type": "string",
+      "enum": [
+        "approved",
+        "needs_review",
+        "blocked"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "minor",
+        "major",
+        "critical"
+      ]
+    },
+    "evidence_status": {
+      "type": "string",
+      "enum": [
+        "verified",
+        "supported_by_provided_source",
+        "requires_human_verification",
+        "missing",
+        "pending",
+        "derived_from_mock",
+        "artifact_derived",
+        "estimated",
+        "not_available"
+      ]
+    },
+    "structured_planning_package_gate": {
+      "type": "string",
+      "enum": [
+        "approved",
+        "needs_review",
+        "blocked"
+      ]
+    },
+    "growth_evaluation_gate": {
+      "type": "string",
+      "enum": [
+        "approved_for_evaluation_only",
+        "blocked"
+      ]
+    },
+    "release_gates": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "structured_planning_package",
+        "growth_evaluation",
+        "final_marketing_copy",
+        "final_image_prompt",
+        "image_generation",
+        "frontend_page",
+        "public_release"
+      ],
+      "properties": {
+        "structured_planning_package": { "$ref": "#/$defs/structured_planning_package_gate" },
+        "growth_evaluation": { "$ref": "#/$defs/growth_evaluation_gate" },
+        "final_marketing_copy": { "const": "blocked" },
+        "final_image_prompt": { "const": "blocked" },
+        "image_generation": { "const": "blocked" },
+        "frontend_page": { "const": "blocked" },
+        "public_release": { "const": "blocked" }
+      }
+    },
+    "risk_record": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "compliance_run_id",
+        "mode",
+        "trace_id",
+        "risk_id",
+        "risk_type",
+        "source_artifact",
+        "source_json_pointer",
+        "evidence_status",
+        "severity",
+        "decision",
+        "revision_action",
+        "release_gate_effect",
+        "human_review_required"
+      ],
+      "properties": {
+        "compliance_run_id": { "$ref": "#/$defs/non_empty_string" },
+        "mode": { "$ref": "#/$defs/compliance_mode" },
+        "trace_id": { "$ref": "#/$defs/non_empty_string" },
+        "risk_id": { "$ref": "#/$defs/non_empty_string" },
+        "risk_type": { "$ref": "#/$defs/non_empty_string" },
+        "source_artifact": { "$ref": "#/$defs/non_empty_string" },
+        "source_json_pointer": { "$ref": "#/$defs/non_empty_string" },
+        "evidence_status": { "$ref": "#/$defs/evidence_status" },
+        "severity": { "$ref": "#/$defs/severity" },
+        "decision": { "$ref": "#/$defs/compliance_decision" },
+        "revision_action": { "$ref": "#/$defs/non_empty_string" },
+        "release_gate_effect": { "$ref": "#/$defs/release_gates" },
+        "human_review_required": { "type": "boolean" }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "meta": {
+            "properties": {
+              "mode": { "const": "pre_check" }
+            },
+            "required": ["mode"]
+          }
+        },
+        "required": ["meta"]
+      },
+      "then": {
+        "properties": {
+          "meta": {
+            "properties": {
+              "artifact_name": { "const": "brand_compliance_pre_check" },
+              "compliance_run_id": { "pattern": "pre_check" }
+            }
+          },
+          "decision_summary": {
+            "properties": {
+              "target_stage": { "const": "Planner Agent" }
+            }
+          },
+          "risk_records": {
+            "items": {
+              "properties": {
+                "mode": { "const": "pre_check" },
+                "compliance_run_id": { "pattern": "pre_check" }
+              }
+            }
+          },
+          "cross_stage_risk_tracking": {
+            "required": ["detected_risk_ids"]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "meta": {
+            "properties": {
+              "mode": { "const": "post_generation_check" }
+            },
+            "required": ["mode"]
+          }
+        },
+        "required": ["meta"]
+      },
+      "then": {
+        "properties": {
+          "meta": {
+            "properties": {
+              "artifact_name": { "const": "brand_compliance_post_generation_check" },
+              "compliance_run_id": { "pattern": "post_generation_check" }
+            }
+          },
+          "decision_summary": {
+            "properties": {
+              "target_stage": { "const": "Human Approval Node" }
+            }
+          },
+          "risk_records": {
+            "items": {
+              "properties": {
+                "mode": { "const": "post_generation_check" },
+                "compliance_run_id": { "pattern": "post_generation_check" }
+              }
+            }
+          },
+          "cross_stage_risk_tracking": {
+            "required": [
+              "inherited_risk_ids",
+              "resolved_risk_ids",
+              "unresolved_risk_ids",
+              "newly_detected_risk_ids"
+            ],
+            "properties": {
+              "inherited_risk_ids": { "$ref": "#/$defs/unique_string_array" },
+              "resolved_risk_ids": { "$ref": "#/$defs/unique_string_array" },
+              "unresolved_risk_ids": { "$ref": "#/$defs/unique_string_array" },
+              "newly_detected_risk_ids": { "$ref": "#/$defs/unique_string_array" }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

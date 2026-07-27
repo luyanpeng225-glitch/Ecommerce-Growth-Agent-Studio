@@ -1,0 +1,505 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/artifacts/workflow_execution_log.schema.json",
+  "title": "Workflow Execution Log Artifact",
+  "description": "Schema for the future workflow_execution_log.json defined by Validation Extension B. It validates execution logging structure only and does not authorize release gates.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "workflow_summary",
+    "nodes",
+    "release_gates",
+    "artifact_existence_summary",
+    "limitations"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "artifact_name",
+        "validation_extension",
+        "schema_draft"
+      ],
+      "properties": {
+        "artifact_name": {
+          "const": "workflow_execution_log"
+        },
+        "validation_extension": {
+          "const": "Validation Extension B"
+        },
+        "schema_draft": {
+          "const": "2020-12"
+        },
+        "brief_id": {
+          "type": "string"
+        },
+        "workflow_version": {
+          "type": "string"
+        },
+        "project_name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "workflow_summary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "covered_steps",
+        "node_count",
+        "timing_policy"
+      ],
+      "properties": {
+        "covered_steps": {
+          "type": "array",
+          "minItems": 15,
+          "maxItems": 15,
+          "prefixItems": [
+            { "const": 1 },
+            { "const": 2 },
+            { "const": 3 },
+            { "const": 4 },
+            { "const": 5 },
+            { "const": 6 },
+            { "const": 7 },
+            { "const": 8 },
+            { "const": 9 },
+            { "const": 10 },
+            { "const": 11 },
+            { "const": 12 },
+            { "const": 13 },
+            { "const": 14 },
+            { "const": 15 }
+          ]
+        },
+        "node_count": {
+          "const": 15
+        },
+        "timing_policy": {
+          "type": "string"
+        },
+        "steps_1_to_15_rerun": {
+          "const": false
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 15,
+      "prefixItems": [
+        {
+          "allOf": [
+            { "$ref": "#/$defs/node" },
+            {
+              "type": "object",
+              "properties": {
+                "step": { "const": 1 },
+                "node_id": { "const": "step_01_standard_product_brief_input" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/node" },
+            {
+              "type": "object",
+              "properties": {
+                "step": { "const": 2 },
+                "node_id": { "const": "step_02_workflow_schema_io_contract_specification" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/node" },
+            {
+              "type": "object",
+              "properties": {
+                "step": { "const": 3 },
+                "node_id": { "const": "step_03_brief_parser_agent" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/node" },
+            {
+              "type": "object",
+              "properties": {
+                "step": { "const": 4 },
+                "node_id": { "const": "step_04_audience_insight_skill" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/node" },
+            {
+              "type": "object",
+              "properties": {
+                "step": { "const": 5 },
+                "node_id": { "const": "step_05_selling_point_analyst_agent" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/node" },
+            {
+              "type": "object",
+              "properties": {
+                "step": { "const": 6 },
+                "node_id": { "const": "step_06_platform_strategy_skill" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/node" },
+            {
+              "type": "object",
+              "properties": {
+                "step": { "const": 7 },
+                "node_id": { "const": "step_07_creative_copy_agent" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/node" },
+            {
+              "type": "object",
+              "properties": {
+                "step": { "const": 8 },
+                "node_id": { "const": "step_08_image_prompt_skill" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/node" },
+            {
+              "type": "object",
+              "properties": {
+                "step": { "const": 9 },
+                "node_id": { "const": "step_09_brand_compliance_agent" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/node" },
+            {
+              "type": "object",
+              "properties": {
+                "step": { "const": 10 },
+                "node_id": { "const": "step_10_growth_metrics_agent" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/node" },
+            {
+              "type": "object",
+              "properties": {
+                "step": { "const": 11 },
+                "node_id": { "const": "step_11_creative_package_reporter" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/node" },
+            {
+              "type": "object",
+              "properties": {
+                "step": { "const": 12 },
+                "node_id": { "const": "step_12_planner_agent" },
+                "execution_status": { "const": "completed_revised" },
+                "governance_status": { "const": "not_applicable" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/node" },
+            {
+              "type": "object",
+              "properties": {
+                "step": { "const": 13 },
+                "node_id": { "const": "step_13_human_approval_node" },
+                "governance_status": { "const": "needs_revision" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/node" },
+            {
+              "type": "object",
+              "properties": {
+                "step": { "const": 14 },
+                "node_id": { "const": "step_14_growth_evaluation_agent" },
+                "governance_status": { "const": "needs_review" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/node" },
+            {
+              "type": "object",
+              "properties": {
+                "step": { "const": 15 },
+                "node_id": { "const": "step_15_v2_final_report_generator" },
+                "governance_status": { "const": "needs_review" }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "release_gates": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "structured_planning_package",
+        "growth_evaluation",
+        "final_marketing_copy",
+        "final_image_prompt",
+        "image_generation",
+        "frontend_page",
+        "public_release"
+      ],
+      "properties": {
+        "structured_planning_package": { "const": "approved" },
+        "growth_evaluation": { "const": "approved_for_evaluation_only" },
+        "final_marketing_copy": { "const": "blocked" },
+        "final_image_prompt": { "const": "blocked" },
+        "image_generation": { "const": "blocked" },
+        "frontend_page": { "const": "blocked" },
+        "public_release": { "const": "blocked" }
+      }
+    },
+    "artifact_existence_summary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "missing_input_files",
+        "missing_output_files"
+      ],
+      "properties": {
+        "checked_files": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/file_record" }
+        },
+        "missing_input_files": {
+          "type": "array",
+          "items": { "$ref": "common.schema.json#/$defs/artifact_path" }
+        },
+        "missing_output_files": {
+          "type": "array",
+          "items": { "$ref": "common.schema.json#/$defs/artifact_path" }
+        },
+        "blocked_future_assets_not_counted_as_missing": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "$defs": {
+    "execution_status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "completed_revised",
+        "historical_completed",
+        "not_run",
+        "blocked_execution"
+      ]
+    },
+    "governance_status": {
+      "type": "string",
+      "enum": [
+        "needs_review",
+        "needs_revision",
+        "blocked",
+        "approved",
+        "approved_for_evaluation_only",
+        "not_applicable"
+      ]
+    },
+    "node_type": {
+      "type": "string",
+      "enum": [
+        "input_artifact",
+        "specification",
+        "agent",
+        "skill",
+        "approval_node",
+        "evaluation_agent",
+        "report_generator"
+      ]
+    },
+    "timing_evidence_type": {
+      "type": "string",
+      "enum": [
+        "historical_not_available",
+        "runner_log",
+        "audit_log",
+        "manual_record"
+      ]
+    },
+    "timestamp_source": {
+      "type": "string",
+      "enum": [
+        "none",
+        "workflow_runner",
+        "audit_log",
+        "human_operator_record"
+      ]
+    },
+    "file_record": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "path",
+        "exists"
+      ],
+      "properties": {
+        "path": { "$ref": "common.schema.json#/$defs/artifact_path" },
+        "exists": { "type": "boolean" }
+      }
+    },
+    "release_gate_effect": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "changes_release_gates",
+        "blocked_gates_preserved"
+      ],
+      "properties": {
+        "changes_release_gates": { "type": "boolean" },
+        "blocked_gates_preserved": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    },
+    "node": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "step",
+        "node_id",
+        "node_name",
+        "node_type",
+        "execution_status",
+        "execution_status_source",
+        "governance_status",
+        "governance_status_source",
+        "input_files",
+        "output_files",
+        "missing_input_files",
+        "missing_output_files",
+        "started_at",
+        "completed_at",
+        "duration_ms",
+        "timing_evidence_type",
+        "timestamp_source",
+        "release_gate_effect"
+      ],
+      "properties": {
+        "step": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 15
+        },
+        "node_id": { "$ref": "common.schema.json#/$defs/non_empty_string" },
+        "node_name": { "$ref": "common.schema.json#/$defs/non_empty_string" },
+        "node_type": { "$ref": "#/$defs/node_type" },
+        "execution_status": { "$ref": "#/$defs/execution_status" },
+        "execution_status_source": { "$ref": "common.schema.json#/$defs/non_empty_string" },
+        "governance_status": { "$ref": "#/$defs/governance_status" },
+        "governance_status_source": { "$ref": "common.schema.json#/$defs/non_empty_string" },
+        "input_files": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/file_record" }
+        },
+        "output_files": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/file_record" }
+        },
+        "missing_input_files": {
+          "type": "array",
+          "items": { "$ref": "common.schema.json#/$defs/artifact_path" }
+        },
+        "missing_output_files": {
+          "type": "array",
+          "items": { "$ref": "common.schema.json#/$defs/artifact_path" }
+        },
+        "started_at": {
+          "type": ["string", "null"]
+        },
+        "completed_at": {
+          "type": ["string", "null"]
+        },
+        "duration_ms": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "timing_evidence_type": { "$ref": "#/$defs/timing_evidence_type" },
+        "timestamp_source": { "$ref": "#/$defs/timestamp_source" },
+        "release_gate_effect": { "$ref": "#/$defs/release_gate_effect" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "timing_evidence_type": { "const": "historical_not_available" }
+            },
+            "required": ["timing_evidence_type"]
+          },
+          "then": {
+            "properties": {
+              "started_at": { "type": "null" },
+              "completed_at": { "type": "null" },
+              "duration_ms": { "type": "null" },
+              "timestamp_source": { "const": "none" }
+            },
+            "required": [
+              "started_at",
+              "completed_at",
+              "duration_ms",
+              "timestamp_source"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

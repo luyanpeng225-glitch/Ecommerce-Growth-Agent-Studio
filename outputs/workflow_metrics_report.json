@@ -1,0 +1,195 @@
+{
+  "meta": {
+    "artifact_name": "workflow_metrics_report",
+    "artifact_version": "0.1.0",
+    "producer": "build_workflow_metrics.mjs",
+    "build_status": "pass",
+    "script_path": "scripts/build_workflow_metrics.mjs",
+    "script_exit_code": 0
+  },
+  "execution": {
+    "time_status": "measured",
+    "started_at": "2026-07-27T06:54:15.096Z",
+    "completed_at": "2026-07-27T06:54:15.096Z",
+    "duration_ms": 0
+  },
+  "source_artifacts": {
+    "workflow_execution_log": "outputs/workflow_execution_log.json",
+    "failure_scenario_test": "outputs/failure_scenario_test_report.json",
+    "artifact_validation": "outputs/artifact_validation_report.json",
+    "two_stage_compliance_validation": "outputs/two_stage_compliance_validation_report.json",
+    "human_approval": "outputs/human_approval_record.json"
+  },
+  "runtime_metrics": {
+    "planner_runtime": {
+      "value": null,
+      "unit": "ms",
+      "status": "historical_not_available",
+      "source_path": "outputs/workflow_execution_log.json",
+      "source_pointer": "/nodes/11/duration_ms"
+    },
+    "historical_node_timing_coverage": {
+      "total_nodes": 15,
+      "measured_nodes": 0,
+      "historical_not_available_nodes": 15,
+      "coverage_percent": 0,
+      "status": "historical_not_available"
+    },
+    "failure_scenario_test_runtime": {
+      "value": 58,
+      "unit": "ms",
+      "status": "measured",
+      "scope": "failure_scenario_test_only",
+      "source_path": "outputs/failure_scenario_test_report.json",
+      "source_pointer": "/execution/duration_ms"
+    },
+    "workflow_retry_count": {
+      "value": 1,
+      "status": "deterministic_verified",
+      "scope": "failure_scenario_test_only",
+      "source_path": "outputs/failure_scenario_test_report.json"
+    }
+  },
+  "quality_metrics": {
+    "json_parse_rate": {
+      "passed": 49,
+      "total": 49,
+      "rate_percent": 100,
+      "status": "pass",
+      "evidence_type": "deterministic_verified",
+      "source_path": "outputs/artifact_validation_report.json"
+    },
+    "schema_match_rate": {
+      "passed": 18,
+      "total": 18,
+      "rate_percent": 100,
+      "status": "pass",
+      "evidence_type": "deterministic_verified",
+      "source_path": "outputs/artifact_validation_report.json"
+    },
+    "failure_assertion_rate": {
+      "passed": 7,
+      "total": 7,
+      "rate_percent": 100,
+      "status": "pass",
+      "evidence_type": "deterministic_verified",
+      "source_path": "outputs/failure_scenario_test_report.json"
+    },
+    "release_gate_preservation_rate": {
+      "passed": 5,
+      "total": 5,
+      "rate_percent": 100,
+      "status": "pass",
+      "evidence_type": "deterministic_verified",
+      "source_path": "outputs/two_stage_compliance_validation_report.json"
+    }
+  },
+  "governance_metrics": {
+    "compliance": {
+      "validation_status": "pass",
+      "governance_status": "needs_review",
+      "evidence_type": "artifact_derived",
+      "source_path": "outputs/two_stage_compliance_validation_report.json"
+    },
+    "human_review": {
+      "status": "needs_revision",
+      "human_signature": "pending",
+      "evidence_type": "artifact_derived",
+      "source_path": "outputs/human_approval_record.json"
+    },
+    "risk_tracking": {
+      "inherited": 10,
+      "resolved": 0,
+      "unresolved": 10,
+      "newly_detected": 1,
+      "total_post_check": 11,
+      "status": "needs_review",
+      "source_path": "outputs/two_stage_compliance_validation_report.json"
+    }
+  },
+  "overall": {
+    "workflow_status": "needs_review",
+    "final_score": {
+      "availability": "not_available",
+      "value": null,
+      "reason": "No calibrated weighting, production baseline, or multi-case validation exists; a numeric final score would be misleading."
+    },
+    "summary": "Deterministic structure and gate checks pass, while governance, human approval, runtime coverage, and customer validation remain incomplete."
+  },
+  "metric_integrity": {
+    "status": "pass",
+    "checks": [
+      {
+        "check_id": "historical_node_count_is_15",
+        "status": "pass",
+        "source_path": "outputs/workflow_execution_log.json"
+      },
+      {
+        "check_id": "historical_runtime_not_fabricated",
+        "status": "pass",
+        "source_path": "outputs/workflow_execution_log.json"
+      },
+      {
+        "check_id": "failure_scenario_passed",
+        "status": "pass",
+        "source_path": "outputs/failure_scenario_test_report.json"
+      },
+      {
+        "check_id": "failure_retry_observed_once",
+        "status": "pass",
+        "source_path": "outputs/failure_scenario_test_report.json"
+      },
+      {
+        "check_id": "json_parse_all_passed",
+        "status": "pass",
+        "source_path": "outputs/artifact_validation_report.json"
+      },
+      {
+        "check_id": "schema_mapping_all_passed",
+        "status": "pass",
+        "source_path": "outputs/artifact_validation_report.json"
+      },
+      {
+        "check_id": "compliance_structure_passed",
+        "status": "pass",
+        "source_path": "outputs/two_stage_compliance_validation_report.json"
+      },
+      {
+        "check_id": "governance_needs_review_preserved",
+        "status": "pass",
+        "source_path": "outputs/two_stage_compliance_validation_report.json"
+      },
+      {
+        "check_id": "human_review_needs_revision_preserved",
+        "status": "pass",
+        "source_path": "outputs/human_approval_record.json"
+      },
+      {
+        "check_id": "release_gates_remain_blocked",
+        "status": "pass",
+        "source_path": "outputs/failure_scenario_test_report.json"
+      }
+    ]
+  },
+  "release_gates": {
+    "final_marketing_copy": "blocked",
+    "final_image_prompt": "blocked",
+    "image_generation": "blocked",
+    "frontend_page": "blocked",
+    "public_release": "blocked"
+  },
+  "boundaries": {
+    "historical_execution_claimed": false,
+    "planner_time_fabricated": false,
+    "production_ready": false,
+    "customer_validated": false
+  },
+  "limitations": [
+    "Planner and all 15 historical node runtimes remain historical_not_available; no time value is fabricated.",
+    "The measured Failure Scenario Test runtime is not Planner time and not full workflow latency.",
+    "Compliance validation pass describes deterministic structure checks; governance remains needs_review.",
+    "Workflow retry count applies only to the single Failure Scenario Test.",
+    "Final score is intentionally unavailable until weighting and multi-case baselines are calibrated.",
+    "All final generation and release gates remain blocked."
+  ]
+}

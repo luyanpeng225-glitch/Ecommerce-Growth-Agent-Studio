@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/artifacts/portfolio_evidence_pack.schema.json",
+  "title": "Portfolio Evidence Pack Schema",
+  "description": "Validates the structure of a Portfolio Evidence Pack. This schema only checks structure, required evidence records, fixed governance states, and declared evidence types. It does not prove real business outcomes, customer validation, production readiness, factual truth, legal authorization, or actual runtime telemetry.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "project_overview",
+    "business_problem",
+    "workflow_evidence",
+    "validation_evidence",
+    "execution_trace_evidence",
+    "claim_trace_evidence",
+    "evaluation_evidence",
+    "enterprise_governance",
+    "limitations",
+    "reproducibility",
+    "evidence_summary",
+    "release_gates"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "artifact_name",
+        "evidence_pack_version",
+        "product_name",
+        "status",
+        "production_ready",
+        "customer_validated"
+      ],
+      "properties": {
+        "artifact_name": { "const": "portfolio_evidence_pack" },
+        "evidence_pack_version": { "$ref": "#/$defs/non_empty_string" },
+        "product_name": { "const": "运动相机" },
+        "status": { "const": "needs_review" },
+        "production_ready": { "const": false },
+        "customer_validated": { "const": false },
+        "artifact_version": { "type": "string" },
+        "brief_id": { "type": "string" },
+        "producer": { "type": "string" },
+        "generated_at": { "type": "string" },
+        "notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "project_overview": { "$ref": "#/$defs/evidence_section" },
+    "business_problem": { "$ref": "#/$defs/evidence_section" },
+    "workflow_evidence": { "$ref": "#/$defs/evidence_section" },
+    "validation_evidence": { "$ref": "#/$defs/evidence_section" },
+    "execution_trace_evidence": { "$ref": "#/$defs/evidence_section" },
+    "claim_trace_evidence": { "$ref": "#/$defs/evidence_section" },
+    "evaluation_evidence": { "$ref": "#/$defs/evidence_section" },
+    "enterprise_governance": { "$ref": "#/$defs/evidence_section" },
+    "limitations": { "$ref": "#/$defs/evidence_section" },
+    "reproducibility": { "$ref": "#/$defs/evidence_section" },
+    "evidence_summary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "evidence_total",
+        "section_counts",
+        "evidence_type_counts",
+        "source_file_checks",
+        "json_pointer_checks"
+      ],
+      "properties": {
+        "evidence_total": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "section_counts": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 },
+          "required": [
+            "project_overview",
+            "business_problem",
+            "workflow_evidence",
+            "validation_evidence",
+            "execution_trace_evidence",
+            "claim_trace_evidence",
+            "evaluation_evidence",
+            "enterprise_governance",
+            "limitations",
+            "reproducibility"
+          ],
+          "properties": {
+            "project_overview": { "type": "integer", "minimum": 1 },
+            "business_problem": { "type": "integer", "minimum": 1 },
+            "workflow_evidence": { "type": "integer", "minimum": 1 },
+            "validation_evidence": { "type": "integer", "minimum": 1 },
+            "execution_trace_evidence": { "type": "integer", "minimum": 1 },
+            "claim_trace_evidence": { "type": "integer", "minimum": 1 },
+            "evaluation_evidence": { "type": "integer", "minimum": 1 },
+            "enterprise_governance": { "type": "integer", "minimum": 1 },
+            "limitations": { "type": "integer", "minimum": 1 },
+            "reproducibility": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "evidence_type_counts": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 },
+          "required": [
+            "measured",
+            "deterministic_verified",
+            "artifact_derived",
+            "derived_from_mock",
+            "estimated",
+            "human_review_required",
+            "not_available"
+          ],
+          "properties": {
+            "measured": { "type": "integer", "minimum": 0 },
+            "deterministic_verified": { "type": "integer", "minimum": 0 },
+            "artifact_derived": { "type": "integer", "minimum": 0 },
+            "derived_from_mock": { "type": "integer", "minimum": 0 },
+            "estimated": { "type": "integer", "minimum": 0 },
+            "human_review_required": { "type": "integer", "minimum": 0 },
+            "not_available": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "source_file_checks": { "$ref": "#/$defs/check_summary" },
+        "json_pointer_checks": { "$ref": "#/$defs/check_summary" }
+      }
+    },
+    "release_gates": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "structured_planning_package",
+        "growth_evaluation",
+        "final_marketing_copy",
+        "final_image_prompt",
+        "image_generation",
+        "frontend_page",
+        "public_release"
+      ],
+      "properties": {
+        "structured_planning_package": { "const": "approved" },
+        "growth_evaluation": { "const": "approved_for_evaluation_only" },
+        "final_marketing_copy": { "const": "blocked" },
+        "final_image_prompt": { "const": "blocked" },
+        "image_generation": { "const": "blocked" },
+        "frontend_page": { "const": "blocked" },
+        "public_release": { "const": "blocked" }
+      }
+    }
+  },
+  "$defs": {
+    "non_empty_string": {
+      "type": "string",
+      "minLength": 1
+    },
+    "displayed_value": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "evidence_type": {
+      "type": "string",
+      "enum": [
+        "measured",
+        "deterministic_verified",
+        "artifact_derived",
+        "derived_from_mock",
+        "estimated",
+        "human_review_required",
+        "not_available"
+      ]
+    },
+    "portfolio_section": {
+      "type": "string",
+      "minLength": 1,
+      "enum": [
+        "Project Overview",
+        "Business Problem",
+        "Workflow Evidence",
+        "Validation Evidence",
+        "Execution Trace Evidence",
+        "Claim Trace Evidence",
+        "Evaluation Evidence",
+        "Enterprise Governance",
+        "Limitations",
+        "Reproducibility"
+      ]
+    },
+    "evidence_record": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "evidence_id",
+        "evidence_title",
+        "evidence_type",
+        "source_artifact",
+        "source_json_pointer",
+        "displayed_value",
+        "limitation",
+        "portfolio_section"
+      ],
+      "properties": {
+        "evidence_id": { "$ref": "#/$defs/non_empty_string" },
+        "evidence_title": { "$ref": "#/$defs/non_empty_string" },
+        "evidence_type": { "$ref": "#/$defs/evidence_type" },
+        "source_artifact": { "$ref": "#/$defs/non_empty_string" },
+        "source_json_pointer": { "type": "string" },
+        "displayed_value": { "$ref": "#/$defs/displayed_value" },
+        "limitation": { "$ref": "#/$defs/non_empty_string" },
+        "portfolio_section": { "$ref": "#/$defs/portfolio_section" }
+      }
+    },
+    "evidence_section": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/evidence_record" }
+    },
+    "check_summary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "total",
+        "passed",
+        "failed"
+      ],
+      "properties": {
+        "total": { "type": "integer", "minimum": 0 },
+        "passed": { "type": "integer", "minimum": 0 },
+        "failed": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

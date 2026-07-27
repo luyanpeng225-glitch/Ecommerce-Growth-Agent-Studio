@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/artifacts/human_approval_record.schema.json",
+  "title": "Human Approval Record Artifact",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "approval_context",
+    "reviewer_record",
+    "approval_summary",
+    "approval_items",
+    "role_decisions",
+    "release_gates",
+    "revision_queue",
+    "downstream_handoff",
+    "audit_record"
+  ],
+  "properties": {
+    "meta": {
+      "allOf": [{ "$ref": "common.schema.json#/$defs/basic_meta" }],
+      "properties": {
+        "artifact_name": { "const": "human_approval_record" },
+        "producer": { "const": "Human Approval Node" },
+        "workflow_step": { "type": "integer", "const": 13 },
+        "status": { "const": "needs_revision" }
+      }
+    },
+    "approval_context": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["product_name", "review_scope", "inputs_used"],
+      "properties": {
+        "product_name": { "const": "运动相机" },
+        "review_scope": { "type": "array", "items": { "type": "string" } },
+        "inputs_used": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/artifact_path" } }
+      }
+    },
+    "reviewer_record": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["reviewer_role", "human_signature"],
+      "properties": {
+        "reviewer_role": { "type": "array", "items": { "type": "string" } },
+        "reviewer_name": { "type": ["string", "null"] },
+        "human_signature": { "type": "string" },
+        "reviewed_at": { "type": ["string", "null"] }
+      }
+    },
+    "approval_summary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["overall_decision", "planning_artifacts_can_enter_evaluation", "final_generation_allowed", "public_release_allowed"],
+      "properties": {
+        "overall_decision": { "$ref": "common.schema.json#/$defs/human_approval_status" },
+        "planning_artifacts_can_enter_evaluation": { "const": true },
+        "final_generation_allowed": { "const": false },
+        "public_release_allowed": { "const": false },
+        "decision_reason": { "type": "string" }
+      }
+    },
+    "approval_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["item_id", "category", "source_artifact", "evidence_status", "decision", "required_action"],
+        "properties": {
+          "item_id": { "type": "string" },
+          "category": { "type": "string" },
+          "source_artifact": { "$ref": "common.schema.json#/$defs/artifact_path" },
+          "evidence_status": { "type": "string", "enum": ["verified", "missing", "pending"] },
+          "decision": { "$ref": "common.schema.json#/$defs/human_approval_status" },
+          "required_action": { "type": "string" }
+        }
+      }
+    },
+    "role_decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["role", "decision"],
+        "properties": {
+          "role": { "type": "string" },
+          "decision": { "$ref": "common.schema.json#/$defs/human_approval_status" },
+          "comments": { "type": "array", "items": { "type": "string" } },
+          "required_evidence": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "release_gates": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["structured_planning_package", "growth_evaluation", "final_marketing_copy", "final_image_prompt", "image_generation", "public_release"],
+      "properties": {
+        "structured_planning_package": { "const": "approved" },
+        "growth_evaluation": { "const": "approved" },
+        "final_marketing_copy": { "const": "blocked" },
+        "final_image_prompt": { "const": "blocked" },
+        "image_generation": { "const": "blocked" },
+        "public_release": { "const": "blocked" }
+      }
+    },
+    "revision_queue": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "downstream_handoff": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["growth_evaluation_allowed", "generation_allowed", "fields_to_pass"],
+      "properties": {
+        "growth_evaluation_allowed": { "const": true },
+        "generation_allowed": { "const": false },
+        "fields_to_pass": { "type": "array", "items": { "type": "string" } },
+        "blocked_items_to_inherit": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "audit_record": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["trace_id", "source_files", "decision_basis", "unresolved_risks"],
+      "properties": {
+        "trace_id": { "type": "string" },
+        "source_files": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/artifact_path" } },
+        "decision_basis": { "type": "array", "items": { "type": "string" } },
+        "unresolved_risks": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

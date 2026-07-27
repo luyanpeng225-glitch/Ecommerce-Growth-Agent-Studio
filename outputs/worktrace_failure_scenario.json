@@ -1,0 +1,335 @@
+{
+  "meta": {
+    "worktrace_version": "0.1.0",
+    "schema_version": "WorkTrace Artifact Schema",
+    "project_name": "E-commerce Growth Agent Studio",
+    "product_name": "运动相机",
+    "workflow_version": "V2"
+  },
+  "trace_summary": {
+    "trace_id": null,
+    "trace_id_status": "not_available",
+    "artifact_trace_key": "failure_scenario_trace_80a52dcaa5997a67",
+    "trace_type": "deterministic_failure_scenario_trace",
+    "execution_context": "deterministic_test_execution",
+    "workflow_status": "pass",
+    "time_status": "measured",
+    "started_at": "2026-07-17T13:06:01.722Z",
+    "completed_at": "2026-07-17T13:06:01.780Z",
+    "duration_ms": 58,
+    "retry_count": 1,
+    "retry_count_status": "deterministic_verified",
+    "source_artifacts": [
+      {
+        "path": "docs/worktrace_spec.md",
+        "exists": true,
+        "evidence_type": "artifact_derived",
+        "artifact_type": "markdown",
+        "required": true,
+        "json_pointer": null,
+        "section_hint": null,
+        "role": "evidence",
+        "source_status": null,
+        "notes": "Source artifact for deterministic Failure Scenario WorkTrace."
+      },
+      {
+        "path": "schemas/artifacts/worktrace.schema.json",
+        "exists": true,
+        "evidence_type": "artifact_derived",
+        "artifact_type": "schema",
+        "required": true,
+        "json_pointer": null,
+        "section_hint": null,
+        "role": "evidence",
+        "source_status": null,
+        "notes": "Schema used for Ajv validation."
+      },
+      {
+        "path": "data/failure_scenarios/brief_missing_campaign_goal.scenario.json",
+        "exists": true,
+        "evidence_type": "artifact_derived",
+        "artifact_type": "json",
+        "required": true,
+        "json_pointer": null,
+        "section_hint": null,
+        "role": "evidence",
+        "source_status": null,
+        "notes": "Source artifact for deterministic Failure Scenario WorkTrace."
+      },
+      {
+        "path": "outputs/failure_scenario_test_report.json",
+        "exists": true,
+        "evidence_type": "artifact_derived",
+        "artifact_type": "json",
+        "required": true,
+        "json_pointer": null,
+        "section_hint": null,
+        "role": "evidence",
+        "source_status": null,
+        "notes": "Source artifact for deterministic Failure Scenario WorkTrace."
+      },
+      {
+        "path": "outputs/workflow_metrics_report.json",
+        "exists": true,
+        "evidence_type": "artifact_derived",
+        "artifact_type": "json",
+        "required": true,
+        "json_pointer": null,
+        "section_hint": null,
+        "role": "evidence",
+        "source_status": null,
+        "notes": "Source artifact for deterministic Failure Scenario WorkTrace."
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "node_id": "failure_node_01_initial_validation",
+      "sequence": 1,
+      "node_name": "Initial Validation",
+      "node_type": "validation",
+      "status": "blocked",
+      "time_status": "not_applicable",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "data/failure_scenarios/brief_missing_campaign_goal.scenario.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": "pass",
+          "notes": "Deterministic failure scenario definition."
+        },
+        {
+          "path": "data/sample_brief.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": "pass",
+          "notes": "Original source brief used for deterministic restore; source file is not modified by this WorkTrace."
+        },
+        {
+          "path": "schemas/product_brief.schema.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "schema",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "validation_source",
+          "source_status": "pass",
+          "notes": "Product Brief Schema used for initial validation and rerun."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "outputs/failure_scenario_test_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "evidence",
+          "source_status": "pass",
+          "notes": "Deterministic test report with measured total script runtime and assertions."
+        }
+      ],
+      "risk_ids": [],
+      "claim_ids": [],
+      "retry_count": 0,
+      "retry_count_status": "deterministic_verified",
+      "error": {
+        "error_code": "missing_required_campaign_goal",
+        "reason": "Initial schema validation is blocked because required field campaign_goal is missing after deterministic fault injection.",
+        "revision_action": "Create revision queue item to restore campaign_goal from the original source brief before rerun.",
+        "source_ref": {
+          "path": "outputs/failure_scenario_test_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": "/initial_run/schema_errors/0",
+          "section_hint": null,
+          "role": "evidence",
+          "source_status": "blocked",
+          "notes": "Initial run reports missing campaign_goal and workflow_status=blocked."
+        }
+      },
+      "human_approval": null,
+      "next_node": "failure_node_02_revision_queue"
+    },
+    {
+      "node_id": "failure_node_02_revision_queue",
+      "sequence": 2,
+      "node_name": "Revision Queue",
+      "node_type": "revision",
+      "status": "pass",
+      "time_status": "not_applicable",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "outputs/failure_scenario_test_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "evidence",
+          "source_status": "pass",
+          "notes": "Deterministic test report with measured total script runtime and assertions."
+        },
+        {
+          "path": "data/sample_brief.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": "pass",
+          "notes": "Original source brief used for deterministic restore; source file is not modified by this WorkTrace."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "outputs/failure_scenario_test_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "evidence",
+          "source_status": "pass",
+          "notes": "Deterministic test report with measured total script runtime and assertions."
+        }
+      ],
+      "risk_ids": [],
+      "claim_ids": [],
+      "retry_count": null,
+      "retry_count_status": "not_applicable",
+      "error": null,
+      "human_approval": null,
+      "next_node": "failure_node_03_schema_rerun"
+    },
+    {
+      "node_id": "failure_node_03_schema_rerun",
+      "sequence": 3,
+      "node_name": "Schema Rerun",
+      "node_type": "validation",
+      "status": "pass",
+      "time_status": "not_applicable",
+      "started_at": null,
+      "completed_at": null,
+      "duration_ms": null,
+      "input_refs": [
+        {
+          "path": "data/failure_scenarios/brief_missing_campaign_goal.scenario.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": "pass",
+          "notes": "Deterministic failure scenario definition."
+        },
+        {
+          "path": "data/sample_brief.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "input",
+          "source_status": "pass",
+          "notes": "Original source brief used for deterministic restore; source file is not modified by this WorkTrace."
+        },
+        {
+          "path": "schemas/product_brief.schema.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "schema",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "validation_source",
+          "source_status": "pass",
+          "notes": "Product Brief Schema used for initial validation and rerun."
+        },
+        {
+          "path": "outputs/failure_scenario_test_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "evidence",
+          "source_status": "pass",
+          "notes": "Deterministic test report with measured total script runtime and assertions."
+        }
+      ],
+      "output_refs": [
+        {
+          "path": "outputs/failure_scenario_test_report.json",
+          "exists": true,
+          "evidence_type": "artifact_derived",
+          "artifact_type": "json",
+          "required": true,
+          "json_pointer": null,
+          "section_hint": null,
+          "role": "evidence",
+          "source_status": "pass",
+          "notes": "Deterministic test report with measured total script runtime and assertions."
+        }
+      ],
+      "risk_ids": [],
+      "claim_ids": [],
+      "retry_count": 1,
+      "retry_count_status": "deterministic_verified",
+      "error": null,
+      "human_approval": null,
+      "next_node": null
+    }
+  ],
+  "release_gates": {
+    "final_marketing_copy": "blocked",
+    "final_image_prompt": "blocked",
+    "image_generation": "blocked",
+    "frontend_page": "blocked",
+    "public_release": "blocked"
+  },
+  "boundaries": {
+    "historical_execution_claimed": false,
+    "production_ready": false,
+    "customer_validated": false,
+    "fabricated_runtime_allowed": false
+  },
+  "limitations": [
+    "58 ms is the measured total runtime of the Failure Scenario Test script only.",
+    "The measured duration is not Planner runtime and is not full Agent workflow runtime.",
+    "artifact_trace_key is derived from the Failure Scenario report and is not a runtime trace_id.",
+    "This WorkTrace validates deterministic input structure recovery only; it does not evaluate product claims or compliance risks, so risk_ids and claim_ids are empty.",
+    "Revision Queue records deterministic restore_from_source behavior only; it does not claim a real human edited the brief.",
+    "Workflow metrics boundary preserved: failure runtime scope=failure_scenario_test_only.",
+    "Final marketing copy, final image prompt, image generation, frontend page, and public release remain blocked."
+  ]
+}

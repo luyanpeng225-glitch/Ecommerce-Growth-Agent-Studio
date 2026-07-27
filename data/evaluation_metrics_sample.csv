@@ -1,0 +1,4 @@
+case_id,product_name,category,workflow_status,expected_nodes,completed_nodes,task_completion_rate,baseline_manual_minutes_estimate,agent_workflow_minutes_estimate,human_edit_rate_mock,hallucination_rate_mock,compliance_blocked_items,status_note
+case_001,运动相机,智能影像设备,completed,11,11,100%,360-600,90-150,TBD,TBD,6,"当前唯一完整样例；时间为Demo估算，不代表真实客户效果"
+case_002,便携投影仪,消费电子,pending,11,0,TBD,TBD,TBD,TBD,TBD,TBD,"待补第二个商品Brief后测试"
+case_003,美妆精华,美妆个护,pending,11,0,TBD,TBD,TBD,TBD,TBD,TBD,"待补第三个商品Brief后测试，重点观察功效宣称风险"

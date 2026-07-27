@@ -1,0 +1,346 @@
+{
+  "meta": {
+    "artifact_name": "brand_compliance_pre_check",
+    "artifact_version": "0.1.0",
+    "brief_id": "brief_demo_action_camera_001",
+    "product_name": "运动相机",
+    "producer": "Brand Compliance Agent",
+    "compliance_run_id": "brief_demo_action_camera_001::brand_compliance::pre_check::001",
+    "mode": "pre_check",
+    "trace_id": "brief_demo_action_camera_001::two_stage_compliance",
+    "status": "needs_review",
+    "execution_context": "retrospective_design_validation",
+    "historical_execution_claimed": false
+  },
+  "inputs_used": [
+    "docs/two_stage_compliance_spec.md",
+    "prompts/brand_compliance_agent.md",
+    "schemas/artifacts/two_stage_compliance_report.schema.json",
+    "data/sample_brief.json",
+    "outputs/standardized_brief_summary.json",
+    "PROJECT_MEMORY_FOR_OPENCLAW.md"
+  ],
+  "decision_summary": {
+    "decision": "needs_review",
+    "summary": "Brief 结构完整，商品、受众、渠道、KPI、合规规则、负向约束和必要素材字段均已提供，可进入 Planner Agent 和结构化创意规划；但 Brief 中的 proof 文本只是自述或需求描述，不等于正式测试报告、第三方证明、素材授权或法务审批，因此所有能力证明、素材授权、商业结果承诺和数据来源边界必须作为风险传递到后续节点。",
+    "target_stage": "Planner Agent",
+    "next_stage_allowed": true,
+    "human_review_required": true
+  },
+  "risk_records": [
+    {
+      "compliance_run_id": "brief_demo_action_camera_001::brand_compliance::pre_check::001",
+      "mode": "pre_check",
+      "trace_id": "brief_demo_action_camera_001::two_stage_compliance",
+      "risk_id": "risk_brief_structure_complete_but_evidence_not_formal",
+      "risk_type": "brief_completeness",
+      "source_artifact": "outputs/standardized_brief_summary.json",
+      "source_json_pointer": "/data/field_completeness",
+      "evidence_status": "verified",
+      "severity": "minor",
+      "decision": "approved",
+      "revision_action": "允许 Planner 使用完整 Brief 结构；同时必须保留证明材料不足和人工审核要求，不能把字段齐全误写为事实已证明。",
+      "release_gate_effect": {
+        "structured_planning_package": "approved",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "human_review_required": false,
+      "notes": "required_fields_present 为 30/30，schema_fields_present 为 42/42；该结论只证明结构完整，不证明性能或授权真实有效。"
+    },
+    {
+      "compliance_run_id": "brief_demo_action_camera_001::brand_compliance::pre_check::001",
+      "mode": "pre_check",
+      "trace_id": "brief_demo_action_camera_001::two_stage_compliance",
+      "risk_id": "risk_hd_360_image_quality_requires_formal_proof",
+      "risk_type": "product_capability_claim",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/core_features/0/proof",
+      "evidence_status": "requires_human_verification",
+      "severity": "major",
+      "decision": "needs_review",
+      "revision_action": "补充高清与 360 度拍摄的正式规格、测试条件、样片来源或技术证明；在补齐前只能作为待验证卖点进入结构化规划，不得生成最终宣传承诺。",
+      "release_gate_effect": {
+        "structured_planning_package": "needs_review",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "human_review_required": true,
+      "related_fields": [
+        "/short_description",
+        "/core_features/0",
+        "/core_features/1",
+        "/specs/video_resolution",
+        "/specs/shooting_mode"
+      ]
+    },
+    {
+      "compliance_run_id": "brief_demo_action_camera_001::brand_compliance::pre_check::001",
+      "mode": "pre_check",
+      "trace_id": "brief_demo_action_camera_001::two_stage_compliance",
+      "risk_id": "risk_stabilization_claim_requires_test_conditions",
+      "risk_type": "product_capability_claim",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/core_features/2/proof",
+      "evidence_status": "requires_human_verification",
+      "severity": "major",
+      "decision": "needs_review",
+      "revision_action": "补充运动防抖的测试场景、适用限制、样片或正式评测材料；下游不得使用“任何场景稳定”“百分百稳定”等绝对化表达。",
+      "release_gate_effect": {
+        "structured_planning_package": "needs_review",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "human_review_required": true,
+      "related_fields": [
+        "/specs/stabilization",
+        "/usage_scenarios/0",
+        "/barriers/4"
+      ]
+    },
+    {
+      "compliance_run_id": "brief_demo_action_camera_001::brand_compliance::pre_check::001",
+      "mode": "pre_check",
+      "trace_id": "brief_demo_action_camera_001::two_stage_compliance",
+      "risk_id": "risk_waterproof_durability_requires_rating_and_limits",
+      "risk_type": "product_capability_claim",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/core_features/3/proof",
+      "evidence_status": "requires_human_verification",
+      "severity": "critical",
+      "decision": "needs_review",
+      "revision_action": "补充裸机防水等级、深度、时长、温度、盐水或雨雪等适用条件、耐用测试标准和免责边界；未补齐前不得把雨天、海边、潜水、雪地等描述扩写为无条件承诺。",
+      "release_gate_effect": {
+        "structured_planning_package": "needs_review",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "human_review_required": true,
+      "related_fields": [
+        "/specs/waterproof",
+        "/usage_scenarios/2",
+        "/compliance_rules/1",
+        "/do_not_claim/3"
+      ]
+    },
+    {
+      "compliance_run_id": "brief_demo_action_camera_001::brand_compliance::pre_check::001",
+      "mode": "pre_check",
+      "trace_id": "brief_demo_action_camera_001::two_stage_compliance",
+      "risk_id": "risk_ai_auto_editing_effect_requires_scope_limits",
+      "risk_type": "product_capability_claim",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/core_features/4/proof",
+      "evidence_status": "requires_human_verification",
+      "severity": "major",
+      "decision": "needs_review",
+      "revision_action": "补充 AI 自动剪辑功能范围、输入限制、人工调整要求和效果样例来源；下游只能表述为辅助效率能力，不得承诺爆款、专业摄影师水平、零学习成本或商业结果。",
+      "release_gate_effect": {
+        "structured_planning_package": "needs_review",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "human_review_required": true,
+      "related_fields": [
+        "/specs/companion_app",
+        "/negative_constraints/3",
+        "/do_not_claim/4"
+      ]
+    },
+    {
+      "compliance_run_id": "brief_demo_action_camera_001::brand_compliance::pre_check::001",
+      "mode": "pre_check",
+      "trace_id": "brief_demo_action_camera_001::two_stage_compliance",
+      "risk_id": "risk_required_product_app_scene_assets_need_authorization",
+      "risk_type": "asset_authorization",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/required_assets",
+      "evidence_status": "pending",
+      "severity": "critical",
+      "decision": "needs_review",
+      "revision_action": "在进入最终内容前确认商品白底图、商品佩戴或固定方式图、户外运动场景样片、移动端 App 剪辑界面截图均来自已授权素材库或正式拍摄/截图流程，并记录授权范围。",
+      "release_gate_effect": {
+        "structured_planning_package": "needs_review",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "human_review_required": true,
+      "assets_requiring_authorization": [
+        "商品白底图",
+        "商品佩戴或固定方式图",
+        "户外运动场景样片",
+        "移动端 App 剪辑界面截图"
+      ]
+    },
+    {
+      "compliance_run_id": "brief_demo_action_camera_001::brand_compliance::pre_check::001",
+      "mode": "pre_check",
+      "trace_id": "brief_demo_action_camera_001::two_stage_compliance",
+      "risk_id": "risk_logo_portrait_and_scene_materials_need_rights_clearance",
+      "risk_type": "asset_authorization",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/compliance_rules/4",
+      "evidence_status": "pending",
+      "severity": "critical",
+      "decision": "needs_review",
+      "revision_action": "确认 Logo、人物肖像、真实品牌元素、户外场景素材和任何类似名人形象均已授权；图片 Prompt 或视觉规划不得生成真实品牌 Logo 或未经授权的人物肖像。",
+      "release_gate_effect": {
+        "structured_planning_package": "needs_review",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "human_review_required": true,
+      "assets_requiring_authorization": [
+        "Logo",
+        "人物肖像",
+        "真实品牌元素",
+        "场景素材",
+        "App 界面截图"
+      ]
+    },
+    {
+      "compliance_run_id": "brief_demo_action_camera_001::brand_compliance::pre_check::001",
+      "mode": "pre_check",
+      "trace_id": "brief_demo_action_camera_001::two_stage_compliance",
+      "risk_id": "risk_forbidden_expression_competitor_and_negative_constraints",
+      "risk_type": "forbidden_expression",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/do_not_claim",
+      "evidence_status": "supported_by_provided_source",
+      "severity": "major",
+      "decision": "needs_review",
+      "revision_action": "Planner 和后续结构化创意必须继承禁止行业第一、最好、唯一、百分百稳定、攻击具体竞品品牌、任何场景不损坏、无需学习达到专业水平等限制；竞品只能做品类层面的中性分析。",
+      "release_gate_effect": {
+        "structured_planning_package": "needs_review",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "human_review_required": true,
+      "related_fields": [
+        "/competitors",
+        "/compliance_rules",
+        "/negative_constraints"
+      ]
+    },
+    {
+      "compliance_run_id": "brief_demo_action_camera_001::brand_compliance::pre_check::001",
+      "mode": "pre_check",
+      "trace_id": "brief_demo_action_camera_001::two_stage_compliance",
+      "risk_id": "risk_growth_metrics_must_not_be_result_promises",
+      "risk_type": "business_result_claim",
+      "source_artifact": "data/sample_brief.json",
+      "source_json_pointer": "/primary_kpis",
+      "evidence_status": "supported_by_provided_source",
+      "severity": "major",
+      "decision": "needs_review",
+      "revision_action": "CTR、CVR、GMV、流量、成交、直播间进入率、商品点击率等只能作为观测指标、实验指标或复盘字段；不得写成提升承诺、保底结果或已实现业务成绩。",
+      "release_gate_effect": {
+        "structured_planning_package": "needs_review",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "human_review_required": true,
+      "related_fields": [
+        "/channels/0/primary_kpis",
+        "/channels/2/primary_kpis",
+        "/channels/3/primary_kpis",
+        "/compliance_rules/3"
+      ]
+    },
+    {
+      "compliance_run_id": "brief_demo_action_camera_001::brand_compliance::pre_check::001",
+      "mode": "pre_check",
+      "trace_id": "brief_demo_action_camera_001::two_stage_compliance",
+      "risk_id": "risk_mock_estimated_not_available_data_must_not_be_real_results",
+      "risk_type": "data_source_type",
+      "source_artifact": "PROJECT_MEMORY_FOR_OPENCLAW.md",
+      "source_json_pointer": "n/a_markdown_section:Validation Extension C Completion Notes",
+      "evidence_status": "derived_from_mock",
+      "severity": "major",
+      "decision": "needs_review",
+      "revision_action": "后续所有规划、测评和报告必须区分 mock、estimated、not_available、artifact_derived 和真实证据；不得把 Demo 推导、估算或不可用数据包装成真实客户验证、真实投放结果或生产 telemetry。",
+      "release_gate_effect": {
+        "structured_planning_package": "needs_review",
+        "growth_evaluation": "approved_for_evaluation_only",
+        "final_marketing_copy": "blocked",
+        "final_image_prompt": "blocked",
+        "image_generation": "blocked",
+        "frontend_page": "blocked",
+        "public_release": "blocked"
+      },
+      "human_review_required": true,
+      "related_fields": [
+        "PROJECT_MEMORY_FOR_OPENCLAW.md#Validation Extension C Completion Notes",
+        "PROJECT_MEMORY_FOR_OPENCLAW.md#Portfolio Evidence Pack Completion Notes"
+      ]
+    }
+  ],
+  "cross_stage_risk_tracking": {
+    "detected_risk_ids": [
+      "risk_brief_structure_complete_but_evidence_not_formal",
+      "risk_hd_360_image_quality_requires_formal_proof",
+      "risk_stabilization_claim_requires_test_conditions",
+      "risk_waterproof_durability_requires_rating_and_limits",
+      "risk_ai_auto_editing_effect_requires_scope_limits",
+      "risk_required_product_app_scene_assets_need_authorization",
+      "risk_logo_portrait_and_scene_materials_need_rights_clearance",
+      "risk_forbidden_expression_competitor_and_negative_constraints",
+      "risk_growth_metrics_must_not_be_result_promises",
+      "risk_mock_estimated_not_available_data_must_not_be_real_results"
+    ],
+    "handoff_to_post_generation_check": "post_generation_check 必须继承 detected_risk_ids；如果结构化创意或视觉方案触及相同底层风险，必须复用相同 risk_id，不得改名或遗漏。"
+  },
+  "release_gates": {
+    "structured_planning_package": "needs_review",
+    "growth_evaluation": "approved_for_evaluation_only",
+    "final_marketing_copy": "blocked",
+    "final_image_prompt": "blocked",
+    "image_generation": "blocked",
+    "frontend_page": "blocked",
+    "public_release": "blocked"
+  },
+  "limitations": [
+    "本次是 retrospective_design_validation，不声称 Brand Compliance Agent 的 pre_check 在历史 Steps 1-15 执行前真实运行过。",
+    "未补造历史运行时间、耗时或 timestamp。",
+    "Brief 中填写的 proof 文本只作为自述或需求线索，不视为第三方证明、正式测试报告或法务授权。",
+    "本次未读取 Creative Agent、Image Prompt Skill 或历史 Brand Compliance 输出作为判断输入。",
+    "pre_check 的 needs_review 仅表示可以带风险进入 Planner 和结构化创意阶段，不代表最终内容合规。",
+    "最终营销文案、最终图片 Prompt、图片生成、前端页面和公开发布继续 blocked。"
+  ]
+}

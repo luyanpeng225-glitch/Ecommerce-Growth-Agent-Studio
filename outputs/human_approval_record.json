@@ -1,0 +1,301 @@
+{
+  "meta": {
+    "artifact_name": "human_approval_record",
+    "artifact_version": "0.1.0",
+    "brief_id": "brief_demo_action_camera_001",
+    "producer": "Human Approval Node",
+    "workflow_step": 13,
+    "workflow_version": "V2",
+    "status": "needs_revision"
+  },
+  "approval_context": {
+    "project_name": "E-commerce Growth Agent Studio",
+    "product_name": "运动相机",
+    "review_mode": "portfolio_demo",
+    "review_scope": [
+      "Planner Agent V2 execution plan",
+      "Creative Copy Agent structured creative outline",
+      "Brand Compliance Agent risk and blocked-gate conclusions",
+      "release gate distinction between evaluation and generation/public release"
+    ],
+    "inputs_used": [
+      "PROJECT_MEMORY_FOR_OPENCLAW.md",
+      "README.md",
+      "FILE_INDEX.md",
+      "workflow/agent_workflow.md",
+      "workflow/agent_io_contracts.md",
+      "prompts/planner_agent.md",
+      "outputs/planner_execution_plan.json",
+      "outputs/creative_copy_pack_outline.json",
+      "outputs/brand_compliance_report.json",
+      "data/sample_brief.json"
+    ]
+  },
+  "reviewer_record": {
+    "reviewer_role": [
+      "品牌",
+      "法务/合规",
+      "电商运营",
+      "内容负责人",
+      "设计负责人"
+    ],
+    "reviewer_name": null,
+    "human_signature": "pending",
+    "reviewed_at": null,
+    "note": "不得伪造真实人工审批；本记录为作品集 Demo 审批记录，不是真实企业员工签字。"
+  },
+  "approval_summary": {
+    "overall_decision": "needs_revision",
+    "planning_artifacts_can_enter_evaluation": true,
+    "final_generation_allowed": false,
+    "public_release_allowed": false,
+    "decision_reason": "结构化规划产物可进入 Step 14 Growth Evaluation 进行工作流测评；但证明材料、素材授权和真实人工确认尚未完成，最终营销文案、最终图片 Prompt、图片生成和公开发布继续 blocked。"
+  },
+  "approval_items": [
+    {
+      "item_id": "approval_item_001",
+      "category": "structured_planning_package",
+      "source_artifact": "outputs/planner_execution_plan.json",
+      "risk_level": "minor",
+      "issue": "Planner 已明确 V2 路由、审批状态和下游交接字段，可用于作品集 Demo 的测评输入。",
+      "evidence_status": "verified",
+      "decision": "approved",
+      "required_action": "进入 Step 14 时只作为测评输入，不得自动解除最终生成闸口。",
+      "owner_role": "电商运营"
+    },
+    {
+      "item_id": "approval_item_002",
+      "category": "copy_structure",
+      "source_artifact": "outputs/creative_copy_pack_outline.json",
+      "risk_level": "major",
+      "issue": "创意文案仅为结构化模块，尚未补齐高清、全景、防水、防抖、耐用和 AI 自动剪辑等证明材料。",
+      "evidence_status": "missing",
+      "decision": "needs_revision",
+      "required_action": "补充证明材料、claim 来源和合规替代表达后，才能考虑最终文案生成。",
+      "owner_role": "内容负责人"
+    },
+    {
+      "item_id": "approval_item_003",
+      "category": "technical_and_performance_claims",
+      "source_artifact": "outputs/brand_compliance_report.json",
+      "risk_level": "critical",
+      "issue": "防水、防抖、耐用等性能声明缺少等级、时长、深度、测试条件和适用限制。",
+      "evidence_status": "missing",
+      "decision": "blocked",
+      "required_action": "补充测试条件、规格证明和限制说明；未完成前不得生成或发布相关最终内容。",
+      "owner_role": "法务/合规"
+    },
+    {
+      "item_id": "approval_item_004",
+      "category": "ai_auto_editing_claim",
+      "source_artifact": "outputs/brand_compliance_report.json",
+      "risk_level": "major",
+      "issue": "AI 自动剪辑不能承诺爆款、专业结果、必然提升效率或零学习成本。",
+      "evidence_status": "pending",
+      "decision": "needs_revision",
+      "required_action": "仅保留辅助、初稿、可编辑流程和效率观察口径，并等待产品演示证明。",
+      "owner_role": "品牌"
+    },
+    {
+      "item_id": "approval_item_005",
+      "category": "growth_metric_language",
+      "source_artifact": "outputs/brand_compliance_report.json",
+      "risk_level": "critical",
+      "issue": "GMV、流量、CTR、CVR 和转化提升只能作为观测指标，不能作为结果承诺。",
+      "evidence_status": "verified",
+      "decision": "approved",
+      "required_action": "Step 14 可读取这些指标作为测评和复盘字段，但不得写成营销承诺。",
+      "owner_role": "电商运营"
+    },
+    {
+      "item_id": "approval_item_006",
+      "category": "asset_authorization",
+      "source_artifact": "outputs/brand_compliance_report.json",
+      "risk_level": "critical",
+      "issue": "Logo、人物肖像、商品图片、App 截图和场景素材需要授权；当前没有真实授权证明。",
+      "evidence_status": "missing",
+      "decision": "blocked",
+      "required_action": "补齐素材授权、来源追踪和使用范围；未完成前不得生成最终图片 Prompt、图片或公开发布。",
+      "owner_role": "设计负责人"
+    },
+    {
+      "item_id": "approval_item_007",
+      "category": "portfolio_demo_positioning",
+      "source_artifact": "data/sample_brief.json",
+      "risk_level": "minor",
+      "issue": "项目必须保持 ToB 多 Agent 工作流定位，Demo 商品名称只使用运动相机，不能转成单品牌、单型号或单商品工具。",
+      "evidence_status": "verified",
+      "decision": "approved",
+      "required_action": "后续报告继续沿用项目定位和命名规则。",
+      "owner_role": "品牌"
+    }
+  ],
+  "role_decisions": [
+    {
+      "role": "品牌",
+      "decision": "needs_revision",
+      "comments": [
+        "项目定位与 Demo 商品命名可用于作品集展示。",
+        "品牌语气、卖点边界和 AI 自动剪辑表述仍需人工确认。"
+      ],
+      "required_evidence": [
+        "品牌语气确认",
+        "可用卖点清单",
+        "AI 自动剪辑演示材料"
+      ]
+    },
+    {
+      "role": "法务/合规",
+      "decision": "blocked",
+      "comments": [
+        "最终生成和公开发布条件不满足。",
+        "性能声明、商业结果表达和素材授权仍存在关键阻断。"
+      ],
+      "required_evidence": [
+        "防水等级和使用条件",
+        "防抖测试条件",
+        "耐用性限制说明",
+        "广告合规确认"
+      ]
+    },
+    {
+      "role": "电商运营",
+      "decision": "approved",
+      "comments": [
+        "结构化规划包可以进入 Step 14 做流程测评。",
+        "指标只能作为观测、实验、看板或复盘字段。"
+      ],
+      "required_evidence": [
+        "渠道目标确认",
+        "指标口径确认"
+      ]
+    },
+    {
+      "role": "内容负责人",
+      "decision": "needs_revision",
+      "comments": [
+        "创意模块结构可用于测评。",
+        "最终文案生成前需要补齐证明材料和改写规则。"
+      ],
+      "required_evidence": [
+        "claim 来源映射",
+        "证明材料清单",
+        "禁止表达清单"
+      ]
+    },
+    {
+      "role": "设计负责人",
+      "decision": "blocked",
+      "comments": [
+        "未提供真实素材授权，不能进入最终图片 Prompt 或图片生成。",
+        "可在 Step 14 评估素材授权缺口对流程的影响。"
+      ],
+      "required_evidence": [
+        "商品图授权",
+        "App 截图授权",
+        "场景素材授权",
+        "人物肖像授权或排除证明"
+      ]
+    }
+  ],
+  "release_gates": {
+    "structured_planning_package": "approved",
+    "growth_evaluation": "approved",
+    "final_marketing_copy": "blocked",
+    "final_image_prompt": "blocked",
+    "image_generation": "blocked",
+    "public_release": "blocked"
+  },
+  "revision_queue": [
+    {
+      "revision_id": "rev_001",
+      "source_node": "Creative Agent",
+      "issue": "高清、全景、防水、防抖、耐用等表达缺少完整证明材料和适用条件。",
+      "required_action": "补充证明材料字段、适用范围、限制说明和可替代表达。",
+      "owner_role": "内容负责人",
+      "priority": "high",
+      "return_to_node": "Creative Agent"
+    },
+    {
+      "revision_id": "rev_002",
+      "source_node": "Brand Compliance Agent",
+      "issue": "最终生成和公开发布的合规阻断仍未解除。",
+      "required_action": "确认合规替代表达、阻断规则和人工复核清单。",
+      "owner_role": "法务/合规",
+      "priority": "high",
+      "return_to_node": "Brand Compliance Agent"
+    },
+    {
+      "revision_id": "rev_003",
+      "source_node": "Image Prompt Skill",
+      "issue": "商品图片、App 截图、Logo、人物肖像和场景素材缺少授权。",
+      "required_action": "补充素材授权、来源追踪和使用范围；未完成前保持图片相关 release gate blocked。",
+      "owner_role": "设计负责人",
+      "priority": "high",
+      "return_to_node": "Image Prompt Skill"
+    },
+    {
+      "revision_id": "rev_004",
+      "source_node": "Planner Agent",
+      "issue": "进入 Step 14 时需要保留“可测评不等于可生成”的闸口说明。",
+      "required_action": "将审批状态、blocked items 和 revision queue 传给 Growth Evaluation Agent。",
+      "owner_role": "电商运营",
+      "priority": "medium",
+      "return_to_node": "Growth Evaluation Agent"
+    }
+  ],
+  "downstream_handoff": {
+    "next_step": "Step 14: Growth Evaluation Agent",
+    "growth_evaluation_allowed": true,
+    "generation_allowed": false,
+    "fields_to_pass": [
+      "meta.status",
+      "approval_summary.overall_decision",
+      "approval_summary.planning_artifacts_can_enter_evaluation",
+      "approval_summary.final_generation_allowed",
+      "approval_summary.public_release_allowed",
+      "approval_items",
+      "role_decisions",
+      "release_gates",
+      "revision_queue",
+      "audit_record.unresolved_risks"
+    ],
+    "blocked_items_to_inherit": [
+      "final marketing copy",
+      "final image prompt",
+      "image generation",
+      "public release",
+      "unverified technical/performance claims",
+      "unauthorized product/App/scene/person/Logo assets",
+      "business result guarantees"
+    ]
+  },
+  "audit_record": {
+    "trace_id": "brief_demo_action_camera_001::step13_human_approval_node",
+    "source_files": [
+      "PROJECT_MEMORY_FOR_OPENCLAW.md",
+      "README.md",
+      "FILE_INDEX.md",
+      "workflow/agent_workflow.md",
+      "workflow/agent_io_contracts.md",
+      "prompts/planner_agent.md",
+      "outputs/planner_execution_plan.json",
+      "outputs/creative_copy_pack_outline.json",
+      "outputs/brand_compliance_report.json",
+      "data/sample_brief.json"
+    ],
+    "decision_basis": [
+      "Planner Agent requires Human Approval before Image Prompt Skill and Growth Evaluation handoff.",
+      "Creative Copy Agent produced structures only, not final copy.",
+      "Brand Compliance Agent keeps final generation and public release blocked until proof, authorization, and human-in-the-loop review are complete.",
+      "No real reviewer name, signature, timestamp, or authorization proof was provided."
+    ],
+    "unresolved_risks": [
+      "missing proof for image quality, waterproof, stabilization, durability, and AI editing claims",
+      "missing product image, App screenshot, scene asset, Logo, and likeness authorization",
+      "risk of turning CTR, CVR, GMV, traffic, or conversion into outcome promises",
+      "final copy, final image prompt, image generation, and public release remain blocked"
+    ],
+    "created_for": "portfolio_demo"
+  }
+}

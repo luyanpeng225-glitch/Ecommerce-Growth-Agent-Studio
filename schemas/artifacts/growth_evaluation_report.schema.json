@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/artifacts/growth_evaluation_report.schema.json",
+  "title": "Growth Evaluation Report Artifact",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "evaluation_scope",
+    "data_quality_summary",
+    "benchmark_cases",
+    "metric_results",
+    "rubric_results",
+    "workflow_gate_checks",
+    "failure_taxonomy",
+    "issue_list",
+    "human_approval_inheritance",
+    "release_gates",
+    "iteration_recommendations",
+    "reproducibility_record",
+    "downstream_handoff"
+  ],
+  "properties": {
+    "meta": {
+      "allOf": [{ "$ref": "common.schema.json#/$defs/basic_meta" }],
+      "properties": {
+        "artifact_name": { "const": "growth_evaluation_report" },
+        "producer": { "const": "Growth Evaluation Agent" },
+        "workflow_step": { "type": "integer", "const": 14 },
+        "product_name": { "const": "运动相机" },
+        "status": { "const": "needs_review" }
+      }
+    },
+    "evaluation_scope": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["evaluates", "not_responsible_for", "source_files_read", "step_boundary_confirmation"],
+      "properties": {
+        "evaluates": { "type": "array", "items": { "type": "string" } },
+        "not_responsible_for": { "type": "array", "items": { "type": "string" } },
+        "source_files_read": { "type": "array", "items": { "$ref": "common.schema.json#/$defs/artifact_path" } },
+        "step_boundary_confirmation": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["step_13_status", "structured_planning_can_enter_evaluation", "final_generation_allowed", "public_release_allowed", "demo_product_name_rule"],
+          "properties": {
+            "step_13_status": { "const": "needs_revision" },
+            "structured_planning_can_enter_evaluation": { "const": true },
+            "final_generation_allowed": { "const": false },
+            "public_release_allowed": { "const": false },
+            "demo_product_name_rule": { "type": "string" }
+          }
+        }
+      }
+    },
+    "data_quality_summary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["overall_data_quality", "completed_demo_cases", "pending_demo_cases", "data_source_type_rules"],
+      "properties": {
+        "overall_data_quality": { "type": "string" },
+        "completed_demo_cases": { "type": "integer", "minimum": 0 },
+        "pending_demo_cases": { "type": "integer", "minimum": 0 },
+        "data_source_type_rules": { "type": "object", "additionalProperties": { "type": "string" } }
+      }
+    },
+    "benchmark_cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["case_id", "product_name", "status", "data_source_type"],
+        "properties": {
+          "case_id": { "type": "string" },
+          "product_name": { "type": "string" },
+          "status": { "type": "string" },
+          "data_source_type": { "$ref": "common.schema.json#/$defs/evidence_type" }
+        }
+      },
+      "contains": {
+        "type": "object",
+        "required": ["product_name"],
+        "properties": {
+          "product_name": { "const": "运动相机" }
+        }
+      }
+    },
+    "metric_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["metric_id", "metric_name", "data_source_type", "calculation_basis"],
+        "properties": {
+          "metric_id": { "type": "string" },
+          "metric_name": { "type": "string" },
+          "value": {},
+          "data_source_type": { "$ref": "common.schema.json#/$defs/evidence_type" },
+          "calculation_basis": { "type": "string" }
+        }
+      }
+    },
+    "rubric_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["rubric_id", "dimension", "score", "data_source_type", "status"],
+        "properties": {
+          "rubric_id": { "type": "string" },
+          "dimension": { "type": "string" },
+          "score": { "type": "number", "minimum": 0, "maximum": 1 },
+          "data_source_type": { "$ref": "common.schema.json#/$defs/evidence_type" },
+          "status": { "type": "string" }
+        }
+      }
+    },
+    "workflow_gate_checks": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "failure_taxonomy": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "issue_list": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "human_approval_inheritance": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["source_artifact", "overall_decision", "planning_artifacts_can_enter_evaluation", "final_generation_allowed", "public_release_allowed"],
+      "properties": {
+        "source_artifact": { "const": "outputs/human_approval_record.json" },
+        "overall_decision": { "const": "needs_revision" },
+        "planning_artifacts_can_enter_evaluation": { "const": true },
+        "final_generation_allowed": { "const": false },
+        "public_release_allowed": { "const": false }
+      }
+    },
+    "release_gates": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["structured_planning_package", "final_marketing_copy", "final_image_prompt", "image_generation", "public_release"],
+      "properties": {
+        "structured_planning_package": { "const": "approved" },
+        "final_marketing_copy": { "const": "blocked" },
+        "final_image_prompt": { "const": "blocked" },
+        "image_generation": { "const": "blocked" },
+        "public_release": { "const": "blocked" }
+      }
+    },
+    "iteration_recommendations": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "reproducibility_record": { "type": "object", "additionalProperties": true },
+    "downstream_handoff": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["handoff_allowed", "blocked_fields_to_preserve"],
+      "properties": {
+        "handoff_allowed": { "const": true },
+        "blocked_fields_to_preserve": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

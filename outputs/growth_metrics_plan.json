@@ -1,0 +1,821 @@
+{
+  "artifact_name": "growth_metrics_plan",
+  "artifact_version": "0.1.0",
+  "brief_id": "brief_demo_action_camera_001",
+  "producer": "Growth Metrics Agent",
+  "status": "needs_review",
+  "confidence": 0.88,
+  "inputs_used": [
+    "PROJECT_MEMORY_FOR_OPENCLAW.md",
+    "/Users/mabook/Documents/Codex/2026-06-24/wo-x/ecommerce-growth-agent-studio/README.md",
+    "/Users/mabook/Documents/Codex/2026-06-24/wo-x/ecommerce-growth-agent-studio/PROJECT_BLUEPRINT.md",
+    "/Users/mabook/Documents/Codex/2026-06-24/wo-x/ecommerce-growth-agent-studio/docs/steps_01_to_11_file_map.md",
+    "workflow/agent_io_contracts.md",
+    "workflow/agent_workflow.md",
+    "outputs/platform_strategy_plan.json",
+    "outputs/creative_copy_pack_outline.json",
+    "outputs/image_prompt_pack_outline.json",
+    "outputs/brand_compliance_report.json"
+  ],
+  "summary": "Growth Metrics Agent converted platform strategy, creative module outline, visual asset outline, and brand compliance constraints into a governed metrics and experimentation plan. It defines observable KPIs, A/B test directions, tracking fields, asset reuse rate, approval pass rate, content production efficiency, funnel review metrics, retrospective fields, and compliance blocker impacts without generating final copy, final image prompts, images, public release materials, or frontend pages.",
+  "data": {
+    "input_file_audit": {
+      "read_successfully": [
+        "PROJECT_MEMORY_FOR_OPENCLAW.md",
+        "workflow/agent_io_contracts.md",
+        "workflow/agent_workflow.md",
+        "outputs/platform_strategy_plan.json",
+        "outputs/creative_copy_pack_outline.json",
+        "outputs/image_prompt_pack_outline.json",
+        "outputs/brand_compliance_report.json"
+      ],
+      "read_from_project_source_directory": [
+        "/Users/mabook/Documents/Codex/2026-06-24/wo-x/ecommerce-growth-agent-studio/README.md",
+        "/Users/mabook/Documents/Codex/2026-06-24/wo-x/ecommerce-growth-agent-studio/PROJECT_BLUEPRINT.md",
+        "/Users/mabook/Documents/Codex/2026-06-24/wo-x/ecommerce-growth-agent-studio/docs/steps_01_to_11_file_map.md"
+      ],
+      "missing_in_current_workspace": [
+        "README.md",
+        "PROJECT_BLUEPRINT.md",
+        "docs/steps_01_to_11_file_map.md"
+      ],
+      "handling_note": "Project context files missing from the active workspace root were inherited from the source project directory. The four required upstream JSON artifacts were available in the active workspace."
+    },
+    "agent_contract": {
+      "responsibility_boundary": [
+        "Translate channel strategy, content module structure, visual asset structure, and compliance status into growth measurement fields.",
+        "Define platform KPI framework, funnel observations, A/B test dimensions, tracking schema, dashboard fields, and iteration rules.",
+        "Track asset reuse, approval pass rate, content production efficiency, and compliance blocker impact.",
+        "Preserve blocked compliance gates for final copy, final image prompt generation, image generation, and public release."
+      ],
+      "not_responsible_for": [
+        "final marketing copy",
+        "xiaohongshu body text",
+        "douyin script",
+        "live selling talk track",
+        "final image prompt",
+        "specific image description body",
+        "generated image",
+        "frontend page",
+        "real ad delivery",
+        "platform API integration",
+        "claiming guaranteed CTR, CVR, GMV, traffic, conversion, or sales"
+      ],
+      "downstream_consumers": [
+        "Creative Package Reporter",
+        "future campaign dashboard",
+        "future retrospective workflow",
+        "future approved creative generation workflow"
+      ]
+    },
+    "compliance_inheritance": {
+      "source": "outputs/brand_compliance_report.json",
+      "workflow_artifact_status": "conditionally_approved_for_downstream_planning",
+      "final_copy_generation": "blocked",
+      "final_image_prompt_generation": "blocked",
+      "image_generation": "blocked",
+      "public_release": "blocked",
+      "allowed_next_nodes": [
+        "Growth Metrics Agent",
+        "Creative Package Reporter"
+      ],
+      "metric_language_rule": "CTR, CVR, GMV, traffic, conversion, live room product clicks, and sales may only be used as observation metrics, test metrics, dashboard fields, or retrospective fields. They must not be written as promised outcomes.",
+      "blocked_claim_areas": [
+        "高清 / 全景画质 superiority claims",
+        "waterproof / stabilization / durability unconditional performance claims",
+        "AI auto-editing outcome guarantees",
+        "platform traffic / conversion / GMV guarantees",
+        "specific competitor attacks or unsupported rankings",
+        "unauthorized brand logo, celebrity likeness, product image, App screenshot, or scene footage usage",
+        "exaggerated extreme outdoor visual scenes"
+      ]
+    },
+    "platform_metric_framework": [
+      {
+        "platform": "抖音",
+        "workflow_role": [
+          "认知放大",
+          "场景种草",
+          "直播转化入口"
+        ],
+        "primary_content_structures": [
+          "15 秒卖点视频结构",
+          "30 秒场景视频结构",
+          "直播间讲解结构"
+        ],
+        "core_metrics": [
+          "CTR",
+          "完播率",
+          "互动率",
+          "直播间商品点击率"
+        ],
+        "secondary_metrics": [
+          "CVR",
+          "GMV",
+          "素材复用率",
+          "审核通过率"
+        ],
+        "observation_window": "短视频发布后 24h / 72h；直播场次结束后 24h；首发期滚动 7 天复盘",
+        "review_gate": "防抖、AI 剪辑、直播转化表达必须通过合规审核；不得承诺成交或 GMV"
+      },
+      {
+        "platform": "小红书",
+        "workflow_role": [
+          "生活方式种草",
+          "场景解释",
+          "搜索心智沉淀"
+        ],
+        "primary_content_structures": [
+          "种草笔记结构",
+          "场景解释结构",
+          "达人 Brief 结构"
+        ],
+        "core_metrics": [
+          "CTR",
+          "收藏加购率",
+          "互动率",
+          "完播率"
+        ],
+        "secondary_metrics": [
+          "素材复用率",
+          "审核通过率",
+          "内容生产效率",
+          "搜索承接观察"
+        ],
+        "observation_window": "发布后 24h / 72h / 7 天；搜索承接在 T+7 到 T+30 观察",
+        "review_gate": "不得承诺专业大片效果、平台流量或商业收益；达人素材必须保留授权和禁止表达字段"
+      },
+      {
+        "platform": "天猫",
+        "workflow_role": [
+          "货架承接",
+          "商品详情转化",
+          "加购与成交决策"
+        ],
+        "primary_content_structures": [
+          "商品标题结构",
+          "详情页卖点模块结构",
+          "主图信息层级结构"
+        ],
+        "core_metrics": [
+          "CTR",
+          "收藏加购率",
+          "CVR",
+          "GMV"
+        ],
+        "secondary_metrics": [
+          "素材复用率",
+          "详情页模块审核通过率",
+          "证明材料完备率",
+          "购买疑虑覆盖率"
+        ],
+        "observation_window": "首发期 T-7 至 T+7 每日观察；增长期 T+7 至 T+30 周度复盘",
+        "review_gate": "参数、防水、耐用、首发权益、套装和库存信息必须等待证明或品牌确认"
+      },
+      {
+        "platform": "京东",
+        "workflow_role": [
+          "参数解释",
+          "理性决策承接",
+          "问答与对比导购"
+        ],
+        "primary_content_structures": [
+          "参数解释结构",
+          "类目对比导购结构",
+          "问答素材结构"
+        ],
+        "core_metrics": [
+          "CTR",
+          "CVR",
+          "互动率",
+          "GMV"
+        ],
+        "secondary_metrics": [
+          "素材复用率",
+          "问答覆盖率",
+          "类目对比审核通过率",
+          "证明材料完备率"
+        ],
+        "observation_window": "首发期 T-7 至 T+7 每日观察；增长期 T+7 至 T+30 按问题和参数模块复盘",
+        "review_gate": "类目对比不得攻击具体品牌；所有技术参数和排名表达必须可证明"
+      }
+    ],
+    "funnel_observation_metrics": [
+      {
+        "funnel_stage": "awareness",
+        "goal": "观察目标用户是否理解全景运动相机在运动、旅行和内容创作中的价值",
+        "platforms": [
+          "抖音",
+          "小红书"
+        ],
+        "metrics": [
+          "曝光",
+          "CTR",
+          "完播率",
+          "互动率",
+          "合规阻断率"
+        ],
+        "notes": "只观察内容吸引和理解信号，不承诺流量结果"
+      },
+      {
+        "funnel_stage": "interest",
+        "goal": "观察场景和功能解释是否降低构图、剪辑和多平台适配理解门槛",
+        "platforms": [
+          "抖音",
+          "小红书"
+        ],
+        "metrics": [
+          "收藏加购率",
+          "互动率",
+          "素材复用率",
+          "内容生产效率",
+          "证明材料缺口数"
+        ],
+        "notes": "AI 剪辑只能作为辅助能力观察，不作为效果承诺"
+      },
+      {
+        "funnel_stage": "comparison",
+        "goal": "观察参数、样片、证明材料和类目级对比是否提升购买信心",
+        "platforms": [
+          "京东",
+          "天猫",
+          "小红书"
+        ],
+        "metrics": [
+          "CTR",
+          "互动率",
+          "收藏加购率",
+          "证明材料完备率",
+          "审核通过率"
+        ],
+        "notes": "竞品比较必须保持类目级、中性和可证明"
+      },
+      {
+        "funnel_stage": "conversion",
+        "goal": "观察商品点击、加购、直播间商品点击和成交承接效率",
+        "platforms": [
+          "天猫",
+          "京东",
+          "抖音"
+        ],
+        "metrics": [
+          "直播间商品点击率",
+          "CVR",
+          "GMV",
+          "收藏加购率",
+          "承接页跳失观察"
+        ],
+        "notes": "CVR、GMV 和成交只能作为结果观测与复盘字段，不能作为内容承诺"
+      },
+      {
+        "funnel_stage": "review",
+        "goal": "复盘卖点有效性、平台承接效率、素材复用价值和合规治理成本",
+        "platforms": [
+          "抖音",
+          "小红书",
+          "天猫",
+          "京东"
+        ],
+        "metrics": [
+          "CTR",
+          "CVR",
+          "完播率",
+          "互动率",
+          "收藏加购率",
+          "GMV",
+          "素材复用率",
+          "审核通过率",
+          "内容生产效率"
+        ],
+        "notes": "复盘结果用于下轮迭代，不回写为未经证明的营销承诺"
+      }
+    ],
+    "ab_test_plan": [
+      {
+        "test_id": "ab_selling_point_order",
+        "test_area": "主卖点顺序",
+        "variants": [
+          "一次拍摄，多平台复用优先",
+          "运动场景稳定记录优先",
+          "高清影像与沉浸视角优先"
+        ],
+        "applicable_platforms": [
+          "抖音",
+          "小红书",
+          "天猫",
+          "京东"
+        ],
+        "target_metrics": [
+          "CTR",
+          "完播率",
+          "收藏加购率",
+          "CVR"
+        ],
+        "required_tracking_fields": [
+          "selling_point_primary",
+          "selling_point_sequence",
+          "proof_status",
+          "compliance_gate_status"
+        ],
+        "approval_gate": "高清影像、防抖、防水和 AI 剪辑相关变量必须先确认 proof_status，未通过时只能作为结构变量保留，不能进入最终生成",
+        "stop_or_pause_condition": "出现绝对化、无条件性能承诺或证明材料缺失时暂停该变体"
+      },
+      {
+        "test_id": "ab_scene_entry",
+        "test_area": "用户场景入口",
+        "variants": [
+          "骑行第一视角",
+          "旅行城市漫游",
+          "滑雪或水上运动",
+          "参数解释入口"
+        ],
+        "applicable_platforms": [
+          "抖音",
+          "小红书",
+          "天猫",
+          "京东"
+        ],
+        "target_metrics": [
+          "完播率",
+          "互动率",
+          "素材复用率",
+          "收藏加购率"
+        ],
+        "required_tracking_fields": [
+          "scenario_type",
+          "visual_asset_type",
+          "asset_authorization_status",
+          "safety_review_status"
+        ],
+        "approval_gate": "户外极限、防水、防抖视觉表达必须通过安全和合规审核",
+        "stop_or_pause_condition": "场景画面暗示危险行为、无条件防水防摔或夸张极限能力时停用"
+      },
+      {
+        "test_id": "ab_proof_material_type",
+        "test_area": "证明材料类型",
+        "variants": [
+          "真实运动样片",
+          "参数说明",
+          "App 流程演示",
+          "类目级中性对比"
+        ],
+        "applicable_platforms": [
+          "小红书",
+          "天猫",
+          "京东",
+          "抖音"
+        ],
+        "target_metrics": [
+          "互动率",
+          "收藏加购率",
+          "CVR",
+          "审核通过率"
+        ],
+        "required_tracking_fields": [
+          "proof_type",
+          "proof_asset_id",
+          "proof_owner",
+          "proof_review_status"
+        ],
+        "approval_gate": "所有证明材料必须真实、授权、可追踪",
+        "stop_or_pause_condition": "证明材料未到位、来源不明或与卖点不匹配时停用"
+      },
+      {
+        "test_id": "ab_conversion_path",
+        "test_area": "平台承接路径",
+        "variants": [
+          "内容平台到天猫承接",
+          "内容平台到京东承接",
+          "抖音内容到直播间商品点击"
+        ],
+        "applicable_platforms": [
+          "抖音",
+          "小红书",
+          "天猫",
+          "京东"
+        ],
+        "target_metrics": [
+          "CTR",
+          "直播间商品点击率",
+          "CVR",
+          "GMV",
+          "承接页跳失观察"
+        ],
+        "required_tracking_fields": [
+          "source_platform",
+          "destination_platform",
+          "funnel_stage",
+          "conversion_path_id"
+        ],
+        "approval_gate": "链路测试可设计，但任何转化、GMV、成交表达都必须保持观测口径",
+        "stop_or_pause_condition": "如果实验描述被写成保证转化、保证成交或保证 GMV，必须回退合规审核"
+      },
+      {
+        "test_id": "ab_module_order",
+        "test_area": "详情页与问答模块顺序",
+        "variants": [
+          "规格证明优先",
+          "场景利益优先",
+          "购买疑虑回应优先"
+        ],
+        "applicable_platforms": [
+          "天猫",
+          "京东"
+        ],
+        "target_metrics": [
+          "CTR",
+          "收藏加购率",
+          "CVR",
+          "问答互动率"
+        ],
+        "required_tracking_fields": [
+          "content_module_id",
+          "module_order",
+          "claim_area",
+          "review_status"
+        ],
+        "approval_gate": "价格权益、库存、参数和类目对比模块必须先完成品牌或产品确认",
+        "stop_or_pause_condition": "出现未经确认权益、无依据排名或竞品攻击时停用"
+      }
+    ],
+    "tracking_event_schema": [
+      {
+        "event_name": "creative_variant_registered",
+        "purpose": "记录一个创意结构变体进入测试池，不代表已经可公开发布",
+        "fields": [
+          "brief_id",
+          "workflow_version",
+          "platform",
+          "content_type",
+          "creative_variant_id",
+          "copy_module_ids",
+          "visual_asset_type",
+          "selling_point_primary",
+          "funnel_stage",
+          "experiment_id",
+          "generation_status",
+          "compliance_gate_status"
+        ]
+      },
+      {
+        "event_name": "compliance_review_completed",
+        "purpose": "记录文案模块、视觉结构或指标表述的审核结果",
+        "fields": [
+          "review_gate",
+          "review_owner",
+          "review_status",
+          "risk_ids",
+          "blocked_expression_rule_ids",
+          "proof_waitlist_items",
+          "decision_timestamp",
+          "required_fix_count"
+        ]
+      },
+      {
+        "event_name": "proof_asset_attached",
+        "purpose": "记录证明材料或素材授权与卖点、模块、素材结构的绑定关系",
+        "fields": [
+          "proof_asset_id",
+          "proof_type",
+          "claim_area",
+          "source_owner",
+          "authorization_status",
+          "validity_scope",
+          "linked_module_ids",
+          "linked_visual_asset_types"
+        ]
+      },
+      {
+        "event_name": "platform_performance_observed",
+        "purpose": "记录平台表现观察数据，不写成投放承诺",
+        "fields": [
+          "platform",
+          "content_type",
+          "creative_variant_id",
+          "funnel_stage",
+          "observation_window",
+          "impressions",
+          "clicks",
+          "ctr",
+          "completion_rate",
+          "engagement_rate",
+          "favorite_add_cart_rate",
+          "live_product_click_rate",
+          "cvr",
+          "gmv_observed",
+          "data_source"
+        ]
+      },
+      {
+        "event_name": "asset_reuse_logged",
+        "purpose": "记录同一素材结构或授权素材在多个平台、模块和比例中的复用情况",
+        "fields": [
+          "asset_id",
+          "asset_type",
+          "source_asset_id",
+          "derived_asset_id",
+          "platforms_used",
+          "content_modules_used",
+          "format_ratio",
+          "authorization_status",
+          "proof_status",
+          "reuse_count"
+        ]
+      },
+      {
+        "event_name": "production_efficiency_logged",
+        "purpose": "记录内容生产效率与审核返工成本",
+        "fields": [
+          "task_id",
+          "agent_node",
+          "content_type",
+          "planned_modules_count",
+          "approved_modules_count",
+          "blocked_modules_count",
+          "draft_cycle_count",
+          "review_cycle_count",
+          "time_to_structure_minutes",
+          "time_to_approval_minutes",
+          "human_review_required"
+        ]
+      }
+    ],
+    "asset_reuse_rate_model": {
+      "definition": "衡量一个已授权素材或素材结构在多平台、多内容模块、多尺寸规格中的复用程度。",
+      "recommended_formula": "reused_asset_instances / total_approved_asset_instances",
+      "core_fields": [
+        "asset_id",
+        "asset_type",
+        "authorization_status",
+        "proof_status",
+        "platforms_used",
+        "content_modules_used",
+        "format_ratio",
+        "reuse_count"
+      ],
+      "segmentation": [
+        "platform",
+        "asset_type",
+        "selling_point",
+        "funnel_stage",
+        "approval_status"
+      ],
+      "compliance_note": "素材复用只统计已授权或可用于结构规划的素材；未授权商品图、App 截图、Logo、名人肖像和场景样片不得计入可发布复用池。"
+    },
+    "approval_pass_rate_model": {
+      "definition": "衡量内容模块、视觉结构、证明材料和指标表达在审核中的通过情况。",
+      "recommended_formula": "approved_review_items / submitted_review_items",
+      "core_fields": [
+        "review_gate",
+        "review_owner",
+        "review_status",
+        "risk_category",
+        "severity",
+        "required_fix_count",
+        "proof_waitlist_status",
+        "blocked_expression_rule_ids"
+      ],
+      "recommended_breakdowns": [
+        "copy_module",
+        "visual_asset_structure",
+        "claim_area",
+        "platform",
+        "risk_severity",
+        "review_owner"
+      ],
+      "compliance_note": "由于 Brand Compliance Agent 已阻断最终生成，本阶段审核通过率只能衡量结构化规划和审核准备度，不代表公开发布通过。"
+    },
+    "content_production_efficiency_model": {
+      "definition": "衡量从 Brief 到结构化创意规划、视觉结构、审核准备和复盘字段的生产效率。",
+      "recommended_metrics": [
+        "time_to_platform_strategy",
+        "time_to_copy_outline",
+        "time_to_visual_outline",
+        "time_to_compliance_review",
+        "time_to_growth_metrics_plan",
+        "review_cycle_count",
+        "blocked_item_count",
+        "approved_structure_ratio",
+        "proof_gap_resolution_time"
+      ],
+      "core_fields": [
+        "workflow_node",
+        "artifact_name",
+        "artifact_status",
+        "content_type",
+        "module_count",
+        "risk_item_count",
+        "proof_waitlist_count",
+        "human_review_required",
+        "created_at",
+        "updated_at"
+      ],
+      "compliance_note": "效率指标不能绕过证明材料和人工审核；如果效率提升来自省略合规步骤，应标记为不可接受。"
+    },
+    "retrospective_report_fields": [
+      "brief_id",
+      "workflow_version",
+      "campaign_stage",
+      "platform",
+      "content_type",
+      "creative_variant_id",
+      "visual_asset_type",
+      "selling_point_primary",
+      "target_audience_segment",
+      "funnel_stage",
+      "experiment_id",
+      "variant_label",
+      "observation_window",
+      "ctr_observed",
+      "completion_rate_observed",
+      "engagement_rate_observed",
+      "favorite_add_cart_rate_observed",
+      "live_product_click_rate_observed",
+      "cvr_observed",
+      "gmv_observed",
+      "asset_reuse_rate",
+      "approval_pass_rate",
+      "content_production_efficiency",
+      "proof_material_status",
+      "asset_authorization_status",
+      "compliance_gate_status",
+      "blocked_reason",
+      "human_review_notes",
+      "decision",
+      "next_iteration_action"
+    ],
+    "compliance_blocker_metric_impact": [
+      {
+        "blocker": "高清 / 全景画质证明不足",
+        "affected_metrics": [
+          "CTR",
+          "收藏加购率",
+          "CVR",
+          "审核通过率"
+        ],
+        "metric_design_impact": "高清影像相关变体必须增加 proof_status、proof_asset_id 和 claim_area 字段；证明缺失时只能进入结构规划池，不能进入公开测试池。",
+        "allowed_measurement": "可观察用户对高清影像模块结构的兴趣假设，但不能生成或发布最终高清影像卖点表达。"
+      },
+      {
+        "blocker": "防水 / 防抖 / 耐用性能条件缺失",
+        "affected_metrics": [
+          "完播率",
+          "互动率",
+          "素材复用率",
+          "审核通过率"
+        ],
+        "metric_design_impact": "运动场景和户外素材必须记录 test_condition_status、safety_review_status 和 usage_condition_fields；缺失时暂停场景变体。",
+        "allowed_measurement": "可衡量哪些场景结构值得补证明材料，不能发布无条件性能承诺。"
+      },
+      {
+        "blocker": "AI 自动剪辑效果不能承诺爆款或专业结果",
+        "affected_metrics": [
+          "互动率",
+          "内容生产效率",
+          "收藏加购率"
+        ],
+        "metric_design_impact": "AI 剪辑相关实验必须使用 assistive_ai_framing 字段，记录是否只表达流程辅助、初稿或效率改善。",
+        "allowed_measurement": "可观察用户对 AI 辅助流程的兴趣，不能承诺内容表现。"
+      },
+      {
+        "blocker": "平台转化、GMV、流量不能作为结果承诺",
+        "affected_metrics": [
+          "CTR",
+          "直播间商品点击率",
+          "CVR",
+          "GMV"
+        ],
+        "metric_design_impact": "所有商业结果字段必须命名为 observed、review 或 dashboard 字段，并增加 metric_claim_language_status。",
+        "allowed_measurement": "可用于看板和复盘，不可用于最终营销内容中的保证性表述。"
+      },
+      {
+        "blocker": "品牌 Logo、名人肖像、商品图、App 截图和场景样片需要授权",
+        "affected_metrics": [
+          "素材复用率",
+          "内容生产效率",
+          "审核通过率"
+        ],
+        "metric_design_impact": "素材复用池必须按 authorization_status 分层；未授权素材不计入可发布复用率，只计入待授权素材缺口。",
+        "allowed_measurement": "可衡量授权缺口对生产效率和复用率的影响。"
+      },
+      {
+        "blocker": "最终文案、最终图片 Prompt、图片生成和公开发布均被阻断",
+        "affected_metrics": [
+          "approval_pass_rate",
+          "content_production_efficiency",
+          "public_release_readiness"
+        ],
+        "metric_design_impact": "所有指标方案必须区分 planning_ready、generation_blocked、public_release_blocked 三类状态。",
+        "allowed_measurement": "可进入 Creative Package Reporter 展示规划闭环，不可进入真实创意生产。"
+      }
+    ],
+    "iteration_rules": [
+      {
+        "rule_id": "rule_keep_observation_language",
+        "condition": "任何指标被写成保证流量、保证转化、保证 GMV、保证成交或保证点击",
+        "action": "回退到 Brand Compliance Agent，改为观察、测试、看板或复盘口径"
+      },
+      {
+        "rule_id": "rule_pause_unproven_claim_variant",
+        "condition": "高清、防水、防抖、耐用或 AI 剪辑相关变量缺少 proof_asset_id 或 proof_status",
+        "action": "暂停公开测试，只保留为结构化假设，并进入证明材料等待项"
+      },
+      {
+        "rule_id": "rule_segment_by_compliance_status",
+        "condition": "比较不同平台、卖点或素材表现",
+        "action": "必须按 compliance_gate_status 分层，避免把未审核内容与可发布内容混合复盘"
+      },
+      {
+        "rule_id": "rule_reuse_only_authorized_assets",
+        "condition": "计算素材复用率",
+        "action": "只把授权完成或结构规划允许复用的素材计入分母和分子，未授权素材进入缺口分析"
+      },
+      {
+        "rule_id": "rule_human_review_before_generation",
+        "condition": "任何节点准备进入最终文案、最终图片 Prompt、图片生成或公开发布",
+        "action": "必须先完成 Product Owner、Brand Compliance Agent 和素材授权审核"
+      }
+    ],
+    "downstream_field_handoff": {
+      "Creative Package Reporter": {
+        "fields": [
+          "compliance_inheritance",
+          "platform_metric_framework",
+          "funnel_observation_metrics",
+          "ab_test_plan",
+          "tracking_event_schema",
+          "asset_reuse_rate_model",
+          "approval_pass_rate_model",
+          "content_production_efficiency_model",
+          "retrospective_report_fields",
+          "compliance_blocker_metric_impact",
+          "iteration_rules",
+          "audit_trace"
+        ],
+        "handoff_note": "Use these fields to show how the Agent workflow connects strategy, creative structure, visual planning, compliance gates, and measurable growth review without releasing final creative assets."
+      },
+      "Future Campaign Dashboard": {
+        "fields": [
+          "tracking_event_schema",
+          "platform_metric_framework",
+          "funnel_observation_metrics",
+          "retrospective_report_fields"
+        ],
+        "handoff_note": "Implement only after data sources and platform API boundaries are confirmed."
+      },
+      "Brand Compliance Agent": {
+        "fields": [
+          "metric_language_rule",
+          "ab_test_plan.approval_gate",
+          "compliance_blocker_metric_impact",
+          "iteration_rules"
+        ],
+        "handoff_note": "Use these fields if later metric wording, dashboard labels, or experiment descriptions need compliance review."
+      }
+    },
+    "audit_trace": {
+      "workflow_node": "Growth Metrics Agent",
+      "workflow_sequence": 8,
+      "previous_artifacts": [
+        "outputs/platform_strategy_plan.json",
+        "outputs/creative_copy_pack_outline.json",
+        "outputs/image_prompt_pack_outline.json",
+        "outputs/brand_compliance_report.json"
+      ],
+      "generated_artifacts": [
+        "prompts/growth_metrics_agent.md",
+        "outputs/growth_metrics_plan.json",
+        "outputs/growth_metrics_plan.md"
+      ],
+      "not_generated": [
+        "final marketing copy",
+        "xiaohongshu body text",
+        "douyin script",
+        "live selling talk track",
+        "final image prompt",
+        "specific image description body",
+        "generated image",
+        "frontend page",
+        "public release asset"
+      ],
+      "blocked_gates_inherited": [
+        "final_copy_generation",
+        "final_image_prompt_generation",
+        "image_generation",
+        "public_release"
+      ]
+    }
+  },
+  "risks": [
+    "Final copy, final image prompt generation, image generation, and public release remain blocked by Brand Compliance Agent.",
+    "Several high-risk claim areas are still missing proof materials or asset authorization.",
+    "Growth metrics must not be rewritten as guaranteed performance claims in later reports or creative assets.",
+    "Actual metric values are not available in this planning step and must not be invented."
+  ],
+  "next_actions": [
+    "Pass Growth Metrics Plan to Creative Package Reporter.",
+    "Keep final marketing copy, final image prompts, image generation, and public release blocked until proof materials, asset authorization, and human review are complete.",
+    "Use retrospective_report_fields as the future campaign review schema if real campaign data becomes available.",
+    "Do not generate final creative assets in the next step; Creative Package Reporter should summarize existing workflow artifacts and blocked gates."
+  ]
+}

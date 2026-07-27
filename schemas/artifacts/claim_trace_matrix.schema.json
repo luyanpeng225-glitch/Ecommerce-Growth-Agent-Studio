@@ -1,0 +1,285 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/artifacts/claim_trace_matrix.schema.json",
+  "title": "Automatic Claim Trace Matrix Schema",
+  "description": "Validates the structure and governance status constraints of an Automatic Claim Trace Matrix. This schema does not verify real-world product truth, legal authorization, aesthetic quality, or actual business outcomes.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "meta",
+    "source_priority",
+    "claims",
+    "summary",
+    "release_gates",
+    "limitations"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "artifact_name",
+        "validation_extension",
+        "product_name",
+        "status"
+      ],
+      "properties": {
+        "artifact_name": { "const": "claim_trace_matrix" },
+        "validation_extension": { "const": "Validation Extension C" },
+        "artifact_version": { "type": "string" },
+        "brief_id": { "type": "string" },
+        "producer": { "type": "string" },
+        "status": { "const": "needs_review" },
+        "workflow_version": { "type": "string" },
+        "product_name": { "const": "运动相机" }
+      }
+    },
+    "source_priority": {
+      "description": "Source priority rules: original brief or formal proof materials are factual sources; Human Approval and Brand Compliance are governance decision sources; downstream Agent artifacts are references only; mock data cannot prove real business outcomes.",
+      "oneOf": [
+        {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        {
+          "type": "object",
+          "additionalProperties": true
+        }
+      ]
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 6,
+      "items": { "$ref": "#/$defs/claim_record" },
+      "allOf": [
+        { "contains": { "properties": { "claim_category": { "const": "product_capability" } }, "required": ["claim_category"] } },
+        { "contains": { "properties": { "claim_category": { "const": "ai_capability" } }, "required": ["claim_category"] } },
+        { "contains": { "properties": { "claim_category": { "const": "usage_scenario" } }, "required": ["claim_category"] } },
+        { "contains": { "properties": { "claim_category": { "const": "visual_asset_authorization" } }, "required": ["claim_category"] } },
+        { "contains": { "properties": { "claim_category": { "const": "compliance_or_safety" } }, "required": ["claim_category"] } },
+        { "contains": { "properties": { "claim_category": { "const": "growth_or_business_outcome" } }, "required": ["claim_category"] } }
+      ]
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "release_gates": {
+      "$ref": "#/$defs/fixed_release_gates"
+    },
+    "limitations": {
+      "description": "Limitations must make clear that schema validation does not prove product facts, legal authorization, visual quality, or actual GMV/CTR/CVR/conversion outcomes.",
+      "oneOf": [
+        {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        {
+          "type": "object",
+          "additionalProperties": true
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "non_empty_string": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nullable_string": {
+      "anyOf": [
+        { "$ref": "#/$defs/non_empty_string" },
+        { "type": "null" }
+      ]
+    },
+    "claim_category": {
+      "type": "string",
+      "enum": [
+        "product_capability",
+        "ai_capability",
+        "usage_scenario",
+        "visual_asset_authorization",
+        "compliance_or_safety",
+        "growth_or_business_outcome"
+      ]
+    },
+    "source_exists": {
+      "type": "string",
+      "enum": [
+        "source_found",
+        "source_missing",
+        "pointer_missing",
+        "conflicting_sources",
+        "not_applicable"
+      ]
+    },
+    "evidence_status": {
+      "type": "string",
+      "enum": [
+        "supported_by_provided_source",
+        "requires_human_verification",
+        "unsupported",
+        "derived_from_mock",
+        "not_available"
+      ]
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "minor",
+        "medium",
+        "major",
+        "critical"
+      ]
+    },
+    "release_gate_status": {
+      "type": "string",
+      "enum": [
+        "approved",
+        "approved_for_evaluation_only",
+        "blocked"
+      ]
+    },
+    "fixed_release_gates": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "structured_planning_package",
+        "growth_evaluation",
+        "final_marketing_copy",
+        "final_image_prompt",
+        "image_generation",
+        "frontend_page",
+        "public_release"
+      ],
+      "properties": {
+        "structured_planning_package": { "const": "approved" },
+        "growth_evaluation": { "const": "approved_for_evaluation_only" },
+        "final_marketing_copy": { "const": "blocked" },
+        "final_image_prompt": { "const": "blocked" },
+        "image_generation": { "const": "blocked" },
+        "frontend_page": { "const": "blocked" },
+        "public_release": { "const": "blocked" }
+      }
+    },
+    "release_gate_effect": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "final_marketing_copy",
+        "final_image_prompt",
+        "image_generation",
+        "frontend_page",
+        "public_release"
+      ],
+      "properties": {
+        "structured_planning_package": { "$ref": "#/$defs/release_gate_status" },
+        "growth_evaluation": { "$ref": "#/$defs/release_gate_status" },
+        "final_marketing_copy": { "$ref": "#/$defs/release_gate_status" },
+        "final_image_prompt": { "$ref": "#/$defs/release_gate_status" },
+        "image_generation": { "$ref": "#/$defs/release_gate_status" },
+        "frontend_page": { "$ref": "#/$defs/release_gate_status" },
+        "public_release": { "$ref": "#/$defs/release_gate_status" }
+      }
+    },
+    "downstream_artifact": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "artifact",
+        "json_pointer",
+        "reference_type",
+        "value_consistency",
+        "notes"
+      ],
+      "properties": {
+        "artifact": { "$ref": "#/$defs/non_empty_string" },
+        "json_pointer": { "$ref": "#/$defs/non_empty_string" },
+        "reference_type": {
+          "type": "string",
+          "enum": [
+            "direct_quote",
+            "paraphrase",
+            "risk_inheritance",
+            "governance_decision",
+            "metric_observation"
+          ]
+        },
+        "value_consistency": {
+          "type": "string",
+          "enum": [
+            "consistent",
+            "expanded_claim",
+            "narrowed_claim",
+            "conflicting",
+            "not_machine_comparable"
+          ]
+        },
+        "notes": { "type": "string" }
+      }
+    },
+    "claim_record": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "claim_id",
+        "claim_category",
+        "claim_summary",
+        "source_artifact",
+        "source_json_pointer",
+        "source_exists",
+        "evidence_artifact",
+        "evidence_json_pointer",
+        "evidence_status",
+        "downstream_artifacts",
+        "risk_level",
+        "human_review_required",
+        "compliance_decision",
+        "release_gate_effect",
+        "required_action"
+      ],
+      "properties": {
+        "claim_id": { "$ref": "#/$defs/non_empty_string" },
+        "claim_category": { "$ref": "#/$defs/claim_category" },
+        "claim_summary": { "$ref": "#/$defs/non_empty_string" },
+        "source_artifact": { "$ref": "#/$defs/nullable_string" },
+        "source_json_pointer": { "$ref": "#/$defs/nullable_string" },
+        "source_exists": { "$ref": "#/$defs/source_exists" },
+        "evidence_artifact": { "$ref": "#/$defs/nullable_string" },
+        "evidence_json_pointer": { "$ref": "#/$defs/nullable_string" },
+        "evidence_status": { "$ref": "#/$defs/evidence_status" },
+        "downstream_artifacts": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/downstream_artifact" }
+        },
+        "risk_level": { "$ref": "#/$defs/risk_level" },
+        "human_review_required": { "type": "boolean" },
+        "compliance_decision": { "type": "string" },
+        "release_gate_effect": { "$ref": "#/$defs/release_gate_effect" },
+        "required_action": { "$ref": "#/$defs/non_empty_string" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "evidence_status": {
+                "enum": [
+                  "requires_human_verification",
+                  "unsupported",
+                  "not_available"
+                ]
+              }
+            },
+            "required": ["evidence_status"]
+          },
+          "then": {
+            "properties": {
+              "human_review_required": { "const": true }
+            },
+            "required": ["human_review_required"]
+          }
+        }
+      ]
+    }
+  }
+}
