@@ -13,7 +13,7 @@
 ![Schema](https://img.shields.io/badge/Schema-18%2F18-22C55E)
 ![Production](https://img.shields.io/badge/production__ready-false-64748B)
 
-<a href="http://127.0.0.1:4173/portfolio/?v&#61;20260720-runtime-final#top">查看完整项目演示</a> · [工作流设计](workflow/agent_workflow.md) · [I/O 契约](workflow/agent_io_contracts.md) · [证据包](outputs/portfolio_evidence_pack.md)
+<a href="https://ecommerce-growth-agent-studio.vercel.app/portfolio/">查看完整项目演示</a> · [工作流设计](workflow/agent_workflow.md) · [I/O 契约](workflow/agent_io_contracts.md) · [证据包](outputs/portfolio_evidence_pack.md)
 
 ## 项目背景
 
@@ -57,7 +57,7 @@ Product Brief
 
 现有旧版演示说明已移除。README 以当前作品集演示的实际结构为准：
 
-<a href="http://127.0.0.1:4173/portfolio/?v&#61;20260720-runtime-final#top">打开完整项目演示</a>
+<a href="https://ecommerce-growth-agent-studio.vercel.app/portfolio/">打开完整项目演示</a>
 
 | 演示区域 | 展示内容 |
 | --- | --- |
