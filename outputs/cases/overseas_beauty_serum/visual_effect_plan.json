@@ -1,0 +1,23 @@
+{
+  "artifact_name": "visual_effect_plan",
+  "artifact_version": "0.1.0",
+  "brief_id": "brief_overseas_beauty_serum_001",
+  "producer": "Creative Agent",
+  "status": "needs_review",
+  "confidence": 0.78,
+  "inputs_used": ["data/cases/overseas_beauty_serum/brief.json", "outputs/cases/overseas_beauty_serum/audience_platform_insights.json"],
+  "summary": "A modular visual system converts audience and platform hypotheses into four production-ready composition specifications while keeping claims and asset rights gated.",
+  "data": {
+    "visual_system": {"idea": "Quiet Proof", "narrative": "Move from tactile evidence to routine clarity, then to a restrained product reveal.", "palette": ["warm ivory", "soft sage", "translucent pearl", "charcoal text"], "lighting": "soft directional daylight with controlled specular highlights", "texture_language": "watery serum bead, thin spread, clean glass reflections", "camera_language": "macro evidence, eye-level routine context, centered commerce packshot"},
+    "modules": [
+      {"id": "VE-01", "name": "Texture Truth", "goal": "Communicate lightweight texture without implying efficacy.", "shot": "extreme macro serum droplet on transparent glass applicator", "motion": "slow droplet formation and clean spread", "platforms": ["TikTok", "Instagram"], "deliverables": ["9:16 six-second opener", "4:5 still"], "copy_zone": "upper-left safe area, maximum seven words", "required_assets": ["approved product texture sample", "sanitized applicator"], "review_flags": ["texture must match real sample", "no clinical or penetration visualization"]},
+      {"id": "VE-02", "name": "Routine Placement", "goal": "Explain application order at a glance.", "shot": "clean bathroom shelf with cleanser, generic serum bottle, moisturizer, and sunscreen represented as unlabeled neutral props", "motion": "three-step sequential highlight", "platforms": ["Instagram", "Pinterest", "Amazon"], "deliverables": ["4:5 carousel", "2:3 pin", "1:1 routine card"], "copy_zone": "right-side numbered labels", "required_assets": ["approved packshot or neutral placeholder", "market-reviewed routine copy"], "review_flags": ["no medical recommendation", "sunscreen step wording reviewed"]},
+      {"id": "VE-03", "name": "Creator Countertop", "goal": "Create a credible social-first product discovery moment.", "shot": "inclusive adult creator hand presenting an unlabeled serum bottle beside a mirror in natural morning light", "motion": "handheld reach, cap open, one controlled drop", "platforms": ["TikTok", "Instagram"], "deliverables": ["9:16 twelve-second sequence", "thumbnail"], "copy_zone": "lower-third captions within platform safe area", "required_assets": ["model release or fully synthetic person approval", "approved product geometry"], "review_flags": ["no testimonial implication", "no retouched transformation", "disclose AI imagery if required"]},
+      {"id": "VE-04", "name": "Commerce Clarity", "goal": "Support product-detail comprehension.", "shot": "centered bottle on warm ivory surface with restrained ingredient-shape abstractions behind it", "motion": "none", "platforms": ["Amazon"], "deliverables": ["1:1 hero", "1:1 feature card", "1:1 texture card"], "copy_zone": "verified features only", "required_assets": ["final package artwork", "verified ingredient list", "claim file"], "review_flags": ["no unverified badges", "ingredient forms are decorative, not molecular proof"]}
+    ],
+    "production_rules": ["Generate backgrounds and compositions separately from final package artwork", "Composite the approved packshot after generation", "Keep text outside the image model and add it in design tooling", "Preserve a prompt version, seed, model, source assets, and reviewer decision for each output"],
+    "success_criteria": ["product visible within two seconds", "mobile-safe hierarchy", "visual claim matches verified evidence", "platform crop retains focal point", "human reviewer can trace every high-risk element"]
+  },
+  "risks": ["Product geometry may be hallucinated", "Skin depiction may become unrealistically perfected", "Decorative ingredient imagery may be misread as scientific evidence"],
+  "next_actions": ["Run prompt drafts with neutral packaging only", "Compare outputs with product sample", "Submit selected frames to compliance and design review"]
+}

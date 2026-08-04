@@ -1,0 +1,28 @@
+{
+  "artifact_name": "audience_platform_insights",
+  "artifact_version": "0.1.0",
+  "brief_id": "brief_overseas_beauty_serum_001",
+  "producer": "Audience Insight Skill + Platform Strategy Skill",
+  "status": "needs_review",
+  "confidence": 0.72,
+  "inputs_used": ["data/cases/overseas_beauty_serum/brief.json"],
+  "summary": "Brief-derived hypotheses translate overseas audience needs and platform roles into testable creative instructions. No external trend dataset or customer research was used.",
+  "data": {
+    "evidence_boundary": "All insights are hypotheses derived from the supplied brief and general platform-format assumptions. Validate with platform analytics, search data, comments, and human research before claiming market truth.",
+    "segments": [
+      {"id": "ingredient_aware", "job_to_be_done": "Understand what the serum is and where it fits without decoding hype.", "tension": "High interest but low trust in dramatic efficacy claims.", "visual_trigger": "ingredient-source cards, texture macro, routine order", "testable_signal": "saves and qualified ingredient questions"},
+      {"id": "routine_minimalist", "job_to_be_done": "Add one lightweight step without complicating the routine.", "tension": "Fear of heaviness, pilling, or unclear layering.", "visual_trigger": "three-step shelf sequence and thin texture spread", "testable_signal": "completion rate and routine-order comments"},
+      {"id": "social_first_shopper", "job_to_be_done": "Judge product feel and relevance quickly in-feed.", "tension": "Polished ads feel less credible than creator demonstrations.", "visual_trigger": "handheld opening, tactile drop, clean product reveal", "testable_signal": "three-second hold and product-detail clicks"}
+    ],
+    "platform_map": [
+      {"platform": "TikTok", "content_behavior_hypothesis": "Fast creator-led demonstrations can establish texture and routine fit before product claims.", "format": "9:16, 12-18 seconds", "opening": "texture-first macro within the first second", "cta": "See how it fits into the routine", "avoid": ["fake testimonial", "medical language", "guaranteed result"]},
+      {"platform": "Instagram", "content_behavior_hypothesis": "Saveable carousels and polished Reels support comparison and routine education.", "format": "4:5 carousel plus 9:16 Reel", "opening": "one-product, one-purpose visual hierarchy", "cta": "Save the routine order", "avoid": ["overloaded ingredient claims", "unreadable mobile text"]},
+      {"platform": "Pinterest", "content_behavior_hypothesis": "Search-led evergreen visuals benefit from explicit routine context and vertical composition.", "format": "2:3 pin", "opening": "morning or night routine title zone", "cta": "Plan a simple hydration routine", "avoid": ["time-sensitive trend references", "unsupported outcome language"]},
+      {"platform": "Amazon", "content_behavior_hypothesis": "Structured product-detail images should resolve texture, use order, and package comprehension.", "format": "1:1 image set", "opening": "clean packshot and verified feature hierarchy", "cta": "Review verified product details", "avoid": ["unverified certification", "social proof without source", "before-and-after simulation"]}
+    ],
+    "localization_checks": ["US and UK spelling consistency", "market-specific ingredient naming", "label and disclaimer legibility", "inclusive skin representation", "paid-media policy review by market"],
+    "handoff": ["visual_effect_plan", "image_prompt_pack", "compliance_review", "evaluation_report"]
+  },
+  "risks": ["No live platform data", "No completed customer research", "Platform policies may change", "Cultural interpretation requires local review"],
+  "next_actions": ["Validate hypotheses with native analytics and search data", "Run US/UK reviewer check", "Record rejected and revised concepts"]
+}

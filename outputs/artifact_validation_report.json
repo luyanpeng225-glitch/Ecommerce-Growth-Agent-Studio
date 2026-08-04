@@ -7,13 +7,13 @@
     "validator_version": "8.20.0",
     "dependency_status": "available",
     "status": "pass",
-    "generated_at": "2026-07-27T07:00:08.641Z",
+    "generated_at": "2026-08-04T04:32:19.760Z",
     "script_path": "scripts/validate_artifacts.mjs",
     "script_exit_code": 0
   },
   "parse_validation": {
-    "total_json_files": 49,
-    "passed": 49,
+    "total_json_files": 54,
+    "passed": 54,
     "failed": 0
   },
   "schema_validation": {
@@ -44,10 +44,15 @@
     ],
     "not_yet_covered_artifacts": [
       "data/audit_log_sample.json",
+      "data/cases/overseas_beauty_serum/brief.json",
       "data/failure_scenarios/brief_missing_campaign_goal.scenario.json",
       "outputs/artifact_validation_report.json",
       "outputs/audience_insight.json",
       "outputs/brand_compliance_report.json",
+      "outputs/cases/overseas_beauty_serum/audience_platform_insights.json",
+      "outputs/cases/overseas_beauty_serum/image_prompt_pack.json",
+      "outputs/cases/overseas_beauty_serum/review_and_evaluation.json",
+      "outputs/cases/overseas_beauty_serum/visual_effect_plan.json",
       "outputs/creative_copy_pack_outline.json",
       "outputs/final_creative_package_report.json",
       "outputs/growth_metrics_plan.json",
@@ -83,6 +88,11 @@
       "status": "pass"
     },
     {
+      "artifact_path": "data/cases/overseas_beauty_serum/brief.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
       "artifact_path": "data/failure_scenarios/brief_missing_campaign_goal.scenario.json",
       "validation": "json_parse",
       "status": "pass"
@@ -114,6 +124,26 @@
     },
     {
       "artifact_path": "outputs/brand_compliance_report.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/cases/overseas_beauty_serum/audience_platform_insights.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/cases/overseas_beauty_serum/image_prompt_pack.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/cases/overseas_beauty_serum/review_and_evaluation.json",
+      "validation": "json_parse",
+      "status": "pass"
+    },
+    {
+      "artifact_path": "outputs/cases/overseas_beauty_serum/visual_effect_plan.json",
       "validation": "json_parse",
       "status": "pass"
     },

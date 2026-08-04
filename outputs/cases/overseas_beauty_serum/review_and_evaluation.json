@@ -1,0 +1,43 @@
+{
+  "artifact_name": "review_and_evaluation",
+  "artifact_version": "0.1.0",
+  "brief_id": "brief_overseas_beauty_serum_001",
+  "producer": "Compliance Agent + Human Approval Node + Growth Evaluation Agent",
+  "status": "needs_review",
+  "confidence": 0.84,
+  "inputs_used": ["data/cases/overseas_beauty_serum/brief.json", "outputs/cases/overseas_beauty_serum/audience_platform_insights.json", "outputs/cases/overseas_beauty_serum/visual_effect_plan.json", "outputs/cases/overseas_beauty_serum/image_prompt_pack.json"],
+  "summary": "The case is structurally complete and ready for neutral concept generation, but real-brand use, paid media, and public release remain blocked pending evidence, rights, localization, and human sign-off.",
+  "data": {
+    "pre_check": {"decision": "needs_review", "passed": ["generic product concept", "non-medical positioning", "negative constraints present"], "open_risks": ["formula specification not confirmed", "claim substantiation missing", "packshot rights missing", "no current platform-policy review"]},
+    "post_generation_checklist": [
+      {"check": "prompt-to-output fidelity", "owner": "creative", "status": "pending"},
+      {"check": "product geometry and texture accuracy", "owner": "product/brand", "status": "pending"},
+      {"check": "skin and anatomy realism", "owner": "design", "status": "pending"},
+      {"check": "cosmetic versus medical claim boundary", "owner": "legal/compliance", "status": "pending"},
+      {"check": "asset rights and AI disclosure", "owner": "legal/compliance", "status": "pending"},
+      {"check": "US/UK localization and accessibility", "owner": "local market reviewer", "status": "pending"}
+    ],
+    "human_approval": {"overall_decision": "needs_revision", "reviewer_name": null, "reviewed_at": null, "human_signature": "pending", "allowed": ["internal workflow evaluation", "neutral concept generation"], "blocked": ["real brand asset use", "final claim copy", "paid media", "public release"]},
+    "release_gates": {"insight_handoff": "approved_with_hypothesis_label", "visual_plan": "approved_for_concept", "neutral_prompt_generation": "approved_with_review", "real_brand_prompt": "blocked", "paid_media": "blocked", "public_release": "blocked"},
+    "evaluation": {
+      "scope": "artifact and governance quality only; no campaign delivery occurred",
+      "rubric": [
+        {"dimension": "input completeness", "score": 0.76, "evidence_type": "artifact_derived", "finding": "Core workflow inputs exist; claim and asset evidence remain missing."},
+        {"dimension": "audience-to-visual traceability", "score": 0.88, "evidence_type": "artifact_derived", "finding": "Each segment maps to a visual trigger and testable signal."},
+        {"dimension": "platform adaptation", "score": 0.86, "evidence_type": "artifact_derived", "finding": "Four platforms have distinct roles, formats, hooks, and constraints."},
+        {"dimension": "prompt executability", "score": 0.9, "evidence_type": "artifact_derived", "finding": "Four prompts contain composition, style, aspect ratio, negatives, and review criteria."},
+        {"dimension": "claim and rights governance", "score": 0.92, "evidence_type": "artifact_derived", "finding": "High-risk uses remain blocked and named owners are assigned."},
+        {"dimension": "business performance", "score": null, "evidence_type": "not_available", "finding": "No impressions, clicks, conversions, sales, or human preference test exists."}
+      ],
+      "weighted_artifact_score": 0.86,
+      "score_excludes": ["business performance", "customer validation", "production reliability"],
+      "test_plan": [
+        {"test": "texture-first versus product-first opening", "primary_metric": "three-second hold rate", "guardrail": "qualified comment rate"},
+        {"test": "creator countertop versus editorial still life", "primary_metric": "product detail click-through rate", "guardrail": "creative rejection rate"},
+        {"test": "routine-order carousel versus single feature card", "primary_metric": "save rate", "guardrail": "claim-review pass rate"}
+      ]
+    }
+  },
+  "risks": ["Insights are not validated market research", "No images were generated or reviewed", "No real human approval exists", "No business outcome data exists"],
+  "next_actions": ["Generate neutral concept frames", "Complete six-point post-generation review", "Obtain claim and asset evidence", "Run localized pilot", "Update evaluation with measured results"]
+}

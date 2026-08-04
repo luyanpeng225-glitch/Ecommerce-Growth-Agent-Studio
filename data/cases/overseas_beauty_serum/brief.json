@@ -1,0 +1,53 @@
+{
+  "brief_id": "brief_overseas_beauty_serum_001",
+  "workflow_version": "2.1.0",
+  "project_name": "E-commerce Growth Agent Studio",
+  "industry": "beauty and personal care",
+  "scenario_type": "overseas social commerce launch",
+  "product_name": "Barrier Support Serum",
+  "product_category": "facial serum",
+  "launch_stage": "pre_launch",
+  "target_regions": ["United States", "United Kingdom"],
+  "language": "en-US",
+  "short_description": "A fragrance-free facial serum concept positioned around lightweight hydration and barrier-supporting daily care.",
+  "core_features": [
+    {"feature": "fragrance-free formula", "proof": "formula specification pending brand confirmation", "customer_benefit": "Supports shoppers who prefer fragrance-free routine options."},
+    {"feature": "lightweight serum texture", "proof": "product sample and texture photography required", "customer_benefit": "May fit a layered routine without a deliberately heavy visual feel."},
+    {"feature": "daily hydration positioning", "proof": "consumer-facing claim wording requires substantiation review", "customer_benefit": "Provides a simple hydration-oriented role in the routine."}
+  ],
+  "target_audiences": [
+    {"segment": "ingredient-aware skincare explorers", "needs": ["clear ingredient context", "non-sensational education", "routine compatibility"], "pain_points": ["exaggerated claims", "unclear ingredient purpose"], "purchase_triggers": ["verified ingredient list", "clear routine explanation"]},
+    {"segment": "minimal-routine users", "needs": ["simple application", "lightweight texture", "easy layering"], "pain_points": ["complex routines", "concern about heavy texture"], "purchase_triggers": ["simple use order", "credible texture demo"]},
+    {"segment": "social-first beauty shoppers", "needs": ["visible texture cues", "creator-style demonstrations", "fast product comprehension"], "pain_points": ["low trust in polished ads", "slow product explanation"], "purchase_triggers": ["authentic demonstration", "fast product-detail access"]}
+  ],
+  "usage_scenarios": [
+    {"scene": "morning routine", "context": "applied after cleansing and before moisturizer and sunscreen", "desired_outcome": "Make routine order understandable without medical advice."},
+    {"scene": "night routine", "context": "used as a lightweight hydration step", "desired_outcome": "Show a simple evening use case without efficacy promises."},
+    {"scene": "creator texture demo", "context": "shows consistency and application without simulated clinical results", "desired_outcome": "Communicate product feel while preserving realistic skin and texture."}
+  ],
+  "decision_factors": ["ingredient clarity", "texture", "routine fit", "claim credibility", "price-value fit"],
+  "barriers": ["skepticism about exaggerated skincare claims", "unclear routine order", "concern about heavy texture", "lack of verified reviews"],
+  "differentiators": ["calm educational visual system", "routine-first explanation", "cross-platform modular creative"],
+  "positioning_statement": "A calm, routine-friendly serum concept for shoppers who want understandable skincare communication without dramatic transformation promises.",
+  "do_not_claim": ["repairs the skin barrier", "clinically proven", "dermatologist approved", "heals acne", "instant transformation", "works for everyone"],
+  "channels": [
+    {"name": "TikTok", "role": "discovery and creator-style education", "content_formats": ["9:16 short video"], "primary_kpis": ["three-second hold rate", "video completion rate"]},
+    {"name": "Instagram", "role": "visual consideration and saves", "content_formats": ["9:16 Reel", "4:5 carousel"], "primary_kpis": ["save rate", "product detail click-through rate"]},
+    {"name": "Pinterest", "role": "evergreen routine discovery", "content_formats": ["2:3 pin"], "primary_kpis": ["save rate", "outbound click-through rate"]},
+    {"name": "Amazon", "role": "product detail and conversion support", "content_formats": ["1:1 product detail image"], "primary_kpis": ["product detail engagement", "add-to-cart rate"]}
+  ],
+  "campaign_goal": "Test whether a calm, evidence-aware visual system can improve product comprehension across overseas social and commerce surfaces.",
+  "primary_kpis": ["three-second hold rate", "video completion rate", "save rate", "product detail click-through rate"],
+  "secondary_kpis": ["qualified comment rate", "add-to-cart rate", "creative rejection rate"],
+  "budget_level": "medium",
+  "timeline": {"concept": "week 1", "review": "week 2", "pilot": "after approval"},
+  "brand_voice": "calm, precise, inclusive, educational",
+  "visual_style": "clean editorial skincare, soft daylight, tactile macro texture, restrained sage and warm-neutral palette",
+  "content_formats": ["9:16 short video", "4:5 feed carousel", "2:3 pin", "1:1 product detail image"],
+  "required_assets": ["packshot with usage rights", "verified ingredient list", "texture swatch", "claim substantiation file", "market-specific label copy"],
+  "compliance_rules": ["qualify cosmetic claims", "do not imply medical treatment", "do not simulate before-and-after results", "disclose synthetic or AI-generated imagery when required", "review platform ad policies before paid use"],
+  "negative_constraints": ["no real brand logo", "no celebrity likeness", "no skin-lightening implication", "no poreless or anatomically impossible skin", "no unverified badges", "no competitor packaging"],
+  "enabled_skills": ["brief_parser", "audience_insight", "selling_point_analysis", "platform_strategy", "creative_copy_generation", "image_prompt_generation", "brand_compliance_check", "growth_metrics_recommendation", "creative_package_report"],
+  "output_package": ["standardized_brief_summary", "audience_insight_report", "platform_strategy_plan", "image_prompt_pack", "brand_compliance_report", "growth_metrics_plan", "final_creative_package_report"],
+  "review_mode": "strict"
+}
