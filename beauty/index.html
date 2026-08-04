@@ -7,7 +7,7 @@
     <title>Quiet Proof — Overseas Beauty Visual Content Case</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
+  <body data-route="quiet">
     <a class="skip" href="#main">Skip to content</a>
     <header class="topbar">
       <a class="wordmark" href="../portfolio/">Agent Studio <span>/ Case 02</span></a>
@@ -18,16 +18,23 @@
     </header>
 
     <main id="main">
+      <div class="route-bar" aria-label="Choose creative route">
+        <span>Creative routes</span>
+        <button class="active" data-route-button="quiet"><b>01</b> Quiet Proof</button>
+        <button data-route-button="cool"><b>02</b> Cool Barrier</button>
+        <button data-route-button="texture"><b>03</b> Texture Ritual</button>
+      </div>
       <section class="hero">
         <div class="hero-copy">
-          <p class="kicker">OVERSEAS BEAUTY · US / UK · CASE STUDY</p>
-          <h1>Quiet Proof</h1>
-          <p class="lede">A restrained visual content system that turns audience and platform insight into production-ready art direction, image prompts, review gates and a measurable test plan.</p>
+          <p class="kicker" id="route-kicker">CONTROL · US / UK · BRAND BASELINE</p>
+          <h1 id="route-title">Quiet<br>Proof</h1>
+          <p class="lede" id="route-lede">Calm evidence and routine clarity for shoppers who distrust exaggerated skincare claims.</p>
           <div class="hero-actions"><a class="button dark" href="#system">Explore the system</a><a class="button light" href="#prompts">View prompt pack</a></div>
-          <dl class="hero-meta"><div><dt>Product</dt><dd>Barrier Support Serum</dd></div><div><dt>Markets</dt><dd>United States · United Kingdom</dd></div><div><dt>Release</dt><dd>Concept only</dd></div></dl>
+          <dl class="hero-meta"><div><dt>Creative role</dt><dd id="route-role">Brand baseline</dd></div><div><dt>Primary signal</dt><dd id="route-metric">Qualified saves</dd></div><div><dt>Risk to control</dt><dd id="route-risk">May feel too familiar</dd></div></dl>
         </div>
-        <div class="hero-art" aria-label="Abstract serum concept still life">
+        <div class="hero-art" aria-label="Interactive serum creative concept">
           <div class="sun-disc"></div><div class="serum-shadow"></div><div class="bottle"><span class="cap"></span><span class="label">QUIET<br>PROOF<small>barrier support serum</small></span></div><div class="glass-drop">1</div><p>Calm communication.<br>Credible texture.<br>No miracle claims.</p>
+          <div class="cool-orbit"></div><div class="texture-ripple"></div><div class="route-index">01</div>
         </div>
       </section>
 
