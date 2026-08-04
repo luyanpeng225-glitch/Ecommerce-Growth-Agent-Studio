@@ -1,0 +1,21 @@
+{
+  "artifact_name": "trend_and_effect_concept",
+  "artifact_version": "0.1.0",
+  "case_id": "parallel_self_001",
+  "producer": "Trend Insight Agent + Effect Concept Agent",
+  "status": "pass_with_caution",
+  "inputs_used": ["data/cases/parallel_self/effect_brief.json", "CapCut image-to-video product guidance", "TikTok 2026 AI creativity and transparency guidance"],
+  "data": {
+    "insight": "The opportunity is not another style filter. It is a low-effort identity-preserving micro-story with a clear reveal, platform-native duration, and a reason to compare or share alternate outcomes.",
+    "user_loop": ["upload authorized portrait", "choose a world", "preview storyboard", "set motion strength", "generate", "inspect identity and safety", "export with AIGC label"],
+    "concept": {"name": "Parallel Self", "hook": "Which life would you enter?", "duration": "7 seconds", "narrative": "A restrained push-in crosses a light boundary; the environment transforms while the subject remains stable; the last pose mirrors the first for a loop."},
+    "route_strategy": [
+      {"route": "Cinematic", "audience_signal": "story-led self-expression", "motion": "slow push-in and environmental parallax", "risk": "over-dramatic camera motion"},
+      {"route": "Dreamlike", "audience_signal": "surreal, gentle escapism", "motion": "floating particles and subtle orbit", "risk": "identity drift from stylization"},
+      {"route": "Retro Memory", "audience_signal": "nostalgia and personal memory", "motion": "handheld micro-movement and warm light leak", "risk": "unlicensed period references"}
+    ],
+    "platform_adaptation": {"TikTok": "fast route reveal by 1.5s and loopable ending", "Instagram Reels": "cleaner grade and saveable comparison", "YouTube Shorts": "slightly longer reveal and title-safe top area"}
+  },
+  "risks": ["Trend relevance requires live platform validation", "No user research was completed", "Effect novelty can decay quickly"],
+  "next_actions": ["Run prototype generation", "Collect preference and failure labels", "Refresh routes using current community signals"]
+}

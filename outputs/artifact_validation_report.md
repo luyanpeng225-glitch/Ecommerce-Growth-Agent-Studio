@@ -13,14 +13,15 @@ Validation Extension A / B / C、Failure Scenario Test 与 Workflow Metrics：JS
 
 ## JSON 解析验证
 
-- total_json_files: 54
-- passed: 54
+- total_json_files: 58
+- passed: 58
 - failed: 0
 
 以下文件只完成 JSON 解析验证，没有纳入第一版关键 Schema 映射：
 
 - data/audit_log_sample.json
 - data/cases/overseas_beauty_serum/brief.json
+- data/cases/parallel_self/effect_brief.json
 - data/failure_scenarios/brief_missing_campaign_goal.scenario.json
 - outputs/artifact_validation_report.json
 - outputs/audience_insight.json
@@ -29,6 +30,9 @@ Validation Extension A / B / C、Failure Scenario Test 与 Workflow Metrics：JS
 - outputs/cases/overseas_beauty_serum/image_prompt_pack.json
 - outputs/cases/overseas_beauty_serum/review_and_evaluation.json
 - outputs/cases/overseas_beauty_serum/visual_effect_plan.json
+- outputs/cases/parallel_self/motion_prompt_plan.json
+- outputs/cases/parallel_self/safety_and_quality_review.json
+- outputs/cases/parallel_self/trend_and_effect_concept.json
 - outputs/creative_copy_pack_outline.json
 - outputs/final_creative_package_report.json
 - outputs/growth_metrics_plan.json

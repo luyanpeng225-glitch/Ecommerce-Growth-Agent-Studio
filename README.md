@@ -9,7 +9,7 @@
 
 This project translates a complex AI Agent system into an interactive demo, structured technical documentation, and an evidence-backed case study. It demonstrates how an e-commerce content request can move through task planning, parallel analysis, creative structuring, compliance checks, human approval, evaluation, and traceable reporting.
 
-The default case uses a **sports camera product-launch workflow**. A second [Overseas Beauty Visual Content Demo](beauty/) translates US/UK audience and platform-content hypotheses into visual-effect specifications, executable image-prompt drafts, review gates, and an evaluation report. Both are reference implementations and portfolio demos, not production deployments. [View its source artifacts](outputs/cases/overseas_beauty_serum/README.md).
+The default case uses a **sports camera product-launch workflow**. A second [Parallel Self AIGC Effect Demo](effects/) demonstrates an in-product portrait-to-video effect workflow spanning trend insight, effect concept, motion prompting, identity preservation, safety review and quality evaluation. Both are reference implementations and portfolio demos, not production deployments. [View its source artifacts](outputs/cases/parallel_self/README.md).
 
 ## 1. Project Overview
 

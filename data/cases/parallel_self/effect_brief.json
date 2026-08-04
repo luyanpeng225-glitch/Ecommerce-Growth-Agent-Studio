@@ -1,0 +1,20 @@
+{
+  "case_id": "parallel_self_001",
+  "product_surface": "consumer creative app",
+  "effect_name": "Parallel Self",
+  "effect_type": "authorized portrait to short-form video",
+  "target_markets": ["United States", "United Kingdom"],
+  "target_platforms": ["TikTok", "Instagram Reels", "YouTube Shorts"],
+  "user_job": "Turn one authorized portrait into a shareable alternate-world micro-story without editing expertise.",
+  "input_requirements": ["one authorized adult portrait", "one visible face", "shoulders visible", "no heavy occlusion", "minimum 1024px longest side"],
+  "output_spec": {"duration_seconds": 7, "aspect_ratio": "9:16", "resolution": "1080x1920", "loopable": true},
+  "routes": [
+    {"id": "cinematic", "name": "Cinematic", "world": "independent film street at blue hour"},
+    {"id": "dreamlike", "name": "Dreamlike", "world": "gentle miniature cloud garden"},
+    {"id": "retro", "name": "Retro Memory", "world": "sun-faded 1990s summer afternoon"}
+  ],
+  "success_criteria": ["identity remains recognizable", "one continuous transition", "natural blink and head motion", "stable hands and clothing", "loop does not visibly jump", "AIGC label retained"],
+  "prohibited": ["minor portrait", "celebrity or public figure", "third-party image without permission", "face swap", "sexualized transformation", "medical or body transformation", "copyrighted character or franchise world"],
+  "review_mode": "strict",
+  "real_video_generation": false
+}

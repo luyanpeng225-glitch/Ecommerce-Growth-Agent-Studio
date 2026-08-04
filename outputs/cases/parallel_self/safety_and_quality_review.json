@@ -1,0 +1,22 @@
+{
+  "artifact_name": "safety_and_quality_review",
+  "artifact_version": "0.1.0",
+  "case_id": "parallel_self_001",
+  "producer": "Identity Preservation Agent + Safety Review Agent + Quality Evaluation Agent",
+  "status": "blocked_before_real_generation",
+  "data": {
+    "pre_generation": {"authorization_confirmed": false, "adult_confirmed": false, "single_face_confirmed": false, "public_figure_check": "pending", "decision": "block until a permitted test portrait is supplied"},
+    "quality_rubric": [
+      {"metric": "identity similarity", "threshold": ">= 0.82", "result": null, "status": "not_available"},
+      {"metric": "face stability", "threshold": ">= 0.90 frames pass", "result": null, "status": "not_available"},
+      {"metric": "hand anomaly rate", "threshold": "<= 0.05", "result": null, "status": "not_available"},
+      {"metric": "temporal flicker", "threshold": "<= 0.08", "result": null, "status": "not_available"},
+      {"metric": "prompt adherence", "threshold": ">= 0.85", "result": null, "status": "not_available"},
+      {"metric": "loop continuity", "threshold": ">= 0.80", "result": null, "status": "not_available"}
+    ],
+    "human_review": ["identity recognizable without beautification", "motion looks intentional rather than uncanny", "world is original and non-infringing", "no sensitive transformation", "AIGC disclosure visible on export"],
+    "release_gates": {"prompt_plan": "approved", "prototype_generation": "blocked_pending_input", "template_internal_test": "blocked", "public_template_publish": "blocked"},
+    "run_result": {"workflow_artifacts_completed": "4/4", "real_model_calls": 0, "generated_videos": 0, "evaluation_status": "not_available_until_generation"}
+  },
+  "limitations": ["No authorized portrait was supplied", "No image-to-video model was called", "No video quality or user behavior result exists"]
+}

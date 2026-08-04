@@ -1,0 +1,29 @@
+{
+  "artifact_name": "motion_prompt_plan",
+  "artifact_version": "0.1.0",
+  "case_id": "parallel_self_001",
+  "producer": "Motion Planner Agent + Prompt Composer",
+  "status": "ready_for_generation_test",
+  "data": {
+    "timeline": [
+      {"time": "0.0-1.2s", "shot": "Input portrait holds stable", "subject_motion": "one soft blink", "camera": "very slow push-in"},
+      {"time": "1.2-3.0s", "shot": "Light boundary crosses frame", "subject_motion": "small head turn toward camera", "camera": "push-in continues, no roll"},
+      {"time": "3.0-5.8s", "shot": "Alternate world fully resolves", "subject_motion": "subtle breathing and hair movement", "camera": "gentle parallax"},
+      {"time": "5.8-7.0s", "shot": "Subject returns to opening pose", "subject_motion": "neutral expression", "camera": "settles for loop"}
+    ],
+    "base_prompt": "Animate the authorized adult portrait into a seven-second vertical alternate-world micro-story. Preserve facial identity, age, skin tone, hairstyle, clothing silhouette and body proportions. Use one soft blink, a small natural head turn, subtle breathing and gentle environmental motion. The camera performs a restrained cinematic push-in. A soft light boundary changes only the environment into {{WORLD_DESCRIPTION}}. Keep face, hands and clothing stable. End in a pose and framing close to the opening frame for a seamless loop.",
+    "route_variables": {
+      "Cinematic": "an independent-film city street at blue hour, realistic practical lights, subtle wet pavement reflections, no logos",
+      "Dreamlike": "a quiet miniature cloud garden with soft floating seeds and believable depth, poetic but not cartoon-like",
+      "Retro Memory": "a sun-faded 1990s summer street with warm natural flare and restrained film grain, no brand or franchise references"
+    },
+    "negative_prompt": "identity change, face swap, age change, skin-tone change, gender change, beauty retouching, extra fingers, deformed hands, lip-sync, exaggerated expression, violent camera shake, flicker, melting background, text, logo, copyrighted character, celebrity likeness, abrupt final frame",
+    "controls": {"identity_strength": 0.9, "motion_strength": 0.35, "camera_speed": "slow", "stylization": 0.4, "seed_lock": true},
+    "fallbacks": [
+      {"trigger": "multiple faces", "action": "block and request a single-person portrait"},
+      {"trigger": "identity score below 0.82", "action": "reduce stylization to 0.25 and motion to 0.2; retry once"},
+      {"trigger": "hand anomaly", "action": "crop to chest-up framing or regenerate with hands out of frame"},
+      {"trigger": "loop discontinuity", "action": "replace final 0.6s with a stabilized hold and crossfade"}
+    ]
+  }
+}
