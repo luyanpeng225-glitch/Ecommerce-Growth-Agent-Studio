@@ -2,6 +2,8 @@
 
 This case uses the E-commerce Growth Agent Studio workflow to translate overseas audience and platform-content hypotheses into an executable visual system, image-prompt drafts, review gates, and an evaluation report.
 
+[Open the interactive demo](../../../beauty/)
+
 ## Case
 
 - Product: generic **Barrier Support Serum** concept

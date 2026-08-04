@@ -9,7 +9,7 @@
 
 This project translates a complex AI Agent system into an interactive demo, structured technical documentation, and an evidence-backed case study. It demonstrates how an e-commerce content request can move through task planning, parallel analysis, creative structuring, compliance checks, human approval, evaluation, and traceable reporting.
 
-The default case uses a **sports camera product-launch workflow**. A second [Overseas Beauty Visual Content Case](outputs/cases/overseas_beauty_serum/README.md) translates US/UK audience and platform-content hypotheses into visual-effect specifications, executable image-prompt drafts, review gates, and an evaluation report. Both are reference implementations and portfolio demos, not production deployments.
+The default case uses a **sports camera product-launch workflow**. A second [Overseas Beauty Visual Content Demo](beauty/) translates US/UK audience and platform-content hypotheses into visual-effect specifications, executable image-prompt drafts, review gates, and an evaluation report. Both are reference implementations and portfolio demos, not production deployments. [View its source artifacts](outputs/cases/overseas_beauty_serum/README.md).
 
 ## 1. Project Overview
 
