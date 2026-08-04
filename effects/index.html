@@ -1,9 +1,100 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Parallel Self: an agent-powered in-app AIGC portrait-to-video effect case."><title>Parallel Self — AIGC Effect Studio</title><link rel="stylesheet" href="./styles.css"></head>
-<body><a class="skip" href="#main">Skip to content</a><header><a href="../portfolio/" class="brand">Agent Studio <span>/ Effect Case 02</span></a><nav><a href="#experience">Experience</a><a href="#workflow">Workflow</a><a href="#evaluation">Evaluation</a></nav><span class="run-status"><i></i> Gate blocked correctly</span></header>
-<main id="main"><section class="hero"><div class="hero-copy"><p class="eyebrow">IN-PRODUCT AIGC EFFECT · IMAGE TO VIDEO</p><h1>Meet your<br><em>parallel self.</em></h1><p>Upload one authorized portrait. Choose a world. Generate a seven-second identity-preserving micro-story built for short-form sharing.</p><div class="actions"><a href="#experience" class="primary">Open effect prototype</a><a href="#workflow" class="secondary">Inspect agent run</a></div><dl><div><dt>Input</dt><dd>1 authorized adult portrait</dd></div><div><dt>Output</dt><dd>7s · 9:16 · loopable</dd></div><div><dt>Current gate</dt><dd>Input required</dd></div></dl></div><div class="hero-stage"><div class="phone"><div class="world"><div class="portrait"><i></i><b></b></div><div class="portal"></div><p>Which life<br>would you enter?</p></div></div><span class="frame-label one">01 · INPUT</span><span class="frame-label two">02 · TRANSITION</span><span class="frame-label three">03 · PARALLEL WORLD</span></div></section>
-<section class="boundary"><p><strong>Artifact run complete</strong> 4/4 structured outputs</p><p><strong>Real generation not run</strong> No permitted portrait supplied</p><p><strong>Release status</strong> Blocked before model call</p></section>
-<section class="section" id="experience"><div class="section-head"><p>01 / Product experience</p><h2>A creative effect,<br>not a prompt box.</h2><span>The product converts user intent into controlled motion, camera, identity and safety parameters.</span></div><div class="studio"><aside><h3>Create effect</h3><label>1. Portrait input</label><button class="upload"><span>＋</span><b>Add authorized portrait</b><small>Adult · single face · 1024px+</small></button><label>2. Choose a world</label><div class="world-options"><button class="active" data-world="cinematic">Cinematic</button><button data-world="dreamlike">Dreamlike</button><button data-world="retro">Retro Memory</button></div><label for="motion">3. Motion strength <output id="motion-value">35%</output></label><input id="motion" type="range" min="10" max="70" value="35"><button class="generate" id="generate">Generate preview</button><p class="input-note">Generation remains blocked until portrait authorization and adult status are confirmed.</p></aside><div class="preview"><div class="preview-top"><span>Storyboard preview</span><span id="world-name">Cinematic route</span></div><div class="storyboard"><article><span>0.0s</span><div class="story-person base"></div><p>Identity lock</p></article><article><span>1.2s</span><div class="story-person light"></div><p>Light boundary</p></article><article><span>3.0s</span><div class="story-person world"></div><p>World resolves</p></article><article><span>5.8s</span><div class="story-person loop"></div><p>Loop return</p></article></div><div class="preview-message" id="preview-message"><b>Preview specification ready</b><span>Add a permitted portrait to start the real generation test.</span></div></div></div></section>
-<section class="section workflow" id="workflow"><div class="section-head"><p>02 / Agent workflow</p><h2>From culture signal<br>to publish gate.</h2><span>Each node has one job, a structured handoff and an explicit failure path.</span></div><div class="node-track"><article class="done"><span>01</span><h3>Trend Insight</h3><p>Turns community signals into testable effect directions.</p><small>PASS WITH CAUTION</small></article><article class="done"><span>02</span><h3>Effect Concept</h3><p>Defines the hook, user loop, duration and route logic.</p><small>PASS</small></article><article class="done"><span>03</span><h3>Motion Planner</h3><p>Builds the timeline, camera movement and prompt variables.</p><small>READY</small></article><article class="blocked"><span>04</span><h3>Safety &amp; Identity</h3><p>Checks permission, age, face count and public-figure risk.</p><small>BLOCKED · INPUT</small></article><article><span>05</span><h3>Generation</h3><p>Calls image-to-video only after the gate passes.</p><small>NOT RUN</small></article><article><span>06</span><h3>Quality Evaluation</h3><p>Scores identity, flicker, hands, adherence and looping.</p><small>NOT AVAILABLE</small></article></div>
-<div class="prompt-panel"><div><p class="mini">COMPOSED MOTION PROMPT</p><h3 id="prompt-title">Cinematic</h3><p id="prompt-copy">Preserve facial identity, age, skin tone, hairstyle and clothing silhouette. Use one soft blink, a small natural head turn and a restrained push-in. A light boundary changes only the environment into an independent-film city street at blue hour. End close to the opening pose for a seamless loop.</p></div><dl><div><dt>Identity strength</dt><dd>0.90</dd></div><div><dt>Motion strength</dt><dd id="motion-param">0.35</dd></div><div><dt>Stylization</dt><dd>0.40</dd></div><div><dt>Seed</dt><dd>Locked</dd></div></dl></div>
-<div class="fallbacks"><h3>Automatic fallback policy</h3><p><span>Identity &lt; 0.82</span>Reduce stylization and motion; retry once.</p><p><span>Hand anomaly</span>Crop to chest-up or move hands out of frame.</p><p><span>Loop discontinuity</span>Stabilize the final 0.6s and add a restrained crossfade.</p></div></section>
-<section class="section evaluation" id="evaluation"><div class="section-head"><p>03 / Evaluation &amp; governance</p><h2>Quality is measured.<br>Permission comes first.</h2><span>No identity or motion score is invented before a real permitted generation exists.</span></div><div class="eval-grid"><article class="score"><span>Workflow artifacts</span><strong>4/4</strong><p>Completed and parseable</p></article><article><h3>Quality rubric</h3><p>Identity similarity <b>≥ 0.82</b></p><p>Face stability <b>≥ 90%</b></p><p>Hand anomaly rate <b>≤ 5%</b></p><p>Temporal flicker <b>≤ 8%</b></p><p>Loop continuity <b>≥ 0.80</b></p></article><article><h3>Publishing gates</h3><p>Prompt plan <b class="pass">Approved</b></p><p>Prototype generation <b class="block">Input blocked</b></p><p>Internal template test <b class="block">Blocked</b></p><p>Public publishing <b class="block">Blocked</b></p><p>AIGC label <b>Required</b></p></article></div><div class="run-summary"><span>RUN RESULT</span><h3>The workflow stopped for the right reason.</h3><p>No authorized adult portrait was supplied, so the Safety &amp; Identity node blocked the model call. This demonstrates the intended governance behavior; it is not presented as a successful video generation.</p></div></section></main><footer><span>Parallel Self · AIGC Effect Studio</span><a href="../portfolio/">Return to main case →</a></footer><script src="./app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Parallel Self AIGC Effect Operations Studio"><title>Parallel Self — AIGC Effect Operations Studio</title><link rel="stylesheet" href="./styles.css"></head>
+<body>
+<a class="skip" href="#workspace">Skip to workspace</a>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="logo" href="../portfolio/" aria-label="Agent Studio home"><span>PS</span><div>Parallel Self<small>Effect Operations</small></div></a>
+    <nav aria-label="Studio navigation">
+      <p>Workspace</p>
+      <button class="active" data-view="home"><i>⌂</i><span>Overview</span></button>
+      <button data-view="workflow"><i>⌘</i><span>Workflow</span></button>
+      <button data-view="input"><i>＋</i><span>Input Panel</span></button>
+      <button data-view="inspector"><i>◫</i><span>Run Inspector</span></button>
+      <p>Outputs</p>
+      <button data-view="result"><i>▣</i><span>Result</span></button>
+      <button data-view="trace"><i>≋</i><span>Trace</span></button>
+      <button data-view="evaluation"><i>◎</i><span>Evaluation</span></button>
+    </nav>
+    <div class="sidebar-foot"><div class="run-indicator"><span></span><p>Run PS-001<small>Blocked before model call</small></p></div><a href="../portfolio/">← Main portfolio</a></div>
+  </aside>
+
+  <main class="workspace" id="workspace">
+    <header class="topbar"><div><p>AIGC Effect Operations Studio</p><h1 id="view-title">Overview</h1></div><div class="top-actions"><span class="status-tag warning">Input required</span><button class="ghost" id="view-trace">View trace</button><button class="primary" id="new-run">New run</button></div></header>
+
+    <section class="view active" data-view-panel="home">
+      <div class="overview-grid">
+        <article class="media-card hero-preview">
+          <div class="media-head"><div><span class="label">EFFECT PREVIEW</span><h2>Meet your parallel self.</h2></div><span class="format">9:16 · 7 sec</span></div>
+          <div class="video-stage"><div class="video-frame"><div class="sky"></div><div class="subject"><i></i><b></b></div><div class="portal"></div><span class="play">▶</span><p>Preview requires<br>authorized portrait</p></div><div class="shot-strip"><div class="selected"><span>00:00</span><i></i></div><div><span>00:01</span><i></i></div><div><span>00:03</span><i></i></div><div><span>00:06</span><i></i></div></div></div>
+        </article>
+        <div class="overview-side">
+          <article class="panel project-summary"><div class="panel-head"><span class="label">CURRENT EFFECT</span><button aria-label="More options">•••</button></div><h2>Parallel Self</h2><p>Identity-preserving portrait-to-video effect with three alternate-world routes.</p><dl><div><dt>Input</dt><dd>1 adult portrait</dd></div><div><dt>Output</dt><dd>1080 × 1920</dd></div><div><dt>Routes</dt><dd>3</dd></div><div><dt>Review</dt><dd>Strict</dd></div></dl><button class="primary wide" data-jump="input">Add test portrait</button></article>
+          <article class="panel run-summary"><div class="panel-head"><span class="label">LATEST RUN</span><span class="status-tag warning">Blocked</span></div><div class="run-score"><strong>4/4</strong><span>workflow artifacts completed</span></div><ul><li><span class="dot success"></span>Trend concept complete</li><li><span class="dot success"></span>Motion prompt ready</li><li><span class="dot warning"></span>Authorization pending</li><li><span class="dot muted"></span>Generation not run</li></ul><button class="text-button" data-jump="inspector">Open run inspector →</button></article>
+        </div>
+      </div>
+      <div class="route-row"><article class="route-card selected"><span>01 · CONTROL</span><div class="route-visual cinematic"></div><h3>Cinematic</h3><p>Blue-hour independent film atmosphere</p></article><article class="route-card"><span>02 · EXPLORATION</span><div class="route-visual dream"></div><h3>Dreamlike</h3><p>Quiet miniature cloud garden</p></article><article class="route-card"><span>03 · EXPLORATION</span><div class="route-visual retro"></div><h3>Retro Memory</h3><p>Sun-faded summer afternoon</p></article></div>
+    </section>
+
+    <section class="view" data-view-panel="workflow">
+      <div class="view-intro"><div><span class="label">WORKFLOW CANVAS</span><h2>Effect generation pipeline</h2><p>Structured handoffs, explicit gates and one controlled retry policy.</p></div><div><button class="ghost">Validate graph</button><button class="primary" data-jump="input">Prepare input</button></div></div>
+      <div class="canvas-toolbar"><span>Run PS-001</span><div><button>−</button><span>100%</span><button>＋</button></div></div>
+      <div class="workflow-canvas">
+        <div class="flow-row">
+          <article class="node media-node done"><span class="node-type">INPUT IMAGE</span><div class="node-thumb portrait-thumb"><i></i></div><h3>Authorized Portrait</h3><p>Single adult · 1024px+</p><small class="status-tag warning">Missing</small></article>
+          <span class="connector blocked-line">→</span>
+          <article class="node done"><span class="node-type">AGENT</span><h3>Trend Insight</h3><p>Community signal → effect hypothesis</p><small class="status-tag success">Complete</small></article>
+          <span class="connector">→</span>
+          <article class="node done"><span class="node-type">AGENT</span><h3>Effect Concept</h3><p>Hook, user loop and route strategy</p><small class="status-tag success">Complete</small></article>
+          <span class="connector">→</span>
+          <article class="node selected"><span class="node-type">AGENT</span><h3>Motion Planner</h3><p>Timeline, camera and prompt controls</p><small class="status-tag running">Ready</small></article>
+        </div>
+        <div class="flow-turn">↓</div>
+        <div class="flow-row reverse">
+          <article class="node media-node"><span class="node-type">FINAL VIDEO</span><div class="node-thumb video-thumb">▶</div><h3>7s Loopable Result</h3><p>1080 × 1920 · AIGC label</p><small class="status-tag muted">Not generated</small></article>
+          <span class="connector">←</span>
+          <article class="node"><span class="node-type">EVALUATION</span><h3>Quality Evaluation</h3><p>Identity, flicker, hands and loop</p><small class="status-tag muted">Not available</small></article>
+          <span class="connector">←</span>
+          <article class="node"><span class="node-type">GENERATION</span><h3>Image to Video</h3><p>One call + one controlled retry</p><small class="status-tag muted">Not run</small></article>
+          <span class="connector blocked-line">←</span>
+          <article class="node review-node"><span class="node-type">QA · HUMAN</span><h3>Safety &amp; Identity</h3><p>Permission, age, face count, likeness</p><small class="status-tag warning">Review required</small></article>
+        </div>
+      </div>
+      <aside class="node-inspector"><div class="panel-head"><span class="label">SELECTED NODE</span><button>×</button></div><h3>Motion Planner</h3><p>Builds the seven-second timeline and composes route-specific world descriptions without altering user identity.</p><dl><div><dt>Identity strength</dt><dd>0.90</dd></div><div><dt>Motion strength</dt><dd>0.35</dd></div><div><dt>Stylization</dt><dd>0.40</dd></div><div><dt>Seed</dt><dd>Locked</dd></div></dl><button class="clay-action">Request revision</button></aside>
+    </section>
+
+    <section class="view" data-view-panel="input">
+      <div class="view-intro"><div><span class="label">INPUT PANEL</span><h2>Prepare a permitted test</h2><p>Input checks run locally before any model request can start.</p></div></div>
+      <div class="two-column"><article class="panel input-panel"><h3>Portrait input</h3><button class="upload-zone"><span>＋</span><strong>Add authorized portrait</strong><small>JPG or PNG · one adult face · minimum 1024px</small></button><div class="consent-list"><label><input type="checkbox"> I own this image or have permission to use it</label><label><input type="checkbox"> The person is an adult</label><label><input type="checkbox"> This is not a public figure or celebrity</label></div><button class="primary wide" id="input-run">Validate input</button><p class="empty-note">No file selected. Model calls remain disabled.</p></article><article class="panel settings-panel"><h3>Generation settings</h3><label>Effect route<select><option>Cinematic</option><option>Dreamlike</option><option>Retro Memory</option></select></label><label>Motion strength <output id="motion-value">35%</output><input id="motion" type="range" min="10" max="70" value="35"></label><label>Identity strength <output>90%</output><input type="range" min="70" max="100" value="90"></label><div class="setting-row"><span>Duration</span><b>7 sec</b></div><div class="setting-row"><span>Aspect ratio</span><b>9:16</b></div><div class="setting-row"><span>Seed</span><b>Locked</b></div></article></div>
+    </section>
+
+    <section class="view" data-view-panel="inspector">
+      <div class="view-intro"><div><span class="label">RUN INSPECTOR</span><h2>Run PS-001</h2><p>Artifact-derived execution record. No production telemetry is claimed.</p></div><span class="status-tag warning">Blocked before model call</span></div>
+      <div class="inspector-grid"><article class="panel event-log"><h3>Execution events</h3><ol><li class="done"><time>00:00.0</time><div><b>Trend Insight started</b><span>Reading effect brief and platform guidance</span></div></li><li class="done"><time>00:00.2</time><div><b>Effect Concept completed</b><span>3 routes · 1 user loop · 7s output</span></div></li><li class="done"><time>00:00.4</time><div><b>Motion Plan composed</b><span>4 timeline stages · 4 fallback policies</span></div></li><li class="warning"><time>00:00.5</time><div><b>Safety gate blocked</b><span>authorization_confirmed = false</span></div></li><li><time>—</time><div><b>Generation not started</b><span>No request sent to model provider</span></div></li></ol></article><article class="panel inspector-detail"><span class="label">BLOCKING EVENT</span><h3>Missing permitted input</h3><pre><code>{
+  "authorization_confirmed": false,
+  "adult_confirmed": false,
+  "single_face_confirmed": false,
+  "decision": "block"
+}</code></pre><button class="clay-action" data-jump="input">Resolve in Input Panel</button></article></div>
+    </section>
+
+    <section class="view" data-view-panel="result">
+      <div class="view-intro"><div><span class="label">RESULT</span><h2>Generation output</h2><p>Media remains the primary surface. Empty states preserve the truth of the run.</p></div><button class="primary" data-jump="input">Add portrait</button></div>
+      <div class="result-grid"><article class="result-media input-result"><div class="result-placeholder"><span>＋</span><p>Input image<br><small>Not supplied</small></p></div><footer><span>Source</span><b>Authorization required</b></footer></article><article class="result-media final-result"><div class="result-placeholder video-empty"><span>▶</span><p>Final video<br><small>Not generated</small></p></div><footer><span>Output</span><b>7s · 9:16 · loopable</b></footer></article></div><div class="revision-bar"><div><span class="status-tag review">Human review</span><p>No result exists to approve or revise.</p></div><button class="clay-action">Create revision request</button></div>
+    </section>
+
+    <section class="view" data-view-panel="trace">
+      <div class="view-intro"><div><span class="label">TRACE</span><h2>Artifact trace</h2><p>Every decision points back to an input or structured output.</p></div><button class="ghost">Export JSON</button></div>
+      <article class="panel table-panel"><table><thead><tr><th>Node</th><th>Status</th><th>Input</th><th>Output</th><th>Evidence</th></tr></thead><tbody><tr><td>Trend Insight</td><td><span class="status-tag success">Complete</span></td><td>effect_brief.json</td><td>3 effect routes</td><td>Artifact derived</td></tr><tr><td>Effect Concept</td><td><span class="status-tag success">Complete</span></td><td>trend concept</td><td>7s user loop</td><td>Artifact derived</td></tr><tr><td>Motion Planner</td><td><span class="status-tag running">Ready</span></td><td>route strategy</td><td>prompt + fallback</td><td>Deterministic</td></tr><tr><td>Safety &amp; Identity</td><td><span class="status-tag warning">Blocked</span></td><td>portrait metadata</td><td>block decision</td><td>Measured</td></tr><tr><td>Generation</td><td><span class="status-tag muted">Not run</span></td><td>—</td><td>—</td><td>Not available</td></tr></tbody></table></article>
+    </section>
+
+    <section class="view" data-view-panel="evaluation">
+      <div class="view-intro"><div><span class="label">EVALUATION</span><h2>Quality and governance</h2><p>Scores remain unavailable until a permitted generation is reviewed.</p></div></div>
+      <div class="metric-grid"><article class="metric-card"><span>Workflow artifacts</span><strong>4/4</strong><small>Completed</small></article><article class="metric-card"><span>Real model calls</span><strong>0</strong><small>Correctly blocked</small></article><article class="metric-card"><span>Generated videos</span><strong>0</strong><small>No input</small></article><article class="metric-card"><span>Release gate</span><strong>Blocked</strong><small>Input required</small></article></div>
+      <div class="evaluation-grid"><article class="panel rubric"><h3>Quality rubric</h3><div><span>Identity similarity</span><b>≥ 0.82</b><i>Not available</i></div><div><span>Face stability</span><b>≥ 90%</b><i>Not available</i></div><div><span>Hand anomaly rate</span><b>≤ 5%</b><i>Not available</i></div><div><span>Temporal flicker</span><b>≤ 8%</b><i>Not available</i></div><div><span>Loop continuity</span><b>≥ 0.80</b><i>Not available</i></div></article><article class="panel gates"><h3>Publishing gates</h3><p><span>Prompt plan</span><b class="status-tag success">Approved</b></p><p><span>Prototype generation</span><b class="status-tag warning">Input blocked</b></p><p><span>Internal template test</span><b class="status-tag muted">Blocked</b></p><p><span>Public template</span><b class="status-tag muted">Blocked</b></p><p><span>AIGC label</span><b class="status-tag review">Required</b></p><button class="clay-action">Request human review</button></article></div>
+    </section>
+  </main>
+</div>
+<script src="./app.js"></script>
+</body></html>
